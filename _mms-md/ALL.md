@@ -1,6 +1,6 @@
 ---
 date_created: '2024-08-04'
-date_lastchanged: '2025-04-09'
+date_lastchanged: '2025-04-12'
 layout: default
 show_date_lastchanged_updatedauto: YES, NO, NO
 ---
@@ -102,12 +102,13 @@ show_date_lastchanged_updatedauto: YES, NO, NO
 - [[ENV-NAT-DIFF]] - nature means a birth place, environment means a passive thing lying around
 - [[EXTRACTION-A]] - Our scientific innovation paradigm is based on extractive processes
 - [[EYT-MUSIC-VIZ-IDEAS]] - No Title
+- [[EYT-SpaceCloud-April-11-2025]] - Warm & Getting Faster Mix: Dance Tech to Techno + Beyond: Party zu Party
 - [[EYTCareClubInspo-A]] - A loose collection of inspiring pieces oriented toward care while partying
 - [[EYTCareClubInspo-B-Drinks]] - A list of nourishing drinks for dancing
 - [[EYTClubCollab-A]] - Ideation around partying together and separately 
 - [[EYTClubCollab-B]] - Sticker slogans that explore the essence of collaborative partying
 - [[EYTIdentity-A]] - When do I show my face? When do I use my voice?
-- [[EYTInterestingMusicWebsites]] - No Title
+- [[EYTInterestingMusicWebsites]] - Websites that visualize and analyze music
 - [[EYTLaserViz-A]] - An overview for my "laser music visualizer"
 - [[EYTLaserViz-B]] - Dreaming about future design of the music laser visualizer
 - [[EYTMusicSimilaritySearchEngine]] - New online digging tool cosine.club recommends tracks based on similarity
