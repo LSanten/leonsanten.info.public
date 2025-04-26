@@ -31,8 +31,32 @@ python3 python/add-magic-symbol.py # Add headers with template settings if it do
 #git push origin main
 
 
-# Execute by running 
+# Execute by running
 # ./build_and_deploy.sh
+#
+cd /Users/lsanten/Documents/GitHub/LSanten.github.io/docs
+
+# Set SSH key path
+SSH_KEY="/Users/lsanten/Documents/GitHub/LSanten.github.io/keys/deployment_into_public_website"
+
+# Create a timestamp commit message
+COMMIT_MSG="Auto-commit: $(date '+%Y-%m-%d %H:%M:%S')"
+
+# Run git steps
+echo "Checking status..."
+git status
+
+echo "Staging all changes..."
+git add .
+
+echo "Committing with message: '$COMMIT_MSG'"
+git commit -m "$COMMIT_MSG"
+
+echo "Pushing with deployment SSH key..."
+GIT_SSH_COMMAND="ssh -i $SSH_KEY" git push origin main
+
+echo "✅ Deployment complete!"
+
 
 
 # Deactivate the virtual environment
