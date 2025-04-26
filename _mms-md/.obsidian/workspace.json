@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "EYTInterestingMusicWebsites.md",
+                "file": "HISTORICAL-MATERIALISM-A.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "EYTInterestingMusicWebsites"
+              "title": "HISTORICAL-MATERIALISM-A"
             }
           },
           {
@@ -27,30 +27,82 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "MMSInTheWorks.md",
+                "file": "MESH-CAP-EPIST-A.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "MMSInTheWorks"
+              "title": "MESH-CAP-EPIST-A"
+            }
+          },
+          {
+            "id": "b538920af0f4571d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "COMPETITION-OVER-RESOURCES.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "COMPETITION-OVER-RESOURCES"
+            }
+          },
+          {
+            "id": "aa3d7d815e075be4",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "HISTORICAL-MATERIALISM-A.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "HISTORICAL-MATERIALISM-A"
+            }
+          },
+          {
+            "id": "1d001c442100aa02",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "SHOOT-ALBANY-BULB-A.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "SHOOT-ALBANY-BULB-A"
             }
           },
           {
             "id": "fee55309f0905e0c",
             "type": "leaf",
             "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
+            }
+          },
+          {
+            "id": "65e21263bd37b56c",
+            "type": "leaf",
+            "state": {
               "type": "markdown",
               "state": {
-                "file": "EYT-SpaceCloud-April-11-2025.md",
+                "file": "EYTMusicArtInspo.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "EYT-SpaceCloud-April-11-2025"
+              "title": "EYTMusicArtInspo"
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 5
       }
     ],
     "direction": "vertical"
@@ -82,7 +134,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "eyt",
+                "query": "visibility",
                 "matchingCase": false,
                 "explainSearch": true,
                 "collapseAll": true,
@@ -124,7 +176,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "HISTORICAL-MATERIALISM-A.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -134,7 +185,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for HISTORICAL-MATERIALISM-A"
+              "title": "Backlinks"
             }
           },
           {
@@ -170,22 +221,19 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "MMSInTheWorks.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of MMSInTheWorks"
+              "title": "Outline"
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -199,42 +247,42 @@
   },
   "active": "fee55309f0905e0c",
   "lastOpenFiles": [
-    "media/IMG_5706.jpeg",
-    "media/cleanshot_2025-04-12-at-20-26-44@2x.png",
-    "EYTInterestingMusicWebsites.md",
-    "MMSInTheWorks.md",
-    "EYT-SpaceCloud-April-11-2025.md",
-    "SPIRIT-WORK-A.md",
-    "media/cleanshot_2025-04-12-at-20-09-10@2x.png",
-    "media/cleanshot_2025-04-12-at-20-06-58@2x.png",
-    "media/cleanshot_2025-04-12-at-19-49-28@2x.png",
-    "media/cleanshot_2025-04-12-at-19-52-22@2x.png",
+    "DEFINITION-SOCIALISM.md",
     "METAPHORICAL-RELATIONSHIPS-OF-ORGS.md",
-    "VIZ-ENGINE-POUCH.md",
-    "AGRICULTURE-A.md",
-    "CONTEXTUALIZED-MEDIA-AND-CONTAINER-INTERFACES.md",
-    "MMSSystemicCooperationInterface-A.md",
-    "VISUAL-LISTEN-TINKER-CREATE.md",
-    "WORK-CULTURE-MEDIEVAL-STONAGE-NOW.md",
-    "WORK-WEEK-A.md",
-    "QUOTES-INJUSTICE-SILENCE.md",
-    "POUCH-OF-QUOTES.md",
-    "MMSHistOfSci-A.md",
-    "MMSHomepage.md",
-    "MMSPoemFirstTheyCame.md",
-    "ROOTS-OF-RENEWABLES.md",
-    "media/IMG_5650 1.jpeg",
-    "media/IMG_5650.jpeg",
-    "media/MMSPoemFirstTheyCame.png",
-    "MMSPlantMetaphorDetails.md",
-    "RENEW-MINING-A.md",
-    "MINING-A.md",
-    "media/Pasted image 20250401131153.png",
-    "media/2023-10-04.md",
-    "INCARCERATION-STATS.md",
-    "media/cleanshot_2025-03-28-at-19-34-45@2x.png",
-    "SCIENCE-OF-HOLISM-FRAMEWORK.md",
-    "AI-CORPORATE-STANDARD.md",
+    "SHOOT-ALBANY-BULB-A.md",
+    "HISTORICAL-MATERIALISM-A.md",
+    "COMPETITION-OVER-RESOURCES.md",
+    "MARXIST-DIALECTICS.md",
+    "HIST-ECONOMIC-SYSTEMS.md",
+    "NEWS-SOURCES-COLONIALISM-AWARE.md",
+    "MMSSocialReproductionA.md",
+    "EYTInterestingMusicWebsites.md",
+    "OVERVIEW-CAPITALISM.md",
+    "Political-education-resources.md",
+    "PropOfSciences.md",
+    "MMSEconomicDemocracy.md",
+    "DICTATORSHIP-A.md",
+    "POWER-ECONOMY-A.md",
+    "MILIT-A.md",
+    "MILIT-B.md",
+    "MARXISM-CRITIQUE-A.md",
+    "PRIVATE-MARBLE.md",
+    "ALL.md",
+    "MMSCapitalistMoneyFlowViz.md",
+    "media/trying to look cool today.gif",
+    "PHOTOSHOOTS-A.md",
+    "SHOOT-LAKE-MERRITT-A.md",
+    "media/Untitled (14)-positive-instagram.jpg",
+    "media/Untitled (31)-positive-instagram.jpg",
+    "media/Untitled (33)-positive-instagram.jpg",
+    "media/Untitled (66)-positive-instagram.jpg",
+    "media/Untitled (55)-positive-instagram.jpg",
+    "media/Untitled (39)-positive-instagram.jpg",
+    "media/DSC09959.jpg",
+    "media/IMG_0154.png",
+    "media/IMG_0153.png",
+    "WASTE-A.md",
+    "DARWIN-NOT-SURVIVAL-OF-THE-FITTEST.md",
     "media/E2BECF07-03F2-4196-B3B0-4A9210300703_1_201_a.heic",
     "media/01A3CFBB-A112-44D9-90AA-964EB3132EFF_1_201_a.heic",
     "media/Annual+Review+Framework+for+2024.pdf",

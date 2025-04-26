@@ -12,8 +12,12 @@ title: 'A poem: first they came for...'
 ![](media/MMSPoemFirstTheyCame.png)
 
 
+![](media/cleanshot_2025-04-16-at-16-43-12@2x%201.png)
+
+
+
 ---
 
-#poetry
+#poetry #sticker 
 
 

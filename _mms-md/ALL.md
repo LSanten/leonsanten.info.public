@@ -1,6 +1,6 @@
 ---
 date_created: '2024-08-04'
-date_lastchanged: '2025-04-12'
+date_lastchanged: '2025-04-25'
 layout: default
 show_date_lastchanged_updatedauto: YES, NO, NO
 ---
@@ -76,7 +76,6 @@ show_date_lastchanged_updatedauto: YES, NO, NO
 - [[DARWIN-NOT-SURVIVAL-OF-THE-FITTEST]] - It's not survival of the fittest but survival of the nurtured
 - [[DEATH-A]] - It’s all about the ability to create relationships and let go of relationships. 
 - [[DEFINITION-NEOCOLONIALISM-A]] - What is the state?
-- [[DEFINITION-SOCIALISM]] - Definition of Socialism  
 - [[DEFINITION-THE-STATE-A]] - What is the state?
 - [[DEGROWTH-SDG-IPCC]] - SDGs addressed by degrowth
 - [[DESIGNING-WITH-COUNTRY-A]] - Designing with country
@@ -111,6 +110,7 @@ show_date_lastchanged_updatedauto: YES, NO, NO
 - [[EYTInterestingMusicWebsites]] - Websites that visualize and analyze music
 - [[EYTLaserViz-A]] - An overview for my "laser music visualizer"
 - [[EYTLaserViz-B]] - Dreaming about future design of the music laser visualizer
+- [[EYTMusicArtInspo]] - No Title
 - [[EYTMusicSimilaritySearchEngine]] - New online digging tool cosine.club recommends tracks based on similarity
 - [[EYTMusicVizIdeas-A]] - A list of responsive or interactive music visualization ideas
 - [[EYTPlaylistsForOnlineFacilitation]] - Playlists for online facilitation and Zoom meetings
@@ -126,8 +126,6 @@ show_date_lastchanged_updatedauto: YES, NO, NO
 - [[GRADES-A]] - VISUAL: Grades are a sad mix of rejection and merely good enough
 - [[GRAPHIC-DESIGN-TIPS-COLLECTION]] - No Title
 - [[HABERMAS-1972-KNOWLEDGE]] - No Title
-- [[HIST-ECONOMIC-SYSTEMS]] - Materialist Outline Overview of Human Societal Development  
-- [[HISTORICAL-MATERIALISM-A]] - Material-ism and Idea-ism
 - [[HOLISTIC-FRAMEWORKS]] - Holistic frameworks for life - doing, being, relating, celebrating
 - [[IMAGINATION-A]] - Immersion into the unknown & imagination
 - [[IMPERIALISM-STAGES]] - The Stages of Imperialism
@@ -154,6 +152,7 @@ show_date_lastchanged_updatedauto: YES, NO, NO
 - [[letter-to-rhizome-2024]] - Climate justice cross-pollination for a regenerative economy
 - [[letter-to-the-SF-Chronicle]] - A selection of graphics
 - [[LIBERATORY-DESIGN-A]] - The Liberatory Design for Equity Process
+- [[LINKEDIN-2025-02-Jack-Kornfield]] - No Title
 - [[LIST-DESIGN-TOOLS]] - A list of design tools 
 - [[LIST-IDEAS]] - A collection of ideas
 - [[LIVESTOCK-LAND-HOUSING-HOUSELESS]] - Illustration that compares land used for livestock compared with land needed to house houseless folks
@@ -165,8 +164,6 @@ show_date_lastchanged_updatedauto: YES, NO, NO
 - [[MANTRA-SRI-YANTRA]] - No Title
 - [[MARKET-CONF-A]] - IDEA: create a market space to network, surface insights & proposals, and interconnect movement efforts
 - [[MARKETING-RESOURCE-A-WHY-HOW-WHAT]] - Personal marketing - how great leaders inspire action
-- [[MARXISM-CRITIQUE-A]] - No Title
-- [[MARXIST-DIALECTICS]] - Marxist dialectics
 - [[MASLOWS-NEEDS-BEYOND]] - classic Maslow model: pyramid of needs
 - [[MCGILCHRIST2021-VID]] - Our Unmaking of the World - and the return to being
 - [[MEDIA-MOVEMENT-BUILDING-A]] - Movement building principles for media creation
@@ -193,14 +190,13 @@ show_date_lastchanged_updatedauto: YES, NO, NO
 - [[META-CRISIS-VS-POLY-CRISIS]] - How do metacrisis and polycrisis relate?
 - [[METAPHORICAL-RELATIONSHIPS-OF-ORGS]] - How do we visualize the systemic relationships of projects and people?
 - [[MICRO-GRIDS-A]] - Microgrids and 
-- [[MILIT-A]] - Statistics surrounding the scale of the US military industrial complex
-- [[MILIT-B]] - The Climate Collateral Webinar
 - [[MINING-A]] - No Title
 - [[MIXBASE-DOCUMENTATION]] - No Title
 - [[MMS-POST-IDEAS]] - No Title
 - [[MMSAtWhoseCostVisual]] - No Title
 - [[MMSBigTechA]] - Isn’t it wild that we haven’t heard Mark Zuckerberg or Elon Musk talk about their understanding of friendship and community?
 - [[MMSCapitalismA]] - Difference and division are core-components of capitalist thriving 
+- [[MMSCapitalistMoneyFlowViz]] - Visualizing money stealing and hoarding in capitalist economies 
 - [[MMSCityPublicReportCenter]] - No Title
 - [[MMSCO2InCars]] - CO2 levels in cars
 - [[MMSCO2Indoors]] - My measurements for CO2 Indoors
@@ -250,7 +246,6 @@ show_date_lastchanged_updatedauto: YES, NO, NO
 - [[NATURE-PARADIGMS]] - Paradigms that show up in nature 
 - [[NEED-A]] - No Title
 - [[New-fun-thing]] - Hello bello
-- [[NEWS-SOURCES-COLONIALISM-AWARE]] - News sources aware of colonial and western power relations 
 - [[NOTETAKING-A]] - Resources for notetaking
 - [[OANM-EMOTIONAL-SHARING]] - Visualizing offers, needs, and emotions within the community in a 2D or 3D way with an indicator for time 
 - [[OANM-HUB-FOR-LOCAL-BUS]] - Interface or consulting hub to interconnect local businesses with other orgs to share and satisfy offers and needs
@@ -264,11 +259,11 @@ show_date_lastchanged_updatedauto: YES, NO, NO
 - [[PED-OF-LOVE]] - No Title
 - [[PERSONAL-VALUE-SYSTEM]] - My value system 
 - [[PHENOMENA-A]] - Phenomena of life
+- [[PHOTOSHOOTS-A]] - Photoshoots of myself
 - [[PLANNING-DREAMING-CELEBRATING-DOING-FRAMEWORK]] - The dragon dreaming framework
 - [[PLANT-BASED-DIET-A]] - Plant-based diet facts from documentary "The Game Changers"
 - [[PLUS1SOUNDA]] - Loud high pitch sounds damage your ears more than low pitch sounds
 - [[POLICY-RESTAURANT-A]] - very easy policy: all restaurants use only reusable to go boxes
-- [[Political-education-resources]] - Political education resources
 - [[PORTFOLIO-SYSTEMS-THINKING-ILLUSTRATIONS]] - No Title
 - [[PORTFOLIO-WEBSITE-INSPO]] - A list of portfolios and websites that inspire me
 - [[POUCH-OF-QUOTES]] - Pouch of quotes
@@ -279,6 +274,7 @@ show_date_lastchanged_updatedauto: YES, NO, NO
 - [[POWER-ECONOMY-A]] - The flow of power in different economic systems
 - [[PRECAUTIONARY-PRINCIPLE-A]] - Precautionary Principle versus Burden of Proof
 - [[PRESENCE-A]] - if we are present in our world and truly feel what is in as and around us, we know what to do and how to transform and change ourselves
+- [[PRIVATE-MARBLE]] - Sorry, this marble is private right now
 - [[PROBLEM-VS-ASPIRATION]] - Working based on problem-solving leads to paradoxical states of changing little
 - [[PROBLEMS-A]] - Solving problems can never be the solution for long-term healing
 - [[PROBLEMS-B]] - Good and bad problems to have
@@ -316,6 +312,8 @@ show_date_lastchanged_updatedauto: YES, NO, NO
 - [[SEEDS-A]] - Commercial agriculture uses low variety of seeds
 - [[SENSING-B]] - Otto Scharmer's framework for turning inward to see the external system within ourselves
 - [[SETH-PRACTICES-A]] - Practices for energy, flow of qi, loosening, and reflection
+- [[SHOOT-ALBANY-BULB-A]] - Shots of myself from Albany Bulb shoot
+- [[SHOOT-LAKE-MERRITT-A]] - Shots of myself from Lake Merritt shoot
 - [[SLOWING-DOWN-A]] - 
 - [[SMALLBUSINESS-RENT]] - if rent is low, businesses can sell for different prices if they also practice transparency and democratic shaping
 - [[SOIL-A]] - A Textural Classification of Soils

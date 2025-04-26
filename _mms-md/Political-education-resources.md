@@ -7,6 +7,7 @@ title: Political education resources
 ---
 # Political education resources
 In chronological order:
+#private-marble-keep-from-public
 
 - [MARXIST-DIALECTICS](MARXIST-DIALECTICS.md)
 - [HISTORICAL-MATERIALISM-A](HISTORICAL-MATERIALISM-A.md)

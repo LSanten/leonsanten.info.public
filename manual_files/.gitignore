@@ -6,3 +6,4 @@ vendor
 /venv
 .DS_Store
 docs/
+keys/

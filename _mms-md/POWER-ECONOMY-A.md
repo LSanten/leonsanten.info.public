@@ -19,7 +19,7 @@ title: The flow of power in different economic systems
 
 ---
 
-#power #visualization #economy #socialism 
+#power #visualization #economy #socialism #capitalism 
 
 ---
 

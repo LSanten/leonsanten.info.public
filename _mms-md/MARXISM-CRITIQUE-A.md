@@ -5,7 +5,7 @@ layout: default
 show_date_lastchanged_updatedauto: YES, NO, NO
 ---
 ## Decolonizing eurocentric marxist historical theories 
-
+#private-marble-keep-from-public
 *All below is an excerpt [1]. *
 
 In 1988, for example, an Egyptian Marxist named Samir Amin coined the term eurocentrism to describe how dominant ways of understanding world history center everything around Europe. Like Marx, Samir Amin agreed that history was propelled by dialectic material forces, but he disagreed with Marx’s idea that all societies would go through the same societal “phases” that Europe had gone through. At the time that Marx was writing, he was very influenced by Darwinism, which was a big deal at the time. Marx thought he could come up with a scientific theory to explain the evolution of human societies in the same way that Darwin came up with a theory to explain the evolution of species. But in doing so, Marx placed Europe at the forefront of what he saw as a scientific formula for how societies evolve.  

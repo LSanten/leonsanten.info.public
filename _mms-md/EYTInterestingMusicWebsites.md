@@ -8,7 +8,7 @@ title: Websites that visualize and analyze music
 ---
 # Websites that visualize and analyze music
 ## A collection
-
+I love visualizing things. Here are music related visualizations from other people. 
 
 ### Everynoise - spacial map of genres
 https://everynoise.com/engenremap.html

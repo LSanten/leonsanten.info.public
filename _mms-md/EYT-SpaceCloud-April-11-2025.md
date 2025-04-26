@@ -17,7 +17,8 @@ The general energy of this mix is warm and forward driving. It consistently keep
 
 ![](media/cleanshot_2025-04-12-at-19-49-28@2x.png)
 
-![](media/cleanshot_2025-04-12-at-19-52-22@2x.png)
+
+![](media/cleanshot_2025-04-12-at-22-25-57@2x.png)
 
 
 ### Spotify playlist with all these songs

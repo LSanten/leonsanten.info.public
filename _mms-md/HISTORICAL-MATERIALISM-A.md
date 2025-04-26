@@ -6,6 +6,7 @@ show_date_lastchanged_updatedauto: YES, NO, NO
 title: Material-ism and Idea-ism
 ---
 # Material-ism and Idea-ism
+#private-marble-keep-from-public
 
 *All below is an excerpt [1].*
 

@@ -9,6 +9,9 @@ title: A collection of quotes that inspire me
 # A collection of quotes that inspire me
 ## No specific theme
 
+> it is no measure of mental health to be well adjusted to a profoundly sick society 
+~ [reel](https://www.instagram.com/reel/DGjVY8ePv2V/?igsh=NTc4MTIwNjQ2YQ==)
+
 **Feb 19, 2025**
 ![](media/IMG_5410.jpeg)
 #holism 
