@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+
+<!--
+ // WEBSITE: https://themefisher.com
+ // TWITTER: https://twitter.com/themefisher
+ // FACEBOOK: https://www.facebook.com/themefisher
+ // GITHUB: https://github.com/themefisher/
+-->
+
+<html lang="en-us"><head>
+  <meta charset="utf-8">
+  <meta name="license" content="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+  <title>Power B</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Here is a marble for you! I hope it helps you engage in dialogue, plant a seed, or elicit collaboration.">
+  <meta name="author" content="Leon Santen">
+  <meta property="og:image" content="https://leonsanten.info/marbles/media/cleanshot_2025-05-04-at-13-29-40%402x.png">
+  <meta property="og:title" content="Power B">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://leonsanten.info/marbles">
+  <meta property="og:description" content="“The German-American political philosopher Hannah Arendt argued that intolerable situations such as ours could be cast aside by the public’s revolutionary  withdrawal of support from governing institutions. As a prominent theorist  of totalitarianism, political violence, and direct democracy, Arendt developed  important concepts that help disentangle the problems humanity currently faces  and indicate a way forward.">
+  <meta property="og:site_name" content="leon's marble sharings 🔮">
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- plugins -->
+
+  <link rel="stylesheet" href="../../assets/marble-assets/plugins/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="../../assets/marble-assets/plugins/themify-icons/themify-icons.css">
+    <link rel="stylesheet" href="../../assets/marble-assets/plugins/slick/slick.css">
+
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="../../assets/marble-assets/css/style.css" media="screen">
+
+  <!--Favicon-->
+  <link rel="apple-touch-icon" sizes="180x180" href="../../assets/marble-assets/favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/marble-assets/favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/marble-assets/favicon_io/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+      <!-- good favicon converter: https://favicon.io/favicon-converter/ -->
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- for ICONS -->
+
+
+
+  <!-- FOR EXPAND BUTTON -->
+  <style>
+  #more {display: none;}
+  </style>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+  <!-- FOR LATEX RENDERING -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js"></script>
+  <script>
+  document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+          delimiters: [
+              { left: "$$", right: "$$", display: true },
+              { left: "$", right: "$", display: false }
+          ],
+          throwOnError: false
+      });
+  });
+  </script>
+
+  <!-- FOR LINCENSE -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org/",
+    "@type": "CreativeWork",
+    "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "author": {
+      "@type": "Person",
+      "name": "Leon Santen"
+    }
+  }
+  </script>
+
+  <!-- Advanced Image Viewer Styles -->
+  <style>
+    #image-zoom-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.9);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+      cursor: zoom-out;
+      touch-action: none; /* Prevents default touch behaviors for better control */
+    }
+
+    #image-zoom-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    #image-zoom-img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      transform-origin: center center;
+      transition: transform 0.1s ease-out;
+      cursor: grab;
+      border-radius: 0;
+    }
+
+    #image-zoom-img.grabbing {
+      cursor: grabbing;
+    }
+
+    #image-zoom-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      font-size: 24px;
+      cursor: pointer;
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+
+    #image-zoom-close:hover {
+      background: rgba(0, 0, 0, 0.8);
+    }
+
+    #zoom-info {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 14px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .content img {
+      cursor: zoom-in;
+    }
+
+    /* Hide zoom info after short time */
+    .fade-out {
+      opacity: 0 !important;
+    }
+
+    /* Mobile optimizations */
+    @media (max-width: 768px) {
+      #image-zoom-img {
+        max-width: 100vw;
+        max-height: 100vh;
+      }
+
+      #image-zoom-close {
+        top: 10px;
+        right: 10px;
+      }
+    }
+  </style>
+
+</head>
+<body>
+  <!-- navigation -->
+
+<!--
+<header class="navigation fixed-top">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-white">
+
+      <div class="collapse navbar-collapse text-center order-lg-2 order-3" id="navigation">
+        <ul class="navbar-nav mx-auto">
+
+
+          <li class="nav-item dropdown">
+            <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              homepage <i class="ti-angle-down ml-1"></i>
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="index-full.html">Homepage Full Width</a>
+
+              <a class="dropdown-item" href="index-full-left.html">Homepage Full With Left Sidebar</a>
+
+              <a class="dropdown-item" href="index-full-right.html">Homepage Full With Right Sidebar</a>
+
+              <a class="dropdown-item" href="index-list.html">Homepage List Style</a>
+
+              <a class="dropdown-item" href="index-list-left.html">Homepage List With Left Sidebar</a>
+
+              <a class="dropdown-item" href="index-list-right.html">Homepage List With Right Sidebar</a>
+
+              <a class="dropdown-item" href="index-grid.html">Homepage Grid Style</a>
+
+              <a class="dropdown-item" href="index-grid-left.html">Homepage Grid With Left Sidebar</a>
+
+              <a class="dropdown-item" href="index-grid-right.html">Homepage Grid With Right Sidebar</a>
+
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              About <i class="ti-angle-down ml-1"></i>
+            </a>
+            <div class="dropdown-menu">
+
+              <a class="dropdown-item" href="about-me.html">About Me</a>
+
+              <a class="dropdown-item" href="about-us.html">About Us</a>
+
+            </div>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">Pages <i class="ti-angle-down ml-1"></i>
+            </a>
+            <div class="dropdown-menu">
+
+              <a class="dropdown-item" href="author.html">Author</a>
+
+              <a class="dropdown-item" href="author-single.html">Author Single</a>
+
+              <a class="dropdown-item" href="advertise.html">Advertise</a>
+
+              <a class="dropdown-item" href="post-details.html">Post Details</a>
+
+              <a class="dropdown-item" href="post-elements.html">Post Elements</a>
+
+              <a class="dropdown-item" href="tags.html">Tags</a>
+
+              <a class="dropdown-item" href="search-result.html">Search Result</a>
+
+              <a class="dropdown-item" href="search-not-found.html">Search Not Found</a>
+
+              <a class="dropdown-item" href="privacy-policy.html">Privacy Policy</a>
+
+              <a class="dropdown-item" href="terms-conditions.html">Terms Conditions</a>
+
+              <a class="dropdown-item" href="404.html">404 Page</a>
+
+            </div>
+          </li>
+
+
+
+          <a class="navbar-brand order-1" href="index.html">
+        <img class="img-fluid" width="100px" src="images/logo.png"
+          alt="Reader | Hugo Personal Blog Template">
+      </a>
+      <a class="navbar-brand order-1" href="index.html">
+        <img class="img-fluid" width="100px" src="images/logo.png"
+          alt="Reader | Hugo Personal Blog Template">
+      </a>
+      <a class="navbar-brand order-1" href="index.html">
+        <img class="img-fluid" width="100px" src="images/logo.png"
+          alt="Reader | Hugo Personal Blog Template">
+      </a>
+        </ul>
+      </div>
+
+      <div class="order-2 order-lg-3 d-flex align-items-center">
+
+        <button class="navbar-toggler border-0 order-1" type="button" data-toggle="collapse" data-target="#navigation">
+          <i class="ti-menu"></i>
+        </button>
+      </div>
+
+    </nav>
+  </div>
+</header>
+-->
+
+<!-- /navigation -->
+
+<!-- start of banner -->
+<div class="banner text-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-7 mx-auto">
+        <h4 class="text-shadow">Here, I have a <i>marble</i> for you.</h4>
+        <h5 class="text-shadow">Yours, <a href="https://leonsanten.info/" target="_blank" style="color: #914c9a; text-decoration: none;">Leon</a></h5>
+        <image width="250px" style="display: block; margin: 0 auto;" src="../../assets/marble-assets/images/marble-imagery/woven-marble-3.png">
+        </br>
+        <span class="dots"></span>
+
+            <span class="more">
+              <p style="text-decoration: none; border: 2px solid black; padding: 4px 8px; background-color:#daf0ffc2; border-radius: 15px; color: black;">In my world, a marble is a metaphorical container for a note that I want to share and shape with you. It can be a sketchy idea, an insight, a piece of knowledge, or a question that I consider valuable for my life's ongoing dialogue.<br><br>These marbles are never perfect and always a snapshot of a given moment. So, please, feel free to add your perspective at the ⬇️ <a href="#comment-zone">bottom of the page</a>. I try to follow the 🔮 <a href="../MEDIA-MOVEMENT-BUILDING-A/" target="_blank">principles for media movement building</a>.<br><br>
+              Read more about my intentions in 🔮 <a href="../MMSCommuniA/" target="_blank">this marble</a>.
+
+              <!--<br><br>In the past, I didn't have a way to share ideas or insights with others. This marbles website is the manifestation of my desire to share intentionally with the world. If you want to do it too, let me know. I can help you. -->
+</p>
+
+            </span>
+
+            <button class="read">⏷ What is a marble?</button>
+
+      </div>
+    </div>
+  </div>
+
+
+  <img class="banner-shape-1" width="100"  viewBox="0 0 39 39" src="../../assets/marble-assets/images/backgrounds/shape-2.png">
+
+  <img class="banner-shape-2" width="80"  viewBox="0 0 39 40" src="../../assets/marble-assets/images/backgrounds/shape-4.png">
+
+  <img class="banner-shape-3" width="100"  viewBox="0 0 39 40" src="../../assets/marble-assets/images/backgrounds/shape-3.png">
+
+
+</div>
+<!-- end of banner -->
+
+
+
+
+
+
+<section class="section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-7   mb-5 mb-lg-0">
+        <article>
+
+
+          <!-- Page Images: [&quot;https://leonsanten.info/marbles/media/cleanshot_2025-05-04-at-13-29-40%402x.png&quot;] JUST SOME CODE TO SEE IF IMAGES ARE IN FRONTMATTER -->
+
+
+          
+            
+            
+            
+            
+
+            
+              
+              
+                <span class="marble-date">Created on May 04, 2025</span>
+              
+            
+
+            
+          
+
+
+          <p><img src="../media/cleanshot_2025-05-04-at-13-29-40@2x.png" alt=""></p>
+
+<p>“The German-American political philosopher Hannah Arendt argued that intolerable situations such as ours could be cast aside by the public’s revolutionary  withdrawal of support from governing institutions. As a prominent theorist  of totalitarianism, political violence, and direct democracy, Arendt developed  important concepts that help disentangle the problems humanity currently faces  and indicate a way forward.</p>
+
+<p>Power is conventionally understood in politics as the ability to make others do  things, often through violence or coercion to enforce obedience and domination.  In On Violence, however, Arendt demonstrates that power works quite differently in actual human societies. She defines “power” as people’s ability to act in  concert—the capacity for collective action, and thus a property of groups, not  individuals. Leaders possess their power only because their constituents have  empowered them to direct the group’s collective action.</p>
+
+<p>Arendt argues that all power, in every political system from dictatorships to participatory democracies, emerges from public support. No dictator can carry out  his or her will without obedience from subjects; nor can any project requiring  collective action be achieved without the support, begrudging or enthusiastic, of  the group. When people begin to withdraw their support and refuse to obey, a  government may turn to violence, but its control lasts only as long as the army or  police choose to obey. “Where commands are no longer obeyed,” Arendt writes,  “the means of violence are of no use… Everything depends on the power behind  the violence.”4 The understanding that power emerges from collective action,  rather than from force, is a key component of our transitional vision.</p>
+
+<p>As a revolutionary political strategy, however (rather than a mere description of  certain past political events), Arendt’s theory of power requires several modifications. First, without preexisting mass organization, the public has no way to  collectively withdraw its support.</p>
+
+<p>Individuals acting alone have no impact on the state’s power. This is why Arendtian revolutions (Hungary in 1956, Czechoslovakia in 1989, and Tunisia in 2011)  occur only in exceedingly rare moments of crisis.</p>
+
+<p>Second, most people will never even consider retracting support for governing  institutions if they don’t see viable alternatives. As Antonio Gramsci explained  a century ago, the ruling class’s cultural hegemony can be undermined only by  what he called a “war of position”— developing a material and cultural base  within the working class to craft an oppositional narrative and to organize oppositional institutions.5 The organization of unions, worker-owned firms, and housing cooperatives is what makes socialism a real, lived possibility around which  greater movement-building can occur.</p>
+
+<p>Third, withdrawal has serious costs. Even absent violent repression (a feature  of even today’s most liberal democracies), we are made dependent on capitalist  and state institutions for access to basic survival needs and avenues for collective  action. Transcending capitalism and the state thus requires having alternative  institutions in place to meet those needs and organize people to act powerfully in  concert with one another. Retracting support without engaging in such oppositional institutions is hardly distinguishable from apathy.</p>
+
+<p>Fourth, we cannot neglect the preformation of the post-revolutionary societythe need to actively create institutions to replace the ones we have now. Arendt  has somewhat romantic notions of the forms of organic democratic politics  that emerge in the vacuum following a mass public retraction of support for  governing institutions. To a certain extent, history is on her side. The Syrian  Kurds’ democratic confederalism in Rojava; the workers’ councils of revolutionary Russia, Germany, and Hungary; the Paris Commune; Argentina’s factory  takeovers; and Catalonia’s anarchist revolution all exemplify community-rooted participatory politics emerging out of revolutionary crisis. More complex institutional arrangements to manage and coordinate society as a whole, however,  are beyond the reach of spontaneous face-to-face democracy. Far from expressing public will, such institutions are usually seized or assembled by whichever  party or faction is best positioned to capitalize on the conditions of vacuum and  uncertainty (as Arendt herself notes and criticizes).6 A revolutionary transfer  of authority to popular organs of radical democracy requires the preexistence of  such participatory institutions, not a naive faith that they will be conjured into  being out of a general strike, mass retraction of public support, or insurrectionary upheaval. “</p>
+
+
+          <hr>
+
+
+            <center><p id="comment-zone">~ •• • •• ~</p><h3>Does something bubble up for you?<br>Pin your ideas or thoughts here 📌</h3><h4>Anyone can interact here. This is my little communication experiment.<br>I'd love to hear from you!</h4><br></center>
+
+
+            <script src="https://cdn.fastcomments.com/js/embed-v2.min.js"></script>
+            <div id="fastcomments-widget"></div>
+            <script>
+              FastCommentsUI(document.getElementById('fastcomments-widget'), {
+                tenantId: "dI13cVRENXn",
+                urlId: "POWER-B" // Uses your unique marble ID for comments
+
+              });
+            </script>
+
+            
+            
+
+            <center>
+
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"><img src="https://mirrors.creativecommons.org/presskit/logos/cc.logo.svg" alt="Creative Commons License" style="border-radius: 0px; width: 100px; padding-bottom: 8px;"> </a><h4 style="font-size: 9px; font-weight: 700;">License for all original work:</h4>
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">
+                <img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg" alt="Creative Commons License" style="border-radius: 0px;">
+              </a></center><br>
+
+
+            <center><a href="#" class="card-meta-author" style="display: inline-block; vertical-align: middle;text-decoration: none; font-size: 12px;">
+                <img src="../../images/ID-photoshop-file.png" alt="ID" style="display: inline;">
+                <span style="bottom: -1.5px; position: relative;">POWER-B</span>
+              </a></center>
+              <br>
+
+
+        </article>
+
+      </div>
+
+
+  </div>
+  </section>
+
+
+
+
+
+
+
+
+
+<footer class="footer">
+  <svg class="footer-border" height="214" viewBox="0 0 2204 214" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M2203 213C2136.58 157.994 1942.77 -33.1996 1633.1 53.0486C1414.13 114.038 1200.92 188.208 967.765 118.127C820.12 73.7483 263.977 -143.754 0.999958 158.899"
+      stroke-width="2" />
+  </svg>
+
+
+
+
+
+  <div class="container">
+      <div class="row align-items-center">
+      <div class="col-md-5 text-center text-md-left mb-4">
+
+          <ul class="list-inline footer-list mb-0">
+
+
+
+          <li class="list-inline-item"><a href="https://www.linkedin.com/in/leonsanten/" target="_blank" style="text-decoration: none;"><i class="ti-linkedin"></i></a></li>
+
+          <li class="list-inline-item"><a href="https://www.instagram.com/mostly.mutual.studio/" target="_blank" style="text-decoration: none;"><i class="ti-instagram"></i></a></li>
+
+          <li class="list-inline-item"><a href="mailto:lsanten@olin.edu" target="_blank" style="text-decoration: none;"><i class="ti-email"></i></a></li>
+
+
+
+          </ul>
+      </div>
+      <div class="col-md-2 text-center mb-4">
+          <a href="../../"><img class="img-fluid" style="display: inline;" width="100px" src="../../assets/marble-assets/images/backgrounds/shape-5.png" alt="A drawing of a valley in a hill wiht a bunch of little black dots collected in the middle"></a>
+      </div>
+      <div class="col-md-5 text-md-right text-center mb-4">
+
+          <ul class="list-inline footer-list mb-0">
+            <li class="list-inline-item">
+              here is my pouch of 🔮 <a href="../MMSHomepage" target="_blank" style="display: inline;">favorite marbles</a>
+              <br>
+              here are my 🌍 <a href="../../" target="_blank" style="display: inline;">bio & homepage</a>
+            </li>
+
+
+          </ul>
+
+      </div>
+      <div class="col-12">
+          <div class="border-bottom border-default"></div>
+      </div>
+      </div>
+  </div>
+  </footer>
+
+
+  <!-- Advanced Image Zoom Viewer HTML -->
+  <div id="image-zoom-overlay">
+    <div id="image-zoom-container">
+      <img id="image-zoom-img" src="" alt="Zoomed image">
+      <button id="image-zoom-close">&times;</button>
+      <div id="zoom-info">Zoom: 100%</div>
+    </div>
+  </div>
+
+  <!-- JS Plugins -->
+  <script src="../../assets/marble-assets/plugins/jQuery/jquery.min.js"></script>
+
+  <script src="../../assets/marble-assets/plugins/bootstrap/bootstrap.min.js"></script>
+
+  <script src="../../assets/marble-assets/plugins/slick/slick.min.js"></script>
+
+  <script src="../../assets/marble-assets/plugins/instafeed/instafeed.min.js"></script>
+
+
+  <!-- Main Script -->
+  <script src="../../assets/marble-assets/js/script.js"></script>
+
+
+  <!-- FOR EXPAND BUTTON -->
+  <script>
+  $(document).ready(function(){
+     $(".read").click(function(){
+        $(this).prev().toggle();
+        $(this).siblings('.dots').toggle();
+        if($(this).text()=='⏶ show less 📩'){
+    $(this).text(' 💌 ');
+        }
+        else{
+    $(this).text('⏶ show less 📩');
+        }
+     });
+  });
+
+  var coll = document.getElementsByClassName("collapsible");
+  var i;
+
+  for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var content = this.nextElementSibling;
+      if (content.style.display === "block") {
+        content.style.display = "none";
+      } else {
+        content.style.display = "block";
+      }
+    });
+  }
+  </script>
+  <!-- END EXPAND BUTTON -->
+
+  <!-- FOR TAG FILTERS -->
+
+  <script>
+  filterSelection("all")
+  function filterSelection(c) {
+    var x, i;
+    x = document.getElementsByClassName("filterDiv");
+    if (c == "all") c = "";
+    for (i = 0; i < x.length; i++) {
+      w3RemoveClass(x[i], "show");
+      if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+    }
+  }
+
+  function w3AddClass(element, name) {
+    var i, arr1, arr2;
+    arr1 = element.className.split(" ");
+    arr2 = name.split(" ");
+    for (i = 0; i < arr2.length; i++) {
+      if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+    }
+  }
+
+  function w3RemoveClass(element, name) {
+    var i, arr1, arr2;
+    arr1 = element.className.split(" ");
+    arr2 = name.split(" ");
+    for (i = 0; i < arr2.length; i++) {
+      while (arr1.indexOf(arr2[i]) > -1) {
+        arr1.splice(arr1.indexOf(arr2[i]), 1);
+      }
+    }
+    element.className = arr1.join(" ");
+  }
+
+  // Add active class to the current button (highlight it)
+  var btnContainer = document.getElementById("myBtnContainer");
+  if (btnContainer) {
+    var btns = btnContainer.getElementsByClassName("btn");
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].addEventListener("click", function(){
+        var current = document.getElementsByClassName("active");
+        current[0].className = current[0].className.replace(" active", "");
+        this.className += " active";
+      });
+    }
+  }
+  </script>
+
+  <!-- END TAG FILTERS -->
+
+  <!-- Advanced Image Zoom Viewer Script -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Elements
+    const overlay = document.getElementById('image-zoom-overlay');
+    const container = document.getElementById('image-zoom-container');
+    const zoomedImg = document.getElementById('image-zoom-img');
+    const closeBtn = document.getElementById('image-zoom-close');
+    const zoomInfo = document.getElementById('zoom-info');
+
+    // Variables for zoom and pan
+    let currentScale = 1;
+    let translateX = 0;
+    let translateY = 0;
+    let lastX = 0;
+    let lastY = 0;
+    let isDragging = false;
+    let dragStartX = 0;
+    let dragStartY = 0;
+    let dragDistance = 0;
+    const minDragDistance = 5; // Threshold to consider a drag vs. a click
+    let justFinishedDrag = false;
+
+    // Configuration
+    const minScale = 0.5;
+    const maxScale = 5;
+    const zoomFactor = 0.1; // How much to zoom on each wheel event
+
+    // Find all content images
+    const images = document.querySelectorAll('article img');
+
+    // Set up image click handlers
+    images.forEach(img => {
+      // Skip small images and icons
+      if (img.width < 100 || img.height < 100 || img.classList.contains('emoji')) {
+        return;
+      }
+
+      img.style.cursor = 'zoom-in';
+      img.addEventListener('click', function(e) {
+        e.preventDefault();
+
+        // Reset state
+        currentScale = 1;
+        translateX = 0;
+        translateY = 0;
+        lastX = 0;
+        lastY = 0;
+        isDragging = false;
+        justFinishedDrag = false;
+        dragDistance = 0;
+
+        // Show image
+        zoomedImg.src = this.src;
+        overlay.style.display = 'flex';
+        zoomedImg.style.transform = 'scale(1) translate(0px, 0px)';
+        document.body.style.overflow = 'hidden'; // Prevent page scrolling
+
+        // Show zoom info
+        zoomInfo.textContent = 'Zoom: 100%';
+        zoomInfo.style.opacity = '1';
+
+        // Hide zoom info after 2 seconds
+        setTimeout(() => {
+          zoomInfo.style.opacity = '0';
+        }, 2000);
+      });
+    });
+
+    // Close when clicking on overlay (only if not dragging)
+    overlay.addEventListener('click', function(e) {
+      if (e.target === overlay && !justFinishedDrag) {
+        closeViewer();
+      }
+      justFinishedDrag = false;
+    });
+
+    // Close when clicking the image (only if no zoom and no drag)
+    zoomedImg.addEventListener('click', function(e) {
+      if (currentScale <= 1.05 && !justFinishedDrag) {
+        closeViewer();
+      }
+      justFinishedDrag = false;
+    });
+
+    // Close button
+    closeBtn.addEventListener('click', closeViewer);
+
+    // Keyboard close
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && overlay.style.display === 'flex') {
+        closeViewer();
+      }
+    });
+
+    // Mouse wheel zoom
+        container.addEventListener('wheel', function(e) {
+          if (overlay.style.display !== 'flex') return;
+
+          e.preventDefault();
+
+          // Calculate zoom center (relative to image)
+          const rect = zoomedImg.getBoundingClientRect();
+          const mouseX = e.clientX - rect.left;
+          const mouseY = e.clientY - rect.top;
+
+          // Calculate zoom direction and amount
+          const delta = -Math.sign(e.deltaY) * zoomFactor;
+          let newScale = currentScale + delta * currentScale;
+
+          // Limit zoom range
+          newScale = Math.min(Math.max(newScale, minScale), maxScale);
+
+          // Update transform origin based on mouse position
+          const originX = mouseX / rect.width;
+          const originY = mouseY / rect.height;
+
+          // Update zoom
+          setZoom(newScale, originX, originY);
+
+          // Show zoom level
+          zoomInfo.textContent = `Zoom: ${Math.round(newScale * 100)}%`;
+          zoomInfo.style.opacity = '1';
+
+          // Hide zoom info after 2 seconds
+          clearTimeout(window.zoomInfoTimeout);
+          window.zoomInfoTimeout = setTimeout(() => {
+            zoomInfo.style.opacity = '0';
+          }, 2000);
+        });
+
+        // Mouse drag
+        zoomedImg.addEventListener('mousedown', function(e) {
+          if (currentScale <= 1) return; // Only enable dragging when zoomed in
+
+          isDragging = true;
+          lastX = e.clientX;
+          lastY = e.clientY;
+          dragStartX = e.clientX;
+          dragStartY = e.clientY;
+          dragDistance = 0;
+          justFinishedDrag = false;
+
+          zoomedImg.classList.add('grabbing');
+          e.preventDefault();
+        });
+
+        document.addEventListener('mousemove', function(e) {
+          if (!isDragging) return;
+
+          const dx = e.clientX - lastX;
+          const dy = e.clientY - lastY;
+
+          // Calculate total drag distance for this operation
+          const totalDragX = e.clientX - dragStartX;
+          const totalDragY = e.clientY - dragStartY;
+          dragDistance = Math.sqrt(totalDragX * totalDragX + totalDragY * totalDragY);
+
+          // Update translation
+          translateX += dx;
+          translateY += dy;
+
+          // Apply transform
+          applyTransform();
+
+          lastX = e.clientX;
+          lastY = e.clientY;
+        });
+
+        document.addEventListener('mouseup', function() {
+          if (!isDragging) return;
+
+          // Check if this was a drag or just a click
+          if (dragDistance > minDragDistance) {
+            justFinishedDrag = true;
+          }
+
+          isDragging = false;
+          zoomedImg.classList.remove('grabbing');
+        });
+
+        // Touch events for mobile
+        let initialDistance = 0;
+        let initialScale = 1;
+        let initialTouchX = 0;
+        let initialTouchY = 0;
+
+        zoomedImg.addEventListener('touchstart', function(e) {
+          if (e.touches.length === 2) {
+            // Pinch-to-zoom
+            const touch1 = e.touches[0];
+            const touch2 = e.touches[1];
+
+            initialDistance = Math.hypot(
+              touch2.clientX - touch1.clientX,
+              touch2.clientY - touch1.clientY
+            );
+
+            initialScale = currentScale;
+            e.preventDefault();
+          } else if (e.touches.length === 1 && currentScale > 1) {
+            // Pan
+            isDragging = true;
+            lastX = e.touches[0].clientX;
+            lastY = e.touches[0].clientY;
+            dragStartX = e.touches[0].clientX;
+            dragStartY = e.touches[0].clientY;
+            dragDistance = 0;
+            justFinishedDrag = false;
+            e.preventDefault();
+          }
+
+          initialTouchX = e.touches[0].clientX;
+          initialTouchY = e.touches[0].clientY;
+        });
+
+        zoomedImg.addEventListener('touchmove', function(e) {
+          if (e.touches.length === 2) {
+            // Pinch-to-zoom
+            const touch1 = e.touches[0];
+            const touch2 = e.touches[1];
+
+            const currentDistance = Math.hypot(
+              touch2.clientX - touch1.clientX,
+              touch2.clientY - touch1.clientY
+            );
+
+            // Calculate new scale
+            const pinchRatio = currentDistance / initialDistance;
+            let newScale = initialScale * pinchRatio;
+
+            // Limit zoom range
+            newScale = Math.min(Math.max(newScale, minScale), maxScale);
+
+            // Calculate midpoint for zoom origin
+            const midX = (touch1.clientX + touch2.clientX) / 2;
+            const midY = (touch1.clientY + touch2.clientY) / 2;
+
+            const rect = zoomedImg.getBoundingClientRect();
+            const originX = (midX - rect.left) / rect.width;
+            const originY = (midY - rect.top) / rect.height;
+
+            // Update zoom
+            setZoom(newScale, originX, originY);
+
+            // Show zoom level
+            zoomInfo.textContent = `Zoom: ${Math.round(newScale * 100)}%`;
+            zoomInfo.style.opacity = '1';
+
+            // Hide zoom info after 2 seconds
+            clearTimeout(window.zoomInfoTimeout);
+            window.zoomInfoTimeout = setTimeout(() => {
+              zoomInfo.style.opacity = '0';
+            }, 2000);
+
+            e.preventDefault();
+          } else if (isDragging && e.touches.length === 1) {
+            // Pan
+            const touchX = e.touches[0].clientX;
+            const touchY = e.touches[0].clientY;
+
+            const dx = touchX - lastX;
+            const dy = touchY - lastY;
+
+            // Calculate total drag distance
+            const totalDragX = touchX - dragStartX;
+            const totalDragY = touchY - dragStartY;
+            dragDistance = Math.sqrt(totalDragX * totalDragX + totalDragY * totalDragY);
+
+            // Update translation
+            translateX += dx;
+            translateY += dy;
+
+            // Apply transform
+            applyTransform();
+
+            lastX = touchX;
+            lastY = touchY;
+
+            e.preventDefault();
+          }
+        });
+
+        zoomedImg.addEventListener('touchend', function(e) {
+          if (isDragging) {
+            // Check if this was a drag or just a tap
+            if (dragDistance > minDragDistance) {
+              justFinishedDrag = true;
+            } else {
+              // Check if it was a single tap on the image with no zoom
+              if (currentScale <= 1.05 && !justFinishedDrag) {
+                closeViewer();
+              }
+            }
+
+            isDragging = false;
+          } else if (e.touches.length === 0 && dragDistance < minDragDistance) {
+            // It was a tap, not a drag
+            const touchEndX = e.changedTouches[0].clientX;
+            const touchEndY = e.changedTouches[0].clientY;
+
+            // Calculate distance from start to end
+            const tapDistance = Math.hypot(
+              touchEndX - initialTouchX,
+              touchEndY - initialTouchY
+            );
+
+            // If tap distance is small and we're not zoomed, close the viewer
+            if (tapDistance < minDragDistance && currentScale <= 1.05) {
+              closeViewer();
+            }
+          }
+        });
+
+        // Helper functions
+        function setZoom(scale, originX, originY) {
+          currentScale = scale;
+
+          // Apply transform with correct origin
+          zoomedImg.style.transformOrigin = `${originX * 100}% ${originY * 100}%`;
+          applyTransform();
+        }
+
+        function applyTransform() {
+          zoomedImg.style.transform = `translate(${translateX}px, ${translateY}px) scale(${currentScale})`;
+        }
+
+        function closeViewer() {
+          overlay.style.display = 'none';
+          document.body.style.overflow = ''; // Restore page scrolling
+
+          // Reset state
+          currentScale = 1;
+          translateX = 0;
+          translateY = 0;
+          zoomedImg.style.transform = 'scale(1) translate(0px, 0px)';
+          justFinishedDrag = false;
+        }
+
+        // Double-click to reset
+        zoomedImg.addEventListener('dblclick', function(e) {
+          e.preventDefault();
+
+          if (currentScale > 1) {
+            // Reset to full view
+            currentScale = 1;
+            translateX = 0;
+            translateY = 0;
+            applyTransform();
+
+            zoomInfo.textContent = 'Zoom: 100%';
+            zoomInfo.style.opacity = '1';
+
+            setTimeout(() => {
+              zoomInfo.style.opacity = '0';
+            }, 2000);
+          } else {
+            // Zoom in
+            const rect = zoomedImg.getBoundingClientRect();
+            const mouseX = e.clientX - rect.left;
+            const mouseY = e.clientY - rect.top;
+
+            const originX = mouseX / rect.width;
+            const originY = mouseY / rect.height;
+
+            setZoom(2, originX, originY);
+
+            zoomInfo.textContent = 'Zoom: 200%';
+            zoomInfo.style.opacity = '1';
+
+            setTimeout(() => {
+              zoomInfo.style.opacity = '0';
+            }, 2000);
+          }
+        });
+
+        // Tap twice (double tap) for mobile
+        let lastTapTime = 0;
+        zoomedImg.addEventListener('touchend', function(e) {
+          const currentTime = new Date().getTime();
+          const tapLength = currentTime - lastTapTime;
+
+          if (tapLength < 300 && tapLength > 0) {
+            // Double tap detected
+            e.preventDefault();
+
+            if (currentScale > 1) {
+              // Reset to full view
+              currentScale = 1;
+              translateX = 0;
+              translateY = 0;
+              applyTransform();
+
+              zoomInfo.textContent = 'Zoom: 100%';
+              zoomInfo.style.opacity = '1';
+            } else {
+              // Zoom in to where user tapped
+              const touch = e.changedTouches[0];
+              const rect = zoomedImg.getBoundingClientRect();
+              const touchX = touch.clientX - rect.left;
+              const touchY = touch.clientY - rect.top;
+
+              const originX = touchX / rect.width;
+              const originY = touchY / rect.height;
+
+              setZoom(2, originX, originY);
+
+              zoomInfo.textContent = 'Zoom: 200%';
+              zoomInfo.style.opacity = '1';
+            }
+
+            setTimeout(() => {
+              zoomInfo.style.opacity = '0';
+            }, 2000);
+          }
+
+          lastTapTime = currentTime;
+        });
+      });
+      </script>
+    </html>
