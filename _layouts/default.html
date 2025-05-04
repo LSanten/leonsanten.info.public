@@ -35,7 +35,7 @@
 
 
   <!-- plugins -->
-  
+
   <link rel="stylesheet" href="../../assets/marble-assets/plugins/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="../../assets/marble-assets/plugins/themify-icons/themify-icons.css">
     <link rel="stylesheet" href="../../assets/marble-assets/plugins/slick/slick.css">
@@ -103,15 +103,15 @@
 <body>
   <!-- navigation -->
 
-<!--  
+<!--
 <header class="navigation fixed-top">
   <div class="container">
     <nav class="navbar navbar-expand-lg navbar-white">
-      
+
       <div class="collapse navbar-collapse text-center order-lg-2 order-3" id="navigation">
         <ul class="navbar-nav mx-auto">
 
-          
+
           <li class="nav-item dropdown">
             <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
               aria-expanded="false">
@@ -119,23 +119,23 @@
             </a>
             <div class="dropdown-menu">
               <a class="dropdown-item" href="index-full.html">Homepage Full Width</a>
-              
+
               <a class="dropdown-item" href="index-full-left.html">Homepage Full With Left Sidebar</a>
-              
+
               <a class="dropdown-item" href="index-full-right.html">Homepage Full With Right Sidebar</a>
-              
+
               <a class="dropdown-item" href="index-list.html">Homepage List Style</a>
-              
+
               <a class="dropdown-item" href="index-list-left.html">Homepage List With Left Sidebar</a>
-              
+
               <a class="dropdown-item" href="index-list-right.html">Homepage List With Right Sidebar</a>
-              
+
               <a class="dropdown-item" href="index-grid.html">Homepage Grid Style</a>
-              
+
               <a class="dropdown-item" href="index-grid-left.html">Homepage Grid With Left Sidebar</a>
-              
+
               <a class="dropdown-item" href="index-grid-right.html">Homepage Grid With Right Sidebar</a>
-              
+
             </div>
           </li>
           <li class="nav-item dropdown">
@@ -144,11 +144,11 @@
               About <i class="ti-angle-down ml-1"></i>
             </a>
             <div class="dropdown-menu">
-              
+
               <a class="dropdown-item" href="about-me.html">About Me</a>
-              
+
               <a class="dropdown-item" href="about-us.html">About Us</a>
-              
+
             </div>
           </li>
 
@@ -161,33 +161,33 @@
               aria-expanded="false">Pages <i class="ti-angle-down ml-1"></i>
             </a>
             <div class="dropdown-menu">
-              
+
               <a class="dropdown-item" href="author.html">Author</a>
-              
+
               <a class="dropdown-item" href="author-single.html">Author Single</a>
 
               <a class="dropdown-item" href="advertise.html">Advertise</a>
-              
+
               <a class="dropdown-item" href="post-details.html">Post Details</a>
-              
+
               <a class="dropdown-item" href="post-elements.html">Post Elements</a>
-              
+
               <a class="dropdown-item" href="tags.html">Tags</a>
 
               <a class="dropdown-item" href="search-result.html">Search Result</a>
 
               <a class="dropdown-item" href="search-not-found.html">Search Not Found</a>
-              
+
               <a class="dropdown-item" href="privacy-policy.html">Privacy Policy</a>
-              
+
               <a class="dropdown-item" href="terms-conditions.html">Terms Conditions</a>
 
               <a class="dropdown-item" href="404.html">404 Page</a>
-              
+
             </div>
           </li>
 
-        
+
 
           <a class="navbar-brand order-1" href="index.html">
         <img class="img-fluid" width="100px" src="images/logo.png"
@@ -205,7 +205,7 @@
       </div>
 
       <div class="order-2 order-lg-3 d-flex align-items-center">
-        
+
         <button class="navbar-toggler border-0 order-1" type="button" data-toggle="collapse" data-target="#navigation">
           <i class="ti-menu"></i>
         </button>
@@ -235,23 +235,23 @@
 
               <!--<br><br>In the past, I didn’t have a way to share ideas or insights with others. This marbles website is the manifestation of my desire to share intentionally with the world. If you want to do it too, let me know. I can help you. -->
 </p>
-              
+
             </span>
 
             <button class="read">⏷ What is a marble?</button>
-        
+
       </div>
     </div>
   </div>
 
-  
+
   <img class="banner-shape-1" width="100"  viewBox="0 0 39 39" src="../../assets/marble-assets/images/backgrounds/shape-2.png">
 
   <img class="banner-shape-2" width="80"  viewBox="0 0 39 40" src="../../assets/marble-assets/images/backgrounds/shape-4.png">
 
   <img class="banner-shape-3" width="100"  viewBox="0 0 39 40" src="../../assets/marble-assets/images/backgrounds/shape-3.png">
-  
-  
+
+
 </div>
 <!-- end of banner -->
 
@@ -266,16 +266,16 @@
       <div class="col-lg-7   mb-5 mb-lg-0">
         <article>
 
-          
+
           <!-- Page Images: {{ page.images | inspect }} JUST SOME CODE TO SEE IF IMAGES ARE IN FRONTMATTER -->
-          
+
 
           {% if page.show_date_lastchanged_updatedauto %}
             {% assign update_parts = page.show_date_lastchanged_updatedauto | split: "," %}
             {% assign show_created = update_parts[0] | strip %}
             {% assign show_lastchanged = update_parts[1] | strip %}
             {% assign auto_update = update_parts[2] | strip %}
-            
+
             {% if show_created == 'YES' and page.date_created %}
               {% assign created_parts = page.date_created | split: "," %}
               {% if created_parts.size > 1 %}
@@ -284,7 +284,7 @@
                 <span class="marble-date">Created on {{ created_parts[0] | date: "%B %d, %Y" }}</span>
               {% endif %}
             {% endif %}
-            
+
             {% if show_lastchanged == 'YES' and page.date_lastchanged %}
               {% assign lastchanged_parts = page.date_lastchanged | split: "," %}
               {% if lastchanged_parts.size > 1 %}
@@ -317,9 +317,9 @@
             {% assign default_license_url = "https://creativecommons.org/licenses/by-nc-sa/4.0/" %}
             {% assign default_license_img = "https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg" %}
 
-            {%- comment -%} 
+            {%- comment -%}
             By default, all content is licensed under CC BY-NC-SA 4.0.
-            To use a different license for a specific page, specify BOTH 
+            To use a different license for a specific page, specify BOTH
             'license_url' and 'license_img' in the front matter.
             {%- endcomment -%}
 
@@ -332,7 +332,7 @@
             {% endif %}
 
             <center>
-              
+
               <a href="{{ license_url }}" target="_blank"><img src="https://mirrors.creativecommons.org/presskit/logos/cc.logo.svg" alt="Creative Commons License" style="border-radius: 0px; width: 100px; padding-bottom: 8px;"> </a><h4 style="font-size: 9px; font-weight: 700;">License for all original work:</h4>
               <a href="{{ license_url }}" target="_blank">
                 <img src="{{ license_img }}" alt="Creative Commons License" style="border-radius: 0px;">
@@ -345,9 +345,9 @@
               </a></center>
               <br>
 
-          
+
         </article>
-        
+
       </div>
 
 
@@ -369,32 +369,32 @@
   </svg>
 
 
-  
-  
-  
+
+
+
   <div class="container">
       <div class="row align-items-center">
       <div class="col-md-5 text-center text-md-left mb-4">
-          
+
           <ul class="list-inline footer-list mb-0">
-          
-          
-          
+
+
+
           <li class="list-inline-item"><a href="https://www.linkedin.com/in/leonsanten/" target="_blank" style="text-decoration: none;"><i class="ti-linkedin"></i></a></li>
-          
+
           <li class="list-inline-item"><a href="https://www.instagram.com/mostly.mutual.studio/" target="_blank" style="text-decoration: none;"><i class="ti-instagram"></i></a></li>
 
           <li class="list-inline-item"><a href="mailto:lsanten@olin.edu" target="_blank" style="text-decoration: none;"><i class="ti-email"></i></a></li>
-          
-         
-          
+
+
+
           </ul>
       </div>
       <div class="col-md-2 text-center mb-4">
           <a href="../../"><img class="img-fluid" style="display: inline;" width="100px" src="../../assets/marble-assets/images/backgrounds/shape-5.png" alt="A drawing of a valley in a hill wiht a bunch of little black dots collected in the middle"></a>
       </div>
       <div class="col-md-5 text-md-right text-center mb-4">
-          
+
           <ul class="list-inline footer-list mb-0">
             <li class="list-inline-item">
               here is my pouch of 🔮 <a href="../MMSHomepage" target="_blank" style="display: inline;">favorite marbles</a>
@@ -402,7 +402,7 @@
               here are my 🌍 <a href="../../" target="_blank" style="display: inline;">bio & homepage</a>
             </li>
 
-            
+
           </ul>
 
       </div>
@@ -490,7 +490,7 @@
     arr2 = name.split(" ");
     for (i = 0; i < arr2.length; i++) {
       while (arr1.indexOf(arr2[i]) > -1) {
-        arr1.splice(arr1.indexOf(arr2[i]), 1);     
+        arr1.splice(arr1.indexOf(arr2[i]), 1);
       }
     }
     element.className = arr1.join(" ");
@@ -508,9 +508,108 @@
   }
   </script>
 
-  
 
 
+  <!-- Add this right before the closing </html> tag in your _layouts/default.html file -->
+
+  <!-- Image Viewer HTML -->
+  <div id="image-viewer-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.85); z-index: 9999; justify-content: center; align-items: center; cursor: zoom-out;">
+    <div id="image-viewer-container" style="max-width: 90%; max-height: 90%; position: relative;">
+      <img id="image-viewer-img" style="max-width: 100%; max-height: 90vh; object-fit: contain; display: block; margin: 0 auto; border-radius: 0; box-shadow: 0 5px 15px rgba(0,0,0,0.5);" src="" alt="Enlarged image">
+      <button id="image-viewer-close" style="position: absolute; top: -40px; right: 0; background: transparent; border: none; color: white; font-size: 36px; cursor: pointer;">&times;</button>
+    </div>
+  </div>
+
+  <!-- Image Viewer Script -->
+  <script type="text/javascript">
+  // Wait for jQuery to be fully loaded
+  (function() {
+    // Function to initialize the image viewer
+    function initImageViewer() {
+      console.log("Initializing image viewer");
+
+      // Get all images in the article content
+      var images = document.querySelectorAll('article img');
+      console.log("Found " + images.length + " images with 'article img' selector");
+
+      // If no images found, try a different selector
+      if (images.length === 0) {
+        images = document.querySelectorAll('.content img');
+        console.log("Found " + images.length + " images with '.content img' selector");
+      }
+
+      // If still no images, use all images
+      if (images.length === 0) {
+        images = document.querySelectorAll('img');
+        console.log("Found " + images.length + " images with 'img' selector");
+      }
+
+      var overlay = document.getElementById('image-viewer-overlay');
+      var viewerImg = document.getElementById('image-viewer-img');
+      var closeBtn = document.getElementById('image-viewer-close');
+
+      // Make images clickable
+      images.forEach(function(img) {
+        // Skip small icons and logos
+        if (img.classList.contains('icon') || img.width < 100 || img.height < 100) {
+          return;
+        }
+
+        img.style.cursor = 'zoom-in';
+        img.addEventListener('click', function(e) {
+          console.log("Image clicked: " + this.src);
+          e.preventDefault();
+          viewerImg.src = this.src;
+          overlay.style.display = 'flex';
+          document.body.style.overflow = 'hidden'; // Prevent scrolling
+        });
+      });
+
+      // Close when clicking outside image
+      overlay.addEventListener('click', function(e) {
+        if (e.target === overlay) {
+          hideViewer();
+        }
+      });
+
+      // Close button functionality
+      closeBtn.addEventListener('click', hideViewer);
+
+      // Close on ESC key
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          hideViewer();
+        }
+      });
+
+      function hideViewer() {
+        overlay.style.display = 'none';
+        document.body.style.overflow = ''; // Restore scrolling
+      }
+
+      console.log("Image viewer initialization complete");
+    }
+
+    // Try to initialize immediately
+    if (document.readyState === 'complete' || document.readyState === 'interactive') {
+      setTimeout(initImageViewer, 1000); // Slight delay to ensure DOM is fully processed
+    } else {
+      // Wait for DOM to be fully loaded
+      document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(initImageViewer, 1000); // Slight delay to ensure DOM is fully processed
+      });
+    }
+
+    // Backup initialization in case the other methods fail
+    window.addEventListener('load', function() {
+      if (!window.imageViewerInitialized) {
+        console.log("Backup initialization");
+        window.imageViewerInitialized = true;
+        setTimeout(initImageViewer, 1000);
+      }
+    });
+  })();
+  </script>
 
   <!-- END TAG FILTERS -->
 </html>
