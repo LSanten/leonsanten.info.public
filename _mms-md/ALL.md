@@ -1,6 +1,6 @@
 ---
 date_created: '2024-08-04'
-date_lastchanged: '2025-04-25'
+date_lastchanged: '2025-05-03'
 layout: default
 show_date_lastchanged_updatedauto: YES, NO, NO
 ---
@@ -12,10 +12,11 @@ show_date_lastchanged_updatedauto: YES, NO, NO
 - [[ACADEMIC-IMPERIALISM]] - Indian sociologist Claude Alvares talks about academic imperialism
 - [[ADAPT-CHANGE]] - No Title
 - [[ADAPT-CYCLES-A]] - adaptive cycles help us to understand how to transform our systems
-- [[AGRICULTURE-A]] - Summary of emissions of agriculture and livestock
+- [[AGRICULTURE-A]] - Summary of Emissions of Agriculture and Livestock
 - [[AI-CORPORATE-STANDARD]] - No Title
 - [[ALL]] - No Title
 - [[ANARCH-COUPLE-A]] - Kill the couple in your head
+- [[ANIMAL-AS-A-POLITICAL-CATEGORY]] - The "animal" as a political category
 - [[ANNUAL-REVIEW-FRAMEWORK]] - The Annual Review Framework: Questions to help cut the noise
 - [[APP-IDEA-A]] - An app for friends where we share intentions for the week and spontaneous trips
 - [[APP-IDEA-B]] - An app for different forms of communication: letters, short notices etc...
@@ -71,7 +72,6 @@ show_date_lastchanged_updatedauto: YES, NO, NO
 - [[CONTEXTUALIZED-MEDIA-AND-CONTAINER-INTERFACES]] - Envisioning containers for sharing media to communicate context, intentions, and needs
 - [[COOP-EXPECTATIONS]] - No Title
 - [[COOP-PRINCIPLES]] - Coopeartive Principles
-- [[CUBA-BLOCKADE]] - One zine page describing the blockade on Cuba
 - [[CUTE-A]] - Name idea: the lame baby club
 - [[DARWIN-NOT-SURVIVAL-OF-THE-FITTEST]] - It's not survival of the fittest but survival of the nurtured
 - [[DEATH-A]] - It’s all about the ability to create relationships and let go of relationships. 
@@ -80,7 +80,7 @@ show_date_lastchanged_updatedauto: YES, NO, NO
 - [[DEGROWTH-SDG-IPCC]] - SDGs addressed by degrowth
 - [[DESIGNING-WITH-COUNTRY-A]] - Designing with country
 - [[DIALOGUE-A]] - The difference between a dialogue and a discussion 
-- [[DICTATORSHIP-A]] - Workplace dictatorship is when the owner has the right to tell the worker what to do
+- [[DICTATORSHIP-A]] - Dictatorship in the workplace 
 - [[DOCUMENTARIES-NATURE-ANIMALS]] - No Title
 - [[DRAWING-PRACTICE]] - Things I want to practice drawing
 - [[ECO-JUSTICE]] - No Title
@@ -97,7 +97,7 @@ show_date_lastchanged_updatedauto: YES, NO, NO
 - [[ENG-WAR]] - Ethymologically engineering is rooted in creating war tools
 - [[ENGINEERING-A]] - engineering is not a useful term for the work I seek to do in my life as an engineer 
 - [[ENGINEERING-SYSTEMIC-PATTERNS-A]] - No Title
-- [[ENTITLEMENT-A]] - No Title
+- [[ENTITLEMENT-A]] - Entitlement & Infringement on the commons
 - [[ENV-NAT-DIFF]] - nature means a birth place, environment means a passive thing lying around
 - [[EXTRACTION-A]] - Our scientific innovation paradigm is based on extractive processes
 - [[EYT-MUSIC-VIZ-IDEAS]] - No Title
@@ -193,6 +193,7 @@ show_date_lastchanged_updatedauto: YES, NO, NO
 - [[MINING-A]] - No Title
 - [[MIXBASE-DOCUMENTATION]] - No Title
 - [[MMS-POST-IDEAS]] - No Title
+- [[MMS7CheapThingsInTheChickenNugget]] - How the chicken represents our economy perfectly
 - [[MMSAtWhoseCostVisual]] - No Title
 - [[MMSBigTechA]] - Isn’t it wild that we haven’t heard Mark Zuckerberg or Elon Musk talk about their understanding of friendship and community?
 - [[MMSCapitalismA]] - Difference and division are core-components of capitalist thriving 
@@ -218,7 +219,9 @@ show_date_lastchanged_updatedauto: YES, NO, NO
 - [[MMSIcebergDynamics]] - Climate change is only the tip of the iceberg
 - [[MMSIcebergNatureMetaphor]] - A systems graphic for the Iceberg metaphor
 - [[MMSInTheWorks]] - Marbles in the works
+- [[MMSLifeBeforeAgriculturalRevolution]] - Life before the Agricultural Revolution
 - [[MMSLoans]] - The problems around issuing loans (the way banks are allowed to do it)
+- [[MMSMammalWeight-A]] - Visualizing the ratio of wild mammals and enslaved mammals
 - [[MMSMeatStickA]] - A sticker to speak to the innate nature of humans to refrain from causing immense animal suffering 
 - [[MMSMusicStorageA]] - storing playlists and artists visually would help browsing, memory, and create a feeling of realtionship to the collection
 - [[MMSNutritionLabeling]] - Envisioning nutrition in grocery stores and on tech products
@@ -348,7 +351,6 @@ show_date_lastchanged_updatedauto: YES, NO, NO
 - [[TYPES-OF-REST-A]] - The 7 types of rest
 - [[UNLEARNING-A]] - We need to completely rework & unlearn our lives and social systems
 - [[Untitled]] - No Title
-- [[US-INTERVENTIONS-LATIN-AMERICA]] - US Interventions in latin America 
 - [[VEGETABLE-STATS-A]] - No Title
 - [[VISUAL-LISTEN-TINKER-CREATE]] - No Title
 - [[VISUAL-PUBLIC-FUNDING-FOR-PRIVATE-PROFIT]] - The public-private partnership conundrum

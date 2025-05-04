@@ -7,6 +7,8 @@ title: One zine page describing the blockade on Cuba
 ---
 # One zine page describing the blockade on Cuba
 
+#private-marble-keep-from-public 
+
 ![](media/cleanshot_2025-03-16-at-13-08-00@2x.png)*Zine by Sabrina Melendez [1]* 
 
 ----

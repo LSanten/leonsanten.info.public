@@ -7,10 +7,14 @@ title: The flow of power in different economic systems
 ---
 # The flow of power in different economic systems
 
+These simple visuals by Erik Olin Wright have offered important building blocks for understanding the flow of systemic power for me. 
+
+![](media/cleanshot_2024-01-30-at-13-20-28@2x.png)
+
 ![](media/cleanshot_2024-01-30-at-13-22-00@2x.png)
 
 
-![](media/cleanshot_2024-01-30-at-13-20-28@2x.png)
+
 
 ---
 ## More marbles on power
