@@ -4,7 +4,14 @@
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
+RED='\033[0;31m'
 NC='\033[0m' # No Color
+
+# Function to add pauses between operations
+function pause_briefly {
+  sleep 2
+  echo -e "${BLUE}...${NC}"
+}
 
 # Display options to the user
 echo -e "${BLUE}========== Marble Website Deployment Tool ==========${NC}"
@@ -55,21 +62,64 @@ cd /Users/lsanten/Documents/GitHub/LSanten.github.io
 # Activate the virtual environment
 source venv/bin/activate
 
-# Run python scripts to process _mms-md
-python3 python/generate-all-file.py
-python3 python/add-headers.py
-python3 python/add-title-subtitle_frontmatter.py
-python3 python/add-YAML-frontmatter-for-files-without-creation-and-modified-frontmatter.py
-python3 python/first-image-preview-directory-creation-and-downsizing.py
+echo -e "${GREEN}Running Python pre-processing scripts...${NC}"
 
-# Build the Jekyll site
-jekyll build --destination docs
+# Run python scripts to process _mms-md
+echo "Generating ALL file..."
+python3 python/generate-all-file.py
+pause_briefly
+
+echo "Adding headers..."
+python3 python/add-headers.py
+pause_briefly
+
+echo "Adding title and subtitle to frontmatter..."
+python3 python/add-title-subtitle_frontmatter.py
+pause_briefly
+
+echo "Updating YAML frontmatter for files..."
+python3 python/add-YAML-frontmatter-for-files-without-creation-and-modified-frontmatter.py
+pause_briefly
+
+echo "Processing image previews..."
+python3 python/first-image-preview-directory-creation-and-downsizing.py
+pause_briefly
+
+# Clean destination directory first
+echo -e "${GREEN}Cleaning destination directory...${NC}"
+rm -rf docs/*
+pause_briefly
+
+# Build the Jekyll site with verbose output and error tracing
+echo -e "${GREEN}Building Jekyll site with verbose output...${NC}"
+JEKYLL_ENV=production jekyll build --verbose --trace --destination docs
+
+# If Jekyll build fails, provide an option to continue
+if [ $? -ne 0 ]; then
+  echo -e "${RED}Jekyll build encountered errors.${NC}"
+  read -p "Do you want to continue with deployment anyway? (y/N): " CONTINUE_CONFIRM
+  CONTINUE_CONFIRM=$(echo "$CONTINUE_CONFIRM" | tr '[:upper:]' '[:lower:]')
+
+  if [[ "$CONTINUE_CONFIRM" != "y" && "$CONTINUE_CONFIRM" != "yes" ]]; then
+    echo "Aborting deployment due to build errors."
+    deactivate
+    exit 1
+  else
+    echo -e "${YELLOW}Continuing despite build errors...${NC}"
+  fi
+fi
+
+pause_briefly
 
 # Copy manual files into docs
+echo -e "${GREEN}Copying manual files...${NC}"
 cp -r manual_files/* docs/
+pause_briefly
 
 # Add magic symbol to internal links
+echo -e "${GREEN}Adding magic symbols to links...${NC}"
 python3 python/add-magic-symbol.py
+pause_briefly
 
 # Optionally push the site
 if $DO_PUSH; then
