@@ -1,6 +1,9 @@
-
-
-
+---
+date_created: '2025-05-04'
+date_lastchanged: '2025-05-04'
+layout: default
+show_date_lastchanged_updatedauto: YES, NO, NO
+---
 ![](media/cleanshot_2025-05-04-at-13-29-40@2x.png)
 
 "The German-American political philosopher Hannah Arendt argued that intolerable situations such as ours could be cast aside by the public’s revolutionary  withdrawal of support from governing institutions. As a prominent theorist  of totalitarianism, political violence, and direct democracy, Arendt developed  important concepts that help disentangle the problems humanity currently faces  and indicate a way forward.

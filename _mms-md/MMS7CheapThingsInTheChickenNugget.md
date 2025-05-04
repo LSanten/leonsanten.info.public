@@ -4,7 +4,7 @@ date_lastchanged: '2025-04-27'
 layout: default
 show_date_lastchanged_updatedauto: YES, NO, NO
 subtitle: An illustration and info graphic
-title: How the chicken represents our economy perfectly
+title: How the chicken nugget represents our economy perfectly
 ---
 # How the chicken nugget represents our economy perfectly
 ## An illustration and info graphic 

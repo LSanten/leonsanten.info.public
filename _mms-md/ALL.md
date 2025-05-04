@@ -1,6 +1,6 @@
 ---
 date_created: '2024-08-04'
-date_lastchanged: '2025-05-03'
+date_lastchanged: '2025-05-04'
 layout: default
 show_date_lastchanged_updatedauto: YES, NO, NO
 ---
@@ -193,7 +193,7 @@ show_date_lastchanged_updatedauto: YES, NO, NO
 - [[MINING-A]] - No Title
 - [[MIXBASE-DOCUMENTATION]] - No Title
 - [[MMS-POST-IDEAS]] - No Title
-- [[MMS7CheapThingsInTheChickenNugget]] - How the chicken represents our economy perfectly
+- [[MMS7CheapThingsInTheChickenNugget]] - How the chicken nugget represents our economy perfectly
 - [[MMSAtWhoseCostVisual]] - No Title
 - [[MMSBigTechA]] - Isn’t it wild that we haven’t heard Mark Zuckerberg or Elon Musk talk about their understanding of friendship and community?
 - [[MMSCapitalismA]] - Difference and division are core-components of capitalist thriving 
@@ -233,6 +233,7 @@ show_date_lastchanged_updatedauto: YES, NO, NO
 - [[MMSQ-Transdisciplinary-awareness]] - Question to the community: How do you stay aware of people's efforts and insights beyond your own discipline?
 - [[MMSReadToShare]] - Marbles ready to be shared
 - [[MMSSensingA]] - A visual methaphor for the process/phenomenon of sensing our world and feeling the whole reality
+- [[MMSSevenCheapThingsInTheChickenNugget]] - How the chicken represents our economy perfectly
 - [[MMSShiningLightOnTruth]] - The same object of focus shows different truths depending on the state of the observer
 - [[MMSSocialReproductionA]] - Autopoiesis and the re-production of social systems 
 - [[MMSSocialReproductionB]] - What environments aid the emergence of a regenerative future?
@@ -274,6 +275,7 @@ show_date_lastchanged_updatedauto: YES, NO, NO
 - [[POVERTY-OVERVIEW]] - What is poverty?
 - [[POVERTY-STATS-A]] - No Title
 - [[POWER-A]] - Types of power
+- [[POWER-B]] - No Title
 - [[POWER-ECONOMY-A]] - The flow of power in different economic systems
 - [[PRECAUTIONARY-PRINCIPLE-A]] - Precautionary Principle versus Burden of Proof
 - [[PRESENCE-A]] - if we are present in our world and truly feel what is in as and around us, we know what to do and how to transform and change ourselves
