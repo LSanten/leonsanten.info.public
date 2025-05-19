@@ -72,3 +72,7 @@ The evidence on hunter-gatherer lifespans is nuanced:
 [8] Keynes' 1930 essay "Economic Possibilities for our Grandchildren" referenced in multiple sources
 
 [9] Interviews with James Suzman about his book in The Guardian and other publications
+
+---
+
+#work #work-life-balance

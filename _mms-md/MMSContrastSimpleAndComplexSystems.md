@@ -26,3 +26,8 @@ The table below is essentially an archive for my shift in language. You might no
 | problem statement           | aspiration                                    |
 | teaching                    | facilitation / space holding                  |
 | deployment                  | inhabitation                                  |
+
+# Reference from book ""
+![](media/Pasted%20image%2020250512122921.png)
+
+![](media/Pasted%20image%2020250512122958.png)

@@ -12,7 +12,7 @@ title: You don't live in a democracy when every big institution around you is ru
 
 The United States and other Western countries may praise themselves for upholding democratic values, but outside of the political system, most large-scale institutions are hierarchical, with decisions made by a few, lacking any democratic structure. 
 
-I looked at the 22 largest US corporate, financial, educational, healthcare, and media institutions in this research project. While democratic institutions such as cooperatives exist, all of these 22 largest institutions happen to be undemocratic and process $ 9.2 trillion per year. In contrast, the combined US federal and state budgets amounted to $ 8.8 trillion. 
+I looked at the 22 largest US corporate, financial, educational, healthcare, and media institutions in this research project. While democratic institutions such as cooperatives exist, all of these 22 largest institutions happen to be undemocratic and process $9.2 trillion per year. In contrast, the combined US federal and state budgets amounted to $8.8 trillion. 
 
 Remember, that the above money value reflects only the 22 largest institutions, not all institutions in the United States. Even those few ones process more economic value than the state. I share these two numbers to emphasize the stark reality that the social structures surrounding us process significantly more money undemocratically than democratically. This reality in its own is worth contemplating. This kind of power concentration is quite different from a system where each person has an equal say, which is the core of democracy.
 ### Can we claim to live in a democracy when most social structures around us are defined as non-democratic?
@@ -25,7 +25,7 @@ Prestigious universities such as Harvard and Stanford are largely governed by bo
 > Furthermore, Apple’s success is largely based on research that was funded with public money such as voice recognition, GPS, the internet, 5G, micro processors, semiconductors, and plenty more. This clearly shows that public funding has the power to significantly steer innovation. **While Apple benefits from democratically steered funding, the public is granted no access to Apple’s innovative decisions**. 
 
 ### The path toward ecological justice goes through consensual work environments
-I mention all of the above because I see the same essence of disregard of social consensus, cooperation, care, and consent reappearing in the corporate work that has caused climate change. The institutions and systems that have extracted resources from this planet without considering people and the land are not democratic. Capitalism is not democratic. And I do not see any way forward without redefining power relations to build systems that are founded on the intentional consideration of the perspectives of land and people. 
+I mention all of the above because I see the same essence of disregard of social consensus, cooperation, care, and consent reappearing in the corporate work that has caused climate change. The institutions and systems that have extracted resources from this planet without considering people and the land are not democratic. Capitalism is not democratic. And I do not see any way forward without redefining power relations to build systems that are founded on the intentional consideration of the perspectives of land and people (see the design practice [designing with country](DESIGNING-WITH-COUNTRY-A.md)).
 
  >The cause of the crisis is in the injustice, so we need to *transform relationships of power*.
  >
@@ -38,8 +38,12 @@ I mention all of the above because I see the same essence of disregard of social
  >~ Gopal Dayaneni
  
 # The data section
-This section is rather dry but gives you insights into specific flows of money. 
+This section might feel dry but is the heart of this project.
+
+The question: What are the biggest institutions in the US? How much money flows through them, and *are they democratic*?
 ## Amounts of money processed by some of the 22 largest institutions in the US
+
+## Please realize: Not a single institution below is run democratically! 
 
 1. **Corporate**: Major corporations such as Amazon, ExxonMobil, Apple, and Walmart are some of the largest and most influential companies in the U.S. They wield enormous economic power and are structured in ways that prioritize shareholders and executives over worker participation.
 

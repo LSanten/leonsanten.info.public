@@ -3,10 +3,11 @@ date_created: '2025-03-03'
 date_lastchanged: '2025-03-03'
 layout: default
 show_date_lastchanged_updatedauto: YES, NO, NO
-subtitle: Our bodies reacting to the future
 title: A note with research into presentment
 ---
 # A note with research into presentment
+
+#private-marble-keep-from-public 
 ## Our bodies reacting to the future
 *This is just a sketchy note, trying to understand this controversial topic better. I don't claim anything.*
 

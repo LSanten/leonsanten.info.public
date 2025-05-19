@@ -25,6 +25,7 @@ I drew this illustration because I can't stop thinking about this topic. I am on
 
 ### Child Labor in Cobalt Mining in the DRC
 
+- **"Modern Slavery Is a Global Problem in All Renewable Energy Supply Chains: New Report"** ([EcoWatch](https://www.ecowatch.com/slavery-renewable-energy-supply-chains.html#libraryItemId=14569785))
 - **“Apple & Tesla Sued Over Deaths in Cobalt Mines”** ([The Guardian](https://www.theguardian.com/global-development/2019/dec/16/apple-and-google-named-in-us-lawsuit-over-congolese-child-cobalt-mining-deaths))
 - **“How 'modern-day slavery' in the Congo powers the rechargeable battery economy”** ([NPR / Fresh Air](https://www.npr.org/sections/goatsandsoda/2023/02/01/1152893248/red-cobalt-congo-drc-mining-siddharth-kara))
 - **“US Court Dismisses Child Labor Case Against Tech Giants”** ([Reuters](https://www.reuters.com/legal/us-appeals-court-dismisses-child-labor-case-against-tech-companies-2024-03-05/))

@@ -6,22 +6,7 @@ show_date_lastchanged_updatedauto: YES, NO, NO
 title: Living (or Complex) Systems Thinking Resources
 ---
 # Living (or Complex) Systems Thinking Resources
-All pieces below how deeply influenced my thinking with respect to understanding how to create change toward flourishing of all life. Maybe they are also helpful to you. 
-
-## Concepts and Frameworks
-
-- **Iceberg Model for Systems Thinking**  
-  *Climate change is only the tip of the iceberg. This concept helps frame systems thinking beyond surface-level events.*  
-  [Vanasupa & Barabino (2021)](MMSIcebergDynamics.md)
-
-- **Patterns and Properties of Living Systems**  
-  *A comprehensive list of patterns and living systems properties. The last page of this paper contains an extensive list worth exploring.*  
-  [Mark Kroening (2025)](https://socialinnovationsjournal.com/index.php/sij/article/view/9028/7401)
-
-- **Feedback Loops and Causal Loop Diagrams**  
-  *Understanding feedback loops is essential for systems thinking. Mastering causal loop diagrams is a key skill that enhances systemic understanding.*  
-  - Overview of Causal Loops: [Read more](SYSTEMS-THINKING-OVERVIEW-CAUSAL-LOOPS.md)  
-  - Effort and Broken Feedback Loops: [Read more](EFFORT-BROKEN-FEEDBACK.md)
+All pieces below have deeply influenced my action & thinking with respect to creating change toward flourishing of all life. Maybe they are also helpful to you. 
 
 ## Key Theories and Models
 
@@ -44,3 +29,18 @@ All pieces below how deeply influenced my thinking with respect to understanding
   *A crucial list of intervention points to guide systemic transformation.*  
   [Explore the framework](MMSSystemIntervention-A.md)
 
+
+## Concepts and Frameworks
+
+- **Iceberg Model for Systems Thinking**  
+  *Climate change is only the tip of the iceberg. This concept helps frame systems thinking beyond surface-level events.*  
+  [Vanasupa & Barabino (2021)](MMSIcebergDynamics.md)
+
+- **Patterns and Properties of Living Systems**  
+  *A comprehensive list of patterns and living systems properties. The last page of this paper contains an extensive list worth exploring.*  
+  [Mark Kroening (2025)](https://socialinnovationsjournal.com/index.php/sij/article/view/9028/7401)
+
+- **Feedback Loops and Causal Loop Diagrams**  
+  *Understanding feedback loops is essential for systems thinking. Mastering causal loop diagrams is a key skill that enhances systemic understanding.*  
+  - Overview of Causal Loops: [Read more](SYSTEMS-THINKING-OVERVIEW-CAUSAL-LOOPS.md)  
+  - Effort and Broken Feedback Loops: [Read more](EFFORT-BROKEN-FEEDBACK.md)

@@ -37,8 +37,9 @@
   <!-- plugins -->
 
   <link rel="stylesheet" href="../../assets/marble-assets/plugins/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="../../assets/marble-assets/plugins/themify-icons/themify-icons.css">
-    <link rel="stylesheet" href="../../assets/marble-assets/plugins/slick/slick.css">
+  <link rel="stylesheet" href="../../assets/marble-assets/plugins/themify-icons/themify-icons.css">
+  <link rel="stylesheet" href="../../assets/marble-assets/plugins/slick/slick.css">
+  <link rel="stylesheet" href="../../assets/marble-assets/css/marble-preview.css">
 
 
   <!-- Main Stylesheet -->
@@ -93,11 +94,106 @@
   }
   </script>
 
+  <!-- Advanced Image Viewer Styles -->
+  <style>
+    #image-zoom-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.9);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+      cursor: zoom-out;
+      touch-action: none; /* Prevents default touch behaviors for better control */
+    }
 
+    #image-zoom-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
 
+    #image-zoom-img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      transform-origin: center center;
+      transition: transform 0.1s ease-out;
+      cursor: grab;
+      border-radius: 0;
+    }
 
+    #image-zoom-img.grabbing {
+      cursor: grabbing;
+    }
 
+    #image-zoom-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      font-size: 24px;
+      cursor: pointer;
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
 
+    #image-zoom-close:hover {
+      background: rgba(0, 0, 0, 0.8);
+    }
+
+    #zoom-info {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 14px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .content img {
+      cursor: zoom-in;
+    }
+
+    /* Hide zoom info after short time */
+    .fade-out {
+      opacity: 0 !important;
+    }
+
+    /* Mobile optimizations */
+    @media (max-width: 768px) {
+      #image-zoom-img {
+        max-width: 100vw;
+        max-height: 100vh;
+      }
+
+      #image-zoom-close {
+        top: 10px;
+        right: 10px;
+      }
+    }
+  </style>
 
 </head>
 <body>
@@ -230,10 +326,10 @@
         <span class="dots"></span>
 
             <span class="more">
-              <p style="text-decoration: none; border: 2px solid black; padding: 4px 8px; background-color:#daf0ffc2; border-radius: 15px; color: black;">In my world, a marble is a metaphorical container for a note that I want to share and shape with you. It can be a sketchy idea, an insight, a piece of knowledge, or a question that I consider valuable for my life's ongoing dialogue.<br><br>These marbles are never perfect and always a snapshot of a given moment. So, please, feel free to add your perspective at the ⬇️ <a href="#comment-zone">bottom of the page</a>. I try to follow the 🔮 <a href="../MEDIA-MOVEMENT-BUILDING-A/" target="_blank">principles for media movement building</a>.<br><br>
-              Read more about my intentions in 🔮 <a href="../MMSCommuniA/" target="_blank">this marble</a>.
+              <p style="text-decoration: none; border: 2px solid black; padding: 4px 8px; background-color:#daf0ffc2; border-radius: 15px; color: black;">In my world, a marble is a metaphorical container for a note that I want to share and shape with you. It can be a sketchy idea, an insight, a piece of knowledge, or a question that I consider valuable for my life's ongoing dialogue.<br><br>These marbles are never perfect and always a snapshot of a given moment. So, please, feel free to add your perspective at the ⬇️ <a href="#comment-zone">bottom of the page</a>. I try to follow the 🔮 <a href="../MEDIA-MOVEMENT-BUILDING-A/" target="_blank">principles for media movement building</a>.<br><br>
+              Read more about my intentions in 🔮 <a href="../MMSCommuniA/" target="_blank">this marble</a>.
 
-              <!--<br><br>In the past, I didn’t have a way to share ideas or insights with others. This marbles website is the manifestation of my desire to share intentionally with the world. If you want to do it too, let me know. I can help you. -->
+              <!--<br><br>In the past, I didn't have a way to share ideas or insights with others. This marbles website is the manifestation of my desire to share intentionally with the world. If you want to do it too, let me know. I can help you. -->
 </p>
 
             </span>
@@ -397,9 +493,9 @@
 
           <ul class="list-inline footer-list mb-0">
             <li class="list-inline-item">
-              here is my pouch of 🔮 <a href="../MMSHomepage" target="_blank" style="display: inline;">favorite marbles</a>
+              here is my pouch of 🔮 <a href="../MMSHomepage" target="_blank" style="display: inline;">favorite marbles</a>
               <br>
-              here are my 🌍 <a href="../../" target="_blank" style="display: inline;">bio & homepage</a>
+              here are my 🌍 <a href="../../" target="_blank" style="display: inline;">bio & homepage</a>
             </li>
 
 
@@ -414,6 +510,14 @@
   </footer>
 
 
+  <!-- Advanced Image Zoom Viewer HTML -->
+  <div id="image-zoom-overlay">
+    <div id="image-zoom-container">
+      <img id="image-zoom-img" src="" alt="Zoomed image">
+      <button id="image-zoom-close">&times;</button>
+      <div id="zoom-info">Zoom: 100%</div>
+    </div>
+  </div>
 
   <!-- JS Plugins -->
   <script src="../../assets/marble-assets/plugins/jQuery/jquery.min.js"></script>
@@ -498,118 +602,438 @@
 
   // Add active class to the current button (highlight it)
   var btnContainer = document.getElementById("myBtnContainer");
-  var btns = btnContainer.getElementsByClassName("btn");
-  for (var i = 0; i < btns.length; i++) {
-    btns[i].addEventListener("click", function(){
-      var current = document.getElementsByClassName("active");
-      current[0].className = current[0].className.replace(" active", "");
-      this.className += " active";
-    });
+  if (btnContainer) {
+    var btns = btnContainer.getElementsByClassName("btn");
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].addEventListener("click", function(){
+        var current = document.getElementsByClassName("active");
+        current[0].className = current[0].className.replace(" active", "");
+        this.className += " active";
+      });
+    }
   }
   </script>
 
+  <!-- END TAG FILTERS -->
 
+  <!-- Advanced Image Zoom Viewer Script -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Elements
+    const overlay = document.getElementById('image-zoom-overlay');
+    const container = document.getElementById('image-zoom-container');
+    const zoomedImg = document.getElementById('image-zoom-img');
+    const closeBtn = document.getElementById('image-zoom-close');
+    const zoomInfo = document.getElementById('zoom-info');
 
-  <!-- Add this right before the closing </html> tag in your _layouts/default.html file -->
+    // Variables for zoom and pan
+    let currentScale = 1;
+    let translateX = 0;
+    let translateY = 0;
+    let lastX = 0;
+    let lastY = 0;
+    let isDragging = false;
+    let dragStartX = 0;
+    let dragStartY = 0;
+    let dragDistance = 0;
+    const minDragDistance = 5; // Threshold to consider a drag vs. a click
+    let justFinishedDrag = false;
 
-  <!-- Image Viewer HTML -->
-  <div id="image-viewer-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.85); z-index: 9999; justify-content: center; align-items: center; cursor: zoom-out;">
-    <div id="image-viewer-container" style="max-width: 90%; max-height: 90%; position: relative;">
-      <img id="image-viewer-img" style="max-width: 100%; max-height: 90vh; object-fit: contain; display: block; margin: 0 auto; border-radius: 0; box-shadow: 0 5px 15px rgba(0,0,0,0.5);" src="" alt="Enlarged image">
-      <button id="image-viewer-close" style="position: absolute; top: -40px; right: 0; background: transparent; border: none; color: white; font-size: 36px; cursor: pointer;">&times;</button>
-    </div>
-  </div>
+    // Configuration
+    const minScale = 0.5;
+    const maxScale = 5;
+    const zoomFactor = 0.1; // How much to zoom on each wheel event
 
-  <!-- Image Viewer Script -->
-  <script type="text/javascript">
-  // Wait for jQuery to be fully loaded
-  (function() {
-    // Function to initialize the image viewer
-    function initImageViewer() {
-      console.log("Initializing image viewer");
+    // Find all content images
+    const images = document.querySelectorAll('article img');
 
-      // Get all images in the article content
-      var images = document.querySelectorAll('article img');
-      console.log("Found " + images.length + " images with 'article img' selector");
-
-      // If no images found, try a different selector
-      if (images.length === 0) {
-        images = document.querySelectorAll('.content img');
-        console.log("Found " + images.length + " images with '.content img' selector");
+    // Set up image click handlers
+    images.forEach(img => {
+      // Skip small images and icons
+      if (img.width < 100 || img.height < 100 || img.classList.contains('emoji')) {
+        return;
       }
 
-      // If still no images, use all images
-      if (images.length === 0) {
-        images = document.querySelectorAll('img');
-        console.log("Found " + images.length + " images with 'img' selector");
+      img.style.cursor = 'zoom-in';
+      img.addEventListener('click', function(e) {
+        e.preventDefault();
+
+        // Reset state
+        currentScale = 1;
+        translateX = 0;
+        translateY = 0;
+        lastX = 0;
+        lastY = 0;
+        isDragging = false;
+        justFinishedDrag = false;
+        dragDistance = 0;
+
+        // Show image
+        zoomedImg.src = this.src;
+        overlay.style.display = 'flex';
+        zoomedImg.style.transform = 'scale(1) translate(0px, 0px)';
+        document.body.style.overflow = 'hidden'; // Prevent page scrolling
+
+        // Show zoom info
+        zoomInfo.textContent = 'Zoom: 100%';
+        zoomInfo.style.opacity = '1';
+
+        // Hide zoom info after 2 seconds
+        setTimeout(() => {
+          zoomInfo.style.opacity = '0';
+        }, 2000);
+      });
+    });
+
+    // Close when clicking on overlay (only if not dragging)
+    overlay.addEventListener('click', function(e) {
+      if (e.target === overlay && !justFinishedDrag) {
+        closeViewer();
       }
+      justFinishedDrag = false;
+    });
 
-      var overlay = document.getElementById('image-viewer-overlay');
-      var viewerImg = document.getElementById('image-viewer-img');
-      var closeBtn = document.getElementById('image-viewer-close');
-
-      // Make images clickable
-      images.forEach(function(img) {
-        // Skip small icons and logos
-        if (img.classList.contains('icon') || img.width < 100 || img.height < 100) {
-          return;
-        }
-
-        img.style.cursor = 'zoom-in';
-        img.addEventListener('click', function(e) {
-          console.log("Image clicked: " + this.src);
-          e.preventDefault();
-          viewerImg.src = this.src;
-          overlay.style.display = 'flex';
-          document.body.style.overflow = 'hidden'; // Prevent scrolling
-        });
-      });
-
-      // Close when clicking outside image
-      overlay.addEventListener('click', function(e) {
-        if (e.target === overlay) {
-          hideViewer();
-        }
-      });
-
-      // Close button functionality
-      closeBtn.addEventListener('click', hideViewer);
-
-      // Close on ESC key
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-          hideViewer();
-        }
-      });
-
-      function hideViewer() {
-        overlay.style.display = 'none';
-        document.body.style.overflow = ''; // Restore scrolling
+    // Close when clicking the image (only if no zoom and no drag)
+    zoomedImg.addEventListener('click', function(e) {
+      if (currentScale <= 1.05 && !justFinishedDrag) {
+        closeViewer();
       }
+      justFinishedDrag = false;
+    });
 
-      console.log("Image viewer initialization complete");
-    }
+    // Close button
+    closeBtn.addEventListener('click', closeViewer);
 
-    // Try to initialize immediately
-    if (document.readyState === 'complete' || document.readyState === 'interactive') {
-      setTimeout(initImageViewer, 1000); // Slight delay to ensure DOM is fully processed
-    } else {
-      // Wait for DOM to be fully loaded
-      document.addEventListener('DOMContentLoaded', function() {
-        setTimeout(initImageViewer, 1000); // Slight delay to ensure DOM is fully processed
-      });
-    }
-
-    // Backup initialization in case the other methods fail
-    window.addEventListener('load', function() {
-      if (!window.imageViewerInitialized) {
-        console.log("Backup initialization");
-        window.imageViewerInitialized = true;
-        setTimeout(initImageViewer, 1000);
+    // Keyboard close
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && overlay.style.display === 'flex') {
+        closeViewer();
       }
     });
-  })();
-  </script>
 
-  <!-- END TAG FILTERS -->
-</html>
+    // Mouse wheel zoom
+        container.addEventListener('wheel', function(e) {
+          if (overlay.style.display !== 'flex') return;
+
+          e.preventDefault();
+
+          // Calculate zoom center (relative to image)
+          const rect = zoomedImg.getBoundingClientRect();
+          const mouseX = e.clientX - rect.left;
+          const mouseY = e.clientY - rect.top;
+
+          // Calculate zoom direction and amount
+          const delta = -Math.sign(e.deltaY) * zoomFactor;
+          let newScale = currentScale + delta * currentScale;
+
+          // Limit zoom range
+          newScale = Math.min(Math.max(newScale, minScale), maxScale);
+
+          // Update transform origin based on mouse position
+          const originX = mouseX / rect.width;
+          const originY = mouseY / rect.height;
+
+          // Update zoom
+          setZoom(newScale, originX, originY);
+
+          // Show zoom level
+          zoomInfo.textContent = `Zoom: ${Math.round(newScale * 100)}%`;
+          zoomInfo.style.opacity = '1';
+
+          // Hide zoom info after 2 seconds
+          clearTimeout(window.zoomInfoTimeout);
+          window.zoomInfoTimeout = setTimeout(() => {
+            zoomInfo.style.opacity = '0';
+          }, 2000);
+        });
+
+        // Mouse drag
+        zoomedImg.addEventListener('mousedown', function(e) {
+          if (currentScale <= 1) return; // Only enable dragging when zoomed in
+
+          isDragging = true;
+          lastX = e.clientX;
+          lastY = e.clientY;
+          dragStartX = e.clientX;
+          dragStartY = e.clientY;
+          dragDistance = 0;
+          justFinishedDrag = false;
+
+          zoomedImg.classList.add('grabbing');
+          e.preventDefault();
+        });
+
+        document.addEventListener('mousemove', function(e) {
+          if (!isDragging) return;
+
+          const dx = e.clientX - lastX;
+          const dy = e.clientY - lastY;
+
+          // Calculate total drag distance for this operation
+          const totalDragX = e.clientX - dragStartX;
+          const totalDragY = e.clientY - dragStartY;
+          dragDistance = Math.sqrt(totalDragX * totalDragX + totalDragY * totalDragY);
+
+          // Update translation
+          translateX += dx;
+          translateY += dy;
+
+          // Apply transform
+          applyTransform();
+
+          lastX = e.clientX;
+          lastY = e.clientY;
+        });
+
+        document.addEventListener('mouseup', function() {
+          if (!isDragging) return;
+
+          // Check if this was a drag or just a click
+          if (dragDistance > minDragDistance) {
+            justFinishedDrag = true;
+          }
+
+          isDragging = false;
+          zoomedImg.classList.remove('grabbing');
+        });
+
+        // Touch events for mobile
+        let initialDistance = 0;
+        let initialScale = 1;
+        let initialTouchX = 0;
+        let initialTouchY = 0;
+
+        zoomedImg.addEventListener('touchstart', function(e) {
+          if (e.touches.length === 2) {
+            // Pinch-to-zoom
+            const touch1 = e.touches[0];
+            const touch2 = e.touches[1];
+
+            initialDistance = Math.hypot(
+              touch2.clientX - touch1.clientX,
+              touch2.clientY - touch1.clientY
+            );
+
+            initialScale = currentScale;
+            e.preventDefault();
+          } else if (e.touches.length === 1 && currentScale > 1) {
+            // Pan
+            isDragging = true;
+            lastX = e.touches[0].clientX;
+            lastY = e.touches[0].clientY;
+            dragStartX = e.touches[0].clientX;
+            dragStartY = e.touches[0].clientY;
+            dragDistance = 0;
+            justFinishedDrag = false;
+            e.preventDefault();
+          }
+
+          initialTouchX = e.touches[0].clientX;
+          initialTouchY = e.touches[0].clientY;
+        });
+
+        zoomedImg.addEventListener('touchmove', function(e) {
+          if (e.touches.length === 2) {
+            // Pinch-to-zoom
+            const touch1 = e.touches[0];
+            const touch2 = e.touches[1];
+
+            const currentDistance = Math.hypot(
+              touch2.clientX - touch1.clientX,
+              touch2.clientY - touch1.clientY
+            );
+
+            // Calculate new scale
+            const pinchRatio = currentDistance / initialDistance;
+            let newScale = initialScale * pinchRatio;
+
+            // Limit zoom range
+            newScale = Math.min(Math.max(newScale, minScale), maxScale);
+
+            // Calculate midpoint for zoom origin
+            const midX = (touch1.clientX + touch2.clientX) / 2;
+            const midY = (touch1.clientY + touch2.clientY) / 2;
+
+            const rect = zoomedImg.getBoundingClientRect();
+            const originX = (midX - rect.left) / rect.width;
+            const originY = (midY - rect.top) / rect.height;
+
+            // Update zoom
+            setZoom(newScale, originX, originY);
+
+            // Show zoom level
+            zoomInfo.textContent = `Zoom: ${Math.round(newScale * 100)}%`;
+            zoomInfo.style.opacity = '1';
+
+            // Hide zoom info after 2 seconds
+            clearTimeout(window.zoomInfoTimeout);
+            window.zoomInfoTimeout = setTimeout(() => {
+              zoomInfo.style.opacity = '0';
+            }, 2000);
+
+            e.preventDefault();
+          } else if (isDragging && e.touches.length === 1) {
+            // Pan
+            const touchX = e.touches[0].clientX;
+            const touchY = e.touches[0].clientY;
+
+            const dx = touchX - lastX;
+            const dy = touchY - lastY;
+
+            // Calculate total drag distance
+            const totalDragX = touchX - dragStartX;
+            const totalDragY = touchY - dragStartY;
+            dragDistance = Math.sqrt(totalDragX * totalDragX + totalDragY * totalDragY);
+
+            // Update translation
+            translateX += dx;
+            translateY += dy;
+
+            // Apply transform
+            applyTransform();
+
+            lastX = touchX;
+            lastY = touchY;
+
+            e.preventDefault();
+          }
+        });
+
+        zoomedImg.addEventListener('touchend', function(e) {
+          if (isDragging) {
+            // Check if this was a drag or just a tap
+            if (dragDistance > minDragDistance) {
+              justFinishedDrag = true;
+            } else {
+              // Check if it was a single tap on the image with no zoom
+              if (currentScale <= 1.05 && !justFinishedDrag) {
+                closeViewer();
+              }
+            }
+
+            isDragging = false;
+          } else if (e.touches.length === 0 && dragDistance < minDragDistance) {
+            // It was a tap, not a drag
+            const touchEndX = e.changedTouches[0].clientX;
+            const touchEndY = e.changedTouches[0].clientY;
+
+            // Calculate distance from start to end
+            const tapDistance = Math.hypot(
+              touchEndX - initialTouchX,
+              touchEndY - initialTouchY
+            );
+
+            // If tap distance is small and we're not zoomed, close the viewer
+            if (tapDistance < minDragDistance && currentScale <= 1.05) {
+              closeViewer();
+            }
+          }
+        });
+
+        // Helper functions
+        function setZoom(scale, originX, originY) {
+          currentScale = scale;
+
+          // Apply transform with correct origin
+          zoomedImg.style.transformOrigin = `${originX * 100}% ${originY * 100}%`;
+          applyTransform();
+        }
+
+        function applyTransform() {
+          zoomedImg.style.transform = `translate(${translateX}px, ${translateY}px) scale(${currentScale})`;
+        }
+
+        function closeViewer() {
+          overlay.style.display = 'none';
+          document.body.style.overflow = ''; // Restore page scrolling
+
+          // Reset state
+          currentScale = 1;
+          translateX = 0;
+          translateY = 0;
+          zoomedImg.style.transform = 'scale(1) translate(0px, 0px)';
+          justFinishedDrag = false;
+        }
+
+        // Double-click to reset
+        zoomedImg.addEventListener('dblclick', function(e) {
+          e.preventDefault();
+
+          if (currentScale > 1) {
+            // Reset to full view
+            currentScale = 1;
+            translateX = 0;
+            translateY = 0;
+            applyTransform();
+
+            zoomInfo.textContent = 'Zoom: 100%';
+            zoomInfo.style.opacity = '1';
+
+            setTimeout(() => {
+              zoomInfo.style.opacity = '0';
+            }, 2000);
+          } else {
+            // Zoom in
+            const rect = zoomedImg.getBoundingClientRect();
+            const mouseX = e.clientX - rect.left;
+            const mouseY = e.clientY - rect.top;
+
+            const originX = mouseX / rect.width;
+            const originY = mouseY / rect.height;
+
+            setZoom(2, originX, originY);
+
+            zoomInfo.textContent = 'Zoom: 200%';
+            zoomInfo.style.opacity = '1';
+
+            setTimeout(() => {
+              zoomInfo.style.opacity = '0';
+            }, 2000);
+          }
+        });
+
+        // Tap twice (double tap) for mobile
+        let lastTapTime = 0;
+        zoomedImg.addEventListener('touchend', function(e) {
+          const currentTime = new Date().getTime();
+          const tapLength = currentTime - lastTapTime;
+
+          if (tapLength < 300 && tapLength > 0) {
+            // Double tap detected
+            e.preventDefault();
+
+            if (currentScale > 1) {
+              // Reset to full view
+              currentScale = 1;
+              translateX = 0;
+              translateY = 0;
+              applyTransform();
+
+              zoomInfo.textContent = 'Zoom: 100%';
+              zoomInfo.style.opacity = '1';
+            } else {
+              // Zoom in to where user tapped
+              const touch = e.changedTouches[0];
+              const rect = zoomedImg.getBoundingClientRect();
+              const touchX = touch.clientX - rect.left;
+              const touchY = touch.clientY - rect.top;
+
+              const originX = touchX / rect.width;
+              const originY = touchY / rect.height;
+
+              setZoom(2, originX, originY);
+
+              zoomInfo.textContent = 'Zoom: 200%';
+              zoomInfo.style.opacity = '1';
+            }
+
+            setTimeout(() => {
+              zoomInfo.style.opacity = '0';
+            }, 2000);
+          }
+
+          lastTapTime = currentTime;
+        });
+      });
+      </script>
+    </html>

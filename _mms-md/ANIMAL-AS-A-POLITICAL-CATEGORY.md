@@ -30,7 +30,7 @@ title: The "animal" as a political category
 - The chicken nugget is the perfect embodiment of the [seven cheap things under capitalism](MMS7CheapThingsInTheChickenNugget.md).
 - Stats on animal agriculture: [AGRICULTURE-A](AGRICULTURE-A.md).
 - I created this visual for the reading group: [MMSMammalWeight-A](MMSMammalWeight-A.md)
-- [MMSLifeBeforeAgriculturalRevolution](MMSLifeBeforeAgriculturalRevolution.md)
+- [MMSWorkLifeBeforeAgriculturalRevolution](MMSWorkLifeBeforeAgriculturalRevolution.md)
 
 ![](media/MMSMammalWeight-A-04.png)
 ## Points of interest
@@ -58,7 +58,7 @@ title: The "animal" as a political category
 •⁠  ⁠⁠If we care about people in p being treated inhumanely, we may consider that 94 percent of mammals are being treated that way 
 
 **Things i want to mention:**   
-•⁠  ⁠Before the agricultural revolution, we worked as less or as much as we work nowadays. But nowadays, we use animals to work for us and have massive amounts of technology. Where has the progress gone? ([[MMSLifeBeforeAgriculturalRevolution]])
+•⁠  ⁠Before the agricultural revolution, we worked as less or as much as we work nowadays. But nowadays, we use animals to work for us and have massive amounts of technology. Where has the progress gone? ([[MMSWorkLifeBeforeAgriculturalRevolution]])
 •⁠  ⁠⁠If the state didn't prevent disclosure of animal enslavement, we would care differently about it.
 
 

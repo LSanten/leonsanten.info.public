@@ -17,3 +17,8 @@ Because CO2 is invisible and odorless, it is very hard to understand its effects
 ![](media/MMSCO2InCar-3.png)
 
 also related to [[MMSCO2Indoors]]
+
+
+----
+
+#air-quality #CO2

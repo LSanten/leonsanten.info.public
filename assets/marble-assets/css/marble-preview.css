@@ -1,0 +1,150 @@
+/* assets/marble-assets/css/marble-preview.css */
+
+.marble-preview {
+    margin: 2rem 0;
+    background-color: #e9f1fa; /* Restored the blue background */
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.marble-preview:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.marble-preview-inner {
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    align-items: flex-start; /* Ensure top alignment of all content */
+}
+
+/* Image container */
+.marble-preview-image-container {
+    flex: 0 0 auto;
+    width: 40%;
+    max-width: 300px;
+    display: flex;
+    align-items: flex-start; /* Align to the top */
+    justify-content: center;
+    padding: 1.5rem 0 1.5rem 1.5rem; /* Add padding: top right bottom left */
+}
+
+.marble-preview-image {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px; /* Add subtle rounding to the image */
+}
+
+/* Content area */
+.marble-preview-content {
+    flex: 1;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start; /* Ensure content aligns to the top */
+}
+
+/* Title styling */
+.marble-preview-title-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.marble-preview-title {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    color: #303030;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.marble-preview-title:hover {
+    color: #007cbe;
+}
+
+/* Subtitle styling */
+.marble-preview-subtitle {
+    color: #666;
+    font-size: 1.1rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-weight: normal;
+}
+
+/* Text content */
+.marble-preview-text {
+    color: #444;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+/* Timestamp styling */
+.marble-preview-timestamp {
+    margin: 0.25rem 0 0.75rem 0;
+    padding: 0;
+}
+
+.marble-preview-timestamp li {
+    font-size: 0.85rem;
+    color: #96bcdc;
+}
+
+.marble-preview-timestamp i {
+    margin-right: 0.25rem;
+}
+
+/* Read more link */
+.marble-preview-link {
+    color: #4cd964;
+    font-weight: 500;
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-top: auto;
+    align-self: flex-start;
+    padding-bottom: 2px;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.marble-preview-link:hover,
+.marble-preview-link:focus {
+    border-bottom-color: #4cd964;
+}
+
+/* Error message styling */
+.marble-preview-error {
+    padding: 1rem;
+    background-color: #ffeeee;
+    border-left: 4px solid #ff5555;
+    margin: 1rem 0;
+    border-radius: 5px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+    .marble-preview-inner {
+        flex-direction: column;
+    }
+
+    .marble-preview-image-container {
+        width: 100%;
+        max-width: none;
+        padding: 1.5rem 1.5rem 0.5rem 1.5rem; /* Add padding on all sides when stacked */
+    }
+
+    .marble-preview-content {
+        padding: 0.75rem 1.5rem 1.5rem 1.5rem; /* Adjust top padding when stacked */
+    }
+
+    .marble-preview-title {
+        font-size: 1.3rem;
+    }
+}

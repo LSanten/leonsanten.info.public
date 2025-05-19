@@ -79,10 +79,33 @@ module Jekyll
       excerpt = extract_excerpt(marble.content)
       date_created = marble.data['date_created']
 
+      # Format the date to show only month and year if available
+      formatted_date = ""
+      if date_created
+        begin
+          # Try to parse the date and format it as month year
+          if date_created.is_a?(String)
+            # First try to extract just the date part if there's a comma in the string
+            date_parts = date_created.split(',')
+            date_string = date_parts[0].strip
+
+            # Parse the date
+            parsed_date = Date.parse(date_string)
+            formatted_date = parsed_date.strftime("%B %Y")
+          elsif date_created.respond_to?(:strftime)
+            # If it's already a date object
+            formatted_date = date_created.strftime("%B %Y")
+          end
+        rescue
+          # If date parsing fails, use the original string
+          formatted_date = date_created.to_s
+        end
+      end
+
       # Debug output
       Jekyll.logger.info "PreviewProcessor:", "Marble: #{marble_id}, Has Image: #{image_url ? true : false}, Image URL: #{image_url}"
 
-      # Build the HTML with the new layout
+      # Build the HTML with the new layout including timestamp
       html = <<-HTML
       <div class="marble-preview">
         <div class="marble-preview-inner">
@@ -95,13 +118,17 @@ module Jekyll
 
             #{marble.data['subtitle'] ? "<h4 class='marble-preview-subtitle'>#{marble.data['subtitle']}</h4>" : ""}
 
+            #{formatted_date.empty? ? "" : "<ul class='card-meta list-inline marble-preview-timestamp'>
+              <li class='list-inline-item'>
+                <i class='ti-calendar'></i> #{formatted_date}
+              </li>
+            </ul>"}
+
             <div class="marble-preview-text">
               <p>#{excerpt}</p>
             </div>
 
-            #{date_created ? "<span class='marble-preview-date'>#{date_created}</span>" : ""}
-
-            <a href="#{marble_link}" class="marble-preview-link">READ MORE</a>
+            <a href="#{marble_link}" class="marble-preview-link">Read more</a>
           </div>
         </div>
       </div>

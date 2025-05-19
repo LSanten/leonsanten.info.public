@@ -1,6 +1,6 @@
 ---
 date_created: '2024-08-04'
-date_lastchanged: '2025-05-04'
+date_lastchanged: '2025-05-19'
 layout: default
 show_date_lastchanged_updatedauto: YES, NO, NO
 ---
@@ -219,13 +219,13 @@ show_date_lastchanged_updatedauto: YES, NO, NO
 - [[MMSIcebergDynamics]] - Climate change is only the tip of the iceberg
 - [[MMSIcebergNatureMetaphor]] - A systems graphic for the Iceberg metaphor
 - [[MMSInTheWorks]] - Marbles in the works
-- [[MMSLifeBeforeAgriculturalRevolution]] - Life before the Agricultural Revolution
 - [[MMSLoans]] - The problems around issuing loans (the way banks are allowed to do it)
 - [[MMSMammalWeight-A]] - Visualizing the ratio of wild mammals and enslaved mammals
 - [[MMSMeatStickA]] - A sticker to speak to the innate nature of humans to refrain from causing immense animal suffering 
 - [[MMSMusicStorageA]] - storing playlists and artists visually would help browsing, memory, and create a feeling of realtionship to the collection
 - [[MMSNutritionLabeling]] - Envisioning nutrition in grocery stores and on tech products
 - [[MMSOlinSystemsBuilding]] - Examples suitable for visualizing Olin's network
+- [[MMSPanFryingWithNoFumeHood]] - Pan frying without a fume hood is very unhealthy. Even in a large kitchen.
 - [[MMSPhenomenaOfComplexSystems]] - What are the universal phenomena of living systems?
 - [[MMSPhilOfSciA]] - Building blocks for my philosophy of science
 - [[MMSPlantMetaphorDetails]] - Plant metaphors: A framework to visualize organizations for systems thinking 
@@ -245,8 +245,9 @@ show_date_lastchanged_updatedauto: YES, NO, NO
 - [[MMSTuningIntoSeparation]] - Notice how we justify killing
 - [[MMSWasteA]] - Quotes and insights around E-Waste
 - [[MMSWhiteSupremacy-A]] - A list of characteristics typical for white supremacist environments
+- [[MMSWorkLifeBeforeAgriculturalRevolution]] - Life before the Agricultural Revolution
 - [[NATEL-ENERGY-FISH-SAFE-STUDIES]] - My environmental science work with Natel Energy
-- [[NATEL-ENERGY-MEDIA]] - The of a fish safety scientist at natel energy
+- [[NATEL-ENERGY-MEDIA]] - The life of a fish safety scientist at natel energy
 - [[NATURE-PARADIGMS]] - Paradigms that show up in nature 
 - [[NEED-A]] - No Title
 - [[New-fun-thing]] - Hello bello
@@ -291,6 +292,7 @@ show_date_lastchanged_updatedauto: YES, NO, NO
 - [[QUOTES-CREATION-PEACE]] - No Title
 - [[QUOTES-GENERAL-COLLECTION]] - A collection of quotes that inspire me
 - [[QUOTES-INJUSTICE-SILENCE]] - Quotes related to staying silent during times of injustice 
+- [[QUOTES-LABOR]] - Quotes on labor, becoming wealthy, and working hard
 - [[QUOTES-LIFE-IS-NOT-LINEAR]] - Quotes related to the non-linearity of life
 - [[QUOTES-MECHANISTIC-REDUCTION]] - Quotes related to making life mechanistic 
 - [[QUOTES-NONVIOLENCE-AND-FORCE]] - Is using force against violent forces violent?
@@ -304,7 +306,6 @@ show_date_lastchanged_updatedauto: YES, NO, NO
 - [[REPAIR-A]] - The connection between repairing consumer devices and human relationships
 - [[REPAIR-B]] - Right to repair - main things
 - [[REPAIR-E-BIKE-A]] - No Title
-- [[RESEARCH-PRESENTMENT-A]] - A note with research into presentment
 - [[REST-ACTIVITY-POLARITY-MAP]] - The interplay between rest and activity 
 - [[RESTAURANT-CRIT-A]] - "Can I take that bread from you? Can you please leave it until the end of my stay"
 - [[RESTAURANT-IDEA-A]] - Mountain of Roti and Staples like whole fruits in the room
@@ -329,6 +330,7 @@ show_date_lastchanged_updatedauto: YES, NO, NO
 - [[SPIRIT-TRANSFORMATION]] - spiritual transformation 
 - [[SPIRIT-WORK-A]] - The relationship between working with oneself and working together
 - [[ST-HL-A]] - We need different stories as healers
+- [[STICK-WARNING-DONT-RUN]] - Sticker: Warning: Do not run or move hectically in this space
 - [[STREAMING-COMMUNITY-PLATF]] - Streaming platform for music that shows you map of local artists around you
 - [[SURVIVAL-OF-THE-FRIENDLIEST]] - Survival of the friendlist
 - [[SURVIVAL-OF-THE-NURTURED]] - No Title
@@ -354,6 +356,7 @@ show_date_lastchanged_updatedauto: YES, NO, NO
 - [[UNLEARNING-A]] - We need to completely rework & unlearn our lives and social systems
 - [[Untitled]] - No Title
 - [[VEGETABLE-STATS-A]] - No Title
+- [[VIDEOS-SENSEMAKING-A]] - Videos that help to make sense of our times
 - [[VISUAL-LISTEN-TINKER-CREATE]] - No Title
 - [[VISUAL-PUBLIC-FUNDING-FOR-PRIVATE-PROFIT]] - The public-private partnership conundrum
 - [[VISUAL-WORK-DAY-A]] - A sketchy collection of visuals regarding patterns of work and coercion 
