@@ -3,9 +3,14 @@ date_created: '2024-08-15'
 date_lastchanged: '2024-09-20'
 layout: default
 show_date_lastchanged_updatedauto: YES, NO, NO
-title: The of a fish safety scientist at natel energy
+title: The life of a fish safety scientist at natel energy
 ---
-# The of a fish safety scientist at natel energy
+# The life of a fish safety scientist at natel energy
+
+![](media/cleanshot_2024-08-25-at-14-49-46@2x.png)
+
+![](media/20240726-DSC03623.jpg)
+
 ![](media/20240729-DJI_0745.jpg)
 
 ![](media/2024_Leon_whitesturgeon_retrieval.gif)
@@ -18,8 +23,7 @@ title: The of a fish safety scientist at natel energy
 
 ![](media/20240813-DSC04420.jpg)
 
-![](media/20240726-DSC03623.jpg)
+
 
 ![](media/20240726-DSC03629.jpg)
 
-![](media/cleanshot_2024-08-25-at-14-49-46@2x.png)

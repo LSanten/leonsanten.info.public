@@ -2,7 +2,7 @@
 
 module Jekyll
   class PreviewProcessor < Jekyll::Generator
-    priority :normal  # Changed from high to normal to run after other generators
+    priority :normal  # Normal priority to run after other generators
 
     def generate(site)
       @site = site
@@ -62,45 +62,47 @@ module Jekyll
       # Extract data from the marble
       title = marble.data['title'] || "Untitled Marble"
 
-      # IMPORTANT CHANGE: Check for images in frontmatter
-      has_image = false
-      image_html = ""
-
+      # Get the image from frontmatter
+      image_url = nil
       if marble.data['images'] && marble.data['images'].first
-        # Use the image from the 'images' frontmatter set by extract_first_image plugin
         image_url = marble.data['images'].first
-        has_image = true
-        image_html = "<div class='marble-preview-image-container'><img src='#{image_url}' alt='#{title}' class='marble-preview-image'></div>"
       else
         # Fallback to extracting an image directly from content
         image_match = extract_first_image(marble.content)
-        if image_match
-          has_image = true
-          image_html = "<div class='marble-preview-image-container'><img src='#{image_match}' alt='#{title}' class='marble-preview-image'></div>"
-        end
+        image_url = image_match if image_match
       end
 
-      # Debug output
-      Jekyll.logger.info "PreviewProcessor:", "Marble: #{marble_id}, Has Image: #{has_image}, Image URL: #{marble.data['images']&.first}"
+      # Get marble ID (for the link)
+      marble_link = "../#{marble_id}/"
 
+      # Extract excerpt and date
       excerpt = extract_excerpt(marble.content)
       date_created = marble.data['date_created']
 
-      # Build the HTML
+      # Debug output
+      Jekyll.logger.info "PreviewProcessor:", "Marble: #{marble_id}, Has Image: #{image_url ? true : false}, Image URL: #{image_url}"
+
+      # Build the HTML with the new layout
       html = <<-HTML
       <div class="marble-preview">
-        <div class="marble-preview-content">
-          <h3 class="marble-preview-title">#{title}</h3>
+        <div class="marble-preview-inner">
+          #{image_url ? "<div class='marble-preview-image-container'><img src='#{image_url}' alt='#{title}' class='marble-preview-image'></div>" : ""}
 
-          #{image_html}
+          <div class="marble-preview-content">
+            <a href="#{marble_link}" class="marble-preview-title-link">
+              <h3 class="marble-preview-title">#{title}</h3>
+            </a>
 
-          <div class="marble-preview-text">
-            <p>#{excerpt}</p>
+            #{marble.data['subtitle'] ? "<h4 class='marble-preview-subtitle'>#{marble.data['subtitle']}</h4>" : ""}
+
+            <div class="marble-preview-text">
+              <p>#{excerpt}</p>
+            </div>
+
+            #{date_created ? "<span class='marble-preview-date'>#{date_created}</span>" : ""}
+
+            <a href="#{marble_link}" class="marble-preview-link">READ MORE</a>
           </div>
-
-          #{date_created ? "<span class='marble-preview-date'>#{date_created}</span>" : ""}
-
-          <a href="../#{marble_id}/" class="marble-preview-link">Read more</a>
         </div>
       </div>
       HTML
