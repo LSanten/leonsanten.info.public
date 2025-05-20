@@ -35,6 +35,8 @@ Inline: $E=mc^2$
 
 
 [preview](ROOTS-OF-RENEWABLES.md)
+
+[preview](MMSEconomicDemocracy.md)
 [preview](A-two-day-weekend-thats-enough-for-me-AppleTV.md)
 
 [preview](NATEL-ENERGY-FISH-SAFE-STUDIES.md)
