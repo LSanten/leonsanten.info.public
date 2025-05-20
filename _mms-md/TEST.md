@@ -31,6 +31,9 @@ $$ V_z = \max(R_p \times P_z, R_a \times A_z)$$
 Inline: $E=mc^2$
 
 
+![](media/cleanshot_2024-08-25-at-14-49-46@2x.png)
+
+
 [preview](ROOTS-OF-RENEWABLES.md)
 [preview](A-two-day-weekend-thats-enough-for-me-AppleTV.md)
 
