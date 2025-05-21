@@ -39,32 +39,37 @@ if [[ "$PUSH_CONFIRM" == "p" ]]; then
   # Create a timestamp commit message
   COMMIT_MSG="Push-only: $(date '+%Y-%m-%d %H:%M:%S')"
 
+  # First, check the branch name and remote URL
+  CURRENT_BRANCH=$(git branch --show-current)
+  REMOTE_URL=$(git remote get-url origin)
+
+  echo "Current branch: $CURRENT_BRANCH"
+  echo "Remote URL: $REMOTE_URL"
+
+  # If remote URL is HTTPS, update it to SSH
+  if [[ $REMOTE_URL == https://* ]]; then
+    echo "Changing remote URL from HTTPS to SSH..."
+    git remote set-url origin git@github.com:LSanten/leonsanten.info.public.git
+    REMOTE_URL=$(git remote get-url origin)
+    echo "New remote URL: $REMOTE_URL"
+  fi
+
   echo "Checking status..."
   git status
 
-  echo "Staging all changes (this may take a moment)..."
+  echo "Staging all changes at once..."
+  git add -A
 
-  # Stage in batches for better performance and feedback
-  echo "Stage 1/5: Staging HTML files..."
-  git add "*.html" || echo "No HTML files to stage"
+  # See if there's anything to commit
+  if git diff --staged --quiet; then
+    echo "No changes to commit."
+  else
+    echo "Committing with message: '$COMMIT_MSG'"
+    git commit -m "$COMMIT_MSG"
 
-  echo "Stage 2/5: Staging CSS and JavaScript files..."
-  git add "*.css" "*.js" || echo "No CSS or JS files to stage"
-
-  echo "Stage 3/5: Staging Markdown and text files..."
-  git add "*.md" "*.txt" || echo "No Markdown or text files to stage"
-
-  echo "Stage 4/5: Staging images..."
-  git add "*.jpg" "*.png" "*.gif" "*.svg" || echo "No image files to stage"
-
-  echo "Stage 5/5: Staging all remaining files..."
-  git add -A || echo "No remaining files to stage"
-
-  echo "Committing with message: '$COMMIT_MSG'"
-  git commit -m "$COMMIT_MSG"
-
-  echo "Pushing with SSH..."
-  GIT_SSH_COMMAND="ssh -i $SSH_KEY" git push origin main
+    echo "Pushing with SSH to branch $CURRENT_BRANCH..."
+    GIT_SSH_COMMAND="ssh -i $SSH_KEY" git push origin $CURRENT_BRANCH
+  fi
 
   echo "✅ Push-only operation complete!"
   exit 0
@@ -153,32 +158,37 @@ if $DO_PUSH; then
   # Create a timestamp commit message
   COMMIT_MSG="Auto-commit: $(date '+%Y-%m-%d %H:%M:%S')"
 
+  # First, check the branch name and remote URL
+  CURRENT_BRANCH=$(git branch --show-current)
+  REMOTE_URL=$(git remote get-url origin)
+
+  echo "Current branch: $CURRENT_BRANCH"
+  echo "Remote URL: $REMOTE_URL"
+
+  # If remote URL is HTTPS, update it to SSH
+  if [[ $REMOTE_URL == https://* ]]; then
+    echo "Changing remote URL from HTTPS to SSH..."
+    git remote set-url origin git@github.com:LSanten/leonsanten.info.public.git
+    REMOTE_URL=$(git remote get-url origin)
+    echo "New remote URL: $REMOTE_URL"
+  fi
+
   echo "Checking status..."
   git status
 
-  echo "Staging changes in batches (for better performance)..."
+  echo "Staging all changes at once..."
+  git add -A
 
-  # Stage in batches for better performance and feedback
-  echo "Stage 1/5: Staging HTML files..."
-  git add "*.html" || echo "No HTML files to stage"
+  # See if there's anything to commit
+  if git diff --staged --quiet; then
+    echo "No changes to commit."
+  else
+    echo "Committing with message: '$COMMIT_MSG'"
+    git commit -m "$COMMIT_MSG"
 
-  echo "Stage 2/5: Staging CSS and JavaScript files..."
-  git add "*.css" "*.js" || echo "No CSS or JS files to stage"
-
-  echo "Stage 3/5: Staging Markdown and text files..."
-  git add "*.md" "*.txt" || echo "No Markdown or text files to stage"
-
-  echo "Stage 4/5: Staging images..."
-  git add "*.jpg" "*.png" "*.gif" "*.svg" || echo "No image files to stage"
-
-  echo "Stage 5/5: Staging all remaining files..."
-  git add -A || echo "No remaining files to stage"
-
-  echo "Committing with message: '$COMMIT_MSG'"
-  git commit -m "$COMMIT_MSG"
-
-  echo "Pushing with SSH..."
-  GIT_SSH_COMMAND="ssh -i $SSH_KEY" git push origin main
+    echo "Pushing with SSH to branch $CURRENT_BRANCH..."
+    GIT_SSH_COMMAND="ssh -i $SSH_KEY" git push origin $CURRENT_BRANCH
+  fi
 
   echo "✅ Deployment complete!"
 else
