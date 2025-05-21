@@ -3,10 +3,12 @@ date_created: '2024-11-26'
 date_lastchanged: '2024-11-28'
 layout: default
 show_date_lastchanged_updatedauto: YES, NO, NO
+subtitle: An essay and research project
 title: You don't live in a democracy when every big institution around you is run
   like a dictatorship
 ---
 # You don't live in a democracy when every big institution around you is run like a dictatorship
+## An essay and research project
 
 *This is a draft for an eye-opening process regarding the scale of democratic to undemocratic forces around us. Parts of the research is supported by ChatGPT who can access data from Statista that I can’t access.*
 
