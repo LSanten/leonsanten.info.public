@@ -35,16 +35,37 @@ if [[ "$PUSH_CONFIRM" == "p" ]]; then
 
   # Set SSH key path
   SSH_KEY="/Users/lsanten/Documents/GitHub/LSanten.github.io/keys/deployment_into_public_website"
+
   # Create a timestamp commit message
   COMMIT_MSG="Push-only: $(date '+%Y-%m-%d %H:%M:%S')"
+
   echo "Checking status..."
   git status
-  echo "Staging all changes..."
-  git add .
+
+  echo "Staging all changes (this may take a moment)..."
+
+  # Stage in batches for better performance and feedback
+  echo "Stage 1/5: Staging HTML files..."
+  git add "*.html" || echo "No HTML files to stage"
+
+  echo "Stage 2/5: Staging CSS and JavaScript files..."
+  git add "*.css" "*.js" || echo "No CSS or JS files to stage"
+
+  echo "Stage 3/5: Staging Markdown and text files..."
+  git add "*.md" "*.txt" || echo "No Markdown or text files to stage"
+
+  echo "Stage 4/5: Staging images..."
+  git add "*.jpg" "*.png" "*.gif" "*.svg" || echo "No image files to stage"
+
+  echo "Stage 5/5: Staging all remaining files..."
+  git add -A || echo "No remaining files to stage"
+
   echo "Committing with message: '$COMMIT_MSG'"
   git commit -m "$COMMIT_MSG"
-  echo "Pushing with deployment SSH key..."
+
+  echo "Pushing with SSH..."
   GIT_SSH_COMMAND="ssh -i $SSH_KEY" git push origin main
+
   echo "✅ Push-only operation complete!"
   exit 0
 fi
@@ -86,27 +107,9 @@ echo "Processing image previews..."
 python3 python/first-image-preview-directory-creation-and-downsizing.py
 pause_briefly
 
-# Save Git metadata from docs directory
-echo -e "${GREEN}Preserving Git metadata...${NC}"
-mkdir -p temp_git_backup
-if [ -f "docs/.git" ]; then
-  # Backup the .git file
-  cp docs/.git temp_git_backup/
-else
-  echo -e "${YELLOW}Warning: No .git file found in docs. Submodule might need repair.${NC}"
-  # Try to repair the submodule
-  git submodule update --init --recursive
-  if [ -f "docs/.git" ]; then
-    cp docs/.git temp_git_backup/
-    echo "Submodule repaired successfully."
-  else
-    echo -e "${RED}Failed to repair submodule. Continuing anyway...${NC}"
-  fi
-fi
-
-# Clean docs directory carefully - preserving .git if it exists
-echo -e "${GREEN}Cleaning docs directory...${NC}"
-find docs -mindepth 1 -not -path "docs/.git" -delete 2>/dev/null
+# Clean destination directory first (preserve .git)
+echo -e "${GREEN}Cleaning destination directory...${NC}"
+find docs -mindepth 1 -not -path "docs/.git*" -delete 2>/dev/null || echo "Warning: Error cleaning docs directory"
 pause_briefly
 
 # Build the Jekyll site with verbose output and error tracing
@@ -121,11 +124,6 @@ if [ $? -ne 0 ]; then
 
   if [[ "$CONTINUE_CONFIRM" != "y" && "$CONTINUE_CONFIRM" != "yes" ]]; then
     echo "Aborting deployment due to build errors."
-    # Restore Git metadata if backup exists
-    if [ -f "temp_git_backup/.git" ]; then
-      cp temp_git_backup/.git docs/
-    fi
-    rm -rf temp_git_backup
     deactivate
     exit 1
   else
@@ -145,28 +143,43 @@ echo -e "${GREEN}Adding magic symbols to links...${NC}"
 python3 python/add-magic-symbol.py
 pause_briefly
 
-# Restore Git metadata if backup exists
-if [ -f "temp_git_backup/.git" ]; then
-  echo -e "${GREEN}Restoring Git metadata...${NC}"
-  cp temp_git_backup/.git docs/
-fi
-rm -rf temp_git_backup
-
 # Optionally push the site
 if $DO_PUSH; then
   cd /Users/lsanten/Documents/GitHub/LSanten.github.io/docs
+
   # Set SSH key path
   SSH_KEY="/Users/lsanten/Documents/GitHub/LSanten.github.io/keys/deployment_into_public_website"
+
   # Create a timestamp commit message
   COMMIT_MSG="Auto-commit: $(date '+%Y-%m-%d %H:%M:%S')"
+
   echo "Checking status..."
   git status
-  echo "Staging all changes..."
-  git add .
+
+  echo "Staging changes in batches (for better performance)..."
+
+  # Stage in batches for better performance and feedback
+  echo "Stage 1/5: Staging HTML files..."
+  git add "*.html" || echo "No HTML files to stage"
+
+  echo "Stage 2/5: Staging CSS and JavaScript files..."
+  git add "*.css" "*.js" || echo "No CSS or JS files to stage"
+
+  echo "Stage 3/5: Staging Markdown and text files..."
+  git add "*.md" "*.txt" || echo "No Markdown or text files to stage"
+
+  echo "Stage 4/5: Staging images..."
+  git add "*.jpg" "*.png" "*.gif" "*.svg" || echo "No image files to stage"
+
+  echo "Stage 5/5: Staging all remaining files..."
+  git add -A || echo "No remaining files to stage"
+
   echo "Committing with message: '$COMMIT_MSG'"
   git commit -m "$COMMIT_MSG"
-  echo "Pushing with deployment SSH key..."
+
+  echo "Pushing with SSH..."
   GIT_SSH_COMMAND="ssh -i $SSH_KEY" git push origin main
+
   echo "✅ Deployment complete!"
 else
   echo "ℹ️  Skipping push as requested."
