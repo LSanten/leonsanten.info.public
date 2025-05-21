@@ -1,23 +1,22 @@
 # _plugins/preview_converter.rb
-
 module Jekyll
   class PreviewConverter < Converter
-    priority :high  # Process early, before markdown conversion
-    
+    priority :high
+
     def matches(ext)
       ext =~ /^\.(md|markdown)$/i
     end
-    
+
     def output_ext(ext)
-      ext  # Keep the same extension
+      ext
     end
-    
+
     def convert(content)
-      # Replace [preview](file.md) with a special marker that won't be processed by markdown
+      # Replace [preview](file.md) with a Jekyll include tag
       content.gsub(/\[preview\]\(([^)]+)\)/) do |match|
         path = $1
         marble_id = File.basename(path, '.*')
-        "<!-- MARBLE_PREVIEW_MARKER:#{marble_id} -->"
+        "{% include marble-preview.html marble_id='#{marble_id}' %}"
       end
     end
   end
