@@ -20,11 +20,65 @@ echo -e "  ${GREEN}[Enter]${NC} - Build only, no push"
 echo -e "  ${GREEN}y/Y${NC} - Build and push changes"
 echo -e "  ${GREEN}n/N${NC} - Build only, no push (same as Enter)"
 echo -e "  ${GREEN}p/P${NC} - Push-only mode (no rebuild, just push changes)"
+echo -e "  ${GREEN}f/F${NC} - Force push mode (overwrite remote changes)"
 echo -e "${BLUE}=================================================${NC}"
 
 # Ask at the very beginning whether to push
-read -p "Do you want to push changes after building the website? (y/N/p): " PUSH_CONFIRM
+read -p "Do you want to push changes after building the website? (y/N/p/f): " PUSH_CONFIRM
 PUSH_CONFIRM=$(echo "$PUSH_CONFIRM" | tr '[:upper:]' '[:lower:]') # Normalize input
+
+# Handle force push mode
+if [[ "$PUSH_CONFIRM" == "f" ]]; then
+  echo -e "${RED}Force push mode selected. This will OVERWRITE remote changes!${NC}"
+  read -p "Are you absolutely sure? This cannot be undone! (yes/no): " FORCE_CONFIRM
+  FORCE_CONFIRM=$(echo "$FORCE_CONFIRM" | tr '[:upper:]' '[:lower:]')
+
+  if [[ "$FORCE_CONFIRM" != "yes" ]]; then
+    echo "Force push canceled."
+    exit 0
+  fi
+
+  # Go directly to pushing changes
+  cd /Users/lsanten/Documents/GitHub/LSanten.github.io/docs
+
+  # Create a timestamp commit message
+  COMMIT_MSG="Force push: $(date '+%Y-%m-%d %H:%M:%S')"
+
+  # First, check the branch name and remote URL
+  CURRENT_BRANCH=$(git branch --show-current)
+  REMOTE_URL=$(git remote get-url origin)
+
+  echo "Current branch: $CURRENT_BRANCH"
+  echo "Remote URL: $REMOTE_URL"
+
+  # If remote URL is not using the github-deploy host, update it
+  if [[ $REMOTE_URL != git@github-deploy:* ]]; then
+    echo "Updating remote URL to use SSH config..."
+    git remote set-url origin git@github-deploy:LSanten/leonsanten.info.public.git
+    REMOTE_URL=$(git remote get-url origin)
+    echo "New remote URL: $REMOTE_URL"
+  fi
+
+  echo "Checking status..."
+  git status
+
+  echo "Staging all changes at once..."
+  git add -A
+
+  # See if there's anything to commit
+  if git diff --staged --quiet; then
+    echo "No changes to commit."
+  else
+    echo "Committing with message: '$COMMIT_MSG'"
+    git commit -m "$COMMIT_MSG"
+
+    echo "Force pushing to branch $CURRENT_BRANCH (overwriting remote changes)..."
+    git push -f origin $CURRENT_BRANCH
+  fi
+
+  echo "✅ Force push operation complete!"
+  exit 0
+fi
 
 # Handle push-only mode
 if [[ "$PUSH_CONFIRM" == "p" ]]; then
@@ -50,6 +104,13 @@ if [[ "$PUSH_CONFIRM" == "p" ]]; then
     REMOTE_URL=$(git remote get-url origin)
     echo "New remote URL: $REMOTE_URL"
   fi
+
+  # Fetch and pull changes from remote
+  echo "Fetching remote changes..."
+  git fetch origin
+
+  echo "Pulling latest changes from remote..."
+  git pull origin $CURRENT_BRANCH --rebase
 
   echo "Checking status..."
   git status
@@ -85,6 +146,14 @@ cd /Users/lsanten/Documents/GitHub/LSanten.github.io
 
 # Activate the virtual environment
 source venv/bin/activate
+
+# Update docs repository first to avoid conflict later
+echo -e "${GREEN}Fetching latest changes from public repository...${NC}"
+cd docs
+git fetch origin
+git pull origin main --rebase
+cd ..
+pause_briefly
 
 echo -e "${GREEN}Running Python pre-processing scripts...${NC}"
 
@@ -166,6 +235,13 @@ if $DO_PUSH; then
     REMOTE_URL=$(git remote get-url origin)
     echo "New remote URL: $REMOTE_URL"
   fi
+
+  # Fetch and pull changes from remote
+  echo "Fetching remote changes..."
+  git fetch origin
+
+  echo "Pulling latest changes from remote..."
+  git pull origin $CURRENT_BRANCH --rebase
 
   echo "Checking status..."
   git status
