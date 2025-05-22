@@ -147,13 +147,15 @@ cd /Users/lsanten/Documents/GitHub/LSanten.github.io
 # Activate the virtual environment
 source venv/bin/activate
 
-# Update docs repository first to avoid conflict later
-echo -e "${GREEN}Fetching latest changes from public repository...${NC}"
-cd docs
-git fetch origin
-git pull origin main --rebase
-cd ..
-pause_briefly
+# Only update docs repository if we're going to push later
+if $DO_PUSH; then
+  echo -e "${GREEN}Fetching latest changes from public repository...${NC}"
+  cd docs
+  git fetch origin
+  git pull origin main --rebase
+  cd ..
+  pause_briefly
+fi
 
 echo -e "${GREEN}Running Python pre-processing scripts...${NC}"
 

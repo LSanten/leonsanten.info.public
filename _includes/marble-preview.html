@@ -1,33 +1,33 @@
 <div class="marble-preview">
   <div class="marble-preview-inner">
-    {% if image_url %}
+    {% if include.image_url %}
     <div class='marble-preview-image-container'>
-      <img src='{{ image_url }}' alt='{{ title }}' class='marble-preview-image'>
+      <img src='{{ include.image_url }}' alt='{{ include.title }}' class='marble-preview-image'>
     </div>
     {% endif %}
 
     <div class="marble-preview-content">
-      <a href="{{ marble_link }}" class="marble-preview-title-link">
-        <h3 class="marble-preview-title">{{ title }}</h3>
+      <a href="{{ include.marble_link }}" class="marble-preview-title-link">
+        <h3 class="marble-preview-title">{{ include.title }}</h3>
       </a>
 
-      {% if subtitle %}
-      <h4 class='marble-preview-subtitle'>{{ subtitle }}</h4>
+      {% if include.subtitle %}
+      <h4 class='marble-preview-subtitle'>{{ include.subtitle }}</h4>
       {% endif %}
 
-      {% if date_created != "" %}
+      {% if include.date_created != "" %}
       <ul class='card-meta list-inline marble-preview-timestamp'>
         <li class='list-inline-item'>
-          <i class='ti-calendar'></i> {{ date_created }}
+          <i class='ti-calendar'></i> {{ include.date_created }}
         </li>
       </ul>
       {% endif %}
 
       <div class="marble-preview-text">
-        <p>{{ excerpt }}</p>
+        <p>{{ include.excerpt }}</p>
       </div>
 
-      <a href="{{ marble_link }}" class="marble-preview-link">Read more</a>
+      <a href="{{ include.marble_link }}" class="marble-preview-link">Read more</a>
     </div>
   </div>
 </div>
