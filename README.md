@@ -33,16 +33,71 @@
 
 
 
+## Marble Reference Syntax Grammar
 
-## Marble Reference Syntax
+### Basic Structure
+```
+[<template_name>[:<parameter>=<value>[:<parameter>=<value>...]][ - <description>]](<file>.md)
+```
 
-You can reference other marbles in various ways using these standard markdown link patterns:
+### Components
 
-### Basic Reference Types
+**1. Template Name (Required)**
+- First element after opening bracket
+- Defines which HTML include file to use
+- Maps to `_includes/marble-preview-{template_name}.html`
+- Examples: `preview`, `slip`, `card`, `compact`, `full`, `illustration`
 
-| Reference Format | Description |
-|------------------|-------------|
-| `[preview](MarbleID.md)` | Shows a condensed preview with title, excerpt, and first image |
-| `[embed](MarbleID.md)` | Inserts content body without title/metadata |
-| `[include](MarbleID.md)` | Inserts the complete marble with all elements |
-| `[quote](MarbleID.md)` | Extracts a specific section to quote |
+**2. Parameters (Optional)**
+- Format: `parameter=value`
+- Separated by colons `:`
+- Order doesn't matter
+- Common parameters:
+  - `length=<number>` - excerpt length in characters
+  - `style=<string>` - additional styling modifier
+  - `image=<boolean>` - show/hide image (true/false)
+
+**3. Description Separator (Optional)**
+- Single dash with optional spaces: ` - `, `-`, `- `, or ` -`
+- Spaces before and after the dash don't matter
+- Everything after separator becomes custom description
+- If present, overrides default title
+
+**4. File Reference (Required)**
+- Standard markdown link format
+- Must end with `.md`
+- Extracts marble ID from filename
+
+### Valid Examples
+
+```markdown
+<!-- Basic template only -->
+[preview](MARBLE-ID.md)
+[slip](MARBLE-ID.md)
+
+<!-- Template with parameters -->
+[preview:length=150](MARBLE-ID.md)
+[slip:length=100:image=false](MARBLE-ID.md)
+[card:style=minimal:length=200](MARBLE-ID.md)
+
+<!-- With descriptions (flexible spacing around dash) -->
+[preview - Custom title](MARBLE-ID.md)
+[slip:length=100- Illustration: Roots of Renewables](MARBLE-ID.md)
+[card:length=150 -Quick note about toxic CO2](MARBLE-ID.md)
+[full:image=true  -  Quotes: being silent during times of injustice](MARBLE-ID.md)
+
+<!-- Complex example -->
+[illustration:length=250:style=bordered - A detailed look at renewable energy systems](RENEWABLE-SYSTEMS.md)
+```
+
+### Parsing Logic
+1. Extract template name (everything before first `:` or ` -` or `](`)
+2. Parse parameters between template and description separator
+3. Extract description after ` - ` (if present)
+4. Extract marble ID from file path
+
+### Template File Mapping
+- `preview` → `_includes/marble-preview.html` (default template)
+- `slip` → `_includes/marble-preview-slip.html`
+- `card` → `_includes/marble-preview-card.html`
+- `{custom}` → `_includes/marble-preview-{custom}.html`
