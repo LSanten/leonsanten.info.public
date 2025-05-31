@@ -20,7 +20,7 @@
     display: flex;
     flex-direction: row;
     padding: 0;
-    align-items: flex-start; /* Ensure top alignment of all content */
+    align-items: flex-start;
 }
 
 /* Image container */
@@ -29,9 +29,9 @@
     width: 40%;
     max-width: 300px;
     display: flex;
-    align-items: flex-start; /* Align to the top */
+    align-items: flex-start;
     justify-content: center;
-    padding: 1.5rem 0 1.5rem 1.5rem; /* Add padding: top right bottom left */
+    padding: 1.5rem 0 1.5rem 1.5rem;
 }
 
 .marble-preview-image {
@@ -40,7 +40,7 @@
     width: auto;
     height: auto;
     object-fit: contain;
-    border-radius: 8px; /* Add subtle rounding to the image */
+    border-radius: 8px;
 }
 
 /* Content area */
@@ -49,7 +49,7 @@
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
-    align-self: flex-start; /* Ensure content aligns to the top */
+    align-self: flex-start;
 }
 
 /* Title styling */
@@ -101,23 +101,29 @@
     margin-right: 0.25rem;
 }
 
-/* Read more link */
+/* Read more link - simple button design with thin border */
 .marble-preview-link {
+    position: relative;
+    display: inline-block;
     color: #9d2fd2;
     font-weight: 500;
     text-decoration: none;
     font-size: 0.9rem;
     margin-top: auto;
     align-self: flex-start;
-    padding-bottom: 2px;
-    border-bottom: 2px solid transparent;
-    transition: border-color 0.3s ease;
+    padding: 8px 16px;
+    border: 1px solid #9d2fd2; /* Reduced from 2px to 1px */
+    border-radius: 25px;
+    background: transparent;
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 .marble-preview-link:hover,
 .marble-preview-link:focus {
-    border-bottom-color: #f4c4f5;
-    color: #f4c4f5;
+    color: #fff;
+    background: #9d2fd2;
+    box-shadow: 0px 4px 8px rgba(157, 47, 210, 0.3);
 }
 
 /* Error message styling */
@@ -138,11 +144,11 @@
     .marble-preview-image-container {
         width: 100%;
         max-width: none;
-        padding: 1.5rem 1.5rem 0.5rem 1.5rem; /* Add padding on all sides when stacked */
+        padding: 1.5rem 1.5rem 0.5rem 1.5rem;
     }
 
     .marble-preview-content {
-        padding: 0.75rem 1.5rem 1.5rem 1.5rem; /* Adjust top padding when stacked */
+        padding: 0.75rem 1.5rem 1.5rem 1.5rem;
     }
 
     .marble-preview-title {

@@ -180,10 +180,6 @@ echo "Processing image previews..."
 python3 python/first-image-preview-directory-creation-and-downsizing.py
 pause_briefly
 
-# Clean destination directory first (preserve .git)
-echo -e "${GREEN}Cleaning destination directory...${NC}"
-find docs -mindepth 1 -not -path "docs/.git*" -delete 2>/dev/null || echo "Warning: Error cleaning docs directory"
-pause_briefly
 
 # Build the Jekyll site with verbose output and error tracing
 echo -e "${GREEN}Building Jekyll site with verbose output...${NC}"
