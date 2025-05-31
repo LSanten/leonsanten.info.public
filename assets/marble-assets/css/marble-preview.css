@@ -2,7 +2,7 @@
 
 .marble-preview {
     margin: 2rem 0;
-    background-color: #e9f1fa; /* Restored the blue background */
+    background-color: #fafcff;
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
@@ -103,7 +103,7 @@
 
 /* Read more link */
 .marble-preview-link {
-    color: #4cd964;
+    color: #9d2fd2;
     font-weight: 500;
     text-decoration: none;
     font-size: 0.9rem;
@@ -116,7 +116,8 @@
 
 .marble-preview-link:hover,
 .marble-preview-link:focus {
-    border-bottom-color: #4cd964;
+    border-bottom-color: #f4c4f5;
+    color: #f4c4f5;
 }
 
 /* Error message styling */
