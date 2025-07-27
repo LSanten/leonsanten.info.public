@@ -382,7 +382,7 @@
             
               
               
-                <span class="marble-date">Last updated on May 24, 2025</span>
+                <span class="marble-date">Last updated on July 26, 2025</span>
               
             
           
@@ -395,7 +395,7 @@
 
 <div class="collapsible-section level-2" data-section-id="section_9b2d2e44" data-storage-key="collapsible_marbles_MMSHomepage__section_9b2d2e44">
   <h2 class="collapsible-header" onclick="toggleSection('section_9b2d2e44')" onkeypress="if(event.key==='Enter'||event.key===' ')toggleSection('section_9b2d2e44')" tabindex="0" role="button" aria-expanded="false" aria-controls="content_section_9b2d2e44">
-    <span class="collapse-indicator" aria-hidden="true">▶</span>
+    <span class="collapse-indicator " aria-hidden="true"></span>
     <span>Some recent marbles close to my heart</span>
   </h2>
   <div class="collapsible-content" id="content_section_9b2d2e44" style="display: none;">
@@ -794,7 +794,7 @@
 </div></div>
 <div class="collapsible-section level-2" data-section-id="section_5bda4598" data-storage-key="collapsible_marbles_MMSHomepage__section_5bda4598">
   <h2 class="collapsible-header" onclick="toggleSection('section_5bda4598')" onkeypress="if(event.key==='Enter'||event.key===' ')toggleSection('section_5bda4598')" tabindex="0" role="button" aria-expanded="false" aria-controls="content_section_5bda4598">
-    <span class="collapse-indicator" aria-hidden="true">▶</span>
+    <span class="collapse-indicator " aria-hidden="true"></span>
     <span>Marbles on living systems thinking</span>
   </h2>
   <div class="collapsible-content" id="content_section_5bda4598" style="display: none;">
@@ -931,7 +931,7 @@
 </div></div>
 <div class="collapsible-section level-2" data-section-id="section_9dc4becb" data-storage-key="collapsible_marbles_MMSHomepage__section_9dc4becb">
   <h2 class="collapsible-header" onclick="toggleSection('section_9dc4becb')" onkeypress="if(event.key==='Enter'||event.key===' ')toggleSection('section_9dc4becb')" tabindex="0" role="button" aria-expanded="false" aria-controls="content_section_9dc4becb">
-    <span class="collapse-indicator" aria-hidden="true">▶</span>
+    <span class="collapse-indicator " aria-hidden="true"></span>
     <span>Music related marbles</span>
   </h2>
   <div class="collapsible-content" id="content_section_9dc4becb" style="display: none;">
@@ -1753,9 +1753,18 @@
   }
 
   .collapse-indicator {
-    font-size: 0.8em;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 8px solid currentColor;
     transition: transform 0.2s ease;
     display: inline-block;
+    transform: rotate(-90deg);
+  }
+
+  .collapse-indicator.expanded {
+    transform: rotate(0deg);
   }
 
   .collapsible-content {
@@ -1791,7 +1800,7 @@
 
     // Toggle state
     content.style.display = isExpanded ? 'none' : 'block';
-    indicator.textContent = isExpanded ? '▶' : '▼';
+    indicator.classList.toggle('expanded');
     header.setAttribute('aria-expanded', !isExpanded);
 
     // Save state to localStorage
@@ -1816,7 +1825,11 @@
         if (savedState !== null) {
           const shouldExpand = savedState === 'true';
           content.style.display = shouldExpand ? 'block' : 'none';
-          indicator.textContent = shouldExpand ? '▼' : '▶';
+          if (shouldExpand) {
+            indicator.classList.add('expanded');
+          } else {
+            indicator.classList.remove('expanded');
+          }
           header.setAttribute('aria-expanded', shouldExpand);
         }
       } catch (e) {

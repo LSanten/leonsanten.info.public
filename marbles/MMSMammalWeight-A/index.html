@@ -399,7 +399,7 @@
 
 <div class="collapsible-section level-3" data-section-id="section_69ce5550" data-storage-key="collapsible_marbles_MMSMammalWeight-A__section_69ce5550">
   <h3 class="collapsible-header" onclick="toggleSection('section_69ce5550')" onkeypress="if(event.key==='Enter'||event.key===' ')toggleSection('section_69ce5550')" tabindex="0" role="button" aria-expanded="false" aria-controls="content_section_69ce5550">
-    <span class="collapse-indicator" aria-hidden="true">▶</span>
+    <span class="collapse-indicator " aria-hidden="true"></span>
     <span>Series of graphics for animation</span>
   </h3>
   <div class="collapsible-content" id="content_section_69ce5550" style="display: none;">
@@ -413,7 +413,7 @@
 
 <div class="collapsible-section level-4" data-section-id="section_d47bc92a" data-storage-key="collapsible_marbles_MMSMammalWeight-A__section_d47bc92a">
   <h4 class="collapsible-header" onclick="toggleSection('section_d47bc92a')" onkeypress="if(event.key==='Enter'||event.key===' ')toggleSection('section_d47bc92a')" tabindex="0" role="button" aria-expanded="false" aria-controls="content_section_d47bc92a">
-    <span class="collapse-indicator" aria-hidden="true">▶</span>
+    <span class="collapse-indicator " aria-hidden="true"></span>
     <span>Video animation link</span>
   </h4>
   <div class="collapsible-content" id="content_section_d47bc92a" style="display: none;">
@@ -1093,9 +1093,18 @@ Bar-On et al. (2018)</p>
   }
 
   .collapse-indicator {
-    font-size: 0.8em;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 8px solid currentColor;
     transition: transform 0.2s ease;
     display: inline-block;
+    transform: rotate(-90deg);
+  }
+
+  .collapse-indicator.expanded {
+    transform: rotate(0deg);
   }
 
   .collapsible-content {
@@ -1131,7 +1140,7 @@ Bar-On et al. (2018)</p>
 
     // Toggle state
     content.style.display = isExpanded ? 'none' : 'block';
-    indicator.textContent = isExpanded ? '▶' : '▼';
+    indicator.classList.toggle('expanded');
     header.setAttribute('aria-expanded', !isExpanded);
 
     // Save state to localStorage
@@ -1156,7 +1165,11 @@ Bar-On et al. (2018)</p>
         if (savedState !== null) {
           const shouldExpand = savedState === 'true';
           content.style.display = shouldExpand ? 'block' : 'none';
-          indicator.textContent = shouldExpand ? '▼' : '▶';
+          if (shouldExpand) {
+            indicator.classList.add('expanded');
+          } else {
+            indicator.classList.remove('expanded');
+          }
           header.setAttribute('aria-expanded', shouldExpand);
         }
       } catch (e) {
