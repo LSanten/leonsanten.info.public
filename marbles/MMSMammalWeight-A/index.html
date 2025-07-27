@@ -388,17 +388,22 @@
 <p>This visual was inspired by an old collection of stats on 🔮 <a href="../AGRICULTURE-A/">animal agriculture</a>. I think the visual speaks for itself. I learned along the process that I should always add paper references to visuals that are turned into stickers.</p>
 
 <h1 id="sticker-version">Sticker version</h1>
+
 <p><img src="../media/MMSMammalWeight-A_with_paper-texture-07.png" alt=""></p>
 
-<h2 id="alone-standing">Alone standing</h2>
+<h2 id="alone-standing-graphics">Alone standing graphics</h2>
 <p><img src="../media/MMSMammalWeight-A_with_paper-texture-08.png" alt=""></p>
 
-<h2 id="gif">Gif</h2>
+<h2 id="animation">Animation</h2>
 <p><img src="../media/MMSWeightM-1.gif" alt=""></p>
-<h2 id="video-animation-link">Video animation link</h2>
-<p><a href="https://share.icloud.com/photos/0415a85X4NR6KfnPUJL4PhxrA" target="_blank">https://share.icloud.com/photos/0415a85X4NR6KfnPUJL4PhxrA</a></p>
 
-<h2 id="series">Series</h2>
+<div class="collapsible-section level-3" data-section-id="section_69ce5550" data-storage-key="collapsible_marbles_MMSMammalWeight-A__section_69ce5550">
+  <h3 class="collapsible-header" onclick="toggleSection('section_69ce5550')" onkeypress="if(event.key==='Enter'||event.key===' ')toggleSection('section_69ce5550')" tabindex="0" role="button" aria-expanded="false" aria-controls="content_section_69ce5550">
+    <span class="collapse-indicator" aria-hidden="true">▶</span>
+    <span>Series of graphics for animation</span>
+  </h3>
+  <div class="collapsible-content" id="content_section_69ce5550" style="display: none;">
+
 
 <p><img src="../media/MMSMammalWeight-A-01.png" alt=""></p>
 
@@ -406,6 +411,17 @@
 
 <p><img src="../media/MMSMammalWeight-A-03.png" alt=""></p>
 
+<div class="collapsible-section level-4" data-section-id="section_d47bc92a" data-storage-key="collapsible_marbles_MMSMammalWeight-A__section_d47bc92a">
+  <h4 class="collapsible-header" onclick="toggleSection('section_d47bc92a')" onkeypress="if(event.key==='Enter'||event.key===' ')toggleSection('section_d47bc92a')" tabindex="0" role="button" aria-expanded="false" aria-controls="content_section_d47bc92a">
+    <span class="collapse-indicator" aria-hidden="true">▶</span>
+    <span>Video animation link</span>
+  </h4>
+  <div class="collapsible-content" id="content_section_d47bc92a" style="display: none;">
+
+<p><a href="https://share.icloud.com/photos/0415a85X4NR6KfnPUJL4PhxrA" target="_blank">https://share.icloud.com/photos/0415a85X4NR6KfnPUJL4PhxrA</a></p>
+
+</div></div>
+</div></div>
 <h2 id="reference">Reference</h2>
 
 <ul>
@@ -520,8 +536,8 @@ Bar-On et al. (2018)</p>
           <ul class="list-inline footer-list mb-0">
             <li class="list-inline-item">
               here is my pouch of 🔮 <a href="../MMSHomepage" target="_blank" style="display: inline;">favorite marbles</a>
-              <br>
-              here are my 🌍 <a href="../../" target="_blank" style="display: inline;">bio & homepage</a>
+              <!--<br>
+              here are my 🌍 <a href="../../" target="_blank" style="display: inline;">bio & homepage</a>-->
             </li>
 
 
@@ -1063,3 +1079,89 @@ Bar-On et al. (2018)</p>
       });
       </script>
     </html>
+<style>
+  .collapsible-header {
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .collapsible-header:hover {
+    opacity: 0.8;
+  }
+
+  .collapse-indicator {
+    font-size: 0.8em;
+    transition: transform 0.2s ease;
+    display: inline-block;
+  }
+
+  .collapsible-content {
+    border-left: 2px solid #e0e0e0;
+    padding-left: 1rem;
+    margin-left: 0.5rem;
+    transition: all 0.3s ease;
+  }
+
+  /* Nested sections get additional offset */
+  .collapsible-content .collapsible-section {
+    margin-left: 0.5rem;
+  }
+
+  .collapsible-content .collapsible-content {
+    border-left-color: #d0d0d0;
+  }
+
+  .collapsible-content .collapsible-content .collapsible-content {
+    border-left-color: #c0c0c0;
+  }
+</style>
+
+<script>
+  function toggleSection(sectionId) {
+    const section = document.querySelector(`[data-section-id="${sectionId}"]`);
+    const header = section.querySelector('.collapsible-header');
+    const content = document.getElementById(`content_${sectionId}`);
+    const indicator = header.querySelector('.collapse-indicator');
+    const storageKey = section.dataset.storageKey;
+
+    const isExpanded = content.style.display !== 'none';
+
+    // Toggle state
+    content.style.display = isExpanded ? 'none' : 'block';
+    indicator.textContent = isExpanded ? '▶' : '▼';
+    header.setAttribute('aria-expanded', !isExpanded);
+
+    // Save state to localStorage
+    try {
+      localStorage.setItem(storageKey, !isExpanded);
+    } catch (e) {
+      console.warn('Could not save collapse state:', e);
+    }
+  }
+
+  // Restore saved states on page load
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.collapsible-section').forEach(section => {
+      const sectionId = section.dataset.sectionId;
+      const storageKey = section.dataset.storageKey;
+      const content = document.getElementById(`content_${sectionId}`);
+      const header = section.querySelector('.collapsible-header');
+      const indicator = header.querySelector('.collapse-indicator');
+
+      try {
+        const savedState = localStorage.getItem(storageKey);
+        if (savedState !== null) {
+          const shouldExpand = savedState === 'true';
+          content.style.display = shouldExpand ? 'block' : 'none';
+          indicator.textContent = shouldExpand ? '▼' : '▶';
+          header.setAttribute('aria-expanded', shouldExpand);
+        }
+      } catch (e) {
+        console.warn('Could not restore collapse state:', e);
+      }
+    });
+  });
+</script>
