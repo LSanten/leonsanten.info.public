@@ -396,7 +396,14 @@
 
 <p><img src="../media/D1072884-073D-4492-83B6-EA7846565EF0_1_105_c.jpeg" alt=""></p>
 
-<h2 id="set-list">Set list</h2>
+
+<div class="collapsible-section level-2" data-section-id="section_0f19208c" data-storage-key="collapsible_marbles_EYT-SET-LakeMerritt-March13-2025__section_0f19208c">
+  <h2 class="collapsible-header" onclick="toggleSection('section_0f19208c')" onkeypress="if(event.key==='Enter'||event.key===' ')toggleSection('section_0f19208c')" tabindex="0" role="button" aria-expanded="false" aria-controls="content_section_0f19208c">
+    <span class="collapse-indicator " aria-hidden="true"></span>
+    <span>Set list</span>
+  </h2>
+  <div class="collapsible-content" id="content_section_0f19208c" style="display: none;">
+
 
 <p><img src="../media/IMG_5955.jpeg" alt=""></p>
 
@@ -406,25 +413,227 @@
 
 <p><img src="../media/IMG_5958.jpeg" alt=""></p>
 
-<p><img src="../media/IMG_5959.jpeg" alt=""></p>
+<p><img src="../media/IMG_5959.jpeg" alt="">
+</div></div></p>
 
 
           <hr>
 
+              <!-- Replace your existing FastComments section with this code -->
+              <center>
+                  <p id="comment-zone">~ •• • •• ~</p>
+                  <h3>Does something bubble up for you?<br>Pin your ideas or thoughts here 📌</h3>
+                  <h4>No sign up required. Just provide your email.</h4>
+                  <br>
+              </center>
 
-            <center><p id="comment-zone">~ •• • •• ~</p><h3>Does something bubble up for you?<br>Pin your ideas or thoughts here 📌</h3><h4>Anyone can interact here. This is my little communication experiment.<br>I'd love to hear from you!</h4><br></center>
+              <!-- Toggle button (hidden by default) -->
+              <center>
+                  <button id="comment-toggle-btn" class="comment-toggle-button" style="display: none;">
+                      💬 I want to add a fast comment
+                  </button>
+              </center>
 
+              <!-- Loading indicator -->
+              <div id="comments-loading" class="comments-loading">Loading comments...</div>
 
-            <script src="https://cdn.fastcomments.com/js/embed-v2.min.js"></script>
-            <div id="fastcomments-widget"></div>
-            <script>
-              FastCommentsUI(document.getElementById('fastcomments-widget'), {
-                tenantId: "dI13cVRENXn",
-                urlId: "EYT-SET-LakeMerritt-March13-2025" // Uses your unique marble ID for comments
+              <!-- Comment container wrapper -->
+              <div id="comment-container" class="comment-container hidden">
+                  <div id="fastcomments-widget"></div>
+              </div>
 
-              });
-            </script>
+              <style>
+                  /* Custom styles for the toggle button */
+                  .comment-toggle-button {
+                      display: inline-block;
+                      margin: 20px auto;
+                      padding: 12px 24px;
+                      background-color: #333;
+                      color: white;
+                      border: none;
+                      border-radius: 7px;
+                      font-size: 16px;
+                      font-weight: 500;
+                      cursor: pointer;
+                      transition: background-color 0.3s ease;
+                      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+                  }
 
+                  .comment-toggle-button:hover {
+                      background-color: #555;
+                  }
+
+                  /* Container for the comment area */
+                  .comment-container {
+                      transition: opacity 0.3s ease, max-height 0.3s ease;
+                      overflow: hidden;
+                  }
+
+                  .comment-container.hidden {
+                      max-height: 0;
+                      opacity: 0;
+                      pointer-events: none;
+                  }
+
+                  .comment-container.visible {
+                      max-height: none;
+                      opacity: 1;
+                      pointer-events: auto;
+                  }
+
+                  /* Loading state */
+                  .comments-loading {
+                      text-align: center;
+                      padding: 20px;
+                      color: #666;
+                      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+                  }
+
+                  /* Ensure FastComments widget takes full width when visible */
+                  #fastcomments-widget {
+                      width: 100%;
+                  }
+              </style>
+
+              <script src="https://cdn.fastcomments.com/js/embed-v2.min.js"></script>
+              <script>
+                  (function() {
+                      let fastCommentsInstance = null;
+                      let isWidgetVisible = false;
+                      let checkInterval = null;
+                      let checkAttempts = 0;
+                      const maxCheckAttempts = 10;
+
+                      // Function to check if there are any comments
+                      function checkForComments() {
+                          const widget = document.getElementById('fastcomments-widget');
+                          if (!widget) return false;
+
+                          // Check for various indicators of comments
+                          const commentsList = widget.querySelector('.comments');
+                          const commentElements = widget.querySelectorAll('.comment');
+                          const noCommentsMessage = widget.querySelector('.no-comments');
+                          const commentCount = widget.querySelector('.comment-count');
+
+                          // If there's a comment count element, parse it
+                          if (commentCount && commentCount.textContent) {
+                              const count = parseInt(commentCount.textContent);
+                              if (count > 0) return true;
+                          }
+
+                          // If there are comment elements, we have comments
+                          if (commentElements && commentElements.length > 0) {
+                              return true;
+                          }
+
+                          // If there's a "no comments" message, we don't have comments
+                          if (noCommentsMessage) {
+                              return false;
+                          }
+
+                          // Default to false if we can't determine
+                          return false;
+                      }
+
+                      // Function to initialize the widget visibility
+                      function initializeWidgetVisibility() {
+                          const toggleBtn = document.getElementById('comment-toggle-btn');
+                          const container = document.getElementById('comment-container');
+                          const loadingDiv = document.getElementById('comments-loading');
+
+                          // Check if there are comments
+                          const hasComments = checkForComments();
+
+                          checkAttempts++;
+
+                          // If we've checked enough times or found comments, finalize the state
+                          if (hasComments || checkAttempts >= maxCheckAttempts) {
+                              // Clear the interval
+                              if (checkInterval) {
+                                  clearInterval(checkInterval);
+                                  checkInterval = null;
+                              }
+
+                              // Hide loading indicator
+                              loadingDiv.style.display = 'none';
+
+                              if (hasComments) {
+                                  // Show widget if there are comments
+                                  container.classList.remove('hidden');
+                                  container.classList.add('visible');
+                                  toggleBtn.style.display = 'none';
+                                  isWidgetVisible = true;
+                              } else {
+                                  // Hide widget and show button if no comments
+                                  container.classList.add('hidden');
+                                  container.classList.remove('visible');
+                                  toggleBtn.style.display = 'inline-block';
+                                  isWidgetVisible = false;
+                              }
+                          }
+                      }
+
+                      // Function to toggle widget visibility
+                      function toggleWidget() {
+                          const container = document.getElementById('comment-container');
+                          const toggleBtn = document.getElementById('comment-toggle-btn');
+
+                          if (isWidgetVisible) {
+                              container.classList.add('hidden');
+                              container.classList.remove('visible');
+                              toggleBtn.textContent = '💬 I want to add a fast comment';
+                          } else {
+                              container.classList.remove('hidden');
+                              container.classList.add('visible');
+                              toggleBtn.textContent = '🔽 Hide comments';
+                          }
+
+                          isWidgetVisible = !isWidgetVisible;
+                      }
+
+                      // Initialize FastComments
+                      fastCommentsInstance = FastCommentsUI(document.getElementById('fastcomments-widget'), {
+                          tenantId: "dI13cVRENXn",
+                          urlId: "EYT-SET-LakeMerritt-March13-2025" // Uses your unique marble ID for comments
+                      });
+
+                      // Start checking for comments periodically
+                      checkInterval = setInterval(initializeWidgetVisibility, 500);
+
+                      // Also check immediately
+                      setTimeout(initializeWidgetVisibility, 100);
+
+                      // Set up mutation observer to watch for new comments
+                      const observer = new MutationObserver(function(mutations) {
+                          // Only react if we're currently hidden and detect new comments
+                          if (!isWidgetVisible) {
+                              const hasComments = checkForComments();
+                              const toggleBtn = document.getElementById('comment-toggle-btn');
+                              const container = document.getElementById('comment-container');
+
+                              if (hasComments) {
+                                  // Automatically show widget when first comment is added
+                                  container.classList.remove('hidden');
+                                  container.classList.add('visible');
+                                  toggleBtn.style.display = 'none';
+                                  isWidgetVisible = true;
+                              }
+                          }
+                      });
+
+                      // Start observing the widget for changes
+                      const widget = document.getElementById('fastcomments-widget');
+                      if (widget) {
+                          observer.observe(widget, {
+                              childList: true,
+                              subtree: true
+                          });
+                      }
+
+                      // Add click event to toggle button
+                      document.getElementById('comment-toggle-btn').addEventListener('click', toggleWidget);
+                  })();
+              </script>
             
             
 
@@ -1038,3 +1247,102 @@
       });
       </script>
     </html>
+<style>
+  .collapsible-header {
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .collapsible-header:hover {
+    opacity: 0.8;
+  }
+
+  .collapse-indicator {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 8px solid currentColor;
+    transition: transform 0.2s ease;
+    display: inline-block;
+    transform: rotate(-90deg);
+  }
+
+  .collapse-indicator.expanded {
+    transform: rotate(0deg);
+  }
+
+  .collapsible-content {
+    border-left: 2px solid #e0e0e0;
+    padding-left: 1rem;
+    margin-left: 0.5rem;
+    transition: all 0.3s ease;
+  }
+
+  /* Nested sections get additional offset */
+  .collapsible-content .collapsible-section {
+    margin-left: 0.5rem;
+  }
+
+  .collapsible-content .collapsible-content {
+    border-left-color: #d0d0d0;
+  }
+
+  .collapsible-content .collapsible-content .collapsible-content {
+    border-left-color: #c0c0c0;
+  }
+</style>
+
+<script>
+  function toggleSection(sectionId) {
+    const section = document.querySelector(`[data-section-id="${sectionId}"]`);
+    const header = section.querySelector('.collapsible-header');
+    const content = document.getElementById(`content_${sectionId}`);
+    const indicator = header.querySelector('.collapse-indicator');
+    const storageKey = section.dataset.storageKey;
+
+    const isExpanded = content.style.display !== 'none';
+
+    // Toggle state
+    content.style.display = isExpanded ? 'none' : 'block';
+    indicator.classList.toggle('expanded');
+    header.setAttribute('aria-expanded', !isExpanded);
+
+    // Save state to localStorage
+    try {
+      localStorage.setItem(storageKey, !isExpanded);
+    } catch (e) {
+      console.warn('Could not save collapse state:', e);
+    }
+  }
+
+  // Restore saved states on page load
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.collapsible-section').forEach(section => {
+      const sectionId = section.dataset.sectionId;
+      const storageKey = section.dataset.storageKey;
+      const content = document.getElementById(`content_${sectionId}`);
+      const header = section.querySelector('.collapsible-header');
+      const indicator = header.querySelector('.collapse-indicator');
+
+      try {
+        const savedState = localStorage.getItem(storageKey);
+        if (savedState !== null) {
+          const shouldExpand = savedState === 'true';
+          content.style.display = shouldExpand ? 'block' : 'none';
+          if (shouldExpand) {
+            indicator.classList.add('expanded');
+          } else {
+            indicator.classList.remove('expanded');
+          }
+          header.setAttribute('aria-expanded', shouldExpand);
+        }
+      } catch (e) {
+        console.warn('Could not restore collapse state:', e);
+      }
+    });
+  });
+</script>
