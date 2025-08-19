@@ -1,3 +1,6 @@
+# ENHANCED IMAGE PREVIEW SCRIPT WITH CHANGE DETECTION
+# This replaces: python/first-image-preview-directory-creation-and-downsizing.py
+
 import os
 import re
 import json
@@ -17,6 +20,7 @@ SIZE_LIMIT = 1_000_000  # Size limit in bytes (1 MB)
 MARKDOWN_FOLDER_PATH = os.path.join(BASE_DIR, MARKDOWN_FOLDER)
 THUMBNAIL_FOLDER_PATH = os.path.join(BASE_DIR, THUMBNAIL_FOLDER)
 OUTPUT_FILE = os.path.join(THUMBNAIL_FOLDER_PATH, "image_mapping.json")
+TRACKING_FILE = os.path.join(THUMBNAIL_FOLDER_PATH, "image_tracking.json")  # NEW: Track current mappings
 
 # Global counter for skipped files
 skipped_count = 0
@@ -28,7 +32,7 @@ def extract_first_image(markdown_file):
     matches = re.findall(r'!\[.*?\]\((.*?)\)', content)  # Regex for image links
     return matches[0] if matches else None
 
-# Function to resize images (NEW FUNCTION)
+# Function to resize images (UNCHANGED - keeping your working logic)
 def resize_image(input_path, output_path, size_limit=SIZE_LIMIT):
     """
     Resize the image to fit within the size limit while preserving aspect ratio.
@@ -70,10 +74,55 @@ def resize_image(input_path, output_path, size_limit=SIZE_LIMIT):
         # Raise an exception if unable to resize within the limit
         raise Exception(f"Unable to resize {input_path} below {size_limit / 1_000_000:.1f} MB.")
 
-# Function to create the image mapping
-# Function to create the image mapping
+# NEW: Load previous tracking data
+def load_previous_tracking():
+    """Load the previous mapping of markdown files to their first images."""
+    if os.path.exists(TRACKING_FILE):
+        try:
+            with open(TRACKING_FILE, 'r') as f:
+                return json.load(f)
+        except (json.JSONDecodeError, IOError):
+            print("Warning: Could not load previous tracking file. Starting fresh.")
+    return {}
+
+# NEW: Save current tracking data
+def save_current_tracking(current_tracking):
+    """Save the current mapping of markdown files to their first images."""
+    try:
+        with open(TRACKING_FILE, 'w') as f:
+            json.dump(current_tracking, f, indent=4)
+    except IOError:
+        print("Warning: Could not save tracking file.")
+
+# NEW: Clean up orphaned thumbnails
+def cleanup_orphaned_thumbnails(current_tracking, previous_tracking):
+    """Remove thumbnails that are no longer needed."""
+    orphaned_count = 0
+
+    for markdown_filename, old_image_path in previous_tracking.items():
+        current_image_path = current_tracking.get(markdown_filename)
+
+        # If the image changed or markdown file was removed
+        if current_image_path != old_image_path:
+            # Try to remove the old thumbnail
+            old_thumb_path = os.path.join(THUMBNAIL_FOLDER_PATH, f"{markdown_filename}-thumb.jpg")
+            if os.path.exists(old_thumb_path):
+                try:
+                    os.remove(old_thumb_path)
+                    print(f"Removed orphaned thumbnail: {old_thumb_path}")
+                    orphaned_count += 1
+                except OSError:
+                    print(f"Warning: Could not remove orphaned thumbnail: {old_thumb_path}")
+
+    if orphaned_count > 0:
+        print(f"Cleaned up {orphaned_count} orphaned thumbnails.")
+
+# ENHANCED: Create image mapping with change detection
 def create_image_mapping():
     mapping = {}
+    current_tracking = {}  # Track current markdown -> image relationships
+    previous_tracking = load_previous_tracking()
+
     os.makedirs(THUMBNAIL_FOLDER_PATH, exist_ok=True)  # Ensure the thumbnail folder exists
 
     for root, dirs, files in os.walk(MARKDOWN_FOLDER_PATH):
@@ -86,6 +135,16 @@ def create_image_mapping():
                 first_image = extract_first_image(markdown_file)
                 if not first_image:
                     continue
+
+                # Track current mapping
+                current_tracking[markdown_filename] = first_image
+
+                # Check if the first image changed for this markdown file
+                previous_image = previous_tracking.get(markdown_filename)
+                image_changed = previous_image != first_image
+
+                if image_changed and previous_image:
+                    print(f"Image changed for {markdown_filename}: {previous_image} -> {first_image}")
 
                 # Handle external links
                 if first_image.startswith('http://') or first_image.startswith('https://'):
@@ -103,34 +162,56 @@ def create_image_mapping():
 
                     # Check if resizing is necessary
                     if file_size > SIZE_LIMIT:
-                        # Resize only if the original image is newer or thumbnail doesn't exist
-                        if not os.path.exists(resized_path) or os.path.getmtime(image_path) > os.path.getmtime(resized_path):
-                            print(f"Resizing {image_path} because it is newer or no resized version exists.")
+                        # ENHANCED: Resize if:
+                        # 1. No thumbnail exists, OR
+                        # 2. Original image is newer than thumbnail, OR
+                        # 3. The first image for this markdown file changed
+                        needs_resize = (
+                            not os.path.exists(resized_path) or
+                            os.path.getmtime(image_path) > os.path.getmtime(resized_path) or
+                            image_changed
+                        )
+
+                        if needs_resize:
+                            reason = []
+                            if not os.path.exists(resized_path):
+                                reason.append("no thumbnail exists")
+                            if os.path.exists(resized_path) and os.path.getmtime(image_path) > os.path.getmtime(resized_path):
+                                reason.append("image file is newer")
+                            if image_changed:
+                                reason.append("first image changed")
+
+                            print(f"Resizing {image_path} because: {', '.join(reason)}")
                             resize_image(image_path, resized_path)  # Resize image to fit size limit
                         else:
-                            # print(f"Skipping {image_path} as it has not been modified since the last resize.")
                             global skipped_count
                             skipped_count += 1  # Increment skipped counter
+
                         thumbnail_url = f"{THUMBNAIL_URL_BASE}/{quote(markdown_filename)}-thumb.jpg"
                         mapping[markdown_filename] = thumbnail_url
                     else:
                         # Use original URL for small images
                         original_url = f"{ORIGINAL_IMAGE_URL_BASE}/{quote(unquote(os.path.basename(first_image)))}"
                         mapping[markdown_filename] = original_url
+
+    # Clean up orphaned thumbnails
+    cleanup_orphaned_thumbnails(current_tracking, previous_tracking)
+
+    # Save current tracking for next run
+    save_current_tracking(current_tracking)
+
     return mapping
 
-# Function to print the skipped file count
+# Function to print the skipped file count (UNCHANGED)
 def print_skipped_count():
     global skipped_count
-    print(f"PTYHON: Total preview image skipped for resizing: {skipped_count}")
+    print(f"PYTHON: Total preview images skipped for resizing: {skipped_count}")
 
-
-# Main execution
+# Main execution (UNCHANGED)
 if __name__ == "__main__":
     image_mapping = create_image_mapping()
     with open(OUTPUT_FILE, 'w') as f:
         json.dump(image_mapping, f, indent=4)
 
     print_skipped_count()
-
     print(f"PYTHON: Mapping file created at: {OUTPUT_FILE}")
