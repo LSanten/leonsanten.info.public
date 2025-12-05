@@ -393,6 +393,7 @@
 <p><img src="../media/GIBRAN-On-joy-and-sorrow.png" alt=""></p>
 
 
+
 <div class="collapsible-section level-3" data-section-id="section_b582047f" data-storage-key="collapsible_marbles_GIBRAN-On-joy-and-sorrow__section_b582047f">
   <h3 class="collapsible-header" onclick="toggleSection('section_b582047f')" onkeypress="if(event.key==='Enter'||event.key===' ')toggleSection('section_b582047f')" tabindex="0" role="button" aria-expanded="false" aria-controls="content_section_b582047f">
     <span class="collapse-indicator " aria-hidden="true"></span>
@@ -404,8 +405,9 @@
 
 <hr>
 
-<p>#poem
-</div></div></p>
+<p>#poem</p>
+
+</div></div>
 
 
           <hr>
@@ -1106,6 +1108,35 @@
 
             setTimeout(() => {
               zoomI
+nfo.style.opacity = '0';
+            }, 2000);
+          }
+
+          lastTapTime = currentTime;
+        });
+
+        // Close button
+        closeBtn.addEventListener('click', function() {
+          closeViewer();
+        });
+
+        // Click overlay background to close
+        overlay.addEventListener('click', function(e) {
+          if (e.target === overlay) {
+            closeViewer();
+          }
+        });
+
+        // ESC key to close
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape' && overlay.style.display === 'flex') {
+            closeViewer();
+          }
+        });
+      });
+    });
+  </script>
+
 <style>
   .collapsible-header {
     cursor: pointer;
@@ -1205,3 +1236,5 @@
     });
   });
 </script>
+</body>
+</html>

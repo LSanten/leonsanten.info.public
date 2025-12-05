@@ -396,6 +396,7 @@
 <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/4aEczHtd1p3nwQxGM83aHw?utm_source=generator" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
 
 
+
 <div class="collapsible-section level-3" data-section-id="section_0569dbb2" data-storage-key="collapsible_marbles_EYT-SET-Touchstone-30-years-90s-music__section_0569dbb2">
   <h3 class="collapsible-header" onclick="toggleSection('section_0569dbb2')" onkeypress="if(event.key==='Enter'||event.key===' ')toggleSection('section_0569dbb2')" tabindex="0" role="button" aria-expanded="false" aria-controls="content_section_0569dbb2">
     <span class="collapse-indicator " aria-hidden="true"></span>
@@ -410,6 +411,7 @@
 </ul>
 
 <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/0ZstzqFYmfCTFkuxLjI8Bh?utm_source=generator" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
 </div></div>
 
 
@@ -1111,6 +1113,35 @@
 
             setTimeout(() => {
               zoomI
+nfo.style.opacity = '0';
+            }, 2000);
+          }
+
+          lastTapTime = currentTime;
+        });
+
+        // Close button
+        closeBtn.addEventListener('click', function() {
+          closeViewer();
+        });
+
+        // Click overlay background to close
+        overlay.addEventListener('click', function(e) {
+          if (e.target === overlay) {
+            closeViewer();
+          }
+        });
+
+        // ESC key to close
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape' && overlay.style.display === 'flex') {
+            closeViewer();
+          }
+        });
+      });
+    });
+  </script>
+
 <style>
   .collapsible-header {
     cursor: pointer;
@@ -1210,3 +1241,5 @@
     });
   });
 </script>
+</body>
+</html>

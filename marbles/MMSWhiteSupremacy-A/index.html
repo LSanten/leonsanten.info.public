@@ -397,8 +397,10 @@
 <p><img src="../media/MMSWhiteSupremacy-A.png" alt="An Image reading a title &quot;Characteristics of White Supremacist Environmenments: 1. Perfectionism 2. Sense of Urgency 3. Defensiveness 4. Quantity over Quality 5. Worship of the Written Word 6. Only One Right Way 7. Paternalism 8. Either/Or Thinking 9. Power Hoarding 10. Fear of Open Conflict 11. Individualism 12. I'm the Only One 13. Progress is Bigger, More 14. Objectivity 15. Right to Comfort"></p>
 
 <h3 id="i-like-to-think-back-to-my-school-time">I like to think back to my school time</h3>
-<p>Or I like to ask friends, how many of these points were true for your educational environments? How deeply are white supremacist values conditioned into our ways of doing &amp; being in this world, considering that most of us went to school for 12-18 years of our life before we were granted the liberty to decide how we want learn &amp; walk through this world?
-</p>
+<p>Or I like to ask friends, how many of these points were true for your educational environments? How deeply are white supremacist values conditioned into our ways of doing &amp; being in this world, considering that most of us went to school for 12-18 years of our life before we were granted the liberty to decide how we want learn &amp; walk through this world?</p>
+
+
+
 <div class="collapsible-section level-3" data-section-id="section_40d32f45" data-storage-key="collapsible_marbles_MMSWhiteSupremacy-A__section_40d32f45">
   <h3 class="collapsible-header" onclick="toggleSection('section_40d32f45')" onkeypress="if(event.key==='Enter'||event.key===' ')toggleSection('section_40d32f45')" tabindex="0" role="button" aria-expanded="false" aria-controls="content_section_40d32f45">
     <span class="collapse-indicator " aria-hidden="true"></span>
@@ -1126,6 +1128,35 @@
 
             setTimeout(() => {
               zoomI
+nfo.style.opacity = '0';
+            }, 2000);
+          }
+
+          lastTapTime = currentTime;
+        });
+
+        // Close button
+        closeBtn.addEventListener('click', function() {
+          closeViewer();
+        });
+
+        // Click overlay background to close
+        overlay.addEventListener('click', function(e) {
+          if (e.target === overlay) {
+            closeViewer();
+          }
+        });
+
+        // ESC key to close
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape' && overlay.style.display === 'flex') {
+            closeViewer();
+          }
+        });
+      });
+    });
+  </script>
+
 <style>
   .collapsible-header {
     cursor: pointer;
@@ -1225,3 +1256,5 @@
     });
   });
 </script>
+</body>
+</html>

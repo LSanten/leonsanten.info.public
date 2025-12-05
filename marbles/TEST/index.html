@@ -445,139 +445,6 @@
   <div class="marble-preview-inner">
     
     <div class='marble-preview-image-container'>
-      <img src='https://leonsanten.info/marbles/media/roots-of-renewables.png' alt='Visualizing the roots of renewables' class='marble-preview-image'>
-    </div>
-    
-
-    <div class="marble-preview-content">
-      <a href="../ROOTS-OF-RENEWABLES/" class="marble-preview-title-link">
-        <h3 class="marble-preview-title">Visualizing the roots of renewables</h3>
-      </a>
-
-      
-
-      
-      <ul class='card-meta list-inline marble-preview-timestamp'>
-        <li class='list-inline-item'>
-          <i class='ti-calendar'></i> November 2024
-        </li>
-      </ul>
-      
-
-      <div class="marble-preview-text">
-        <p>I drew this illustration because I can't stop thinking about this topic. I am on a journey to redefine what it means to be a good engineer. As part of this, I want to understand how we can visualize the systemic impact of innovative technologies. Engineers design for structural integrity....</p>
-      </div>
-
-      <a href="../ROOTS-OF-RENEWABLES/" class="marble-preview-link">Read more</a>
-    </div>
-  </div>
-</div>
-
-<div class="marble-preview">
-  <div class="marble-preview-inner">
-    
-    <div class='marble-preview-image-container'>
-      <img src='https://leonsanten.info/assets/marble-assets/images/marble-imagery/woven-marble-3.png' alt='You don't live in a democracy when every big institution around you is run like a dictatorship' class='marble-preview-image'>
-    </div>
-    
-
-    <div class="marble-preview-content">
-      <a href="../MMSEconomicDemocracy/" class="marble-preview-title-link">
-        <h3 class="marble-preview-title">You don't live in a democracy when every big institution around you is run like a dictatorship</h3>
-      </a>
-
-      
-      <h4 class='marble-preview-subtitle'>An essay and research project</h4>
-      
-
-      
-      <ul class='card-meta list-inline marble-preview-timestamp'>
-        <li class='list-inline-item'>
-          <i class='ti-calendar'></i> November 2024
-        </li>
-      </ul>
-      
-
-      <div class="marble-preview-text">
-        <p>This is a draft for an eye-opening process regarding the scale of democratic to undemocratic forces around us. Parts of the research is supported by ChatGPT who can access data from Statista that I can’t access. The United States and other Western countries may praise themselves for upholding democratic values,...</p>
-      </div>
-
-      <a href="../MMSEconomicDemocracy/" class="marble-preview-link">Read more</a>
-    </div>
-  </div>
-</div>
-<div class="marble-preview">
-  <div class="marble-preview-inner">
-    
-    <div class='marble-preview-image-container'>
-      <img src='https://leonsanten.info/marbles/mediathumbs/A-two-day-weekend-thats-enough-for-me-AppleTV-thumb.jpg' alt='A two day weekend. That's enough for me. ' class='marble-preview-image'>
-    </div>
-    
-
-    <div class="marble-preview-content">
-      <a href="../A-two-day-weekend-thats-enough-for-me-AppleTV/" class="marble-preview-title-link">
-        <h3 class="marble-preview-title">A two day weekend. That's enough for me. </h3>
-      </a>
-
-      
-      <h4 class='marble-preview-subtitle'>An art piece exploring our work ethic with tech giants</h4>
-      
-
-      
-      <ul class='card-meta list-inline marble-preview-timestamp'>
-        <li class='list-inline-item'>
-          <i class='ti-calendar'></i> March 2023
-        </li>
-      </ul>
-      
-
-      <div class="marble-preview-text">
-        <p>This piece exploits the super easy in-browser editing of websites to interject a statement. Anyone can do it. 
-
- I created another piece that exploits in-browser editing of HTML text with a spin on modern-day work ethics called [[A-two-day-weekend-thats-enough-for-me-AppleTV]].</p>
-      </div>
-
-      <a href="../A-two-day-weekend-thats-enough-for-me-AppleTV/" class="marble-preview-link">Read more</a>
-    </div>
-  </div>
-</div>
-
-<div class="marble-preview">
-  <div class="marble-preview-inner">
-    
-    <div class='marble-preview-image-container'>
-      <img src='https://leonsanten.info/marbles/mediathumbs/NATEL-ENERGY-FISH-SAFE-STUDIES-thumb.jpg' alt='My environmental science work with Natel Energy' class='marble-preview-image'>
-    </div>
-    
-
-    <div class="marble-preview-content">
-      <a href="../NATEL-ENERGY-FISH-SAFE-STUDIES/" class="marble-preview-title-link">
-        <h3 class="marble-preview-title">My environmental science work with Natel Energy</h3>
-      </a>
-
-      
-
-      
-      <ul class='card-meta list-inline marble-preview-timestamp'>
-        <li class='list-inline-item'>
-          <i class='ti-calendar'></i> August 2024
-        </li>
-      </ul>
-      
-
-      <div class="marble-preview-text">
-        <p><i class="fas fa-calendar-alt"></i> July 2021 - May 2022 + July - August 2024 Beyond my role as a mechanical engineer, I was responsible for the data capturing and analysis of high-speed videos, behavioral swim videos, and physical metrics for a study that investigated the effects of passage through Natel Energy's...</p>
-      </div>
-
-      <a href="../NATEL-ENERGY-FISH-SAFE-STUDIES/" class="marble-preview-link">Read more</a>
-    </div>
-  </div>
-</div>
-
-<div class="marble-preview">
-  <div class="marble-preview-inner">
-    
-    <div class='marble-preview-image-container'>
       <img src='https://leonsanten.info/marbles/mediathumbs/MMSMammalWeight-A-thumb.jpg' alt='Visualizing the ratio of wild mammals to domesticated mammals' class='marble-preview-image'>
     </div>
     
@@ -1353,3 +1220,34 @@
 
             setTimeout(() => {
               zoomI
+nfo.style.opacity = '0';
+            }, 2000);
+          }
+
+          lastTapTime = currentTime;
+        });
+
+        // Close button
+        closeBtn.addEventListener('click', function() {
+          closeViewer();
+        });
+
+        // Click overlay background to close
+        overlay.addEventListener('click', function(e) {
+          if (e.target === overlay) {
+            closeViewer();
+          }
+        });
+
+        // ESC key to close
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape' && overlay.style.display === 'flex') {
+            closeViewer();
+          }
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>

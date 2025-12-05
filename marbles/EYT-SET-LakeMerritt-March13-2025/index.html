@@ -399,6 +399,7 @@
 <p><img src="../media/D1072884-073D-4492-83B6-EA7846565EF0_1_105_c.jpeg" alt=""></p>
 
 
+
 <div class="collapsible-section level-2" data-section-id="section_0f19208c" data-storage-key="collapsible_marbles_EYT-SET-LakeMerritt-March13-2025__section_0f19208c">
   <h2 class="collapsible-header" onclick="toggleSection('section_0f19208c')" onkeypress="if(event.key==='Enter'||event.key===' ')toggleSection('section_0f19208c')" tabindex="0" role="button" aria-expanded="false" aria-controls="content_section_0f19208c">
     <span class="collapse-indicator " aria-hidden="true"></span>
@@ -415,8 +416,9 @@
 
 <p><img src="../media/IMG_5958.jpeg" alt=""></p>
 
-<p><img src="../media/IMG_5959.jpeg" alt="">
-</div></div></p>
+<p><img src="../media/IMG_5959.jpeg" alt=""></p>
+
+</div></div>
 
 
           <hr>
@@ -1117,6 +1119,35 @@
 
             setTimeout(() => {
               zoomI
+nfo.style.opacity = '0';
+            }, 2000);
+          }
+
+          lastTapTime = currentTime;
+        });
+
+        // Close button
+        closeBtn.addEventListener('click', function() {
+          closeViewer();
+        });
+
+        // Click overlay background to close
+        overlay.addEventListener('click', function(e) {
+          if (e.target === overlay) {
+            closeViewer();
+          }
+        });
+
+        // ESC key to close
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape' && overlay.style.display === 'flex') {
+            closeViewer();
+          }
+        });
+      });
+    });
+  </script>
+
 <style>
   .collapsible-header {
     cursor: pointer;
@@ -1216,3 +1247,5 @@
     });
   });
 </script>
+</body>
+</html>

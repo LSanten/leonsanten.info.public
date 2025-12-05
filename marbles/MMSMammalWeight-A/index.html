@@ -405,6 +405,7 @@
 <p><img src="../media/MMSWeightM-1.gif" alt=""></p>
 
 
+
 <div class="collapsible-section level-3" data-section-id="section_39376551" data-storage-key="collapsible_marbles_MMSMammalWeight-A__section_39376551">
   <h3 class="collapsible-header" onclick="toggleSection('section_39376551')" onkeypress="if(event.key==='Enter'||event.key===' ')toggleSection('section_39376551')" tabindex="0" role="button" aria-expanded="false" aria-controls="content_section_39376551">
     <span class="collapse-indicator " aria-hidden="true"></span>
@@ -420,6 +421,7 @@
 <p><img src="../media/MMSMammalWeight-A-03.png" alt=""></p>
 
 
+
 <div class="collapsible-section level-4" data-section-id="section_f992b62b" data-storage-key="collapsible_marbles_MMSMammalWeight-A__section_f992b62b">
   <h4 class="collapsible-header" onclick="toggleSection('section_f992b62b')" onkeypress="if(event.key==='Enter'||event.key===' ')toggleSection('section_f992b62b')" tabindex="0" role="button" aria-expanded="false" aria-controls="content_section_f992b62b">
     <span class="collapse-indicator " aria-hidden="true"></span>
@@ -430,7 +432,10 @@
 <p><a href="https://share.icloud.com/photos/0415a85X4NR6KfnPUJL4PhxrA" target="_blank">https://share.icloud.com/photos/0415a85X4NR6KfnPUJL4PhxrA</a></p>
 
 </div></div>
+
 </div></div>
+
+
 
 <div class="collapsible-section level-2" data-section-id="section_e179c548" data-storage-key="collapsible_marbles_MMSMammalWeight-A__section_e179c548">
   <h2 class="collapsible-header" onclick="toggleSection('section_e179c548')" onkeypress="if(event.key==='Enter'||event.key===' ')toggleSection('section_e179c548')" tabindex="0" role="button" aria-expanded="false" aria-controls="content_section_e179c548">
@@ -442,6 +447,7 @@
 <p><img src="../media/MMSMammalWeight-A_with_paper-texture-08.png" alt=""></p>
 
 </div></div>
+
 <h2 id="reference">Reference</h2>
 
 <ul>
@@ -1172,6 +1178,35 @@ Bar-On et al. (2018)</p>
 
             setTimeout(() => {
               zoomI
+nfo.style.opacity = '0';
+            }, 2000);
+          }
+
+          lastTapTime = currentTime;
+        });
+
+        // Close button
+        closeBtn.addEventListener('click', function() {
+          closeViewer();
+        });
+
+        // Click overlay background to close
+        overlay.addEventListener('click', function(e) {
+          if (e.target === overlay) {
+            closeViewer();
+          }
+        });
+
+        // ESC key to close
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape' && overlay.style.display === 'flex') {
+            closeViewer();
+          }
+        });
+      });
+    });
+  </script>
+
 <style>
   .collapsible-header {
     cursor: pointer;
@@ -1271,3 +1306,5 @@ Bar-On et al. (2018)</p>
     });
   });
 </script>
+</body>
+</html>

@@ -10,14 +10,14 @@
 <html lang="en-us"><head>
   <meta charset="utf-8">
   <meta name="license" content="https://creativecommons.org/licenses/by-nc-sa/4.0/">
-  <title>Yoga</title>
+  <title>Yoga Kleshas</title>
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Here is a marble for you! I hope it helps you engage in dialogue, plant a seed, or elicit collaboration.">
   <meta name="author" content="Leon Santen">
   <meta property="og:image" content="https://leonsanten.info/assets/marble-assets/images/marble-imagery/woven-marble-3.png">
-  <meta property="og:title" content="Yoga">
+  <meta property="og:title" content="Yoga Kleshas">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://leonsanten.info/marbles">
   <meta property="og:description" content="">
@@ -385,7 +385,20 @@
           
 
 
-          
+          <table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
 
 
           <hr>
@@ -475,7 +488,7 @@
                       // Comments are now always visible
                       const fastCommentsInstance = FastCommentsUI(document.getElementById('fastcomments-widget'), {
                           tenantId: "dI13cVRENXn",
-                          urlId: "YOGA-" // Uses your unique marble ID for comments
+                          urlId: "YOGA-KLESHAS" // Uses your unique marble ID for comments
                       });
                   })();
               </script>
@@ -492,7 +505,7 @@
                   <!-- --
             <center><a href="#" class="card-meta-author" style="display: inline-block; vertical-align: middle;text-decoration: none; font-size: 12px;">
                 <img src="../../images/ID-photoshop-file.png" alt="ID" style="display: inline;">
-                <span style="bottom: -1.5px; position: relative;">YOGA-</span>
+                <span style="bottom: -1.5px; position: relative;">YOGA-KLESHAS</span>
               </a>
             </center>
             -->
@@ -1086,3 +1099,34 @@
 
             setTimeout(() => {
               zoomI
+nfo.style.opacity = '0';
+            }, 2000);
+          }
+
+          lastTapTime = currentTime;
+        });
+
+        // Close button
+        closeBtn.addEventListener('click', function() {
+          closeViewer();
+        });
+
+        // Click overlay background to close
+        overlay.addEventListener('click', function(e) {
+          if (e.target === overlay) {
+            closeViewer();
+          }
+        });
+
+        // ESC key to close
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape' && overlay.style.display === 'flex') {
+            closeViewer();
+          }
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>

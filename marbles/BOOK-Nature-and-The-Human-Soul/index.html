@@ -417,6 +417,7 @@
 <p><a href="https://www.goodreads.com/book/show/1388992.Nature_and_the_Human_Soul" target="_blank">Link to book here</a></p>
 
 
+
 <div class="collapsible-section level-2" data-section-id="section_567e5e91" data-storage-key="collapsible_marbles_BOOK-Nature-and-The-Human-Soul__section_567e5e91">
   <h2 class="collapsible-header" onclick="toggleSection('section_567e5e91')" onkeypress="if(event.key==='Enter'||event.key===' ')toggleSection('section_567e5e91')" tabindex="0" role="button" aria-expanded="false" aria-controls="content_section_567e5e91">
     <span class="collapse-indicator " aria-hidden="true"></span>
@@ -636,9 +637,10 @@
 <blockquote>
   <p>from a soulcentric perspective, the primary developmental goal in parenting is not raising happy, well-rounded, well-educated, physically sound children. We all want this, but there is a greater goal that reframes all other child-rearing intentions, and which actually enhances the chance of raising happy children. That greater goal is to maintain the vitality of the culture, which sometimes means, as it does now, to thoroughly transform the culture—and to do so in part by raising children who have the potential to become soul-initiated adults, people who will remake our world through their mature, embodied creativity.</p>
 
-  <p>~ Nature and the Human Soul (p. 121, location 2712)
-</div></div></p>
+  <p>~ Nature and the Human Soul (p. 121, location 2712)</p>
 </blockquote>
+
+</div></div>
 
 
           <hr>
@@ -1339,6 +1341,35 @@
 
             setTimeout(() => {
               zoomI
+nfo.style.opacity = '0';
+            }, 2000);
+          }
+
+          lastTapTime = currentTime;
+        });
+
+        // Close button
+        closeBtn.addEventListener('click', function() {
+          closeViewer();
+        });
+
+        // Click overlay background to close
+        overlay.addEventListener('click', function(e) {
+          if (e.target === overlay) {
+            closeViewer();
+          }
+        });
+
+        // ESC key to close
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape' && overlay.style.display === 'flex') {
+            closeViewer();
+          }
+        });
+      });
+    });
+  </script>
+
 <style>
   .collapsible-header {
     cursor: pointer;
@@ -1438,3 +1469,5 @@
     });
   });
 </script>
+</body>
+</html>

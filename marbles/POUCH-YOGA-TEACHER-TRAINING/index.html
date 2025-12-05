@@ -390,6 +390,7 @@
 <h2 id="-">💎 🔮</h2>
 
 
+
 <div class="collapsible-section level-3" data-section-id="section_ad334461" data-storage-key="collapsible_marbles_POUCH-YOGA-TEACHER-TRAINING__section_ad334461">
   <h3 class="collapsible-header" onclick="toggleSection('section_ad334461')" onkeypress="if(event.key==='Enter'||event.key===' ')toggleSection('section_ad334461')" tabindex="0" role="button" aria-expanded="false" aria-controls="content_section_ad334461">
     <span class="collapse-indicator " aria-hidden="true"></span>
@@ -470,6 +471,8 @@
 </div>
 
 </div></div>
+
+
 
 <div class="collapsible-section level-3" data-section-id="section_405ef92d" data-storage-key="collapsible_marbles_POUCH-YOGA-TEACHER-TRAINING__section_405ef92d">
   <h3 class="collapsible-header" onclick="toggleSection('section_405ef92d')" onkeypress="if(event.key==='Enter'||event.key===' ')toggleSection('section_405ef92d')" tabindex="0" role="button" aria-expanded="false" aria-controls="content_section_405ef92d">
@@ -637,6 +640,8 @@ whole.</p>
 
 </div></div>
 
+
+
 <div class="collapsible-section level-3" data-section-id="section_62fa78e0" data-storage-key="collapsible_marbles_POUCH-YOGA-TEACHER-TRAINING__section_62fa78e0">
   <h3 class="collapsible-header" onclick="toggleSection('section_62fa78e0')" onkeypress="if(event.key==='Enter'||event.key===' ')toggleSection('section_62fa78e0')" tabindex="0" role="button" aria-expanded="false" aria-controls="content_section_62fa78e0">
     <span class="collapse-indicator " aria-hidden="true"></span>
@@ -660,7 +665,9 @@ Link <a href="https://open.spotify.com/track/2wK5oUll4W1UV3AalmPtzN?si=m-6BQnCnT
   <p><em>There are more music things that I don’t have links fore 👀</em></p>
 
   </div></div>
+
   
+
   <div class="collapsible-section level-3" data-section-id="section_4bf727fd" data-storage-key="collapsible_marbles_POUCH-YOGA-TEACHER-TRAINING__section_4bf727fd">
   <h3 class="collapsible-header" onclick="toggleSection('section_4bf727fd')" onkeypress="if(event.key==='Enter'||event.key===' ')toggleSection('section_4bf727fd')" tabindex="0" role="button" aria-expanded="false" aria-controls="content_section_4bf727fd">
     <span class="collapse-indicator " aria-hidden="true"></span>
@@ -685,6 +692,7 @@ Link <a href="https://open.spotify.com/track/2wK5oUll4W1UV3AalmPtzN?si=m-6BQnCnT
   </ul>
 
   </div></div>
+
   <h2 id="trauma-informed-yoga">Trauma Informed Yoga</h2>
 
   <p><strong>from lucid</strong>
@@ -1394,6 +1402,35 @@ Link <a href="https://open.spotify.com/track/2wK5oUll4W1UV3AalmPtzN?si=m-6BQnCnT
 
             setTimeout(() => {
               zoomI
+nfo.style.opacity = '0';
+            }, 2000);
+          }
+
+          lastTapTime = currentTime;
+        });
+
+        // Close button
+        closeBtn.addEventListener('click', function() {
+          closeViewer();
+        });
+
+        // Click overlay background to close
+        overlay.addEventListener('click', function(e) {
+          if (e.target === overlay) {
+            closeViewer();
+          }
+        });
+
+        // ESC key to close
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape' && overlay.style.display === 'flex') {
+            closeViewer();
+          }
+        });
+      });
+    });
+  </script>
+
 <style>
   .collapsible-header {
     cursor: pointer;
@@ -1493,3 +1530,5 @@ Link <a href="https://open.spotify.com/track/2wK5oUll4W1UV3AalmPtzN?si=m-6BQnCnT
     });
   });
 </script>
+</body>
+</html>

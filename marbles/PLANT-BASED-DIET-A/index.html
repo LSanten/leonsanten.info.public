@@ -398,10 +398,12 @@
 </ul>
 
 <blockquote>
-  <p>I was asked why are you as strong as a bull without eating meat? I responded, what does a bull eat?</p>
+  <p>Someone asked me, how could you get as strong as an ox without eating any meat? And my answer was, ‘Have you ever seen an ox eating meat?</p>
 
   <p>~ Strongest man on earth (forgot name)</p>
 </blockquote>
+
+<p>#vegan #vegetarian</p>
 
 
           <hr>
@@ -1102,3 +1104,34 @@
 
             setTimeout(() => {
               zoomI
+nfo.style.opacity = '0';
+            }, 2000);
+          }
+
+          lastTapTime = currentTime;
+        });
+
+        // Close button
+        closeBtn.addEventListener('click', function() {
+          closeViewer();
+        });
+
+        // Click overlay background to close
+        overlay.addEventListener('click', function(e) {
+          if (e.target === overlay) {
+            closeViewer();
+          }
+        });
+
+        // ESC key to close
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape' && overlay.style.display === 'flex') {
+            closeViewer();
+          }
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>

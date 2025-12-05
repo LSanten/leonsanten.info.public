@@ -396,6 +396,7 @@
 <p><img src="../media/IMG_6214.jpeg" alt=""></p>
 
 
+
 <div class="collapsible-section level-3" data-section-id="section_dedd4062" data-storage-key="collapsible_marbles_EYT-SET-PP-FirstFriday-2025-08-01__section_dedd4062">
   <h3 class="collapsible-header" onclick="toggleSection('section_dedd4062')" onkeypress="if(event.key==='Enter'||event.key===' ')toggleSection('section_dedd4062')" tabindex="0" role="button" aria-expanded="false" aria-controls="content_section_dedd4062">
     <span class="collapse-indicator " aria-hidden="true"></span>
@@ -414,6 +415,8 @@
 <p><img src="../media/IMG_6327.jpeg" alt=""></p>
 
 </div></div>
+
+
 
 <div class="collapsible-section level-3" data-section-id="section_52d1b6ec" data-storage-key="collapsible_marbles_EYT-SET-PP-FirstFriday-2025-08-01__section_52d1b6ec">
   <h3 class="collapsible-header" onclick="toggleSection('section_52d1b6ec')" onkeypress="if(event.key==='Enter'||event.key===' ')toggleSection('section_52d1b6ec')" tabindex="0" role="button" aria-expanded="false" aria-controls="content_section_52d1b6ec">
@@ -474,10 +477,10 @@
   <li>Byron the Aquarius - Feel My Thoughts (Bruh)</li>
   <li>Nujabes - Peaceland</li>
   <li>Bien et Toi, Biig Piig - Rainbow Tables</li>
-  <li>Venna - My Way
-</div></div>
-</li>
+  <li>Venna - My Way</li>
 </ol>
+
+</div></div>
 
 
           <hr>
@@ -1178,6 +1181,35 @@
 
             setTimeout(() => {
               zoomI
+nfo.style.opacity = '0';
+            }, 2000);
+          }
+
+          lastTapTime = currentTime;
+        });
+
+        // Close button
+        closeBtn.addEventListener('click', function() {
+          closeViewer();
+        });
+
+        // Click overlay background to close
+        overlay.addEventListener('click', function(e) {
+          if (e.target === overlay) {
+            closeViewer();
+          }
+        });
+
+        // ESC key to close
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape' && overlay.style.display === 'flex') {
+            closeViewer();
+          }
+        });
+      });
+    });
+  </script>
+
 <style>
   .collapsible-header {
     cursor: pointer;
@@ -1277,3 +1309,5 @@
     });
   });
 </script>
+</body>
+</html>

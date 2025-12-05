@@ -402,12 +402,13 @@
 <p>I built this website to relate more intentionally (🔮 <a href="../INTENTIONAL-DESIGN-MEDIUMS/">to myself and others</a>): You can comment on any marble without having to create an account!</p>
 
 
-<div class="collapsible-section level-2" data-section-id="section_5e79ac33" data-storage-key="collapsible_marbles_MMSHomepage__section_5e79ac33">
-  <h2 class="collapsible-header" onclick="toggleSection('section_5e79ac33')" onkeypress="if(event.key==='Enter'||event.key===' ')toggleSection('section_5e79ac33')" tabindex="0" role="button" aria-expanded="false" aria-controls="content_section_5e79ac33">
+
+<div class="collapsible-section level-2" data-section-id="section_566daad8" data-storage-key="collapsible_marbles_MMSHomepage__section_566daad8">
+  <h2 class="collapsible-header" onclick="toggleSection('section_566daad8')" onkeypress="if(event.key==='Enter'||event.key===' ')toggleSection('section_566daad8')" tabindex="0" role="button" aria-expanded="false" aria-controls="content_section_566daad8">
     <span class="collapse-indicator " aria-hidden="true"></span>
     <span>Some recent marbles close to my heart</span>
   </h2>
-  <div class="collapsible-content" id="content_section_5e79ac33" style="display: none;">
+  <div class="collapsible-content" id="content_section_566daad8" style="display: none;">
 
 
 <div class="marble-preview">
@@ -836,12 +837,14 @@
 
 </div></div>
 
-<div class="collapsible-section level-2" data-section-id="section_8ec792da" data-storage-key="collapsible_marbles_MMSHomepage__section_8ec792da">
-  <h2 class="collapsible-header" onclick="toggleSection('section_8ec792da')" onkeypress="if(event.key==='Enter'||event.key===' ')toggleSection('section_8ec792da')" tabindex="0" role="button" aria-expanded="false" aria-controls="content_section_8ec792da">
+
+
+<div class="collapsible-section level-2" data-section-id="section_03dae96c" data-storage-key="collapsible_marbles_MMSHomepage__section_03dae96c">
+  <h2 class="collapsible-header" onclick="toggleSection('section_03dae96c')" onkeypress="if(event.key==='Enter'||event.key===' ')toggleSection('section_03dae96c')" tabindex="0" role="button" aria-expanded="false" aria-controls="content_section_03dae96c">
     <span class="collapse-indicator " aria-hidden="true"></span>
     <span>Marbles on living systems thinking</span>
   </h2>
-  <div class="collapsible-content" id="content_section_8ec792da" style="display: none;">
+  <div class="collapsible-content" id="content_section_03dae96c" style="display: none;">
 
 <div class="marble-preview">
   <div class="marble-preview-inner">
@@ -974,12 +977,14 @@
 
 </div></div>
 
-<div class="collapsible-section level-2" data-section-id="section_19b021fa" data-storage-key="collapsible_marbles_MMSHomepage__section_19b021fa">
-  <h2 class="collapsible-header" onclick="toggleSection('section_19b021fa')" onkeypress="if(event.key==='Enter'||event.key===' ')toggleSection('section_19b021fa')" tabindex="0" role="button" aria-expanded="false" aria-controls="content_section_19b021fa">
+
+
+<div class="collapsible-section level-2" data-section-id="section_769d97a7" data-storage-key="collapsible_marbles_MMSHomepage__section_769d97a7">
+  <h2 class="collapsible-header" onclick="toggleSection('section_769d97a7')" onkeypress="if(event.key==='Enter'||event.key===' ')toggleSection('section_769d97a7')" tabindex="0" role="button" aria-expanded="false" aria-controls="content_section_769d97a7">
     <span class="collapse-indicator " aria-hidden="true"></span>
     <span>Music related marbles</span>
   </h2>
-  <div class="collapsible-content" id="content_section_19b021fa" style="display: none;">
+  <div class="collapsible-content" id="content_section_769d97a7" style="display: none;">
 
 <div class="marble-preview">
   <div class="marble-preview-inner">
@@ -1117,6 +1122,7 @@
 </div>
 
 </div></div>
+
 <h2 id="in-the-works---this-is-the-fun-part">In the works - this is the fun part!</h2>
 <p><em>This is where you come in! These marbles are messy because they are in the works. Do you want to take a look and see if it elicits any thoughts? Feel free to reach out.</em></p>
 
@@ -1853,6 +1859,35 @@
 
             setTimeout(() => {
               zoomI
+nfo.style.opacity = '0';
+            }, 2000);
+          }
+
+          lastTapTime = currentTime;
+        });
+
+        // Close button
+        closeBtn.addEventListener('click', function() {
+          closeViewer();
+        });
+
+        // Click overlay background to close
+        overlay.addEventListener('click', function(e) {
+          if (e.target === overlay) {
+            closeViewer();
+          }
+        });
+
+        // ESC key to close
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape' && overlay.style.display === 'flex') {
+            closeViewer();
+          }
+        });
+      });
+    });
+  </script>
+
 <style>
   .collapsible-header {
     cursor: pointer;
@@ -1952,3 +1987,5 @@
     });
   });
 </script>
+</body>
+</html>

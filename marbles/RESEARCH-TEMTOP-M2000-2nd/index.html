@@ -392,8 +392,10 @@
 
 <p><em>This is a note that I use for myself to contextualize the accuracy of my air quality sensor. Yes, I used AI to write this out.</em></p>
 
-<p>Look here for 🔮 <a href="../POUCH-AIR-QUALITY/">Air Quality Related Projects that use this sensor</a>.
-</p>
+<p>Look here for 🔮 <a href="../POUCH-AIR-QUALITY/">Air Quality Related Projects that use this sensor</a>.</p>
+
+
+
 <div class="collapsible-section level-2" data-section-id="section_198a6333" data-storage-key="collapsible_marbles_RESEARCH-TEMTOP-M2000-2nd__section_198a6333">
   <h2 class="collapsible-header" onclick="toggleSection('section_198a6333')" onkeypress="if(event.key==='Enter'||event.key===' ')toggleSection('section_198a6333')" tabindex="0" role="button" aria-expanded="true" aria-controls="content_section_198a6333">
     <span class="collapse-indicator expanded" aria-hidden="true"></span>
@@ -436,6 +438,7 @@
 </ul>
 
 </div></div>
+
 <h2 id="quality-comparison-consumer-grade-standards">Quality Comparison: Consumer Grade Standards</h2>
 
 <h3 id="industry-benchmarks-for-accuracy-r-squared-values">Industry Benchmarks for Accuracy (R-squared values)</h3>
@@ -486,6 +489,7 @@
 <strong>Claimed</strong> “tested by AQMD” but can’t find evaluation certificate online</li>
   <li>Based on sensor quality, likely in <strong>Standard Consumer</strong> tier (0.60-0.75 R²)</li>
 </ul>
+
 
 
 <div class="collapsible-section level-2" data-section-id="section_d98346a8" data-storage-key="collapsible_marbles_RESEARCH-TEMTOP-M2000-2nd__section_d98346a8">
@@ -564,6 +568,8 @@
 
 </div></div>
 
+
+
 <div class="collapsible-section level-2" data-section-id="section_de5d547e" data-storage-key="collapsible_marbles_RESEARCH-TEMTOP-M2000-2nd__section_de5d547e">
   <h2 class="collapsible-header" onclick="toggleSection('section_de5d547e')" onkeypress="if(event.key==='Enter'||event.key===' ')toggleSection('section_de5d547e')" tabindex="0" role="button" aria-expanded="false" aria-controls="content_section_de5d547e">
     <span class="collapse-indicator " aria-hidden="true"></span>
@@ -617,6 +623,8 @@
 
 </div></div>
 
+
+
 <div class="collapsible-section level-2" data-section-id="section_8037ddce" data-storage-key="collapsible_marbles_RESEARCH-TEMTOP-M2000-2nd__section_8037ddce">
   <h2 class="collapsible-header" onclick="toggleSection('section_8037ddce')" onkeypress="if(event.key==='Enter'||event.key===' ')toggleSection('section_8037ddce')" tabindex="0" role="button" aria-expanded="false" aria-controls="content_section_8037ddce">
     <span class="collapse-indicator " aria-hidden="true"></span>
@@ -648,6 +656,8 @@
 </ul>
 
 </div></div>
+
+
 
 <div class="collapsible-section level-2" data-section-id="section_c4ae02b9" data-storage-key="collapsible_marbles_RESEARCH-TEMTOP-M2000-2nd__section_c4ae02b9">
   <h2 class="collapsible-header" onclick="toggleSection('section_c4ae02b9')" onkeypress="if(event.key==='Enter'||event.key===' ')toggleSection('section_c4ae02b9')" tabindex="0" role="button" aria-expanded="false" aria-controls="content_section_c4ae02b9">
@@ -692,6 +702,8 @@
 </ul>
 
 </div></div>
+
+
 
 <div class="collapsible-section level-2" data-section-id="section_1e1baab0" data-storage-key="collapsible_marbles_RESEARCH-TEMTOP-M2000-2nd__section_1e1baab0">
   <h2 class="collapsible-header" onclick="toggleSection('section_1e1baab0')" onkeypress="if(event.key==='Enter'||event.key===' ')toggleSection('section_1e1baab0')" tabindex="0" role="button" aria-expanded="false" aria-controls="content_section_1e1baab0">
@@ -740,6 +752,7 @@
 </ul>
 
 </div></div>
+
 <h2 id="bottom-line">Bottom Line</h2>
 
 <p>The Temtop M2000 2nd occupies a <strong>middle tier</strong> in consumer air quality monitors:</p>
@@ -1451,6 +1464,35 @@
 
             setTimeout(() => {
               zoomI
+nfo.style.opacity = '0';
+            }, 2000);
+          }
+
+          lastTapTime = currentTime;
+        });
+
+        // Close button
+        closeBtn.addEventListener('click', function() {
+          closeViewer();
+        });
+
+        // Click overlay background to close
+        overlay.addEventListener('click', function(e) {
+          if (e.target === overlay) {
+            closeViewer();
+          }
+        });
+
+        // ESC key to close
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape' && overlay.style.display === 'flex') {
+            closeViewer();
+          }
+        });
+      });
+    });
+  </script>
+
 <style>
   .collapsible-header {
     cursor: pointer;
@@ -1550,3 +1592,5 @@
     });
   });
 </script>
+</body>
+</html>

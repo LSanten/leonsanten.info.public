@@ -428,6 +428,7 @@
 </ul>
 
 
+
 <div class="collapsible-section level-3" data-section-id="section_8be6f6b4" data-storage-key="collapsible_marbles_YOGA-CUEING-WORDS-ALPHABET__section_8be6f6b4">
   <h3 class="collapsible-header" onclick="toggleSection('section_8be6f6b4')" onkeypress="if(event.key==='Enter'||event.key===' ')toggleSection('section_8be6f6b4')" tabindex="0" role="button" aria-expanded="false" aria-controls="content_section_8be6f6b4">
     <span class="collapse-indicator " aria-hidden="true"></span>
@@ -463,10 +464,10 @@
   <li>W: wiggle</li>
   <li>X: exhale</li>
   <li>Y: yearn</li>
-  <li>Z: zone-in 
-</div></div>
-</li>
+  <li>Z: zone-in</li>
 </ul>
+
+</div></div>
 
 
           <hr>
@@ -1167,6 +1168,35 @@
 
             setTimeout(() => {
               zoomI
+nfo.style.opacity = '0';
+            }, 2000);
+          }
+
+          lastTapTime = currentTime;
+        });
+
+        // Close button
+        closeBtn.addEventListener('click', function() {
+          closeViewer();
+        });
+
+        // Click overlay background to close
+        overlay.addEventListener('click', function(e) {
+          if (e.target === overlay) {
+            closeViewer();
+          }
+        });
+
+        // ESC key to close
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape' && overlay.style.display === 'flex') {
+            closeViewer();
+          }
+        });
+      });
+    });
+  </script>
+
 <style>
   .collapsible-header {
     cursor: pointer;
@@ -1266,3 +1296,5 @@
     });
   });
 </script>
+</body>
+</html>

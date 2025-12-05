@@ -403,6 +403,10 @@
       <td>Pratipaksabhavana</td>
       <td>Bhavana is to cultivate and pratipaksa I think means the opposite - so cultivate the opposite</td>
     </tr>
+    <tr>
+      <td>🔮 <a href="../ABHASA-NONDUALITY/">abhāsa (आभास)</a></td>
+      <td>All manifestations shine forth from the divine: non-dual beings</td>
+    </tr>
   </tbody>
 </table>
 
@@ -1105,3 +1109,34 @@
 
             setTimeout(() => {
               zoomI
+nfo.style.opacity = '0';
+            }, 2000);
+          }
+
+          lastTapTime = currentTime;
+        });
+
+        // Close button
+        closeBtn.addEventListener('click', function() {
+          closeViewer();
+        });
+
+        // Click overlay background to close
+        overlay.addEventListener('click', function(e) {
+          if (e.target === overlay) {
+            closeViewer();
+          }
+        });
+
+        // ESC key to close
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape' && overlay.style.display === 'flex') {
+            closeViewer();
+          }
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -20,17 +20,7 @@
   <meta property="og:title" content="The 8 Limbs of Yoga">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://leonsanten.info/marbles">
-  <meta property="og:description" content="| Limbs                                | Meaning                                                                       |
-| ———————————— | —————————————————————————– |
-| Yamas   | Ethics toward others, restraints                                              |
-| Niyamas | Ethics toward self, observances                                               |
-| Asana                                | physical postures                                                             |
-| Pranayama                            | breath control                                                                |
-| Pratyahara                           | withdrawal of senses                                                          |
-| Dharana                              | concentration, focus meditation, also see more on attention |
-| Dhyana                               | non-selective meditation, also see more on attention        |
-| Samadhi                              | bliss/enlightenment                                                           |
-Also see the Yamas & Niyamas for the ethics of Yoga toward self and others">
+  <meta property="og:description" content="Also see the Yamas & Niyamas for the ethics of Yoga toward self and others">
   <meta property="og:site_name" content="leon's marble sharings 🔮">
 
 
@@ -397,17 +387,52 @@ Also see the Yamas & Niyamas for the ethics of Yoga toward self and others">
 
           <h1 id="the-8-limbs-of-yoga">The 8 Limbs of Yoga</h1>
 
-<p>| Limbs                                | Meaning                                                                       |
-| ———————————— | —————————————————————————– |
-| 🔮 <a href="../YOGA-YAMAS-and-NIYAMAS/">Yamas</a>   | Ethics toward others, restraints                                              |
-| 🔮 <a href="../YOGA-YAMAS-and-NIYAMAS/">Niyamas</a> | Ethics toward self, observances                                               |
-| Asana                                | physical postures                                                             |
-| Pranayama                            | breath control                                                                |
-| Pratyahara                           | withdrawal of senses                                                          |
-| Dharana                              | concentration, focus meditation, also see 🔮 <a href="../ATTENTION-A/">more on attention</a> |
-| Dhyana                               | non-selective meditation, also see 🔮 <a href="../ATTENTION-A/">more on attention</a>        |
-| Samadhi                              | bliss/enlightenment                                                           |
-Also see the 🔮 <a href="../YOGA-YAMAS-and-NIYAMAS/">Yamas &amp; Niyamas for the ethics of Yoga toward self and others</a></p>
+<table>
+  <thead>
+    <tr>
+      <th>Limbs</th>
+      <th>Meaning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>🔮 <a href="../YOGA-YAMAS-and-NIYAMAS/">Yamas</a></td>
+      <td>Ethics toward others, restraints</td>
+    </tr>
+    <tr>
+      <td>🔮 <a href="../YOGA-YAMAS-and-NIYAMAS/">Niyamas</a></td>
+      <td>Ethics toward self, observances</td>
+    </tr>
+    <tr>
+      <td>Asana</td>
+      <td>physical postures</td>
+    </tr>
+    <tr>
+      <td>Pranayama</td>
+      <td>breath control</td>
+    </tr>
+    <tr>
+      <td>Pratyahara</td>
+      <td>withdrawal of senses</td>
+    </tr>
+    <tr>
+      <td>Dharana</td>
+      <td>concentration, focus meditation, also see 🔮 <a href="../ATTENTION-A/">more on attention</a>
+</td>
+    </tr>
+    <tr>
+      <td>Dhyana</td>
+      <td>non-selective meditation, also see 🔮 <a href="../ATTENTION-A/">more on attention</a>
+</td>
+    </tr>
+    <tr>
+      <td>Samadhi</td>
+      <td>bliss/enlightenment</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Also see the 🔮 <a href="../YOGA-YAMAS-and-NIYAMAS/">Yamas &amp; Niyamas for the ethics of Yoga toward self and others</a></p>
 
 <p><img src="../media/YOGA-EIGHT-LIMBS-OF-YOGA-1.png" alt=""></p>
 
@@ -1114,3 +1139,34 @@ Also see the 🔮 <a href="../YOGA-YAMAS-and-NIYAMAS/">Yamas &amp; Niyamas for 
 
             setTimeout(() => {
               zoomI
+nfo.style.opacity = '0';
+            }, 2000);
+          }
+
+          lastTapTime = currentTime;
+        });
+
+        // Close button
+        closeBtn.addEventListener('click', function() {
+          closeViewer();
+        });
+
+        // Click overlay background to close
+        overlay.addEventListener('click', function(e) {
+          if (e.target === overlay) {
+            closeViewer();
+          }
+        });
+
+        // ESC key to close
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape' && overlay.style.display === 'flex') {
+            closeViewer();
+          }
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
