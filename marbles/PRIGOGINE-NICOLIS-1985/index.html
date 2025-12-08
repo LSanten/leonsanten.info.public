@@ -1125,5 +1125,149 @@ nfo.style.opacity = '0';
     });
   </script>
 
+  <!-- Collapsible Card Styling -->
+  <style>
+    /* Collapsible section base */
+    .collapsible-section {
+      margin: 8px 0 20px 0;
+      transition: all 0.3s ease;
+    }
+
+    /* Override global h2 margin for collapsible headers */
+    .collapsible-header {
+      margin-top: 0 !important;
+    }
+
+    /* Card-like appearance when collapsed */
+    .collapsible-section.collapsed {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 12px;
+      padding: 4px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+    }
+
+    .collapsible-section.collapsed:hover {
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15), 0 4px 6px rgba(0, 0, 0, 0.1);
+      transform: translateY(-2px);
+    }
+
+    /* No card styling when expanded - original look */
+    .collapsible-section.expanded {
+      background: transparent;
+      border-radius: 0;
+      padding: 0;
+      box-shadow: none;
+    }
+
+    /* Header container with preview indicators */
+    .collapsible-header-wrapper {
+      position: relative;
+    }
+
+    .collapsible-header {
+      cursor: pointer;
+      user-select: none;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      transition: all 0.3s ease;
+      border-radius: 8px;
+    }
+
+    /* White text on gradient when collapsed - minimal top padding */
+    .collapsible-section.collapsed .collapsible-header {
+      color: white;
+      font-weight: 500;
+      padding: 8px 20px 8px 20px;
+    }
+
+    /* Expanded styling - same size as collapsed, purple color */
+    .collapsible-section.expanded .collapsible-header {
+      color: #764ba2;
+      font-weight: 500;
+      padding: 12px 0;
+    }
+
+    .collapsible-header:hover {
+      opacity: 0.9;
+    }
+
+    .collapse-indicator {
+      width: 0;
+      height: 0;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-top: 9px solid currentColor;
+      transition: transform 0.2s ease;
+      display: inline-block;
+      transform: rotate(-90deg);
+      flex-shrink: 0;
+    }
+
+    .collapse-indicator.expanded {
+      transform: rotate(0deg);
+    }
+
+    /* Preview indicators container - only show when collapsed */
+    .preview-indicators {
+      display: none;
+      padding: 0 20px 12px 20px;
+      flex-wrap: wrap;
+      gap: 0;
+      align-items: center;
+      margin-left: 30px;
+    }
+
+    .collapsible-section.collapsed .preview-indicators {
+      display: flex;
+    }
+
+    /* Individual preview circle */
+    .preview-circle {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 2px solid white;
+      background-color: white;
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      margin-left: -12px;
+      transition: all 0.3s ease;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .preview-circle:first-child {
+      margin-left: 0;
+    }
+
+    /* Hover effect - very large preview (4x scale = 176px from 44px) */
+    .preview-circle:hover {
+      transform: scale(4) translateY(-15px);
+      z-index: 1000;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Mobile/touch - add active state for tap */
+    .preview-circle:active {
+      transform: scale(4) translateY(-15px);
+      z-index: 1000;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Content styling - preserves original minimal style */
+    .collapsible-content {
+      transition: all 0.3s ease;
+      margin-top: 10px;
+    }
+
+    /* Nested sections get additional offset */
+    .collapsible-content .collapsible-section {
+      margin-left: 0.5rem;
+    }
+  </style>
+
 </body>
 </html>
