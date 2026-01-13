@@ -421,9 +421,6 @@ I hold this paper very close to my heart because it manifests my personal explor
       transition: all 0.3s ease;
       position: relative;
       overflow: hidden;
-      box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.6),
-        inset 0 -1px 0 rgba(145, 76, 154, 0.1);
     }
 
     /* Noise grain texture for button */
@@ -495,13 +492,22 @@ I hold this paper very close to my heart because it manifests my personal explor
       .glass-modal {
         width: 95%;
         padding: 20px;
-        padding-top: 48px; /* Extra space for close button */
         margin: 10px;
         max-height: 90vh;
       }
 
+      .glass-modal-close {
+        position: sticky;
+        top: 12px;
+        float: right;
+        margin-top: -8px;
+        margin-right: -8px;
+        margin-bottom: -36px;
+      }
+
       .glass-modal-title {
         font-size: 1.3rem;
+        padding-right: 40px; /* Space for close button */
       }
 
       .glass-modal-text {
@@ -513,7 +519,12 @@ I hold this paper very close to my heart because it manifests my personal explor
       .glass-modal {
         max-height: 95vh;
         padding: 16px;
-        padding-top: 44px;
+      }
+
+      .glass-modal-close {
+        top: 10px;
+        margin-right: -6px;
+        margin-bottom: -36px;
       }
     }
   </style>
