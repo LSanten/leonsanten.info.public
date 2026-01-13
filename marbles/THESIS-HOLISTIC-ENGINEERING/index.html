@@ -398,25 +398,92 @@
         inset 0 1px 2px rgba(0, 0, 0, 0.1);
     }
 
-    /* Trigger button styling */
+    /* Base trigger button styling - tinted glass with grain */
     .marble-info-button {
-      background: rgba(255, 255, 255, 0.25);
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-      border: 1px solid rgba(255, 255, 255, 0.3);
+      background: linear-gradient(
+        135deg,
+        rgba(255, 248, 220, 0.45) 0%,
+        rgba(255, 255, 255, 0.35) 40%,
+        rgba(200, 162, 200, 0.4) 100%
+      );
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1.5px solid rgba(255, 255, 255, 0.5);
       border-radius: 25px;
-      padding: 10px 20px;
+      padding: 12px 24px;
       font-size: 1rem;
       color: #333;
       cursor: pointer;
       transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      position: relative;
+      overflow: hidden;
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.6),
+        inset 0 -1px 0 rgba(145, 76, 154, 0.1);
+    }
+
+    /* Noise grain texture for button */
+    .marble-info-button::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      opacity: 0.12;
+      filter: url(#noiseFilter);
+      pointer-events: none;
+      border-radius: 25px;
+    }
+
+    /* Shimmer/Glint Effect */
+    .marble-info-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 60%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.4),
+        rgba(255, 255, 255, 0.8),
+        rgba(255, 255, 255, 0.4),
+        transparent
+      );
+      transform: skewX(-20deg);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .marble-info-button:hover::before {
+      animation: shimmer-glint 0.8s ease-out;
+    }
+
+    @keyframes shimmer-glint {
+      0% {
+        left: -100%;
+      }
+      100% {
+        left: 150%;
+      }
     }
 
     .marble-info-button:hover {
-      background: rgba(255, 255, 255, 0.4);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      background: linear-gradient(
+        135deg,
+        rgba(255, 248, 220, 0.55) 0%,
+        rgba(255, 255, 255, 0.5) 40%,
+        rgba(200, 162, 200, 0.5) 100%
+      );
+      border-color: rgba(255, 255, 255, 0.7);
+      transform: scale(1.02);
+    }
+
+    /* Active state */
+    .marble-info-button:active {
+      transform: scale(0.97);
     }
 
     /* Mobile adjustments */
@@ -1588,6 +1655,8 @@ nfo.style.opacity = '0';
       if (modalTrigger) {
         modalTrigger.addEventListener('click', openModal);
       }
+
+
 
       if (modalClose) {
         modalClose.addEventListener('click', closeModal);
