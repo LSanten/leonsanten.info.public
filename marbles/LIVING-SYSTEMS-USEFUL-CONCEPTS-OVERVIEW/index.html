@@ -195,6 +195,258 @@
     }
   </style>
 
+  <!-- Glassmorphism Modal Styles -->
+  <style>
+    /* SVG noise filter for grainy texture */
+    .noise-svg {
+      position: absolute;
+      width: 0;
+      height: 0;
+    }
+
+    /* Modal backdrop */
+    #marble-modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.2);
+      z-index: 10000;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    #marble-modal-overlay.visible {
+      display: flex;
+      opacity: 1;
+    }
+
+    /* Glassmorphism modal card */
+    .glass-modal {
+      max-width: 500px;
+      width: 90%;
+      max-height: 85vh;
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding: 32px;
+      background: rgba(255, 255, 255, 0.28);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.2);
+      position: relative;
+      transform: scale(0.9) translateY(20px);
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      opacity: 0;
+      -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+
+      /* Custom minimal scrollbar */
+      scrollbar-width: thin;
+      scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+    }
+
+    /* Webkit (Chrome, Safari, Edge) custom scrollbar */
+    .glass-modal::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .glass-modal::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .glass-modal::-webkit-scrollbar-thumb {
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+    }
+
+    .glass-modal::-webkit-scrollbar-thumb:hover {
+      background: rgba(0, 0, 0, 0.3);
+    }
+
+    #marble-modal-overlay.visible .glass-modal {
+      transform: scale(1) translateY(0);
+      opacity: 1;
+    }
+
+    /* Top highlight gradient */
+    .glass-modal::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.8),
+        transparent
+      );
+      pointer-events: none;
+    }
+
+    /* Left edge highlight */
+    .glass-modal::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1px;
+      height: 100%;
+      background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.8),
+        transparent,
+        rgba(255, 255, 255, 0.3)
+      );
+      pointer-events: none;
+    }
+
+    /* Noise texture overlay */
+    .glass-modal-noise {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      opacity: 0.15;
+      filter: url(#noiseFilter);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Modal content */
+    .glass-modal-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .glass-modal-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: #333;
+    }
+
+    .glass-modal-text {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #444;
+    }
+
+    .glass-modal-text a {
+      color: #914c9a;
+      text-decoration: underline;
+    }
+
+    .glass-modal-text a:hover {
+      color: #7a3d82;
+    }
+
+    /* Close button */
+    .glass-modal-close {
+      position: sticky;
+      top: 0;
+      float: right;
+      margin-top: -8px;
+      margin-right: -8px;
+      margin-bottom: -32px;
+      width: 36px;
+      height: 36px;
+      border: none;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: 300;
+      color: #666;
+      transition: all 0.2s ease;
+      z-index: 10;
+      box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.12),
+        0 1px 3px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    }
+
+    .glass-modal-close:hover {
+      background: rgba(255, 255, 255, 0.9);
+      transform: scale(1.08);
+      box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.15),
+        0 2px 4px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    }
+
+    .glass-modal-close:active {
+      transform: scale(0.95);
+      background: rgba(240, 240, 240, 0.9);
+      box-shadow:
+        0 1px 4px rgba(0, 0, 0, 0.1),
+        inset 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Trigger button styling */
+    .marble-info-button {
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 25px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      color: #333;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .marble-info-button:hover {
+      background: rgba(255, 255, 255, 0.4);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 768px) {
+      .glass-modal {
+        width: 95%;
+        padding: 20px;
+        padding-top: 48px; /* Extra space for close button */
+        margin: 10px;
+        max-height: 90vh;
+      }
+
+      .glass-modal-title {
+        font-size: 1.3rem;
+      }
+
+      .glass-modal-text {
+        font-size: 0.95rem;
+      }
+    }
+
+    @media (max-height: 600px) {
+      .glass-modal {
+        max-height: 95vh;
+        padding: 16px;
+        padding-top: 44px;
+      }
+    }
+  </style>
+
 </head>
 <body>
   <!-- navigation -->
@@ -315,29 +567,45 @@
 <!-- /navigation -->
 
 <!-- start of banner -->
+<!-- SVG Noise Filter for Glassmorphism -->
+<svg class="noise-svg">
+  <filter id="noiseFilter">
+    <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/>
+    <feColorMatrix type="saturate" values="0"/>
+  </filter>
+</svg>
+
+<!-- Glassmorphism Modal for "What is a marble?" -->
+<div id="marble-modal-overlay">
+  <div class="glass-modal">
+    <div class="glass-modal-noise"></div>
+    <button class="glass-modal-close" aria-label="Close modal">&times;</button>
+    <div class="glass-modal-content">
+      <h3 class="glass-modal-title">🔮 What is a marble?</h3>
+      <p class="glass-modal-text">
+        In my world, a marble is a metaphorical container for a note that I want to share and shape with you. It can be a sketchy idea, an insight, a piece of knowledge, or a question that I consider valuable for my life's ongoing dialogue.
+        <br><br>
+        These marbles are never perfect and always a snapshot of a given moment. So, please, feel free to add your perspective at the ⬇️ <a href="#comment-zone" id="modal-comment-link">bottom of the page</a>. I try to follow the 🔮 <a href="../MEDIA-MOVEMENT-BUILDING-A/" target="_blank">principles for media movement building</a>.
+        <br><br>
+        Read more about my intentions in 🔮 <a href="../MMSCommuniA/" target="_blank">this marble</a>.
+        <br><br>
+        In the past, I didn't have a way to share ideas or insights with others. This marbles website is the manifestation of my desire to share intentionally with the world. If you want to do it too, let me know. I can help you.
+      </p>
+    </div>
+  </div>
+</div>
+
 <div class="banner text-center">
   <div class="container">
     <div class="row">
       <div class="col-lg-7 mx-auto">
-        <!-- <h4 class="text-shadow">This was a <i>marble</i>.</h4>
+        <h4 class="text-shadow">Here is a <i>marble</i> for you.</h4>
         <h5 class="text-shadow">Yours, <a href="https://leonsanten.info/" target="_blank" style="color: #914c9a; text-decoration: none;">Leon</a></h5>
-        --><image width="250px" style="display: block; margin: 0 auto;" src="../../assets/marble-assets/images/marble-imagery/woven-marble-3.png">
+        <image width="250px" style="display: block; margin: 0 auto;" src="../../assets/marble-assets/images/marble-imagery/woven-marble-3.png">
         </br>
 
-        <!--
-        <span class="dots"></span>
+        <button class="marble-info-button" id="marble-info-trigger">✨ What is a marble?</button>
 
-            <span class="more">
-              <p style="text-decoration: none; border: 2px solid black; padding: 4px 8px; background-color:#daf0ffc2; border-radius: 15px; color: black;">In my world, a marble is a metaphorical container for a note that I want to share and shape with you. It can be a sketchy idea, an insight, a piece of knowledge, or a question that I consider valuable for my life's ongoing dialogue.<br><br>These marbles are never perfect and always a snapshot of a given moment. So, please, feel free to add your perspective at the ⬇️ <a href="#comment-zone">bottom of the page</a>. I try to follow the 🔮 <a href="../MEDIA-MOVEMENT-BUILDING-A/" target="_blank">principles for media movement building</a>.<br><br>
-              Read more about my intentions in 🔮 <a href="../MMSCommuniA/" target="_blank">this marble</a>.
-
-              In the past, I didn't have a way to share ideas or insights with others. This marbles website is the manifestation of my desire to share intentionally with the world. If you want to do it too, let me know. I can help you.
-              </p>
-
-            </span>
-
-            <button class="read">⏷ What is a marble?</button>
-        -->
       </div>
     </div>
   </div>
@@ -1321,6 +1589,67 @@ nfo.style.opacity = '0';
       margin-left: 0.5rem;
     }
   </style>
+
+  <!-- Glassmorphism Modal JavaScript -->
+  <script>
+    (function() {
+      const modalOverlay = document.getElementById('marble-modal-overlay');
+      const modalTrigger = document.getElementById('marble-info-trigger');
+      const modalClose = document.querySelector('.glass-modal-close');
+      const glassModal = document.querySelector('.glass-modal');
+      const commentLink = document.getElementById('modal-comment-link');
+
+      // Open modal
+      function openModal() {
+        modalOverlay.style.display = 'flex';
+        // Trigger reflow for animation
+        modalOverlay.offsetHeight;
+        modalOverlay.classList.add('visible');
+        document.body.style.overflow = 'hidden'; // Prevent background scroll
+      }
+
+      // Close modal
+      function closeModal() {
+        modalOverlay.classList.remove('visible');
+        setTimeout(() => {
+          modalOverlay.style.display = 'none';
+          document.body.style.overflow = ''; // Restore scroll
+        }, 300); // Match transition duration
+      }
+
+      // Event listeners
+      if (modalTrigger) {
+        modalTrigger.addEventListener('click', openModal);
+      }
+
+      if (modalClose) {
+        modalClose.addEventListener('click', closeModal);
+      }
+
+      // Close when clicking outside the modal (on overlay)
+      if (modalOverlay) {
+        modalOverlay.addEventListener('click', function(e) {
+          if (e.target === modalOverlay) {
+            closeModal();
+          }
+        });
+      }
+
+      // Close when pressing Escape key
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modalOverlay.classList.contains('visible')) {
+          closeModal();
+        }
+      });
+
+      // Close modal when clicking comment link (so user can see comments)
+      if (commentLink) {
+        commentLink.addEventListener('click', function() {
+          closeModal();
+        });
+      }
+    })();
+  </script>
 
 </body>
 </html>

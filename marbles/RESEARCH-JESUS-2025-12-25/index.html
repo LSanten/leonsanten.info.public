@@ -195,6 +195,258 @@
     }
   </style>
 
+  <!-- Glassmorphism Modal Styles -->
+  <style>
+    /* SVG noise filter for grainy texture */
+    .noise-svg {
+      position: absolute;
+      width: 0;
+      height: 0;
+    }
+
+    /* Modal backdrop */
+    #marble-modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.2);
+      z-index: 10000;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    #marble-modal-overlay.visible {
+      display: flex;
+      opacity: 1;
+    }
+
+    /* Glassmorphism modal card */
+    .glass-modal {
+      max-width: 500px;
+      width: 90%;
+      max-height: 85vh;
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding: 32px;
+      background: rgba(255, 255, 255, 0.28);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.2);
+      position: relative;
+      transform: scale(0.9) translateY(20px);
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      opacity: 0;
+      -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+
+      /* Custom minimal scrollbar */
+      scrollbar-width: thin;
+      scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+    }
+
+    /* Webkit (Chrome, Safari, Edge) custom scrollbar */
+    .glass-modal::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .glass-modal::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .glass-modal::-webkit-scrollbar-thumb {
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+    }
+
+    .glass-modal::-webkit-scrollbar-thumb:hover {
+      background: rgba(0, 0, 0, 0.3);
+    }
+
+    #marble-modal-overlay.visible .glass-modal {
+      transform: scale(1) translateY(0);
+      opacity: 1;
+    }
+
+    /* Top highlight gradient */
+    .glass-modal::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.8),
+        transparent
+      );
+      pointer-events: none;
+    }
+
+    /* Left edge highlight */
+    .glass-modal::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1px;
+      height: 100%;
+      background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.8),
+        transparent,
+        rgba(255, 255, 255, 0.3)
+      );
+      pointer-events: none;
+    }
+
+    /* Noise texture overlay */
+    .glass-modal-noise {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      opacity: 0.15;
+      filter: url(#noiseFilter);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Modal content */
+    .glass-modal-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .glass-modal-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: #333;
+    }
+
+    .glass-modal-text {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #444;
+    }
+
+    .glass-modal-text a {
+      color: #914c9a;
+      text-decoration: underline;
+    }
+
+    .glass-modal-text a:hover {
+      color: #7a3d82;
+    }
+
+    /* Close button */
+    .glass-modal-close {
+      position: sticky;
+      top: 0;
+      float: right;
+      margin-top: -8px;
+      margin-right: -8px;
+      margin-bottom: -32px;
+      width: 36px;
+      height: 36px;
+      border: none;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: 300;
+      color: #666;
+      transition: all 0.2s ease;
+      z-index: 10;
+      box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.12),
+        0 1px 3px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    }
+
+    .glass-modal-close:hover {
+      background: rgba(255, 255, 255, 0.9);
+      transform: scale(1.08);
+      box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.15),
+        0 2px 4px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    }
+
+    .glass-modal-close:active {
+      transform: scale(0.95);
+      background: rgba(240, 240, 240, 0.9);
+      box-shadow:
+        0 1px 4px rgba(0, 0, 0, 0.1),
+        inset 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Trigger button styling */
+    .marble-info-button {
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 25px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      color: #333;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .marble-info-button:hover {
+      background: rgba(255, 255, 255, 0.4);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 768px) {
+      .glass-modal {
+        width: 95%;
+        padding: 20px;
+        padding-top: 48px; /* Extra space for close button */
+        margin: 10px;
+        max-height: 90vh;
+      }
+
+      .glass-modal-title {
+        font-size: 1.3rem;
+      }
+
+      .glass-modal-text {
+        font-size: 0.95rem;
+      }
+    }
+
+    @media (max-height: 600px) {
+      .glass-modal {
+        max-height: 95vh;
+        padding: 16px;
+        padding-top: 44px;
+      }
+    }
+  </style>
+
 </head>
 <body>
   <!-- navigation -->
@@ -315,29 +567,45 @@
 <!-- /navigation -->
 
 <!-- start of banner -->
+<!-- SVG Noise Filter for Glassmorphism -->
+<svg class="noise-svg">
+  <filter id="noiseFilter">
+    <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/>
+    <feColorMatrix type="saturate" values="0"/>
+  </filter>
+</svg>
+
+<!-- Glassmorphism Modal for "What is a marble?" -->
+<div id="marble-modal-overlay">
+  <div class="glass-modal">
+    <div class="glass-modal-noise"></div>
+    <button class="glass-modal-close" aria-label="Close modal">&times;</button>
+    <div class="glass-modal-content">
+      <h3 class="glass-modal-title">🔮 What is a marble?</h3>
+      <p class="glass-modal-text">
+        In my world, a marble is a metaphorical container for a note that I want to share and shape with you. It can be a sketchy idea, an insight, a piece of knowledge, or a question that I consider valuable for my life's ongoing dialogue.
+        <br><br>
+        These marbles are never perfect and always a snapshot of a given moment. So, please, feel free to add your perspective at the ⬇️ <a href="#comment-zone" id="modal-comment-link">bottom of the page</a>. I try to follow the 🔮 <a href="../MEDIA-MOVEMENT-BUILDING-A/" target="_blank">principles for media movement building</a>.
+        <br><br>
+        Read more about my intentions in 🔮 <a href="../MMSCommuniA/" target="_blank">this marble</a>.
+        <br><br>
+        In the past, I didn't have a way to share ideas or insights with others. This marbles website is the manifestation of my desire to share intentionally with the world. If you want to do it too, let me know. I can help you.
+      </p>
+    </div>
+  </div>
+</div>
+
 <div class="banner text-center">
   <div class="container">
     <div class="row">
       <div class="col-lg-7 mx-auto">
-        <!-- <h4 class="text-shadow">This was a <i>marble</i>.</h4>
+        <h4 class="text-shadow">Here is a <i>marble</i> for you.</h4>
         <h5 class="text-shadow">Yours, <a href="https://leonsanten.info/" target="_blank" style="color: #914c9a; text-decoration: none;">Leon</a></h5>
-        --><image width="250px" style="display: block; margin: 0 auto;" src="../../assets/marble-assets/images/marble-imagery/woven-marble-3.png">
+        <image width="250px" style="display: block; margin: 0 auto;" src="../../assets/marble-assets/images/marble-imagery/woven-marble-3.png">
         </br>
 
-        <!--
-        <span class="dots"></span>
+        <button class="marble-info-button" id="marble-info-trigger">✨ What is a marble?</button>
 
-            <span class="more">
-              <p style="text-decoration: none; border: 2px solid black; padding: 4px 8px; background-color:#daf0ffc2; border-radius: 15px; color: black;">In my world, a marble is a metaphorical container for a note that I want to share and shape with you. It can be a sketchy idea, an insight, a piece of knowledge, or a question that I consider valuable for my life's ongoing dialogue.<br><br>These marbles are never perfect and always a snapshot of a given moment. So, please, feel free to add your perspective at the ⬇️ <a href="#comment-zone">bottom of the page</a>. I try to follow the 🔮 <a href="../MEDIA-MOVEMENT-BUILDING-A/" target="_blank">principles for media movement building</a>.<br><br>
-              Read more about my intentions in 🔮 <a href="../MMSCommuniA/" target="_blank">this marble</a>.
-
-              In the past, I didn't have a way to share ideas or insights with others. This marbles website is the manifestation of my desire to share intentionally with the world. If you want to do it too, let me know. I can help you.
-              </p>
-
-            </span>
-
-            <button class="read">⏷ What is a marble?</button>
-        -->
       </div>
     </div>
   </div>
@@ -389,7 +657,7 @@
 
 <p><em>I investigated this topic with AI on 2025-12-25 because his resistance to empire and wealth domination fascinates me. This is an overview of the findings.</em></p>
 
-<p>What emerges from historical Jesus scholarship isn’t the domesticated Christ of stained glass and Sunday school but a peasant prophet whose message threatened the foundations of empire and temple alike. The historical evidence points toward a figure whose teachings on wealth, power, and solidarity with the poor were so dangerous that Rome executed him as a political criminal. This research compiles what scholars have actually written, with citations to the source material.</p>
+<p>What emerges from historical Jesus scholarship isn’t the domesticated Christ of stained glass and Sunday school - but a peasant prophet whose message threatened the foundations of empire and temple alike. The historical evidence points toward a figure whose teachings on wealth, power, and solidarity with the poor were so dangerous that Rome executed him as a political criminal. This research compiles what scholars have actually written, with citations to the source material.</p>
 
 <hr>
 
@@ -509,6 +777,10 @@
   <li>Jesus’s goal was “a shutting down of temple operations altogether.”</li>
 </ul>
 
+<p><strong>The brokerless kingdom as economic alternative:</strong></p>
+
+<p>Douglas Oakman’s research shows Jesus functioned as a “broker” within the Roman patron-client system but radically subverted it. In advanced agrarian societies, “mediators or brokers are required to provide links” between the powerful and powerless (Oakman, <em>Jesus and the Economic Questions of His Day</em>, 2008). But Jesus’s brokerage eliminated the extractive middleman—he connected people directly to divine provision without demanding payment or creating dependency. This “brokerless kingdom” challenged the entire extractive logic of both temple and empire.</p>
+
 <p><strong>Sanders on the temple action (<em>Jesus and Judaism</em>, 1985, pp. 61-90):</strong></p>
 
 <ul>
@@ -522,6 +794,8 @@
 <blockquote>
   <p>“The last episode in the temple is a story of a widow being impoverished by her obligations to the temple cultus… Jesus condemns the value system that motivates her action, and he condemns the people who conditioned her to do it.”</p>
 </blockquote>
+
+<p>The temple incident wasn’t about religious purity—it was about <strong>economic liberation</strong>. Jesus attacked the structure that turned faith into profit and the poor into commodities.</p>
 
 <hr>
 
@@ -540,11 +814,13 @@
 <p><strong>Key parables reread:</strong></p>
 
 <ul>
-  <li>The Laborers in the Vineyard (Matt 20:1-16)</li>
+  <li>The Laborers in the Vineyard (Matt 20:1-16)—challenges the logic that worth equals productivity; everyone receives what they need regardless of hours worked</li>
   <li>The Wicked Tenants (Mark 12:1-12)</li>
   <li>The Rich Man and Lazarus (Luke 16:19-31)</li>
-  <li>The Talents (Matt 25:14-30)—often read as divine judgment, but Herzog argues it depicts the brutality of the ancient economy.</li>
+  <li>The Talents (Matt 25:14-30)—often read as divine judgment, but Herzog argues it depicts the brutality of the ancient economy</li>
 </ul>
+
+<p>Herzog’s reading reveals Jesus teaching peasants to <strong>see through</strong> the ideological justifications of their exploitation. The parables exposed how systems that claimed to be natural or divinely ordained were actually constructed to benefit the powerful.</p>
 
 <hr>
 
@@ -562,6 +838,18 @@
   <p>“For those who take their very identity from the eyes of their peers, the idea of eating together and living together without any distinctions, differences, discriminations, or hierarchies is close to the irrational and the absurd.”</p>
 </blockquote>
 
+<p><strong>From scarcity to abundance through sharing:</strong></p>
+
+<p>The feeding miracles (Mark 6:30-44, 8:1-10) weren’t merely supernatural—they were economic demonstrations. When resources are shared freely rather than hoarded, abundance emerges. Crossan argues these stories encode a radical economic principle: <strong>the myth of scarcity is manufactured</strong> by systems of hoarding and extraction. When the community practices mutual sharing, everyone is fed.</p>
+
+<p>This directly challenges what economic systems teach us to believe—that there isn’t enough, that competition is necessary, that someone must go without. Jesus’s feeding of thousands demonstrated the opposite: <strong>cooperation creates plenty</strong>.</p>
+
+<p><strong>General reciprocity versus balanced exchange:</strong></p>
+
+<p>Oakman identifies Jesus’s economic practice as “general reciprocity”—giving without expecting measured return (American Journal of Biblical Theology, 2021). This stands in stark contrast to the “balanced exchange” of market economies where every transaction must be equivalent.</p>
+
+<p>As Oakman notes, Jesus taught “giving without expecting in return” (parable of the Good Samaritan). Through this economic exchange paradigm, “human beings can achieve authentic solidarity that breaks through the violence, brutality, and malignant selfishness cultivated by the conditions of imperialism and economic inequality—generosity, peace, love, and cognizant support for one another is prioritized instead.”</p>
+
 <p><strong>Early community practice (Acts 2:44-45; 4:32-35):</strong></p>
 
 <ul>
@@ -569,11 +857,15 @@
   <li>“No one claimed that any of his possessions was his own, but they shared everything they owned… There was not a needy person among them.”</li>
 </ul>
 
+<p>This wasn’t charity or voluntary sharing alongside private property—it was <strong>structural reorganization</strong> of economic relationships. The early church abolished private ownership and distributed according to need. Marx, Engels, and Kautsky all argued this was socialism in practice, and as the Encyclopedia Britannica notes, “this is generally agreed by historians” (Christian Socialism, Wikipedia, 2024).</p>
+
 <p><strong>José Porfirio Miranda’s direct claim (<em>Communism in the Bible</em>, 1982):</strong></p>
 
 <blockquote>
   <p>“For a Christian to claim to be anticommunist is quite a different matter, and without doubt constitutes the greatest scandal of our century.”</p>
 </blockquote>
+
+<p>Miranda argues that the early Christian economic practice represents the original form of communism, predating Marx by centuries. The community of goods described in Acts wasn’t an ideal—it was <strong>practiced reality</strong>.</p>
 
 <hr>
 
@@ -633,6 +925,8 @@
   <li>Ecological and economic justice interwoven: “The land is entitled to a Sabbath rest” (Lev 25:4-7)</li>
 </ul>
 
+<p>The Jubilee represented a <strong>built-in system reset</strong>—recognition that inequality accumulates and must be periodically abolished. Land could not be permanently owned because, as Leviticus states, “the land is mine; with me you are but aliens and tenants” (Lev 25:23). This challenged the fundamental premise of private property as perpetual right.</p>
+
 <p><strong>John Howard Yoder (<em>The Politics of Jesus</em>, 1972/1994):</strong></p>
 
 <ul>
@@ -661,11 +955,15 @@
   <p>“He has pulled down princes from their thrones and exalted the lowly. The hungry he has filled with good things, the rich sent empty away.”</p>
 </blockquote>
 
+<p>This is the language of <strong>complete economic inversion</strong>—not reform, not gradual improvement, but total reversal. The Magnificat announces that God’s action in history will fundamentally restructure who has and who lacks. Empires banned it because they recognized its threat: this is a vision of their overthrow.</p>
+
 <p><strong>Dietrich Bonhoeffer (1933 Advent sermon):</strong></p>
 
 <blockquote>
   <p>“The song of Mary is the oldest Advent hymn. It is at once the most passionate, the wildest, one might even say the most revolutionary Advent hymn ever sung. This is not the gentle, tender, dreamy Mary whom we sometimes see in paintings.”</p>
 </blockquote>
+
+<p>The Great Reversal isn’t about individual souls in heaven—it’s about <strong>material redistribution</strong> and the end of systems built on domination. Mary proclaims what Jesus will enact.</p>
 
 <hr>
 
@@ -727,6 +1025,8 @@
   <li>Touch restored “emotional, social, and spiritual wholeness.”</li>
 </ul>
 
+<p>The act of touching those deemed untouchable was <strong>economic as well as spiritual</strong>—lepers, bleeding women, and corpses were excluded from economic participation. By restoring them to community, Jesus restored their material livelihood. Healing wasn’t charity; it was <strong>reintegration into economic life</strong>.</p>
+
 <p><strong>Crossan on healing practice (<em>The Historical Jesus</em>, pp. 421-422):</strong></p>
 
 <blockquote>
@@ -737,12 +1037,18 @@
   <p>“I’m completely convinced that Jesus was a major healer. I don’t think anybody would talk about Jesus if all he did was talk.”</p>
 </blockquote>
 
+<p>Jesus’s healing was <strong>free</strong>—no payment required, no worthiness assessed. This disrupted the economy of suffering where healing came at a price and only the worthy received care. His practice demonstrated that human dignity and access to wholeness are <strong>not commodities</strong>.</p>
+
 <p><strong>Exorcism as political-spiritual act:</strong></p>
 
 <ul>
   <li>Twelftree notes Jesus “made the unprecedented claim that his exorcisms were both the spearhead of his defeat of Satan and, in themselves, an important aspect of the realization of the kingdom of God.”</li>
   <li>Cross-cultural studies demonstrate “a link between spirit possession and agrarian societies where hierarchy, slavery, occupation and political oppression are present” (Witmer, <em>Jesus, The Galilean Exorcist</em>, 2012).</li>
 </ul>
+
+<p><strong>Presence over productivity:</strong></p>
+
+<p>Jesus’s contemplative practices—fasting for 40 days, all-night prayer vigils, withdrawing to wilderness—modeled a life not organized around constant production. This stands against economic systems that measure human worth by output.</p>
 
 <p><strong>Fasting and wilderness:</strong></p>
 
@@ -759,6 +1065,8 @@
   <li>Gethsemane: “Father, if you are willing, take this cup from me; yet not my will, but yours be done” (Luke 22:42)—prayed three times</li>
   <li>Physical posture: “He fell to the ground and prayed” (Mark 14:35); “fell facedown” (Matthew 26:39)</li>
 </ul>
+
+<p>These embodied practices created the <strong>interior condition</strong> for prophetic action. Transformation required withdrawal from the pace and demands of the system itself.</p>
 
 <hr>
 
@@ -783,6 +1091,117 @@
 <blockquote>
   <p>“There has never been a conservative prophet. Prophets have never been called to conserve social orders that have stratified inequities of power and privilege and wealth: prophets have always been called to change them so all can have access to the fullest fruits of life.”</p>
 </blockquote>
+
+<hr>
+
+<h2 id="what-this-means-liberation-from-empire-then-and-now">What This Means: Liberation from Empire Then and Now</h2>
+
+<p>The scholarly consensus reveals something remarkable: Jesus didn’t just critique the Roman economic system—<strong>he built and practiced an alternative</strong>. The early church in Acts didn’t merely talk about sharing; they abolished private property and distributed according to need. This wasn’t utopian fantasy; it was <strong>lived reality</strong>, at least for a time.</p>
+
+<p><strong>The core challenge Jesus presents to extractive economies:</strong></p>
+
+<p>Modern capitalism, like ancient Rome, operates on several foundational assumptions that Jesus’s practices directly contradicted:</p>
+
+<p><strong>1. Scarcity is natural and inevitable</strong></p>
+
+<ul>
+  <li>Roman/capitalist logic: There isn’t enough; competition determines who receives</li>
+  <li>Jesus’s demonstration: The feeding miracles show <strong>sharing creates abundance</strong>
+</li>
+  <li>When resources are hoarded (whether by empire or market), scarcity is manufactured</li>
+  <li>When resources are shared (Jesus’s practice), everyone is fed</li>
+</ul>
+
+<p><strong>2. Worth must be earned through productivity</strong></p>
+
+<ul>
+  <li>Roman/capitalist logic: Value comes from labor output; the unproductive don’t deserve provision</li>
+  <li>Jesus’s practice: Healing the sick, feeding crowds <strong>regardless of ability to pay or produce</strong>
+</li>
+  <li>The Laborers in the Vineyard: everyone receives what they need regardless of hours worked</li>
+  <li>Dignity is <strong>inherent</strong>, not earned</li>
+</ul>
+
+<p><strong>3. Hierarchies serve natural order</strong></p>
+
+<ul>
+  <li>Roman/capitalist logic: Some must rule, some must serve; inequality is inevitable</li>
+  <li>Jesus’s proclamation: “The first shall be last, the last shall be first” (Mark 10:31)</li>
+  <li>His entire ministry systematically <strong>dismantled hierarchies</strong> through table fellowship, touch, and teaching</li>
+  <li>The kingdom operates by <strong>radical equality</strong>, not stratification</li>
+</ul>
+
+<p><strong>4. Private property is fundamental right</strong></p>
+
+<ul>
+  <li>Roman/capitalist logic: What you own defines your freedom and security</li>
+  <li>Jesus’s teaching: “Sell all you have, give to the poor” (Luke 18:22)</li>
+  <li>Early church practice: “No one claimed private ownership of any possessions” (Acts 4:32)</li>
+  <li>True security comes through <strong>mutual interdependence</strong>, not individual accumulation</li>
+</ul>
+
+<p><strong>5. The system cannot be fundamentally changed</strong></p>
+
+<ul>
+  <li>Roman/capitalist logic: “This is human nature; this is how things are”</li>
+  <li>Jesus’s announcement: <strong>The Kingdom of God is here/coming</strong>
+</li>
+  <li>His temple action: symbolic destruction of the entire extractive apparatus</li>
+  <li>Jubilee economics: built-in complete system reset every 50 years</li>
+</ul>
+
+<p><strong>Practices that embody the alternative:</strong></p>
+
+<p>Oakman’s research identifies specific economic practices Jesus modeled and taught:</p>
+
+<ul>
+  <li>
+<strong>General reciprocity</strong>: giving without expecting measured return, creating bonds of mutual care rather than transactional exchange</li>
+  <li>
+<strong>Open commensality</strong>: shared meals with no hierarchy, where everyone eats together regardless of status</li>
+  <li>
+<strong>Brokerless provision</strong>: direct access to what sustains life, eliminating extractive middlemen</li>
+  <li>
+<strong>Free healing</strong>: restoration of wholeness without payment, challenging the commodification of care</li>
+  <li>
+<strong>Contemplative presence</strong>: life organized around being rather than producing, prayer rather than profit</li>
+</ul>
+
+<p>These weren’t individual acts of kindness within an unjust system—they were the <strong>building blocks of an alternative economy</strong> that actually functioned in the early church.</p>
+
+<p><strong>The path of liberation:</strong></p>
+
+<p>What makes Jesus’s example powerful for confronting modern extractive systems isn’t just his critique of wealth and empire—it’s that he <strong>demonstrated the alternative worked</strong>. The communities he catalyzed actually lived differently. They shared everything. They ate together across all boundaries. They distributed based on need. They prioritized presence and prayer over productivity and profit.</p>
+
+<p>This is what liberation theology recovers: Jesus didn’t die for individual salvation from sin—he was executed for building an economic and political alternative to empire. As Sobrino notes, “the poor in the community question Christological faith and give it its fundamental direction.” When we read Jesus from the perspective of those crushed by extractive systems (then Roman, now capitalist), we see him clearly: a revolutionary who practiced <strong>solidarity, dignity, and mutual care</strong> as the foundation of collective liberation.</p>
+
+<p>The question isn’t whether Jesus was a “socialist” (the term didn’t exist)—it’s whether his practices of shared abundance, radical equality, and general reciprocity offer a way forward for communities seeking liberation from systems built on extraction, hierarchy, and artificial scarcity.</p>
+
+<p>The early church suggests they do.</p>
+
+<hr>
+
+<h2 id="connections-to-related-marbles">Connections to Related Marbles</h2>
+
+<p><strong>🔮 <a href="../RADICALNESS/">RADICALNESS</a></strong> - Jesus as radical going to the roots of injustice through challenging temple economy and imperial power</p>
+
+<p><strong>🔮 <a href="../PRIVATE-MARBLE/">🛑 PRIVATE MARBLE</a></strong> - Jesus’s communal economics (shared resources, mutual cooperation) mirrors socialist critique of capitalism</p>
+
+<p><strong>🔮 <a href="../PRIVATE-MARBLE/">🛑 PRIVATE MARBLE</a></strong> - Understanding feudal and capitalist structures helps contextualize Jesus’s resistance to Roman extraction</p>
+
+<p><strong>🔮 <a href="../SPIRIT-TRANSFORMATION/">SPIRIT-TRANSFORMATION</a></strong> - Jesus’s embodied spiritual practices as path to transforming consciousness and social structures</p>
+
+<p><strong>🔮 <a href="../RESUME-WRITINGS-B/">RESUME-WRITINGS-B</a></strong> - Connections between spirituality, ecological justice, and transforming oppressive systems</p>
+
+<p><strong>🔮 <a href="../MCGILCHRIST2021-VID/">MCGILCHRIST2021-VID</a></strong> - Values as ontological primitives—Jesus’s core values (justice, compassion, solidarity) recreate in movement</p>
+
+<p><strong>🔮 <a href="../ONTOLOGICAL-PRIMITIVES/">ONTOLOGICAL-PRIMITIVES</a></strong> - Jesus’s values (purpose, sense of sacred) continue reproducing through followers and social movements</p>
+
+<p><strong>🔮 <a href="../PRESENCE-A/">PRESENCE-A</a></strong> - Jesus’s embodied presence and connection to felt knowledge as guide for action</p>
+
+<p><strong>🔮 <a href="../MMSSocialReproductionB/">MMSSocialReproductionB</a></strong> - How Jesus’s values reproduce in early Christian communities and liberation movements</p>
+
+<p><strong>🔮 <a href="../ECO-JUSTICE/">ECO-JUSTICE</a></strong> - Jubilee economics interweaving land rest, debt forgiveness, ecological and economic justice</p>
 
 <hr>
 
@@ -842,6 +1261,10 @@
 
 <p>Myers, C. (2008). <em>Binding the strong man: A political reading of Mark’s story of Jesus</em> (20th anniversary ed.). Orbis Books. (Original work published 1988)</p>
 
+<p>Oakman, D. E. (2008). <em>Jesus and the economic questions of his day</em>. Wipf and Stock Publishers.</p>
+
+<p>Reinhart, J. (2021). Jesus and economic justice. <em>American Journal of Biblical Theology, 22</em>(29).</p>
+
 <p>Sanders, E. P. (1985). <em>Jesus and Judaism</em>. Fortress Press.</p>
 
 <p>Sanders, E. P. (1993). <em>The historical figure of Jesus</em>. Penguin Press.</p>
@@ -855,28 +1278,6 @@
 <p>Witmer, A. (2012). <em>Jesus, the Galilean exorcist: His exorcisms in social and political context</em>. Bloomsbury T&amp;T Clark.</p>
 
 <p>Yoder, J. H. (1994). <em>The politics of Jesus: Vicit Agnus Noster</em> (2nd ed.). Eerdmans. (Original work published 1972)</p>
-
-<h2 id="connections-to-related-marbles">Connections to Related Marbles</h2>
-
-<p><strong>🔮 <a href="../RADICALNESS/">RADICALNESS</a></strong> - Jesus as radical going to the roots of injustice through challenging temple economy and imperial power</p>
-
-<p><strong>🔮 <a href="../PRIVATE-MARBLE/">🛑 PRIVATE MARBLE</a></strong> - Jesus’s communal economics (shared resources, mutual cooperation) mirrors socialist critique of capitalism</p>
-
-<p><strong>🔮 <a href="../PRIVATE-MARBLE/">🛑 PRIVATE MARBLE</a></strong> - Understanding feudal and capitalist structures helps contextualize Jesus’s resistance to Roman extraction</p>
-
-<p><strong>🔮 <a href="../SPIRIT-TRANSFORMATION/">SPIRIT-TRANSFORMATION</a></strong> - Jesus’s embodied spiritual practices as path to transforming consciousness and social structures</p>
-
-<p><strong>🔮 <a href="../RESUME-WRITINGS-B/">RESUME-WRITINGS-B</a></strong> - Connections between spirituality, ecological justice, and transforming oppressive systems</p>
-
-<p><strong>🔮 <a href="../MCGILCHRIST2021-VID/">MCGILCHRIST2021-VID</a></strong> - Values as ontological primitives—Jesus’s core values (justice, compassion, solidarity) recreate in movement</p>
-
-<p><strong>🔮 <a href="../ONTOLOGICAL-PRIMITIVES/">ONTOLOGICAL-PRIMITIVES</a></strong> - Jesus’s values (purpose, sense of sacred) continue reproducing through followers and social movements</p>
-
-<p><strong>🔮 <a href="../PRESENCE-A/">PRESENCE-A</a></strong> - Jesus’s embodied presence and connection to felt knowledge as guide for action</p>
-
-<p><strong>🔮 <a href="../MMSSocialReproductionB/">MMSSocialReproductionB</a></strong> - How Jesus’s values reproduce in early Christian communities and liberation movements</p>
-
-<p><strong>🔮 <a href="../ECO-JUSTICE/">ECO-JUSTICE</a></strong> - Jubilee economics interweaving land rest, debt forgiveness, ecological and economic justice</p>
 
 
           <hr>
@@ -1749,6 +2150,67 @@ nfo.style.opacity = '0';
       margin-left: 0.5rem;
     }
   </style>
+
+  <!-- Glassmorphism Modal JavaScript -->
+  <script>
+    (function() {
+      const modalOverlay = document.getElementById('marble-modal-overlay');
+      const modalTrigger = document.getElementById('marble-info-trigger');
+      const modalClose = document.querySelector('.glass-modal-close');
+      const glassModal = document.querySelector('.glass-modal');
+      const commentLink = document.getElementById('modal-comment-link');
+
+      // Open modal
+      function openModal() {
+        modalOverlay.style.display = 'flex';
+        // Trigger reflow for animation
+        modalOverlay.offsetHeight;
+        modalOverlay.classList.add('visible');
+        document.body.style.overflow = 'hidden'; // Prevent background scroll
+      }
+
+      // Close modal
+      function closeModal() {
+        modalOverlay.classList.remove('visible');
+        setTimeout(() => {
+          modalOverlay.style.display = 'none';
+          document.body.style.overflow = ''; // Restore scroll
+        }, 300); // Match transition duration
+      }
+
+      // Event listeners
+      if (modalTrigger) {
+        modalTrigger.addEventListener('click', openModal);
+      }
+
+      if (modalClose) {
+        modalClose.addEventListener('click', closeModal);
+      }
+
+      // Close when clicking outside the modal (on overlay)
+      if (modalOverlay) {
+        modalOverlay.addEventListener('click', function(e) {
+          if (e.target === modalOverlay) {
+            closeModal();
+          }
+        });
+      }
+
+      // Close when pressing Escape key
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modalOverlay.classList.contains('visible')) {
+          closeModal();
+        }
+      });
+
+      // Close modal when clicking comment link (so user can see comments)
+      if (commentLink) {
+        commentLink.addEventListener('click', function() {
+          closeModal();
+        });
+      }
+    })();
+  </script>
 
 </body>
 </html>
