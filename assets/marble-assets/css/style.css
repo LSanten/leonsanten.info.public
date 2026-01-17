@@ -1728,7 +1728,7 @@ article,
     overflow: visible !important;
 }
 
-iframe {
+iframe:not([src*="fastcomments.com"]) {
     width: 100vw !important;
     max-width: 950px;
     border-radius: 10px;
@@ -1745,6 +1745,33 @@ iframe {
     transform: none;
 }
 
+/* FastComments widget - stays within container */
+iframe[src*="fastcomments.com"] {
+    width: 100% !important;
+    max-width: 100%;
+    border-radius: 0;
+    margin-left: 0;
+    margin-right: 0;
+    left: 0;
+    transform: none;
+    min-height: auto;
+}
+
+/* YouTube videos - maintain 16:9 aspect ratio */
+iframe[src*="youtube.com"],
+iframe[src*="youtu.be"] {
+    aspect-ratio: 16 / 9;
+    height: auto !important; /* Override inline height attribute */
+}
+
+/* Custom embedded HTML pages - taller aspect ratio */
+iframe:not([src*="youtube.com"]):not([src*="youtu.be"]):not(
+        [src*="fastcomments.com"]
+    ) {
+    min-height: 500px;
+    height: auto;
+}
+
 /* Tablet - still allow some breakout */
 @media (max-width: 991px) {
     iframe {
@@ -1755,12 +1782,30 @@ iframe {
         left: 0;
         transform: none;
     }
+
+    iframe[src*="youtube.com"],
+    iframe[src*="youtu.be"] {
+        aspect-ratio: 16 / 9;
+        height: auto !important;
+    }
+
+    iframe:not([src*="youtube.com"]):not([src*="youtu.be"]):not(
+            [src*="fastcomments.com"]
+        ) {
+        min-height: 400px;
+    }
 }
 
 /* Mobile - fit container nicely */
 @media (max-width: 576px) {
     iframe {
         border-radius: 6px; /* slightly smaller radius on mobile */
+    }
+
+    iframe:not([src*="youtube.com"]):not([src*="youtu.be"]):not(
+            [src*="fastcomments.com"]
+        ) {
+        min-height: 350px;
     }
 }
 
