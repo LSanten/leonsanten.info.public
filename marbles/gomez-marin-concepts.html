@@ -1,0 +1,937 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Gomez-Marin Consciousness Concept Map</title>
+        <style>
+            @import url("https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,500;1,300&family=JetBrains+Mono:wght@300&display=swap");
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                background: #fffaf0;
+                min-height: 100vh;
+                font-family: "Crimson Pro", Georgia, serif;
+                overflow: hidden;
+                position: relative;
+                color: #333333;
+            }
+
+            /* Grain overlay */
+            body::before {
+                content: "";
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+                opacity: 0.03;
+                pointer-events: none;
+                z-index: 1000;
+            }
+
+            #canvas-container {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+
+            canvas {
+                display: block;
+            }
+
+            .title {
+                position: fixed;
+                top: 24px;
+                left: 28px;
+                z-index: 100;
+                color: rgba(0, 0, 0, 0.8);
+                font-size: 11px;
+                letter-spacing: 0.15em;
+                text-transform: uppercase;
+                font-weight: 300;
+            }
+
+            .legend {
+                position: fixed;
+                bottom: 28px;
+                left: 28px;
+                z-index: 100;
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .legend-item {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                color: rgba(0, 0, 0, 0.7);
+                font-size: 10px;
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+            }
+
+            .legend-dot {
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+            }
+
+            .tooltip {
+                position: fixed;
+                padding: 14px 18px;
+                background: rgba(255, 250, 240, 0.97);
+                border: 1px solid rgba(0, 0, 0, 0.2);
+                color: rgba(0, 0, 0, 0.9);
+                font-size: 13px;
+                pointer-events: none;
+                opacity: 0;
+                transition: opacity 0.2s ease;
+                max-width: 380px;
+                z-index: 200;
+                font-family: "Crimson Pro", serif;
+                line-height: 1.6;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            }
+
+            .tooltip-title {
+                font-weight: 500;
+                font-size: 16px;
+                margin-bottom: 6px;
+                color: rgba(0, 0, 0, 0.95);
+            }
+
+            .tooltip-category {
+                font-family: "JetBrains Mono", monospace;
+                font-size: 9px;
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+                opacity: 0.5;
+                margin-bottom: 8px;
+            }
+
+            .tooltip-quote {
+                font-style: italic;
+                border-left: 2px solid rgba(0, 0, 0, 0.15);
+                padding-left: 10px;
+                margin-top: 10px;
+                font-size: 12px;
+                color: rgba(0, 0, 0, 0.7);
+            }
+
+            .instructions {
+                position: fixed;
+                bottom: 28px;
+                right: 28px;
+                color: rgba(0, 0, 0, 0.6);
+                font-size: 10px;
+                font-family: "JetBrains Mono", monospace;
+                text-align: right;
+                line-height: 1.8;
+            }
+
+            .filter-container {
+                position: fixed;
+                top: 24px;
+                right: 28px;
+                z-index: 100;
+                display: flex;
+                gap: 12px;
+                flex-wrap: wrap;
+                max-width: 400px;
+                justify-content: flex-end;
+            }
+
+            .filter-btn {
+                background: transparent;
+                border: 1px solid rgba(0, 0, 0, 0.3);
+                color: rgba(0, 0, 0, 0.7);
+                padding: 6px 12px;
+                font-family: "JetBrains Mono", monospace;
+                font-size: 9px;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+
+            .filter-btn:hover {
+                border-color: rgba(0, 0, 0, 0.5);
+                color: rgba(0, 0, 0, 0.9);
+            }
+
+            .filter-btn.active {
+                background: rgba(0, 0, 0, 0.15);
+                border-color: rgba(0, 0, 0, 0.4);
+                color: rgba(0, 0, 0, 1);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="title">
+            Consciousness Concept Map · Gómez-Marín Interview
+        </div>
+
+        <div class="filter-container">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="philosophy">
+                Philosophy
+            </button>
+            <button class="filter-btn" data-filter="phenomena">
+                Phenomena
+            </button>
+            <button class="filter-btn" data-filter="figures">Figures</button>
+            <button class="filter-btn" data-filter="metaphors">
+                Metaphors
+            </button>
+            <button class="filter-btn" data-filter="critique">Critique</button>
+        </div>
+
+        <div id="canvas-container">
+            <canvas id="canvas"></canvas>
+        </div>
+
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-dot" style="background: #e07a5f"></div>
+                <span>Philosophy</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-dot" style="background: #81b29a"></div>
+                <span>Phenomena</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-dot" style="background: #f2cc8f"></div>
+                <span>Figures</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-dot" style="background: #9a8c98"></div>
+                <span>Metaphors</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-dot" style="background: #c9ada7"></div>
+                <span>Critique</span>
+            </div>
+        </div>
+
+        <div class="tooltip" id="tooltip"></div>
+
+        <div class="instructions">
+            hover to explore<br />
+            drag to move<br />
+            click filters above
+        </div>
+
+        <script>
+            const canvas = document.getElementById("canvas");
+            const ctx = canvas.getContext("2d");
+            const tooltip = document.getElementById("tooltip");
+
+            let width, height;
+            let mouse = { x: null, y: null };
+            let activeFilter = "all";
+            let hoveredNode = null;
+            let draggedNode = null;
+
+            const categories = {
+                philosophy: "#e07a5f",
+                phenomena: "#81b29a",
+                figures: "#f2cc8f",
+                metaphors: "#9a8c98",
+                critique: "#c9ada7",
+            };
+
+            const nodes = [
+                // Philosophy
+                {
+                    id: "materialism",
+                    label: "Materialism",
+                    category: "philosophy",
+                    desc: `The dominant worldview holding that matter is fundamental and consciousness emerges from physical processes. Gómez-Marín argues materialism "should have died in the '90s at the first consciousness meeting" but was kept alive through strategic reframing. He calls materialism, mechanism, and reductionism "the unholy trinity" — an ideological parasite that science communicators like Dawkins and Tyson have hammered into lay people for decades.<div class="tooltip-quote">"They've been selling materialism in the name of science."</div>`,
+                },
+                {
+                    id: "hard-problem",
+                    label: "Hard Problem",
+                    category: "philosophy",
+                    desc: `David Chalmers' 1994 formulation asking how physical processes give rise to subjective experience. Gómez-Marín sees this as a clever rebranding: rather than declaring materialism dead, Chalmers gave it "a loan for 100 more years." The very framing ("how does the brain produce consciousness?") is a trap — it presumes the answer. The real question isn't <em>how</em> but <em>whether</em>.<div class="tooltip-quote">"The hard problem was a covering up of the crime scene where materialism had died."</div>`,
+                },
+                {
+                    id: "panpsychism",
+                    label: "Panpsychism",
+                    category: "philosophy",
+                    desc: `The view that consciousness is a fundamental feature of reality, present to some degree in all things. Often strawmanned by critics ("so glasses are conscious?"), but far more sophisticated than such dismissals suggest. Gómez-Marín sees problems with making consciousness merely "a fundamental property" but defends it against cheap mockery. Related to Integrated Information Theory (IIT) and represents one alternative to materialism in the post-hard-problem landscape.`,
+                },
+                {
+                    id: "analytic-idealism",
+                    label: "Analytic Idealism",
+                    category: "philosophy",
+                    desc: `Bernardo Kastrup's framework presenting idealism (consciousness as fundamental) through rigorous logical argument. Gómez-Marín values it as "the way to tell idealism for those who will only swallow it if you present it in a purely rational logical way." But he hopes no single ism becomes "the new king" — preferring a republic of ideas over another philosophical monarchy.<div class="tooltip-quote">"Analytic is one way. I don't think we can get there without being analytic. But if we're only analytic, we won't get there."</div>`,
+                },
+                {
+                    id: "wild-idealism",
+                    label: "Wild Idealism",
+                    category: "philosophy",
+                    desc: `Gómez-Marín's own emerging position — a complement to analytic idealism that uses experience, intuition, imagination, and even trauma to bypass purely logical gates. Where analytic idealism offers mathematical theorems, wild idealism offers direct encounter. It's the path for those who don't need formal proof to know reality is more than matter.<div class="tooltip-quote">"There's another way and you can bypass some of these logical gates if you want and you may need to use experience, trauma, imagination, intuition."</div>`,
+                },
+                {
+                    id: "iit",
+                    label: "IIT",
+                    category: "philosophy",
+                    desc: `Integrated Information Theory, developed by Giulio Tononi. A mathematical framework proposing that consciousness corresponds to integrated information (Φ). It speaks of the "intrinsic perspective" — a genuine attempt to capture what makes experience <em>experiential</em>. But Gómez-Marín notes it "uses language that confuses people" by conflating Shannon information with intrinsic information. One of over 200 theories in Robert Lawrence Kuhn's "landscape of consciousness."`,
+                },
+                {
+                    id: "dual-aspect",
+                    label: "Dual Aspect Monism",
+                    category: "philosophy",
+                    desc: `The view that mind and matter are two aspects of one underlying reality — neither reducible to the other. One of many positions in the consciousness landscape alongside panpsychism, idealism, and neutral monism. Avoids the hard problem by denying the premise that one must "give rise to" the other. Related to Spinoza's philosophy and certain interpretations of quantum mechanics.`,
+                },
+                {
+                    id: "secularism",
+                    label: "Secularism",
+                    category: "philosophy",
+                    desc: `Another "ism" Gómez-Marín identifies as needing transcendence — the assumption that the sacred cannot be taken seriously, that spiritual realities are jokes or delusions. Paired with rationalism (the irrational, unreasonable use of reason). These are additional layers beyond materialism that constrain what we allow ourselves to see and know. Once you stop buying that the sacred must be a joke, reality can manifest more fully.`,
+                },
+                {
+                    id: "literalism",
+                    label: "Literalism",
+                    category: "philosophy",
+                    desc: `The false dilemma between fact and fiction — the demand that something either "happened" objectively or is merely imaginary. Gómez-Marín learned from Patrick Harpur that there's something in between: the realm of imagination, which is not "making things up" but a genuine dimension where physicality and psyche meet. John Mack advised: suspend the categories of "happened/didn't happen, objective/subjective."<div class="tooltip-quote">"The false dilemma between fact and fiction — we should not accept that."</div>`,
+                },
+
+                // Phenomena
+                {
+                    id: "nde",
+                    label: "NDEs",
+                    category: "phenomena",
+                    desc: `Near-death experiences — reports of consciousness continuing during clinical death, often including out-of-body perception, life review, encounters with deceased relatives, and profound peace. A key anomaly that materialists dismiss as hallucination but which stubbornly resists reductive explanation. Gómez-Marín uses NDEs as evidence that the hard problem should have killed materialism. Terminal lucidity (remarkable mental clarity before death in dementia patients) presents similar challenges.`,
+                },
+                {
+                    id: "remote-viewing",
+                    label: "Remote Viewing",
+                    category: "phenomena",
+                    desc: `The ability to perceive distant locations, events, or information without physical access. Gómez-Marín describes this as "the most incredible thing I've seen" — subjects drawing images that hadn't yet been selected (precognitive remote viewing). Counterintuitively, viewing ahead of time produces <em>better</em> results because it eliminates sensory leakage. The technique was developed at Stanford Research Institute and used operationally in the CIA's Stargate Program from 1972-1995.<div class="tooltip-quote">"This was a scientific miracle in front of my eyes."</div>`,
+                },
+                {
+                    id: "eov",
+                    label: "Extra-Ocular Vision",
+                    category: "phenomena",
+                    desc: `Non-local perception — the claimed ability to see without using the eyes (often while blindfolded). Gómez-Marín has extensively researched this, traveling to schools in the US, UK, Germany, Spain, Mexico, India, and Indonesia. His honest assessment: he has seen "incredible things AND cheating." Looking for the 1% of gold in the Mississippi. He notes that most schools haven't considered the ethical implications — if you're genuinely awakening latent abilities, what are the side effects?<div class="tooltip-quote">"Perception is perception. When we make it only sensory, we are screwed."</div>`,
+                },
+                {
+                    id: "telepathy",
+                    label: "Telepathy",
+                    category: "phenomena",
+                    desc: `Direct mind-to-mind communication. Neuralink promises "literal tech telepathy" — but Gómez-Marín suggests these capacities may already exist within us as humans, not requiring technological mediation. The telepathy tapes podcast (Kai Dickens) represents a media strategy to build popular interest before rigorous scientific study, pressuring the scientific "priesthood" through public demand. Rupert Sheldrake's research on telepathy in animals (dogs knowing when owners come home) exemplifies "getting in the mud."`,
+                },
+                {
+                    id: "precognition",
+                    label: "Precognition",
+                    category: "phenomena",
+                    desc: `Perception of future events before they occur. A colleague suggested to Gómez-Marín that remote viewing works <em>better</em> when targeting future events rather than present hidden targets. This sounds "impossible upon impossible" but has a practical advantage: it eliminates virtually all need for experimental control against sensory leakage, since the target hasn't been selected yet. Requires reconsidering causality itself — "maybe there's more to causality than I've been told."`,
+                },
+                {
+                    id: "psychedelics",
+                    label: "Psychedelics",
+                    category: "phenomena",
+                    desc: `Substances (ayahuasca, 5-MeO-DMT, psilocybin) that reliably produce altered states and mystical experiences. Gómez-Marín once thought all neuroscience students should have an ayahuasca experience before their PhD — he now regrets saying this. If these are genuinely other realities (not just "biochemistry fireworks in the skull"), then <em>what entities live there?</em> The Western approach (capsules, weekend retreats, drum circles) is "naive and super irresponsible."<div class="tooltip-quote">"We don't know what entities are manifesting there and what they're doing."</div>`,
+                },
+                {
+                    id: "stargate",
+                    label: "Stargate Program",
+                    category: "phenomena",
+                    desc: `The US government's $20 million remote viewing research program (1972-1995), conducted at Stanford Research Institute and later Fort Meade. Originally initiated because the CIA believed Soviets were spending 60 million rubles annually on "psychotronic" research. Employed ~15-20 viewers including Pat Price and Joe McMoneagle. Declassified in 1995; the AIR review found it "never useful in any intelligence operation" — though proponents dispute this. Materials now housed in Jeffrey Kripal's Archives of the Impossible at Rice University.`,
+                },
+                {
+                    id: "uap",
+                    label: "UAPs",
+                    category: "phenomena",
+                    desc: `Unidentified Anomalous Phenomena (formerly UFOs). Part of the broader "edges of consciousness" that Gómez-Marín believes warrant serious study. John Mack's research on abduction experiences exemplifies the scientific risk: Harvard convened an unprecedented inquiry into his work. The phenomena may be "both literally, physically happening to a degree; and also some kind of psychological, spiritual experience occurring perhaps in another dimension" (Mack). Helen Wambach's research compares physical UAP evidence with subjective encounter experiences.`,
+                },
+
+                // Figures
+                {
+                    id: "chalmers",
+                    label: "David Chalmers",
+                    category: "figures",
+                    desc: `Australian philosopher who coined "the hard problem of consciousness" in 1994, launching the modern scientific study of consciousness. Gómez-Marín sees this as "strategically very intelligent" — rather than declaring materialism dead, Chalmers reframed the impossibility as a research program. This gave materialists "meat to chew on" and a 100-year loan. Legendary figure at consciousness conferences; founded the Association for the Scientific Study of Consciousness.`,
+                },
+                {
+                    id: "seth",
+                    label: "Anil Seth",
+                    category: "figures",
+                    desc: `British neuroscientist, author of "Being You," and proponent of the "real problem" approach — studying consciousness empirically without getting stuck on metaphysical impossibilities. Gómez-Marín calls him "my favorite materialist friend" — they disagree strongly but respect each other. Seth advocates predictive processing theories. When Gómez-Marín asked about his prior probability that psi could be real, Seth's answer reveals whether genuine dialogue is possible or whether his mind is already closed.`,
+                },
+                {
+                    id: "sheldrake",
+                    label: "Rupert Sheldrake",
+                    category: "figures",
+                    desc: `British biologist known for morphic resonance theory and research on telepathy, including telepathic parrots and dogs that know when owners are coming home. A friend and mentor to Gómez-Marín. Exemplifies "getting in the mud" — doing the risky experiments that invite ridicule rather than staying safely in theory. While others craft sophisticated quantum consciousness frameworks, Sheldrake says "let's do an experiment" and risks looking foolish. That courage and humility distinguishes genuine inquiry.`,
+                },
+                {
+                    id: "kripal",
+                    label: "Jeffrey Kripal",
+                    category: "figures",
+                    desc: `Religion scholar at Rice University, founder of the Archives of the Impossible, author of "The Superhumanities" and "Authors of the Impossible." Key influence on Gómez-Marín's thinking about the "superhuman" as alternative to the transhuman. Kripal traces how Nietzsche's Übermensch inspired the American Superman comics — a mythology of innate psi capacities rather than technological enhancement. Advocates "thinking with" experiencers rather than explaining them away. Holds that altered states and trauma open access to superhuman dimensions already within us.`,
+                },
+                {
+                    id: "mack",
+                    label: "John Mack",
+                    category: "figures",
+                    desc: `Harvard psychiatrist (1929-2004) who won a Pulitzer Prize for his T.E. Lawrence biography, then risked his career studying alien abduction experiences. His books "Abduction" (1994) and "Passport to the Cosmos" (1999) took experiencers seriously without pathologizing them. Harvard convened an unprecedented peer review of his work — he retained tenure but his reputation suffered. His friend Thomas Kuhn (philosopher of scientific revolutions) advised: "suspend the categories of happened/didn't happen, objective/subjective."<div class="tooltip-quote">"I take them seriously. I don't have a way to account for them."</div>`,
+                },
+                {
+                    id: "harpur",
+                    label: "Patrick Harpur",
+                    category: "figures",
+                    desc: `British author of "Daimonic Reality: A Field Guide to the Otherworld" (1994). Key influence on Gómez-Marín's understanding of literalism. Harpur argues the psyche extends beyond the physical body into a "daimonic realm" — the Anima Mundi or World Soul. UFOs, fairies, Bigfoot, and Marian apparitions are all manifestations of this realm: not literally real (we'll never capture unequivocal evidence) but daimonically real. Imagination isn't fantasy — it's the synapse between fact and fiction where the miracle of physicality is built.`,
+                },
+                {
+                    id: "kastrup",
+                    label: "Bernardo Kastrup",
+                    category: "figures",
+                    desc: `Dutch philosopher, computer scientist, and leading proponent of analytic idealism — the view that reality is fundamentally mental, argued through rigorous logical analysis. Gómez-Marín compares him to "a martial artist" — his mere presence makes dogmatic skeptics think twice. Kastrup's work provides "the head is the bouncer of the heart" — giving smart people intellectual permission to consider what they may already feel. Author of "The Idea of the World" and founder of Essentia Foundation.`,
+                },
+                {
+                    id: "kurzweil",
+                    label: "Ray Kurzweil",
+                    category: "figures",
+                    desc: `Futurist, inventor, and author of "The Singularity Is Near/Nearer" — a leading voice of technological optimism and transhumanism. Gómez-Marín was asked to review his latest book and describes reading it as "intellectual dialysis" — toxic ideas filtering through his system. Kurzweil's visions (sex with resurrected loved ones via cyborg bodies grown from hair) are "philosophically and anthropologically naive and poor, sociologically dangerous." Whether from desperation or genuine belief, such programs want to edit the human condition.`,
+                },
+
+                // Metaphors
+                {
+                    id: "toothbrush",
+                    label: "Toothbrush Problem",
+                    category: "metaphors",
+                    desc: `"Theories of consciousness are like toothbrushes — everyone has one but no one wants to use another's." Now even worse: everyone is presenting their own theory. Robert Lawrence Kuhn's landscape identifies 200+ positions. The question: if you've been carving your toothbrush for decades, will you break it when data doesn't support it? Science advances "one funeral at a time" because senior researchers can't abandon their life's work. Gómez-Marín explicitly doesn't want to be the 70-year-old who can only talk about his own toothbrush.`,
+                },
+                {
+                    id: "gollum",
+                    label: "Gollum & Smeagol",
+                    category: "metaphors",
+                    desc: `The internal tension when witnessing anomalies. After seeing a blind person demonstrate seemingly impossible perception, Gómez-Marín came home with both voices on his shoulders: Smeagol saying "this is a miracle, incredible, wow!" and Gollum saying "come on, stupid, this is killing your reputation, shut it off." Both are himself. Studying the impossible is emotionally and intellectually demanding — it's not just an intellectual exercise but a true journey that can break you.<div class="tooltip-quote">"These activities are not just intellectual. They're very demanding on the person."</div>`,
+                },
+                {
+                    id: "funambulist",
+                    label: "Funambulists",
+                    category: "metaphors",
+                    desc: `Tightrope walkers — the circus performer who could fall at any moment. "We are the funambulists of consciousness." Researchers at the edges risk falling, breaking legs, even dying (professionally if not literally). It's a true adventure without maps. Requires practice, skill, and even grace. The image captures both the danger and the precision required — not recklessness, but balanced daring. Unlike studying fruitfly wing development for 70 years, this is genuinely risky work.`,
+                },
+                {
+                    id: "mordor",
+                    label: "Frodo & Mordor",
+                    category: "metaphors",
+                    desc: `"Frodo is living happily in his field of research and then they say there's this thing called Mordor. We can go there — actually we must go there. Before we adventure, it's wonderful, you can get killed, but you must go." The Lord of the Rings as template for consciousness research: leaving the comfortable Shire of normal science to journey toward impossible questions. Even Gollum had a role to play — without him, the Ring wouldn't have been destroyed. Everyone has a part in building Sagrada Família.`,
+                },
+                {
+                    id: "sagrada",
+                    label: "Sagrada Família",
+                    category: "metaphors",
+                    desc: `Gaudí's unfinished cathedral in Barcelona — we're all building it together. "We need people who break the stones, others who are good at putting them here, others who can calculate." Analytic idealists, wild idealists, experimentalists, philosophers, storytellers — each contributes differently. The war metaphor is wrong; it's a collaborative construction project. True pluralism means not requiring everyone to think the same way. The goal isn't to crown a new king (idealism replacing materialism) but to establish a republic.`,
+                },
+                {
+                    id: "windows95",
+                    label: "Windows 95",
+                    category: "metaphors",
+                    desc: `Materialists trying to install 2025 apps on Windows 95 — the system just crashes. The cognitive-plus-materialist worldview lacks the operating system to process concepts like the intrinsic perspective, non-local perception, or consciousness as fundamental. When you bring data about NDEs, terminal lucidity, remote viewing, they say "anecdotes" or get angry. They don't just disagree — they can't even parse the claims. The hardware won't support the software. Time for an upgrade.`,
+                },
+                {
+                    id: "mud",
+                    label: "Getting in the Mud",
+                    category: "metaphors",
+                    desc: `Don't just theorize — do the risky experiments. You could craft quantum consciousness theories all day, but Rupert Sheldrake says "let's do an experiment" — and studies telepathic parrots. That takes "an extra point of courage and humility." The theorist is like a captain seeing everything from above; the experimentalist is in the trenches with pain in the elbows, risking ridicule. Gómez-Marín says he needs to "crank up the volume of the crazy experiments" — sitting with blind people, witnessing remote viewing firsthand.`,
+                },
+                {
+                    id: "ontological-shock",
+                    label: "Ontological Shock",
+                    category: "metaphors",
+                    desc: `John Mack's term for the shattering of worldview when encountering the impossible. "Like jumping from a plane — get ready." If you're looking for ontological shock, buckle up. Gómez-Marín isn't doing this for dopamine but because the questions demand it. The topics don't stay at arm's length as "objects of study" — they touch back. They're realities in themselves. A psychedelic experience, an NDE, a witnessed anomaly can break your worldview in ways that demand integration. The Gollum/Smeagol tension is the aftermath.`,
+                },
+
+                // Critique
+                {
+                    id: "scientism",
+                    label: "Scientism",
+                    category: "critique",
+                    desc: `"The worst pseudoscience is dogmatic scientism." Skeptics who are skeptical about everything except their own doubts and beliefs — who just want to debunk. A neuroscientist contacted Gómez-Marín saying if his claims were true he'd deserve a Nobel, then offered to Zoom-verify. When Gómez-Marín asked about his experience with the literature, the man didn't want to know. His conclusion: either you're stupid, crazy, or a fraud. He forgot the option: maybe <em>he</em> is wrong.<div class="tooltip-quote">"These dogmatic skeptics have monopoly on the word 'skeptic.' No, come on."</div>`,
+                },
+                {
+                    id: "transhumanism",
+                    label: "Transhumanism",
+                    category: "critique",
+                    desc: `"A very dark force that wants to extinguish humankind while telling us it's going to be great." The techno-utopian program to transcend human limitations through technology — uploading minds, merging with AI, achieving immortality through engineering. Gómez-Marín sees it as pseudo-religion dressed in technoscientific language (immortality, redemption). Whether true believers like Kurzweil are genuinely evil or caught up in desperation (like Anakin becoming Vader), the program is philosophically naive and sociologically dangerous.`,
+                },
+                {
+                    id: "capitalocalypse",
+                    label: "Capitalocalypse",
+                    category: "critique",
+                    desc: `Capital + apocalypse. "They're selling us some sort of apocalypse in order to sell us everything they want." Shoshana Zuboff documented how capitalism, needing exponential growth, moved from conquering physical space to conquering attention and the inner life. Now the machine wants everything — not just jobs and relationships, but minds and souls. The qualitative dimension lost, only quantity remains: more, faster, everything forever. AI is the latest instrument of this conquering force.`,
+                },
+                {
+                    id: "ai-invasion",
+                    label: "Algorithmic Invasion",
+                    category: "critique",
+                    desc: `Gómez-Marín's five-element definition: "AI is an Algorithmic Invasion that is Fascinating and Dangerous." The aspect is monopoly capitalism threatening democracy. The fascinating is undeniable — things we thought impossible now happen. The dangerous is the war for consciousness itself. Using AI for writing loses the value of the struggle itself — "the very process of writing has value in itself, I struggle, I grow, I have new ideas." The question becomes: what is truly unique about being human?<div class="tooltip-quote">"It's not just our jobs. It's our minds and I think it's our souls."</div>`,
+                },
+                {
+                    id: "consciousness-war",
+                    label: "Consciousness Wars",
+                    category: "critique",
+                    desc: `Real wars at multiple intensities. Academic: the toothbrush problem, ego-driven defense of positions, two conferences running simultaneously (Barcelona vs ASSC). Ideological: materialism vs alternatives, anything smelling of non-materialism getting killed. Spiritual: the transhumanist agenda as dark force. "We're going through some sort of consciousness war or even spiritual war, different forces pushing." The urgency comes from AI: we must understand when systems are conscious before corporations convince people that anything duck-like must be a duck.`,
+                },
+                {
+                    id: "promissory",
+                    label: "Promissory Materialism",
+                    category: "critique",
+                    desc: `The hard problem gave materialism a 100-year loan — keep researching neural correlates and eventually consciousness will "emerge somehow somewhere." Still running on credit. A promissory note that keeps getting extended: we'll explain it eventually, trust us. Meanwhile, materialism functions as "a predatory system that doesn't let other isms express." The psychologists didn't dare study consciousness 100 years ago; now neuroscientists think it's just a matter of more brain research.`,
+                },
+                {
+                    id: "permission",
+                    label: "Permission to Trust",
+                    category: "critique",
+                    desc: `What lay people need — permission to trust their own experiences. People who've had NDEs, mystical experiences, or anomalous perceptions have been told for years they're stupid or crazy. Gómez-Marín sees himself as "the self-appointed guy protecting them from bullies" — using his credentials (theoretical physicist, neuroscientist) to give them that permission. A man told him after a TV appearance: "My brother had an NDE 41 years ago. We made fun of him. I called him after your program and said I'm sorry."<div class="tooltip-quote">"This is true consciousness in action."</div>`,
+                },
+                {
+                    id: "superhuman",
+                    label: "Superhuman vs Transhuman",
+                    category: "critique",
+                    desc: `Two paths of evolution from the human condition. Transhumanism: external tech enhancement, cyborgs, uploading, Neuralink's "literal telepathy." Superhuman: innate capacities already within us, the mystics as "athletes of consciousness," what Nietzsche's Übermensch became in American Superman comics. Jeffrey Kripal's key insight: we don't need technology to access extraordinary states — trauma, practice, and grace open them. The saints did incredible things without implants. Maybe the capacities promised by Silicon Valley are already ours.`,
+                },
+            ];
+
+            // Define connections
+            const connections = [
+                ["materialism", "hard-problem"],
+                ["materialism", "promissory"],
+                ["materialism", "scientism"],
+                ["materialism", "windows95"],
+                ["hard-problem", "chalmers"],
+                ["panpsychism", "iit"],
+                ["analytic-idealism", "kastrup"],
+                ["analytic-idealism", "wild-idealism"],
+                ["wild-idealism", "psychedelics"],
+                ["wild-idealism", "ontological-shock"],
+                ["secularism", "literalism"],
+                ["literalism", "harpur"],
+                ["nde", "ontological-shock"],
+                ["nde", "permission"],
+                ["remote-viewing", "stargate"],
+                ["remote-viewing", "precognition"],
+                ["remote-viewing", "eov"],
+                ["remote-viewing", "mud"],
+                ["eov", "telepathy"],
+                ["telepathy", "sheldrake"],
+                ["telepathy", "superhuman"],
+                ["psychedelics", "ontological-shock"],
+                ["chalmers", "seth"],
+                ["chalmers", "hard-problem"],
+                ["sheldrake", "mud"],
+                ["kripal", "superhuman"],
+                ["kripal", "harpur"],
+                ["kripal", "stargate"],
+                ["mack", "uap"],
+                ["mack", "harpur"],
+                ["mack", "literalism"],
+                ["mack", "ontological-shock"],
+                ["kurzweil", "transhumanism"],
+                ["transhumanism", "ai-invasion"],
+                ["transhumanism", "capitalocalypse"],
+                ["transhumanism", "superhuman"],
+                ["toothbrush", "sagrada"],
+                ["toothbrush", "consciousness-war"],
+                ["gollum", "funambulist"],
+                ["gollum", "ontological-shock"],
+                ["mordor", "funambulist"],
+                ["scientism", "consciousness-war"],
+                ["consciousness-war", "permission"],
+                ["ai-invasion", "consciousness-war"],
+                ["ai-invasion", "capitalocalypse"],
+                ["seth", "iit"],
+                ["kastrup", "permission"],
+                ["kastrup", "scientism"],
+                ["sagrada", "wild-idealism"],
+                ["sagrada", "analytic-idealism"],
+            ];
+
+            function resize() {
+                width = window.innerWidth;
+                height = window.innerHeight;
+                canvas.width = width * window.devicePixelRatio;
+                canvas.height = height * window.devicePixelRatio;
+                canvas.style.width = width + "px";
+                canvas.style.height = height + "px";
+                ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+
+                // Reinitialize positions on resize
+                initPositions();
+            }
+
+            function initPositions() {
+                const centerX = width / 2;
+                const centerY = height / 2;
+                const radius = Math.min(width, height) * 0.35;
+
+                nodes.forEach((node, i) => {
+                    if (!node.x || !node.y) {
+                        const angle = (i / nodes.length) * Math.PI * 2;
+                        const r = radius * (0.5 + Math.random() * 0.5);
+                        node.x = centerX + Math.cos(angle) * r;
+                        node.y = centerY + Math.sin(angle) * r;
+                    }
+                    node.vx = 0;
+                    node.vy = 0;
+                    node.targetX = node.x;
+                    node.targetY = node.y;
+                });
+            }
+
+            function getNodeById(id) {
+                return nodes.find((n) => n.id === id);
+            }
+
+            function isVisible(node) {
+                return activeFilter === "all" || node.category === activeFilter;
+            }
+
+            function simulate() {
+                const visibleNodes = nodes.filter(isVisible);
+
+                // Repulsion between nodes
+                for (let i = 0; i < visibleNodes.length; i++) {
+                    for (let j = i + 1; j < visibleNodes.length; j++) {
+                        const a = visibleNodes[i];
+                        const b = visibleNodes[j];
+                        const dx = b.x - a.x;
+                        const dy = b.y - a.y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+                        const minDist = 100;
+
+                        if (dist < minDist && dist > 0) {
+                            const force = ((minDist - dist) / dist) * 0.5;
+                            const fx = dx * force;
+                            const fy = dy * force;
+                            a.vx -= fx;
+                            a.vy -= fy;
+                            b.vx += fx;
+                            b.vy += fy;
+                        }
+                    }
+                }
+
+                // Attraction along connections
+                connections.forEach(([aId, bId]) => {
+                    const a = getNodeById(aId);
+                    const b = getNodeById(bId);
+                    if (!a || !b || !isVisible(a) || !isVisible(b)) return;
+
+                    const dx = b.x - a.x;
+                    const dy = b.y - a.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    const targetDist = 150;
+
+                    if (dist > 0) {
+                        const force = ((dist - targetDist) / dist) * 0.02;
+                        const fx = dx * force;
+                        const fy = dy * force;
+                        a.vx += fx;
+                        a.vy += fy;
+                        b.vx -= fx;
+                        b.vy -= fy;
+                    }
+                });
+
+                // Center gravity
+                const centerX = width / 2;
+                const centerY = height / 2;
+
+                visibleNodes.forEach((node) => {
+                    if (node === draggedNode) return;
+
+                    node.vx += (centerX - node.x) * 0.0005;
+                    node.vy += (centerY - node.y) * 0.0005;
+
+                    // Damping
+                    node.vx *= 0.9;
+                    node.vy *= 0.9;
+
+                    // Apply velocity
+                    node.x += node.vx;
+                    node.y += node.vy;
+
+                    // Boundary constraints
+                    const margin = 80;
+                    node.x = Math.max(margin, Math.min(width - margin, node.x));
+                    node.y = Math.max(
+                        margin,
+                        Math.min(height - margin, node.y),
+                    );
+
+                    // Avoid legend area (bottom-left corner)
+                    const legendWidth = 140;
+                    const legendHeight = 160;
+                    const legendPadding = 20;
+                    if (
+                        node.x < legendWidth + legendPadding &&
+                        node.y > height - legendHeight - legendPadding
+                    ) {
+                        // Push node away from legend
+                        const pushX = legendWidth + legendPadding - node.x;
+                        const pushY =
+                            node.y - (height - legendHeight - legendPadding);
+                        if (pushX < pushY) {
+                            node.x = legendWidth + legendPadding;
+                        } else {
+                            node.y = height - legendHeight - legendPadding;
+                        }
+                    }
+
+                    // Avoid filter buttons area (top-right corner)
+                    const filterWidth = 420;
+                    const filterHeight = 70;
+                    const filterPadding = 20;
+                    if (
+                        node.x > width - filterWidth - filterPadding &&
+                        node.y < filterHeight + filterPadding
+                    ) {
+                        // Push node away from filters
+                        const pushX =
+                            node.x - (width - filterWidth - filterPadding);
+                        const pushY = filterHeight + filterPadding - node.y;
+                        if (pushX < pushY) {
+                            node.x = width - filterWidth - filterPadding;
+                        } else {
+                            node.y = filterHeight + filterPadding;
+                        }
+                    }
+                });
+            }
+
+            function draw() {
+                ctx.clearRect(0, 0, width, height);
+
+                // Draw connections
+                connections.forEach(([aId, bId]) => {
+                    const a = getNodeById(aId);
+                    const b = getNodeById(bId);
+                    if (!a || !b) return;
+
+                    const aVisible = isVisible(a);
+                    const bVisible = isVisible(b);
+                    if (!aVisible && !bVisible) return;
+
+                    const isHighlighted =
+                        hoveredNode &&
+                        (hoveredNode.id === aId || hoveredNode.id === bId);
+                    const opacity = isHighlighted
+                        ? 0.6
+                        : aVisible && bVisible
+                          ? 0.25
+                          : 0.1;
+
+                    ctx.beginPath();
+                    ctx.moveTo(a.x, a.y);
+                    ctx.lineTo(b.x, b.y);
+                    ctx.strokeStyle = `rgba(0, 0, 0, ${opacity})`;
+                    ctx.lineWidth = isHighlighted ? 1.5 : 0.8;
+                    ctx.stroke();
+                });
+
+                // Draw nodes
+                nodes.forEach((node) => {
+                    const visible = isVisible(node);
+                    const isHovered = hoveredNode === node;
+                    const isConnectedToHovered =
+                        hoveredNode &&
+                        connections.some(
+                            ([a, b]) =>
+                                (a === hoveredNode.id && b === node.id) ||
+                                (b === hoveredNode.id && a === node.id),
+                        );
+
+                    let opacity = visible ? 1 : 0.1;
+                    let size = visible ? 5 : 3;
+
+                    if (isHovered) {
+                        size = 8;
+                    } else if (isConnectedToHovered) {
+                        size = 6;
+                        opacity = 1;
+                    } else if (hoveredNode && !isConnectedToHovered) {
+                        opacity = visible ? 0.3 : 0.05;
+                    }
+
+                    const color = categories[node.category];
+
+                    // Glow
+                    if (visible && (isHovered || isConnectedToHovered)) {
+                        ctx.beginPath();
+                        ctx.arc(node.x, node.y, size + 15, 0, Math.PI * 2);
+                        const gradient = ctx.createRadialGradient(
+                            node.x,
+                            node.y,
+                            0,
+                            node.x,
+                            node.y,
+                            size + 15,
+                        );
+                        gradient.addColorStop(0, color + "40");
+                        gradient.addColorStop(1, color + "00");
+                        ctx.fillStyle = gradient;
+                        ctx.fill();
+                    }
+
+                    // Node circle
+                    ctx.beginPath();
+                    ctx.arc(node.x, node.y, size, 0, Math.PI * 2);
+                    ctx.fillStyle =
+                        color +
+                        Math.round(opacity * 255)
+                            .toString(16)
+                            .padStart(2, "0");
+                    ctx.fill();
+
+                    // Label
+                    if (visible) {
+                        ctx.font = `${isHovered ? "500 13px" : "300 11px"} 'Crimson Pro', serif`;
+                        ctx.fillStyle = `rgba(0, 0, 0, ${isHovered ? 0.95 : hoveredNode && !isConnectedToHovered ? 0.4 : 0.8})`;
+                        ctx.textAlign = "center";
+                        ctx.fillText(node.label, node.x, node.y + size + 16);
+                    }
+                });
+
+                simulate();
+                requestAnimationFrame(draw);
+            }
+
+            function handleMouseMove(e) {
+                mouse.x = e.clientX;
+                mouse.y = e.clientY;
+
+                if (draggedNode) {
+                    draggedNode.x = mouse.x;
+                    draggedNode.y = mouse.y;
+                    draggedNode.vx = 0;
+                    draggedNode.vy = 0;
+                    return;
+                }
+
+                // Find hovered node
+                let found = null;
+                const visibleNodes = nodes.filter(isVisible);
+
+                for (const node of visibleNodes) {
+                    const dx = node.x - mouse.x;
+                    const dy = node.y - mouse.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+
+                    if (dist < 25) {
+                        found = node;
+                        break;
+                    }
+                }
+
+                hoveredNode = found;
+
+                if (found) {
+                    tooltip.innerHTML = `
+          <div class="tooltip-category">${found.category}</div>
+          <div class="tooltip-title">${found.label}</div>
+          ${found.desc}
+        `;
+                    tooltip.style.opacity = "1";
+
+                    // Get tooltip dimensions first by positioning off-screen
+                    tooltip.style.left = "-9999px";
+                    tooltip.style.top = "-9999px";
+                    const rect = tooltip.getBoundingClientRect();
+                    const tooltipWidth = rect.width;
+                    const tooltipHeight = rect.height;
+
+                    // Calculate viewport bounds
+                    const viewportWidth = window.innerWidth;
+                    const viewportHeight = window.innerHeight;
+                    const padding = 10;
+                    const offset = 15;
+
+                    // Calculate initial position (prefer bottom-right of cursor)
+                    let left = mouse.x + offset;
+                    let top = mouse.y + offset;
+
+                    // Adjust horizontal position if it would overflow
+                    if (left + tooltipWidth > viewportWidth - padding) {
+                        // Try left side of cursor
+                        left = mouse.x - tooltipWidth - offset;
+                    }
+                    // If still overflowing on left, clamp to left edge
+                    if (left < padding) {
+                        left = padding;
+                    }
+
+                    // Adjust vertical position if it would overflow
+                    if (top + tooltipHeight > viewportHeight - padding) {
+                        // Try above cursor
+                        top = mouse.y - tooltipHeight - offset;
+                    }
+                    // If still overflowing on top, clamp to top edge
+                    if (top < padding) {
+                        top = padding;
+                    }
+
+                    tooltip.style.left = left + "px";
+                    tooltip.style.top = top + "px";
+
+                    canvas.style.cursor = "grab";
+                } else {
+                    tooltip.style.opacity = "0";
+                    canvas.style.cursor = "default";
+                }
+            }
+
+            function handleMouseDown(e) {
+                if (hoveredNode) {
+                    draggedNode = hoveredNode;
+                    canvas.style.cursor = "grabbing";
+                }
+            }
+
+            function handleMouseUp() {
+                draggedNode = null;
+                canvas.style.cursor = hoveredNode ? "grab" : "default";
+            }
+
+            // Filter buttons
+            document.querySelectorAll(".filter-btn").forEach((btn) => {
+                btn.addEventListener("click", () => {
+                    document
+                        .querySelectorAll(".filter-btn")
+                        .forEach((b) => b.classList.remove("active"));
+                    btn.classList.add("active");
+                    activeFilter = btn.dataset.filter;
+                });
+            });
+
+            window.addEventListener("resize", resize);
+            canvas.addEventListener("mousemove", handleMouseMove);
+            canvas.addEventListener("mousedown", handleMouseDown);
+            canvas.addEventListener("mouseup", handleMouseUp);
+            canvas.addEventListener("mouseleave", () => {
+                hoveredNode = null;
+                draggedNode = null;
+                tooltip.style.opacity = "0";
+            });
+
+            resize();
+            initPositions();
+            draw();
+        </script>
+    </body>
+</html>

@@ -1,0 +1,2551 @@
+<!DOCTYPE html>
+
+<!--
+ // WEBSITE: https://themefisher.com
+ // TWITTER: https://twitter.com/themefisher
+ // FACEBOOK: https://www.facebook.com/themefisher
+ // GITHUB: https://github.com/themefisher/
+-->
+
+<html lang="en-us"><head>
+  <meta charset="utf-8">
+  <meta name="license" content="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+  <title>Interview on the edges of consciousness science</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Here is a marble for you! I hope it helps you engage in dialogue, plant a seed, or elicit collaboration.">
+  <meta name="author" content="Leon Santen">
+  <meta property="og:image" content="https://leonsanten.info/assets/marble-assets/images/marble-imagery/woven-marble-3.png">
+  <meta property="og:title" content="Interview on the edges of consciousness science">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://leonsanten.info/marbles">
+  <meta property="og:description" content="Interviewee : Dr. Alex Gómez-Marín
+Interviewer : Hans Busstra">
+  <meta property="og:site_name" content="leon's marble sharings 🔮">
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- plugins -->
+
+  <link rel="stylesheet" href="../../assets/marble-assets/plugins/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="../../assets/marble-assets/plugins/themify-icons/themify-icons.css">
+  <link rel="stylesheet" href="../../assets/marble-assets/plugins/slick/slick.css">
+  <link rel="stylesheet" href="../../assets/marble-assets/css/marble-preview.css">
+
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="../../assets/marble-assets/css/style.css" media="screen">
+
+  <!--Favicon-->
+  <link rel="apple-touch-icon" sizes="180x180" href="../../assets/marble-assets/favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/marble-assets/favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/marble-assets/favicon_io/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+      <!-- good favicon converter: https://favicon.io/favicon-converter/ -->
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- for ICONS -->
+
+
+
+  <!-- FOR EXPAND BUTTON -->
+  <style>
+  #more {display: none;}
+  </style>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+  <!-- FOR LATEX RENDERING -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js"></script>
+  <script>
+  document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+          delimiters: [
+              { left: "$$", right: "$$", display: true },
+              { left: "$", right: "$", display: false }
+          ],
+          throwOnError: false
+      });
+  });
+  </script>
+
+  <!-- FOR LINCENSE -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org/",
+    "@type": "CreativeWork",
+    "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "author": {
+      "@type": "Person",
+      "name": "Leon Santen"
+    }
+  }
+  </script>
+
+  <!-- Advanced Image Viewer Styles -->
+  <style>
+    #image-zoom-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.9);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+      cursor: zoom-out;
+      touch-action: none; /* Prevents default touch behaviors for better control */
+    }
+
+    #image-zoom-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    #image-zoom-img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      transform-origin: center center;
+      transition: transform 0.1s ease-out;
+      cursor: grab;
+      border-radius: 0;
+    }
+
+    #image-zoom-img.grabbing {
+      cursor: grabbing;
+    }
+
+    #image-zoom-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      font-size: 24px;
+      cursor: pointer;
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+
+    #image-zoom-close:hover {
+      background: rgba(0, 0, 0, 0.8);
+    }
+
+    #zoom-info {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 14px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .content img {
+      cursor: zoom-in;
+    }
+
+    /* Hide zoom info after short time */
+    .fade-out {
+      opacity: 0 !important;
+    }
+
+    /* Mobile optimizations */
+    @media (max-width: 768px) {
+      #image-zoom-img {
+        max-width: 100vw;
+        max-height: 100vh;
+      }
+
+      #image-zoom-close {
+        top: 10px;
+        right: 10px;
+      }
+    }
+  </style>
+
+  <!-- Glassmorphism Modal Styles -->
+  <style>
+    /* SVG noise filter for grainy texture */
+    .noise-svg {
+      position: absolute;
+      width: 0;
+      height: 0;
+    }
+
+    /* Modal backdrop */
+    #marble-modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.2);
+      z-index: 10000;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    #marble-modal-overlay.visible {
+      display: flex;
+      opacity: 1;
+    }
+
+    /* Glassmorphism modal card */
+    .glass-modal {
+      max-width: 500px;
+      width: 90%;
+      max-height: 85vh;
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding: 32px;
+      background: rgba(255, 255, 255, 0.28);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.2);
+      position: relative;
+      transform: scale(0.9) translateY(20px);
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      opacity: 0;
+      -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+
+      /* Custom minimal scrollbar */
+      scrollbar-width: thin;
+      scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+    }
+
+    /* Webkit (Chrome, Safari, Edge) custom scrollbar */
+    .glass-modal::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .glass-modal::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .glass-modal::-webkit-scrollbar-thumb {
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+    }
+
+    .glass-modal::-webkit-scrollbar-thumb:hover {
+      background: rgba(0, 0, 0, 0.3);
+    }
+
+    #marble-modal-overlay.visible .glass-modal {
+      transform: scale(1) translateY(0);
+      opacity: 1;
+    }
+
+    /* Top highlight gradient */
+    .glass-modal::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.8),
+        transparent
+      );
+      pointer-events: none;
+    }
+
+    /* Left edge highlight */
+    .glass-modal::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1px;
+      height: 100%;
+      background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.8),
+        transparent,
+        rgba(255, 255, 255, 0.3)
+      );
+      pointer-events: none;
+    }
+
+    /* Noise texture overlay */
+    .glass-modal-noise {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      opacity: 0.15;
+      filter: url(#noiseFilter);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Modal content */
+    .glass-modal-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .glass-modal-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: #333;
+    }
+
+    .glass-modal-text {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #444;
+    }
+
+    .glass-modal-text a {
+      color: #914c9a;
+      text-decoration: underline;
+    }
+
+    .glass-modal-text a:hover {
+      color: #7a3d82;
+    }
+
+    /* Close button */
+    .glass-modal-close {
+      position: sticky;
+      top: 0;
+      float: right;
+      margin-top: -8px;
+      margin-right: -8px;
+      margin-bottom: -32px;
+      width: 36px;
+      height: 36px;
+      border: none;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: 300;
+      color: #666;
+      transition: all 0.2s ease;
+      z-index: 10;
+      box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.12),
+        0 1px 3px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    }
+
+    .glass-modal-close:hover {
+      background: rgba(255, 255, 255, 0.9);
+      transform: scale(1.08);
+      box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.15),
+        0 2px 4px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    }
+
+    .glass-modal-close:active {
+      transform: scale(0.95);
+      background: rgba(240, 240, 240, 0.9);
+      box-shadow:
+        0 1px 4px rgba(0, 0, 0, 0.1),
+        inset 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Base trigger button styling - tinted glass with grain */
+    .marble-info-button {
+      background: linear-gradient(
+        135deg,
+        rgba(255, 248, 220, 0.45) 0%,
+        rgba(255, 255, 255, 0.35) 40%,
+        rgba(200, 162, 200, 0.4) 100%
+      );
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1.5px solid rgba(255, 255, 255, 0.5);
+      border-radius: 25px;
+      padding: 12px 24px;
+      font-size: 1rem;
+      color: #333;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Noise grain texture for button */
+    .marble-info-button::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      opacity: 0.12;
+      filter: url(#noiseFilter);
+      pointer-events: none;
+      border-radius: 25px;
+    }
+
+    /* Shimmer/Glint Effect */
+    .marble-info-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 60%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.4),
+        rgba(255, 255, 255, 0.8),
+        rgba(255, 255, 255, 0.4),
+        transparent
+      );
+      transform: skewX(-20deg);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .marble-info-button:hover::before {
+      animation: shimmer-glint 0.8s ease-out;
+    }
+
+    @keyframes shimmer-glint {
+      0% {
+        left: -100%;
+      }
+      100% {
+        left: 150%;
+      }
+    }
+
+    .marble-info-button:hover {
+      background: linear-gradient(
+        135deg,
+        rgba(255, 248, 220, 0.55) 0%,
+        rgba(255, 255, 255, 0.5) 40%,
+        rgba(200, 162, 200, 0.5) 100%
+      );
+      border-color: rgba(255, 255, 255, 0.7);
+      transform: scale(1.02);
+    }
+
+    /* Active state */
+    .marble-info-button:active {
+      transform: scale(0.97);
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 768px) {
+      .glass-modal {
+        width: 95%;
+        padding: 20px;
+        margin: 10px;
+        max-height: 90vh;
+      }
+
+      .glass-modal-close {
+        position: sticky;
+        top: 12px;
+        float: right;
+        margin-top: -8px;
+        margin-right: -8px;
+        margin-bottom: -36px;
+      }
+
+      .glass-modal-title {
+        font-size: 1.3rem;
+        padding-right: 40px; /* Space for close button */
+      }
+
+      .glass-modal-text {
+        font-size: 0.95rem;
+      }
+    }
+
+    @media (max-height: 600px) {
+      .glass-modal {
+        max-height: 95vh;
+        padding: 16px;
+      }
+
+      .glass-modal-close {
+        top: 10px;
+        margin-right: -6px;
+        margin-bottom: -36px;
+      }
+    }
+  </style>
+
+</head>
+<body>
+  <!-- navigation -->
+
+<!--
+<header class="navigation fixed-top">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-white">
+
+      <div class="collapse navbar-collapse text-center order-lg-2 order-3" id="navigation">
+        <ul class="navbar-nav mx-auto">
+
+
+          <li class="nav-item dropdown">
+            <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              homepage <i class="ti-angle-down ml-1"></i>
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="index-full.html">Homepage Full Width</a>
+
+              <a class="dropdown-item" href="index-full-left.html">Homepage Full With Left Sidebar</a>
+
+              <a class="dropdown-item" href="index-full-right.html">Homepage Full With Right Sidebar</a>
+
+              <a class="dropdown-item" href="index-list.html">Homepage List Style</a>
+
+              <a class="dropdown-item" href="index-list-left.html">Homepage List With Left Sidebar</a>
+
+              <a class="dropdown-item" href="index-list-right.html">Homepage List With Right Sidebar</a>
+
+              <a class="dropdown-item" href="index-grid.html">Homepage Grid Style</a>
+
+              <a class="dropdown-item" href="index-grid-left.html">Homepage Grid With Left Sidebar</a>
+
+              <a class="dropdown-item" href="index-grid-right.html">Homepage Grid With Right Sidebar</a>
+
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              About <i class="ti-angle-down ml-1"></i>
+            </a>
+            <div class="dropdown-menu">
+
+              <a class="dropdown-item" href="about-me.html">About Me</a>
+
+              <a class="dropdown-item" href="about-us.html">About Us</a>
+
+            </div>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">Pages <i class="ti-angle-down ml-1"></i>
+            </a>
+            <div class="dropdown-menu">
+
+              <a class="dropdown-item" href="author.html">Author</a>
+
+              <a class="dropdown-item" href="author-single.html">Author Single</a>
+
+              <a class="dropdown-item" href="advertise.html">Advertise</a>
+
+              <a class="dropdown-item" href="post-details.html">Post Details</a>
+
+              <a class="dropdown-item" href="post-elements.html">Post Elements</a>
+
+              <a class="dropdown-item" href="tags.html">Tags</a>
+
+              <a class="dropdown-item" href="search-result.html">Search Result</a>
+
+              <a class="dropdown-item" href="search-not-found.html">Search Not Found</a>
+
+              <a class="dropdown-item" href="privacy-policy.html">Privacy Policy</a>
+
+              <a class="dropdown-item" href="terms-conditions.html">Terms Conditions</a>
+
+              <a class="dropdown-item" href="404.html">404 Page</a>
+
+            </div>
+          </li>
+
+
+
+          <a class="navbar-brand order-1" href="index.html">
+        <img class="img-fluid" width="100px" src="images/logo.png"
+          alt="Reader | Hugo Personal Blog Template">
+      </a>
+      <a class="navbar-brand order-1" href="index.html">
+        <img class="img-fluid" width="100px" src="images/logo.png"
+          alt="Reader | Hugo Personal Blog Template">
+      </a>
+      <a class="navbar-brand order-1" href="index.html">
+        <img class="img-fluid" width="100px" src="images/logo.png"
+          alt="Reader | Hugo Personal Blog Template">
+      </a>
+        </ul>
+      </div>
+
+      <div class="order-2 order-lg-3 d-flex align-items-center">
+
+        <button class="navbar-toggler border-0 order-1" type="button" data-toggle="collapse" data-target="#navigation">
+          <i class="ti-menu"></i>
+        </button>
+      </div>
+
+    </nav>
+  </div>
+</header>
+-->
+
+<!-- /navigation -->
+
+<!-- start of banner -->
+<!-- SVG Noise Filter for Glassmorphism -->
+<svg class="noise-svg">
+  <filter id="noiseFilter">
+    <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/>
+    <feColorMatrix type="saturate" values="0"/>
+  </filter>
+</svg>
+
+<!-- Glassmorphism Modal for "What is a marble?" -->
+<div id="marble-modal-overlay">
+  <div class="glass-modal">
+    <div class="glass-modal-noise"></div>
+    <button class="glass-modal-close" aria-label="Close modal">&times;</button>
+    <div class="glass-modal-content">
+      <h3 class="glass-modal-title">🔮 What is a marble?</h3>
+      <p class="glass-modal-text">
+        In my world, a marble is a metaphorical container for a note that I want to share and shape with you. It can be a sketchy idea, an insight, a piece of knowledge, or a question that I consider valuable for my life's ongoing dialogue.
+        <br><br>
+        These marbles are never perfect and always a snapshot of a given moment. So, please, feel free to add your perspective at the ⬇️ <a href="#comment-zone" id="modal-comment-link">bottom of the page</a>. I try to follow the 🔮 <a href="../MEDIA-MOVEMENT-BUILDING-A/" target="_blank">principles for media movement building</a>.
+        <br><br>
+        Read more about my intentions in 🔮 <a href="../MMSCommuniA/" target="_blank">this marble</a>.
+        <br><br>
+        In the past, I didn't have a way to share ideas or insights with others. This marbles website is the manifestation of my desire to share intentionally with the world. If you want to do it too, let me know. I can help you.
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="banner text-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-7 mx-auto">
+        <h4 class="text-shadow">Here is a <i>marble</i> for you.</h4>
+        <h5 class="text-shadow">Yours, <a href="https://leonsanten.info/" target="_blank" style="color: #914c9a; text-decoration: none;">Leon</a></h5>
+        <image width="250px" style="display: block; margin: 0 auto;" src="../../assets/marble-assets/images/marble-imagery/woven-marble-3.png">
+        </br>
+
+        <button class="marble-info-button" id="marble-info-trigger">✨ What is a marble?</button>
+
+      </div>
+    </div>
+  </div>
+
+
+  <img class="banner-shape-1" width="100"  viewBox="0 0 39 39" src="../../assets/marble-assets/images/backgrounds/shape-2.png">
+
+  <img class="banner-shape-2" width="80"  viewBox="0 0 39 40" src="../../assets/marble-assets/images/backgrounds/shape-4.png">
+
+  <img class="banner-shape-3" width="100"  viewBox="0 0 39 40" src="../../assets/marble-assets/images/backgrounds/shape-3.png">
+
+
+</div>
+<!-- end of banner -->
+
+
+
+
+
+
+<section class="section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-7   mb-5 mb-lg-0">
+        <article>
+
+
+          <!-- Page Images: [] JUST SOME CODE TO SEE IF IMAGES ARE IN FRONTMATTER -->
+
+
+          
+            
+            
+            
+            
+
+            
+              
+              
+                <span class="marble-date">This note was started on January 16, 2026</span>
+              
+            
+
+            
+          
+
+
+          <h1 id="interview-on-the-edges-of-consciousness-science">Interview on the edges of consciousness science</h1>
+<h2 id="plus-a-visualization-to-learn-about-the-various-concepts-mentioned">Plus a visualization to learn about the various concepts mentioned</h2>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/K7NIicE_h9w?si=HK0Re_saDnWqsxvu" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
+
+<p>Interviewee : Dr. Alex Gómez-Marín
+Interviewer : Hans Busstra</p>
+
+<h2 id="unfinished-list-of-quotes-that-stuck-with-me">Unfinished list of quotes that stuck with me</h2>
+
+<blockquote>
+  <p>Perception is perception and when we make it only sensory, we are screwed</p>
+</blockquote>
+
+<h2 id="visualization-of-different-concepts-mentioned">Visualization of different concepts mentioned</h2>
+<p>See the 🔮 <a href="../gomez-marin-concepts.html">visualization on full screen</a>.</p>
+<iframe src="../gomez-marin-concepts.html" width="100%" height="600"></iframe>
+
+
+
+<div class="collapsible-section level-2 collapsed" data-section-id="section_38c0e530" data-storage-key="collapsible_marbles_GOMEZ-MARIN-INTERVIEW-CONSCIOUSNESS-SCIENCE__section_38c0e530">
+  <div class="collapsible-header-wrapper">
+    <h2 class="collapsible-header" onclick="toggleSection('section_38c0e530')" onkeypress="if(event.key==='Enter'||event.key===' ')toggleSection('section_38c0e530')" tabindex="0" role="button" aria-expanded="false" aria-controls="content_section_38c0e530">
+      <span class="collapse-indicator " aria-hidden="true"></span>
+      <span>Transcript</span>
+    </h2>
+    <div class="preview-indicators"></div>
+  </div>
+  <div class="collapsible-content" id="content_section_38c0e530" style="display: none;">
+
+
+<p>00:00:00
+I don’t see that education is going on in schools. I don’t see a lot of healing happening in hospitals and I don’t see a lot of food being sold in supermarkets. Can a wrong theory about consciousness negatively impact our lives? I was on my way to Barcelona to talk to a physicist and neuroscientist who is convinced we are more than our brains and bodies. But he experiences a push back. So you can bring all the data you want about terminal lucidity, NDEs, UFOs, survival in many ways. When you bring a thousand,</p>
+
+<p>00:00:35
+these dogmatic skeptics say it’s anecdotes, but a thousand materialism should have died in the ’90s at the first consciousness meeting. The Windows 95 cannot support the new apps. They’ve been selling materialism in the name of science. If materialism is true, consciousness can be engineered. We can be engineered.   The transhumanist agenda to me is a very dark force. It’s a force that wants to extinguish humankind while telling us it’s going to be great. We must understand why and when a</p>
+
+<p>00:01:15
+physical system can be conscious before big corporations or governments just plans in the minds of lay people that oh of course because it smells like a duck and it moves like a duck it must be a duck. We’re going through some sort of consciousness war different forces pushing. Anything that smells like non-materialism they’ll go and kill it. If you think I’m wrong lucky you you live in a different world. Warm welcome at the Asencia Foundation. We are at the science of consciousness</p>
+
+<p>00:01:47
+conference in Barcelona. I’m sitting down here with you just said it’s okay I introduce you as Alex Gomez Mar French but it is Alex Gometh Marin right there.   I love the new sound of my second surname. Yes, no problem. Pleasure to be here hands. Thank you.   Very nice to be meeting you. You said theories of consciousness are like toothbrushes. Everyone has one but no one wants to use another ones.   Yeah, it’s such a glorious metaphor and that that’s true when I read it and it’s</p>
+
+<p>00:02:16
+more true now. We went from a stage where and I’m simplifying a little bit the history of consciousness studies but where consciousness wasn’t an object of study. It was taboo. I mean people done it have done it in the underground and they will always do it but the orthodoxy until Francis Creek came and blessed the field in the ‘9s and now consciousness is not the cword anymore and now with with for instance Robert Lawren’s landscape of consciousness we can actually see that there are more than 200 options</p>
+
+<p>00:02:56
+classified in different isms so we went from very small signal but very small noise in consciousness studies to today which is kind of the wild west like a lot of signal and that’s good but so much noise. So theories of consciousness now are like toothbrushes and even worse because everybody has their own and everybody’s kind of presenting their own theory of consciousness. Most of them and we can get into that and sorry for the monologue. Most of them are not even theories. It’s like a a chapter of the</p>
+
+<p>00:03:30
+history of science that we can watch life, you know, these these consciousness wars that are going on.   Are they war wars?   Yes, they’re wars. Let’s say things as I see them, but but honestly and plainly and there we can talk about war in different senses like in in a more light and then in a more hardcore. Maybe the hardcore has to do with AI and transhumanism. Let’s put it here. Let’s put a bookmark and maybe we can go there later. Yeah. But before something that’s</p>
+
+<p>00:03:56
+notable about this, so this is my first time at a at a science of consciousness conference. This is my this is the city where I was born. I’ve been invited as a plenary speaker. So it’s like perfect, I’ll go. But I know I haven’t been, but I know the the history of this conference. We all kind of know about it. It was like started in 94. It’s like kind of the kickoff um conference. But then it bifurcated, right? There is the ASSC the other organization and now we have two consciousness</p>
+
+<p>00:04:27
+conferences I mean we have many but we have two main and this year and I think it’s just for there’s no bad intention on either side they’re are happening at the same time we’re here in Barcelona they are there in CIT I was actually texting Anil Seth I’m sharing this but we nobody’s watching but and I say hey Anil are you at at the other conference she yes of course I’m there it’s like okay we’re kind of double twins here, right? And what’s happening? It’s just</p>
+
+<p>00:04:53
+whatever. But this is more like the the the the crazy conference that’s it’s more open. You could say maybe it’s less rigorous, but it’s more open. And there you could say it’s more rigorous, but less open. And I think we’re with titrate titrating this is very hard. So here we can talk about life after death, quantum consciousness, uh and there neural coralates, maybe a little bit of psychedelics, right? So I’m saying this is a war but this already shows that there are different</p>
+
+<p>00:05:23
+intensities with which with which key questions can be pursued. Now then there there are other wars because science is made by humans and humans have big egos especially if they’re scientists and back to the toothbrush problem. If you’ve been carving your toothbrush for decades, are you willing to just break it when you see that the data doesn’t support it? No. Right? So, so science is is is advances also by ego and greed and frustration. So, maybe the the shiny side of this is to realize that science</p>
+
+<p>00:06:02
+is very human. Then there’s the ideological war and materialism has been running running this game for a long time and now they don’t like to have competition. That’s why they also for instance mock Philip Goff and they mock you know pansism. I see problems with pansism too when you make consciousness a fundamental property but this idea of oh so these glasses are conscious. Come on we can be more sophisticated right? So you don’t need to straw man pansism in that way. While the same for IIT and</p>
+
+<p>00:06:35
+IIT has another thing that’s incredibly remarkable. They try to explain it but people don’t get it because it’s difficult also because they use language that conflates information alash shannon with information that would be intrinsic but they speak about the intrinsic perspective. So you see there’s this iceberg and below below and beneath there all these layers that for the cognitive plus/materialist people it’s like installing Windows 90 you know having Windows 95 and installing a new app in 2025 just the</p>
+
+<p>00:07:07
+system crashed right and so they they just don’t get it and they they get very angry about it.   You said in your talk that the heart problem of consciousness was just a rebranding of the death of materialism.   Yeah. basically saying that we shouldn’t by let me just say what I think about but by calling it a hard problem.   Yeah.   Hard problems you can still solve and we shouldn’t have called it a hard problem. We should have said okay materialism just died. Is that what you That’s it.</p>
+
+<p>00:07:34
+Right.   I I felt like saying it kind of honoring David Chalmer’s um 31 years ago. Is it   you want to honor him because   Yeah. Well, honoring saying and I I haven’t met him in person but of course he’s a legendary figure. So   yeah. absolutely huge respect. But I’ll also say what an incredibly intelligent way of realizing that if we start studying consciousness, material materialism has to die because materialism just negates everything that consciousness brings on the table. And</p>
+
+<p>00:08:05
+we could we could talk about this more profoundly like it it’s it’s just so the beginning of the study of consciousness scientifically I think should have been the death of materialism. But rather than saying it’s dead, now we say we have this hard problem and now we have a lot of work to do. So it was like taking promisory materialism and giving it a a loan for a 100 more years, right? But that was strategically very intelligent because now you throw some meat to materialists and then okay like the psychologist</p>
+
+<p>00:08:42
+didn’t dare to do it 100 and so years ago. Well, now the neuroscientists think, all right, it’s a matter of studying the brain and figuring out a bit more and eventually consciousness will emerge somehow somewhere. And so this has been the last 30 years. So I I and I know the hard problem can be phrased differently, but actually the hard problem is just phrasing a miracle and then saying, hm, let’s let’s turn that into a research program. And for instance, I’m friends with Anil Seth.</p>
+
+<p>00:09:08
+He’s my favorite materialist friend since I met him in person at a private symposium. I love the man but we disagree strongly and well you see um for them he calls this the real problem let’s continue let’s not talk about such a higher metaphysical impossibility let’s just get on working on it and we will eventually solve it right but this is promisory materialism so as long as we have on the table options for other isms   that’s fine but if if materialism just it’s a predatory system that doesn’t let</p>
+
+<p>00:09:41
+other isms Express we have a problem. So I said that because the hard problem was I would say a covering up of the crime scene where materialism had died. Now   but the thing is sorry to interrupt your wonderful monologue here but   when thinking about the I understand our problem more or less you of course and I said everyone here understands it. So it’s a sort of jargon in the consciousness research world. I think one big problem with it is that the public at large, a larger audience</p>
+
+<p>00:10:11
+doesn’t really get the the what what the hard problem really is. I noticed that when just talking about with friends and family because they will first they don’t know what consciousness is, right? So you   we there’s a lot to explain. How does that work for you? Of course, now we’re talking sort of in talk, right? Us talking about the consciousness research community and that’s great. I’d love to continue, but I’m also just curious one step outside of that when</p>
+
+<p>00:10:33
+  let’s go where you want. Let’s go where you want. Yeah.   Yeah. How how’s that work with you? Like friends who are not in in do you have friends who like but Alex what what I don’t know what consciousness is or they equate conscious with intelligence. Yes,   I have all these conversations with my friends and family about conscious AI and I notice how many steps I have to take back from where I am in this asensia rabbit hole.   Okay, maybe two things to say about</p>
+
+<p>00:10:54
+that. One is um maybe there’s no hard problem for them. This is just to be a bit facicious. This is a bit like a uh good branding for philosophers to have a lot of work and funding. But for real people there are mysteries of course. What am I doing here? If they if they be reflective any person who tries to imagine what happened before everything started has kind of a segmentation fault like if you know what coding is right like an error in their head. But there’s no there’s no hard problem unless</p>
+
+<p>00:11:26
+they’ve been indoctrinated. So this is maybe a so sociopolitical part. Unless they’ve been indoctrinated forever with the Richard Dawkins of the world or the Neil Degrass Tysons of the world saying, you know, life is nothing but D, right? Physics shows that of course D. Of course, the brain produces all these apparently scientific claims which I think are ideological banners that been that have been hammered on the lay people from for years because this is what most science communication has been doing now. I’m so</p>
+
+<p>00:12:04
+glad we’re having this conversation and we have podcasts and we have all of that because we have the possibility of many more voices, not just the two or three   Yeah.   science communication celebrities. these guys that in the UK are called a public understanding of science. I think they do public misunderstanding of science because they’ve been selling materialism in the name of science. And so that has confused   the lay people that you’re asking me about because they say, “Oh, Alex, I</p>
+
+<p>00:12:30
+mean, I don’t know much about this.” But of course, my brain is doing all of that or my genes are causing my disease or my, you know, this neural circuit. Where is love? It’s like when the heart problem is phrased as how is it that the brain gives rise to consciousness. How is it that the water of the brain gives rise to the wine of mental subjective experience? I would protest and say wrong question. You’re tricking me here because you’re asking me how. And maybe the question is</p>
+
+<p>00:13:04
+whether and that’s the qu this simple word just has misdirected the conversation. So this is like a like an interviewer that tries to just trick you in the interview and ask you the question or in a jury that say but how did you kill that person? It’s like I could not even start replying because that would imply I killed the person. It’s like no no no no press pause please. And that’s more the job of the of the philosopher. But then the philosophers is taking that over. Okay, how can that be? And so it’s very</p>
+
+<p>00:13:36
+important to realize that trick. This is the backstage of science. This is like a concert. People see the stage, see the shiny lights, see the rehearsed performance, see the digest, see the man, the the old man on the white coat saying 3 seconds in TV. We now know that. But there’s the backstage. That’s what happens, right? And so the social political is that and we should we should be aware that this exists and also tell it to our students by the way sorry I’m prefacing again but it’s</p>
+
+<p>00:14:07
+important because we say get good data have a good theory and then you can walk no no no this is a stool it won’t if you don’t realize that there all these social political forces you’ll be beused like I don’t understand my research doesn’t it’s not having any impact okay so maybe the the third kind of war that we were talking about has to do with this now it’s not only important to figure out other philosophical worldviews with respect to consciousness. Now it’s urgent because</p>
+
+<p>00:14:35
+now we have AI and this is not a big war. It’s a big war of capitalism. I call it capital like apocalypse and capital together because it’s like they’re selling us some sort of apocalypse in order to just sell us all the they want. That’s the dynamics of these beasts. So that’s why I define AI as an algorithmic invasion of fascinating dangerous So it has these five elements and and and the aspect is this monopoly threat to democracy capitalism. But that’s the aspect. The fascinating is what</p>
+
+<p>00:15:11
+we all see. It’s truly remarkable and many of us would have said that’s not possible and now we see it. Now the dangerous is the war. I think and maybe I’m jumping to a topic. I don’t know if you want to cover it. It’s a bit dark. But I’ll say it and you don’t need to read this coming from a scientist now. It’s just Alex speaking. I think we we we we’re going through some sort of consciousness war or even spiritual war. Different forces pushing and the transhumanist agenda to me is a very</p>
+
+<p>00:15:40
+dark force. It’s a force that wants to extinguish humankind while telling us it’s going to be great. It’s going to be amazing and we have no choice.   Right? And so consciousness is key here because we we must understand why and when a system, a physical system can be conscious. And we need to understand this from a theoretical point of view before big corporations or governments or whoever just plans in the minds of lay people. That’s why this is the social political part we’re talking</p>
+
+<p>00:16:13
+about that. Oh, of course, because it smells like a duck and it moves like a duck and it quacks like a duck. It’s it must be a duck. So very soon people will think that if you turn off their their their algorithm you’re killing their pet,   right?   And and and just because that’s quite quite something to say. I heard you say it on stage and I was like   yeah as a person it does resonate but as sort of more trying journalistically and from a science perspective to cover it.</p>
+
+<p>00:16:42
+I’m I’m just puzzling how to reflect on that. The only thing I could say if we would then have to make if you call it like that the anatomy of evil here there. Yes. Do the transhumanist I do get the impression that they truly believe their own stories, right? Like like it’s not like inherent like intelligently evil. We know this is not true. We’re going to sell it to them. Do you think is that evil that people like that Ray Curtzfile?   No, I’m not saying   he believes it, right?</p>
+
+<p>00:17:08
+  He wants to sort of bring alive his his own father. He has his boxes. That’s old documentary stuff with them. But but   well watch Star Wars. What happens to that charact character out of desperation and   a good force can become a very dark force. It’s all in all movies, right? This is the most difficult topic to talk about and I’ve only recently started to dare to mention it, but I think it’s urgent again. It’s not just it’s not just interesting. It’s not just</p>
+
+<p>00:17:43
+important, it’s urgent, right? And I know it’s a leap. Maybe we’re not talking science here, but evil is real. Evil exists in the world,   I think, and it manifests. And we should try to see where and when it is manifesting. And so some of these technocratic programs that they it’s kind of a pseudo religion dressed in technoscientific language.   Mhm.   Whose program sounds very religious because it’s immortality redemption you know that that’s like I had this</p>
+
+<p>00:18:22
+experience like when I when I I was asked to review Ray Kurswell’s book.   What which one?   The singularity is near nearer. I only read sort of this age of spiritual machines but I guess yeah   yeah it’s kind of the same thing but now 3.0 you know, and and I had this sense of I was doing some sort of intellectual dialysis. Like I was reading that and that blood was going through my system like what is this man saying? And I’m not judging him. Mhm.   It’s like he really means we’re going to</p>
+
+<p>00:18:58
+have sex with our deceased loved ones brought back through a piece of hair from where we will grow a cyborg and then we will install like this is a horror movie in front of us right or so there’s a part of I would say techno technocratic pride like technology has advanced so much that you know as an engineer you just enamored. But then there there’s it’s philosophically and anthropologically so so naive and so poor and sociologically so dangerous that that so I started suspecting there</p>
+
+<p>00:19:38
+this is not just a different maybe this is a way of saying it here we’re not discussing about what’s the the correct ism for consciousness which is an important enough topic this is even more has more higher consequences that deciding whether analytic idealism or   pan experience financialism or dual aspect monism is a better way of understand reality a truer way. This is this is mandating changes on the human species. This is trying to edit the human condition.   Mhm.   And those who are trying to edit it are</p>
+
+<p>00:20:12
+a few there are a bunch of usually Silicon Valley types that they’re not representing humanity but they are toying with the human condition. Right? So then then you see even the tone of this conversation changes because because I’m sharing where I am right now my concerns and they’re raw kind of make it here but there’s there’s there’s no time to lose in sharing this. We need more people to maybe discuss this.   Let me let me yeah if I can bring it because why it resonates so with me is</p>
+
+<p>00:20:49
+that has been part of my my journey into all of this. Also I read for instance Shusana Zubov’s of surveillance capitalism um which is just such a sort of history writing in the moment someone who documents what’s happening right that capitalism needs to expand because it needs to exponentially grow. that’s at the core of what it is and once the physical has been fully conquered and uh put to market it needs to go inward. So that book struck with me like oh my gee capitalism now needs</p>
+
+<p>00:21:22
+to conquer our attention conquer our souls and now it is a battle for consciousness in that sense she doesn’t go that far but hearing you talk   it feels like ah that’s the next chaper consciousness because if these machines   are now intelligent okay that’s already they they took now it’s about what is consciousness or not   yeah the machine never stops never stops. the machine in capital M like this kind of this kind of parasite of the human mind that just wants like this the title</p>
+
+<p>00:21:56
+of this other book I I reviewed more everything forever by Adam Becker title is great it just encapsulates it’s like this even this idea of progress   h we I think maybe I’m ramming here but because there’s the qualitative aspect is lost the only thing they have less left is quantity. It’s more faster. And this more faster as you you were suggesting is is everything. It’s not just conquering land. It’s just conquering our our mental space. And I would go and say even our souls, I mean,</p>
+
+<p>00:22:30
+this is like this is a big thing I’m saying, but I’m saying the battle is until the end. They’re going they’re going and you say who’s I mean it’s complicated, but this trend it’s just going for it’s all it’s going all in. It’s not just our jobs, our family relationships with social media, um, capitalism and democracy itself. It’s our minds and I think it’s our souls. If you think they exist, if you don’t think there exist, well, that’s fine. and</p>
+
+<p>00:23:05
+and and it’s it’s a okay, let me now go back and and I was saying as I was telling you this this is relatively recent to me. So I’m I’m I haven’t said this 10 times. Maybe I’ve said this three times and maybe once in kind of public. So I’m I’m still I’ve decided I I have to start saying it, but I don’t know how to say it well yet.   So you you’ll see me like   thinking out loud   thinking out loud. May not. And also I I there are things I don’t want to say yet</p>
+
+<p>00:23:35
+  in that that the machines want more if we I want to analyze that the mechanisms at play there for for me personally it would be the danger I’m already sensing that in preparing for conversations like this AI is just amazing I can can use like previous conversations with you and let an AI tool analyze the questions and add to that. So it it and I make use of that, but I do see ah and this might sort of make that you miss out on something truly novel that you could have asked if you had prepared for</p>
+
+<p>00:24:09
+yourself. So it’s is this dumbing down because you’re only basing you’re only working with with data that’s already out there. So that would be one reason, but there are more perhaps. So what are your thoughts there? Yeah, it it’s undeniable that it’s fascinating, but this is a very shallow way of thinking and that’s it’s it’s thinly humane. It’s so cool, but it’s not about cool or spectacular. It’s it’s about very obvious everyday things and it’s going</p>
+
+<p>00:24:37
+to sound romantic, but it’s like for instance, let’s let’s speak about writing writing. Let’s say writing uh I I write a lot, academics write a lot, I write papers and so on. uh I try not to use chipd or anything for writing and I think there are studies now that they they they start to show that it it will dump you down right but also this makes me reflect on why do I write of course it’s a means to express something but the very process of writing has value in itself I I struggle I grow I have new</p>
+
+<p>00:25:07
+ideas right so let’s say I’m writing a book and I know I could have it ready in 10 days or in two in two years right so now I really need to decide the meaning of the things I do.   M   and so the the good news of this bad news is that it would it would it’s going to squash us and it’s already doing it with our jobs. Like many people have jobs.   Exactly.   Now now I don’t buy the universal basic income argument because that sounds like the ultimate way of having us there like</p>
+
+<p>00:25:38
+chickens in boxes and but but now you need to reflect is my work meaningful writing. Are you writing because you have to and then you need to send this grand proposal you don’t even want to write and somebody is going to review it. They don’t even want to read it and then you don’t even want to read the comments. Like maybe we can cut all of that part and then try to find out what’s maybe truly unique about us. And some people say this is this is being too anthropocentric. How they call it species centric? It’s</p>
+
+<p>00:26:09
+kind of an insult for those who want to transcend the human condition. But anyways, it will ask of us to realize why am I talking to these people? Why am I working here? Another example, I used to play in a rock band for a long time and I know for instance now there’s music generated by AI, right? Fine. And maybe for a customer point of view or and from a selling point of view, you want to exploit what AI can do that. But if you’re an artist, if you play guitar, I want to play my guitar.</p>
+
+<p>00:26:38
+I don’t maybe you maybe I prompt using that that helps me so we can integrate. The option here is not between between being a ludite and a Silicon Valley kind of cultlike member. Maybe we can integrate technology but it will force us to recover what it is like to be human. Maybe now we have a chance to to see what’s the the true sauce we we’re made of and and and realize that. So it’s maybe a good opportunity and at the same time that this is happening and maybe this brings us back to to the kind</p>
+
+<p>00:27:09
+of research I’m carrying out and I’m   is that the transhumanist option wants to make us transhumans. Yeah.   But maybe there’s a way maybe there’s another option we we can articulate at the same time that I criticize and critique harshly this path which I think is kind of a path for human evolution or human speciation. Yeah,   we’re humans whatever that means. And then we can be transhumans or maybe we can be superhumans in another way. So you realize some of the technical</p>
+
+<p>00:27:39
+promises like Neuralink is kind of it’s kind of literal tech literal telepathy.   Yeah.   And and you can see it in many of the crazy great um technological advents that are coming. But then maybe we have these capacities already within us as humans. So maybe that’s a way to come back to what I call a science of the impossible. these edges of consciousness. Yeah. Yeah. And you made reference to Jeffrey Kriel I think in your talk as well. I’ve interviewed and I love his notion of the the superhuman.</p>
+
+<p>00:28:09
+Yes. I also opened my eyes to the fact that we had this sort of naive that you always take or that’s also perhaps a materialist thing to take these great thinkers na fuko to take just their um sorry not fuko but James just take only take the pragmatism don’t take the James who did sort of himself spiritual stuff   right   and na only take sort of his nihilist worldview and declaring god that not taking his uber man as a quite serious option for the superhuman to arise. And</p>
+
+<p>00:28:40
+I’m not talking the the European niche is sort of the of course the Nazi stuff and then we have that connotation but in America what Ko opened my eyes to   he inspired the Superman. I mean the just the comics the whole the the   um which is a sort of a new mythology about Sai capabilities. It’s it’s obvious there’s no not much technology there.   That’s just innate power. Yes, I find that such a cool vision and maybe that we need to contrast that technocratic</p>
+
+<p>00:29:07
+superhuman with the innate sigh, right? That’s at least Scriel’s point.   So that’s a way   and humanities have that to take that serious.   Yeah. But they don’t because they they also fall prey to   stuck in the 19th century.   Well, the select selection pressures um of of nowadays. Yes, we can have we can evolve from with with external help and why not um I mean I use glasses but but chat GPT is not the same but anyways we can use tools to evolve from without and</p>
+
+<p>00:29:36
+also from within and this can sound like self-help positive thinking new age but no the there’s a huge literature like I could even mention the saints I’m from Europe   um we have great mystical um I call them sometimes the athletes of consciousness. They are the us of the mind, consciousness and spirit if you want, right? And they did incredible things. Of course, we we may in our ignorance say, “Oh, come on, whatever. These are fairy tales.” Well, maybe fairy tales are real too, right? So, so</p>
+
+<p>00:30:13
+buckle up because because maybe what we consider impossible, it’s just what doesn’t fit in our frame, which by the way, if we come back to what we were discussing in the last minutes, but then let’s go forward. There are all these isms. This is another kind of discovery of mine. Not that I’m the first one, but I’ve realized there are all these kind of video game screens that I’ve been kind of going through. Materialism is the my usual dead horse with mechanism and reductionism. I call this the unholy</p>
+
+<p>00:30:41
+trinity. But then there are other isms. Why don’t you say, “Okay, I think I’m freed from this ideological parasite of materialism.” Well, there are more. There’s secularism. The idea that everything that’s sacred, it’s kind of a joke or cannot be taken seriously because science or whatever. And that’s paired with rationalism. This some sometimes irrational unreasonable use of reason. And there are more isms like literalism. And this is a weird one that I understood when I</p>
+
+<p>00:31:11
+was reading Patrick Harpur and I had this moment like wow I think I’ve understood something big here that the false dilemma between fact and fiction   we should not accept that there’s something in between you know when people say but did this happen or did or it didn’t happen right or when people have one of these anomalous experiences even an NDE   materialist would say, “Well, yeah, we’ll take it seriously, but not literally, right?”   Yeah,   literally.</p>
+
+<p>00:31:45
+  It’s so interesting. And this is this is like like deep metaphysical stuff that you need to think through in to me, I think art plays a role here. I I yeah the other day I had a discussion about the filmmaker that inspired me Wernner Hartzark the the German filmmaker who has this notion of the ecstatic truth and he went against sort of documentary films as portraying facts and he was no I can stylize and I can make fiction and I call it documentary because it’s it’s a deeper truth I’m hitting he played</p>
+
+<p>00:32:12
+with that and art plays with that a lot of the times um we see it now but we’re coming back to conscious research there’s a super interesting thing I I spoke earlier this week with Halen Wabe away from from   ions   and sort of factual extraterrestrial anomalous phenomena like UAPs like the factual stuff we want like physical evidence right   versus people who have these direct encounters in mind in dreams or channeling states and she’s comparing those two and we have this factual view</p>
+
+<p>00:32:48
+and that what you call fiction but maybe in that area we might see some super interesting overlap, don’t you think?   Yes. And maybe find where they come from. And I had this image when I was reading Patrick Harper’s book, Dimmonic Reality, where there’s fact and fiction, and then there’s imagination, and it’s like a syninnapse. There these two neurons, but there’s some they’re not there’s something between. And this is what he calls the realm of imagination,</p>
+
+<p>00:33:13
+which is not making up It’s like where where where this miracle of of physicality, if you want, or objectivity, objectivity is interubjective consensus. I mean, matter is a mystery. The fact that we can say, you know, this is made of that material and it’s and it’s dark or it’s black. This is so incredible. But maybe this is built out of something more more primary. And I was mentioning this because once you start suspending these boxes or transcending these layers as I was saying, okay, now let’s let’s</p>
+
+<p>00:33:45
+not take too seriously literalism or secularism. So once you don’t buy into the ideology that the sacred must be a joke that it is either fact or fiction then you can start to entertain the impossible because it’s not impossible anymore and and that’s where the not just new knowledge I think that’s when reality can manifest more fully.   Yeah. Yeah.   But I think reality is so incredibly rich and powerful. It’s like looking at the sun like we would get blinded. So</p>
+
+<p>00:34:18
+that’s why we need all these isms,   but we can also practice start removing them. And it’s so fascinating. It’s a bit scary. Look, one one one anecdote that’s that’s I think relevant for this. And I discovered this reading John Max’s book, Abduction. Abduction.   He was one of the early ones who who studied it, right?   Yes. And he had great trouble as a psychiatrist, right? Investigating these other edges of consciousness. And in the preface of the book, he mentions his</p>
+
+<p>00:34:44
+friend, his child childhood friend Thomas    the great philosopher of science. And he says, Tom suggested me when I asked him, “What do I do with these?” He says, “You should try to suspend these categories of happened, didn’t objective, subjective, fact, fiction.” It’s an incredible exercise. I’m not sure I can do it. suspend the distinction between something happened, haven’t happened or not haven’t happened.   You talked about Gollum and Smeaggle in</p>
+
+<p>00:35:16
+your talk. I like that that that plays into this, right?   Yes. Yes.   Can you explain it? So you have on one shoulder you have Gollum and the other one Smegel.   Yes. So when I when I when I go and see I do theoretical work but I also do empirical work and when I go and see these kind of scientific miracles which is an oxymoron but you shouldn’t say that but I am friends with this blind person and and and and that I mentioned in our previous   love to know also anecdotal stuff there</p>
+
+<p>00:35:42
+but please   we’ll talk about that.   Yeah. Um and and then I I see what some people can do. For instance, not only read it in papers, for instance, remote viewing. You can read about remote viewing. You can read about the Stargate program, but then you can also try to see who who can remote view it. Show it to me. So this man would would draw images that we hadn’t picked yet. And we can go more in depth into how you quantify that, evaluate, and make it more scientific. But I felt I was in the</p>
+
+<p>00:36:14
+pres presence of some sort of scientific miracle which of course it’s it’s kind of a self-contradictory thing right and so emotionally but also intellectually I came back home with Gollum and Smeiggel on my shoulders right and what and both are myself and one is saying like like this is a miracle this is incredible this is just opening up like to a new world and it’s just blowing my mind and wow and the other is like come on come Come on, stupid. Stupid. Shut it off. Like this is killing your</p>
+
+<p>00:36:45
+reputation. And so these activities we’re talking about, they’re not just intellectual. They are very demanding. I can say this from experience. They’re very demanding on on the person   because   Yeah. Because it’s shocking, right?   If you’re looking for ontological shock, which is an expression that I think John Mack coined.   If you if you’re looking for ontological shock, get ready. I mean, it’s like you want to jump from from a plane and on a</p>
+
+<p>00:37:13
+parachute. There’s going to be this moment of, you know, and and I’m I’m not doing it for the dopamine, but but I’m this kind of scientist now.   I I’ve said this also. I’ve expressed this before in another way.   Before we have this expression in Spanish, you you you when you tackle or study a topic, you say you touch it. You touch a theme.   Now I feel that the the topics touch me.   You see touching back.   Yes. Because these are these are not</p>
+
+<p>00:37:48
+objects of study. These are kind of weird realities in themselves. Right.   So it’s a it’s a completely different journey. It’s   how do you keep on suspending this belief or   I mean I I see that for instance curious your thoughts there. I mean on a popularity like the telepathy tapes. I didn’t hear out the whole thing. I don’t need to go into the why, but I I I just know I want to research it, want to know that, but then I read stuff about it and I see sort of the the story at play</p>
+
+<p>00:38:18
+there. So you first you’re the skeptic and then you have this proof and then you then you you go in and and and it’s it’s it’s so hard to keep this middle position. I mean, how do you do that? How do you how do you keep yourself from believing it’s real extracular vision versus no I have to remain skeptic. How do you keep that middle position and what is that middle position?   Yeah. Well, that’s why Gol and Smeiggle appear.   Yeah.   Yeah.   Yes. And then you need to see how you</p>
+
+<p>00:38:43
+integrate. It’s like a funist. Do we have this word in English? The guy that works on the rope at the circus and could fall at any moment.   Yeah.   And I and others, we are the funs of consciousness.   Yeah. It’s risky. We can fall. We can break a leg or die. I mean, I don’t want to sound too dramatic, but like this is this is real thing. This is not I’m studying this. I mean, I could have studied the whatever like the development of the of the wing of the fruitfly</p>
+
+<p>00:39:15
+for 70 years and great that people do it, but this is not that. This is a true journey. This is a journey to the edges of consciousness and and we don’t really know how it’s done. We don’t really know how it’s done and it and it also requires some practice and skill and it would even I would even say grace to to throw in another   grace because it’s if it’s a true adventure I mean I’m not sailing into the open ocean in the 15th century. This is so sorry to interrupt again but</p>
+
+<p>00:39:49
+  we spoke to yogi handlin he’s into biosemiotics. So this is like the meaning making in nature and you take nature not as a mechanism but as a sort of plants, animals, insects they communicate meaning right and and sort of in that bio semiotic way of thinking you also if you want to research even to the level of plants if you want them to reveal themselves you have to become like a plant. And there are serious papers on this is not woo stuff. It’s just sort of a a philos philosophically</p>
+
+<p>00:40:18
+like fundamentally different approach in studying nature.   And that’s what I’m sensing when you when you say that sort of stuff that the the that it can touch you, right? And you have to and the grace aspect because it demands that of you. It demands sort of a a certain humility that we scientifically think of as   Yes. It’s like a mixture of it’s so contradictory, but maybe it’s a complimentarity principle, you know, where there’s a coincidence of opposites</p>
+
+<p>00:40:42
+here. Now that you say this, it came to mind because on the one hand, what I’m trying to do is is terribly humble, you could say, because because I don’t know how it’s done. I don’t know how science 2.0 it’s done, but it’s terribly bold. You’re trying to study the impossible, right? So, there’s this huge tension. It’s like uh humble and and kind of arrogant at the same time. um hardcore doubt but also moments of deep belief   in the thing otherwise you could not</p>
+
+<p>00:41:15
+approach it. It’s like the Lord of the Rings. It’s like it’s like Frodo Frodo is living happily in its field of research and then they say well there’s this that thing called Mordor. We can go there actually we must go there but before we adventure it’s wonderful you can get killed   but but you must go. Can you tell tell us about just anecdotally, we don’t have to stay too long on that, but it’s just just very interesting that that first serious quest out of the Shire</p>
+
+<p>00:41:46
+for you personally. I mean first year my first   yeah I’m not talking you you made reference of course your NDEs but I’m I’m I’m more interested in that truly impossible in front of your waking   state consciousness in for instance extracular vision people in front of your eyes seeing stuff you know they cannot possibly see this   yeah well let’s talk a bit about extracular vision I I’ve been working a lot on this and and also going through a lot of fluctuations but the most</p>
+
+<p>00:42:14
+incredible thing I’ve seen is is remote viewing in So, we can touch on that, but but I know you also want to talk about EO. I’ll just say about   No, touch. You can do that one. What? Whatever one you think.   Sure. Sure. Yeah. No, no, I’m not saying you you’re pushing me in either direction.   Like that’s the the Okay, I mentioned that and then let’s go back to to extra color vision because it’s it’s very complicated because I’ve seen I’ve seen</p>
+
+<p>00:42:36
+incredible things and I’ve seen cheating again. H,   right? Cuz it’s not going to be one answer. It’s not going to be that’s what’s happening. It’s like many things are happening, right? Fraud, mistakes, a little bit of cheating, unconscious cheating, subliminal um abilities that we didn’t know about perception, and maybe a 1% of the truly impossible. So I’m looking for that gold in the m Mississippi. But in the meantime, I find all these kinds of rocks and so it’s tedious right now. The</p>
+
+<p>00:43:16
+most incredible thing I’ve seen and I had read about it serious papers but I wanted to see it. So this man could, as I mentioned, um, write draw things that images that we hadn’t that we hadn’t picked yet and we picked them later with a random number generator of a pool of images that he didn’t know about it. And it was so incredible to me because this was a suggestion of a colleague of mine. I I’m not going to mention his name because I’m not sure he wants to be public about it, but but</p>
+
+<p>00:43:47
+he’s truly knowledgeable about what was done in the United States with this kind of research. I think he was even involved in the final stages of the Stargate program. And I was telling him about extracular vision non you could call it non-local perception. Actually, it should be simpler than that. Like perception is perception. And then when you make perception only sensory, that’s when we’re screwed. But it’s just perception. But we need to say non-local perception or even call it the</p>
+
+<p>00:44:12
+impossible. In India for instance, I was talking at the conference here with this with this philosopher from India. And he was telling me about the six different school of Indian per philosophy, Indian philosophy of perception. Six different schools. It’s no big deal. The problem is is the west the last 400 years with all these isms that have just been pulling out the petals of this flower saying no no no. Okay, now rewind. This man suggested you’re doing these EOV experiments asking people to report</p>
+
+<p>00:44:43
+what’s right here right now but right here right now could be hidden. So it’s right now but it’s hidden like images hidden or things that they should not be able to see like a typical parasychological experiment if you wish. But he said where you get the most signal in your experiment and we don’t know really how is if you do if you do it ahead of time. It’s like what are you saying? that was such an impossible idea and he mentioned it so casually and said yeah yeah we have evidence that for some</p>
+
+<p>00:45:12
+reason and we tend to think of this in terms of signal and noise but maybe there’s not really there’s nothing really propagating that’s why we need theoretical physics to come and   crazy stuff so it’s easier it’s easier to see in the future and in the now when we’re going to stop   you get better results so two two vantage points he mentioned and this is I’m sorry because this is complicated if people don’t know the literature it’s going to sound like</p>
+
+<p>00:45:36
+nonsense upon nonsense. But he said one one is very practical because you eliminate virtually all need for experimental control because there cannot be sensory leaking of information. the usual things that can happen that that you you must learn to protect against like unconsciously if you see the image and I’m asking you and you you are blindfolded but I may be just by looking if I’m talking to you it’s horrible because even if I’m not trying to get you by how I’m doing it I</p>
+
+<p>00:46:06
+could be subconsciously influencing it so I cannot speak I should not be in the room the images should be shuffled you you need to protect all of that so that there’s no leakage of information right here right now but if the thing hasn’t happened yet? Who cares? You know, I can just be sitting there and call everyone. It hasn’t happened. So he said, “This is a huge advantage empirically. You need to do things well. For instance, you need to pick them using a true random number generator</p>
+
+<p>00:46:34
+because if you use sudo randomness, then there could be a pattern there that then you could have it correlated by chance. You know, it’s it’s still complicated, but say it’s easier if you do it ahead of time.” and from his own experience he said and for some reason the results are better so I just received this as yeah whatever but then I thought okay let’s try it out out so I I told to this friend of mine should we do one of these let’s play which by the way I think it’s</p>
+
+<p>00:47:02
+important like the play state let’s just play and it was unbelievable and and so it’s like well now now what do I do this is the impossible of the impossible because I need to bring causality on the table and say well thank you. But maybe there’s more to causality that I’ve been told.   And just one step back to what degree of of accuracy could that person   Yeah.   predict future events.   Yeah. So we did six um images and then we had them scored by different judges</p>
+
+<p>00:47:32
+who know how to score. This is a this is a very um typical routine you could say procedure in remote viewing. You send the images the drone images and the original ones shuffled and and then the person gives scores as to similarity between and amongst them and then you do the statistics. I mean of course more need more needs to be done about this but let me say a thing that’s related to that. I’ve read it in the literature that this is possible. I’ I’ve seen it and of course one must be doing more</p>
+
+<p>00:48:04
+experiments. And now now I can move on even if if the skeptics think I’m crazy because because now I have at least a tasting of the the thing that that that can happen in front of my eyes and then it holds to the statistical and and and scoring methods. Now let me tell you one thing that happened. It’s an anecdote but it’s relevant in at this moment of the conversation. Um, maybe somebody watched the other video I recorded, the other Essentia video, Essentia Foundation video, and this is a neuroscientist from the US. Of</p>
+
+<p>00:48:36
+course, I won’t say who he is. I didn’t know the man. And he wrote to me recently and said, I’ve seen what you’ve been telling online. And of course, you must know that if what you’re saying is true, you should deserve a Nobel Prize. It’s like, okay, this guy is just being here a bit sarcastic with me, right? and say he said, “Well, if that what you’re saying is true, why don’t we have a Zoom and you show it to me?” He’s like, “Okay, that sounds like a passive</p>
+
+<p>00:49:01
+aggressive way of saying things.” So, I explained to I meditated and I explained to him by email, um, well, what about your research? And I I checked what what he’s doing and he’s doing some like neurotransmitter or whatever on rodents or something like that. like why don’t we meet on Zoom and in 30 minutes you just demonstrate me that it’s not that easy. So he basically he was daring me to show him the miracle life   on TV and then he would believe it and I studied what has happened in the past</p>
+
+<p>00:49:33
+with prizes that illusionists have given like the Randy prize. I mean sorry this giving this is taking us in a direction but it’s a it’s also a historical sociological point that’s important this challenges by skeptics by dogmatic skeptics another very pernicious dogmatic skepticism these skeptics that are skeptical about everything except their own doubts and their own beliefs they just want to debunk you right so I politely say because I value skepticism I also hope I’m skeptical they should</p>
+
+<p>00:50:02
+not have monopoly on that word you know oh we are the skeptics no come on. By the way, you never see it with remote viewers because you already know it’s false. Like the guys who say, you know, near-death experiences, come on. I won’t even look at the data because I know in theory it’s impossible. So anyways, so I replied politely and I said, “By the way, what experience do you have? Have you read the literature? Do you want me to send you some papers?” The guy didn’t want to know anything about it. And then</p>
+
+<p>00:50:26
+a few months later replies to me and he gives me a few options having analyzed my case and he says either you’re a poor scientist, you don’t know how to do your your controls or your statistics or you have mental problems and he even quoted in parets the DS DS DSM is DS what’s the the   the categories of all the mental diseases was generous enough to suggest what was up in my mind   or you’re a trickster and a fraud and you’re doing this to become famous. This is a And if you’re watching, I know who</p>
+
+<p>00:51:02
+you are and I still want to talk to you, but you gave me three options telling me I’m either stupid, I’m either crazy, or I’m either like a bad person, but you forgot to add maybe maybe you are wrong. So this immediately disqualified this man for being a a serious person with whom to engage because it wasn’t in his own universe of scientific arrogance that maybe he hadn’t read the literature that maybe he’s missing something. So is a good example. It felt really weird to</p>
+
+<p>00:51:37
+read that and again I don’t want to sound like a victim. It’s like should I tell him more? What’s your intention? Are you coming here to really learn something new or are you coming here because you already know the answer and you just want to step and pull on everything that we are trying to do to learn something new about reality. So you see this fires me up.   Yeah.   Because I sure look I could be wrong. I could be misled. um the community could have like a replicability pro. Yes, all of the</p>
+
+<p>00:52:12
+above, but also it could be true   and it’s worthwhile investigating. So,   so leave me alone if you’re coming here to just just cut everything because you   it’s so unscientific. So that’s why I say that   the worst pseudo the worst pseudocience is this kind of dogmatic scientism.   Yeah. If so, so that basically it’s one big plea to if you’re not open to a truly scientific mindset of being being just staring facing anomalies when they</p>
+
+<p>00:52:43
+present. If you’re not willing to do that, do not engage with you. Right? That that’s what it is. And and in your presentation, you also said it like   as a bad joke, you have this data and that the first question is not the does it fit with our theory.   That’s the first question. Oh, no. Do we have a princ in principle? Can we explain it? And if I’m not going to look is it is it possible in principle? No. Therefore, you’re either stupid, you’re either crazy or you’re either like</p>
+
+<p>00:53:06
+  without updating your beliefs. Yeah. That’s that’s the the the problem we have.   And I had this I asked this to Anil Seth again I love the man and I love also that we still don’t agree and I presented some of this data in a private symposium and and then and then he called me up in Q&amp;A and it made sense. That’s what scientists do. And and then I asked him what’s your prior because you know there’s this this predictive processing byian super cool fashion now like even it’s even upgraded</p>
+
+<p>00:53:36
+to a theory of consciousness another example of a framework.   Yeah.   Or a metaphor. No it’s not it’s a proper framework mathematical framework now erect   into the realm of theory of consciousness. Anyways say okay what’s your prior and I would ask this to anyone. What’s your prior probability that what I’m entertaining, not endorsing that what I’m entertaining could be true? Is it zero or is it 0.000000001? Huge difference. Because if you tell me it’s zero, I don’t want to talk to you.</p>
+
+<p>00:54:10
+  Yeah.   Because nothing I’ll tell you will ever make you change your mind. Or maybe I want to talk to you because because in your dogmatic skepticism, you’ll make me realize of things I haven’t controlled. But I won’t take you seriously in the last word of the of of this conversation because ultimately you’ve decided you won’t ever but if it’s 0.001 then you can bring more extraordinary evidence which is a horrible mantra that I detest you know like extraordinary claims</p>
+
+<p>00:54:36
+require extraordinary evidence. Okay. Why is an extraordinary claim because of your worldview and how much extraordinary evidence would be needed? Infinite. So again you’re playing tricks on me. Don’t don’t waste my time.   What fascinates me working for Asencia is sort of I’d like to sort of as a sort of it’s not a dilemma. It’s just it’s I find it just interesting to reflect upon our sort of mission to the world is to approach all of this from an analytic way right and in doing so you don’t</p>
+
+<p>00:55:06
+necessarily have to go to these side phenomena because we say via just analytic reasoning analytic philosophy um just closely looking at where the foundations of physics are nowadays where neuroscience it’s just simply more plausible to say consciousness is fundamental curious if you agree there that’s our position But then as a storyteller and filmmaker, I’d love to sit down of course with   people like you going to these edges, leaving the Shire like that like just the cool the cool stuff and</p>
+
+<p>00:55:37
+it’s somehow just just just this this me sort of linking this. It makes me think of I think it was Terrence McKenna in the psychedelic who said space and you go to those outer extremes and then be very rigorous, right? But but it does entail that you go to these crazy stuff but then just be be scientific about it. Um and it has to do also with the fact that you you want sort of you want to see it for yourself, right? You want to see where that worldview like actualizes in front of you. So for me personally, I must say</p>
+
+<p>00:56:09
+where I was intellectually very much there with idalism, I it needed it needed one IA session to really get there. And I’m curious what your thoughts are here when we want to shift this worldview. To what degree do you think and we’re contributing to that? We’ll keep on doing that.   Uh via analytic reasoning versus degree some people just need the experience. I’ve had Elan Wave also say that here. She said I can can can can I can show them all the literature everything thousands of papers and it it they just</p>
+
+<p>00:56:44
+won’t look. They need one experience and they’ll then they’ll then they then they’ll have the openness. There’s so little I think do you think scientists who are willing to in your toothbrush metaphor like after if you’re 80 to to throw away your toothbrush take someone else’s? No. You need something else, right? What are your thoughts here? You need your toothbrush to be broken   and that’s going to be a traumatic experience like a near-death experience or a or even a spiritual awakening which</p>
+
+<p>00:57:10
+you can have um or a yeah psychedelic trip. I’ll say a few things that are maybe a bit controversial within within the controversy. It’s like the double negation. But um I’ve done psychedelics and I’ve done aaska and I used to think I mean it’s truly incredible. Now I’m more cautious about it. I think we’re now saying yeah let’s all have I even I even dare to say at some point that all neuroscience students should have an Iawaska tree before they begin their PhD. Like I mean no one</p>
+
+<p>00:57:44
+university will take that. I regret it a bit now because I’m not sure and that’s the first weird thing I’ll say and I will say I want to say two more things about theory idealism and consciousness as foundational and about empirical work in the mud like getting dirty. So remind me of those things but but but about that   we don’t know what entities are manifesting there and what they’re doing. So, and by the way, I’m sorry my mind is like that and this is very related to</p>
+
+<p>00:58:16
+EOV in a topic. I’ll say that’s why I need you to hold this these other two things. Oh, you help me.   Yeah.   If we really think that this is not just a hallucination,   if you’re a materialist and you say, “Well, whatever. It’s like biochemistry and it’s some fireworks inside my skull and whatever.” Okay, there are some reasons to be concerned about. Is it safe? Is it changing your brain? Is it can you have a psychotic break and so on. And but once you have those</p>
+
+<p>00:58:42
+controlled, who cares? Now, if you think this is like truly another reality, if you really think that’s the case, then why don’t you wonder about who’s living there? So together with the evil topic we touched. This is another one that really concerns me and and I’m realizing maybe this is not popular amongst our friends here for instance at the heretic or heterodox science of consciousness because if you say consciousness is foundational whatever like um spiritual worlders are real and all of that which</p>
+
+<p>00:59:15
+which many people he would check check and subscribe to then you ask well are they entities there and what’s their veilance? M it’s like just life all one. Yeah. All one. But if you find a demon there, you see   what do you mean though? So So that’s with respect to psychedelics. Quidarito we say in Spanish be careful because we have no idea. And also we do it in this naively stupid western way like the capsule and then then we play a little drums. I mean I’m I’m just   No, I get you. I get you.</p>
+
+<p>00:59:54
+  A weekend, you know. I got to No, this has to do be done, I suppose, in the jungle if the shaman really thinks so. And even there, get ready, right? So, the way we do it is both naive and super I think super irresponsible. So, it’s a correction of mine. uh it’s not party time because if you really think it’s something there again I’ll say it in psychedelics maybe this f fabulous angel it’s then going to mess with you so you’ve opening those a good metaphor I imagine that is oh let’s go to the</p>
+
+<p>01:00:26
+jungle okay but you don’t go in flipflops and shorts because in 10 m not only the mosquitoes will have bite you everywhere a snake or anything can cause you like a lot of harm. So I feel because of the need of counterbalancing the repression of these worlds don’t exist, we now say no, we’ve all the the the the doors the gates are open and then we go in and then we go in to the jungle and now we have we’re going to have some casualties and side effects. And by the way, I’ve realized this</p>
+
+<p>01:01:00
+studying also extracular vision which we didn’t have time to to talk about and I still want to talk about those other things because when I go and talk to for instance the coaches the trainers I’ve met many of them that teach this you could say alleged ability or this ability met people in the United States in the UK in Germany in Spain in Mexico in India in Indonesia I’m also doing this kind of anthropological work um I I realiz realized that there was a question nobody was asking which is the</p>
+
+<p>01:01:30
+ethical question. They say and let’s take this as as a true statement. Let’s say they’ve awakened something in these kids a latent ability of perception that’s innate in the human body. But okay, now now okay now you can see other worlds now but if these kids see things they don’t understand they’re scared even being scared they don’t sleep well at night this is like taking a pill for headache and they don’t tell you that if that has a side effect that you will I don’t know can have renal</p>
+
+<p>01:02:05
+problems right so if that was a pharmaceutical company what are the side effects and most of these schools and I love them all they say I never thought about these or they’re no no problem like a pharmaceutical company. Swallow it. Swallow it. There are no side effects.   Wait a minute. Wait a minute. Probably there are side effects. And so you you’re the expert on that, but you haven’t even thought about this. So this is like an an a critique within the world that’s critiquing the other world.</p>
+
+<p>01:02:32
+And I think it’s it can be extrapolated into a a general um challenge we have in pushing consciousness is foundational and it’s related to evil. like these worlds are not um um Disneyland and I think we and the traditions all the traditions know that but we still don’t because we’re so we’re entering this candy store and it’s like all is everything is so cool but but I think we need to take it more ser that’s what I’m trying to say we need to take it more seriously</p>
+
+<p>01:03:04
+  now I can go to the these other two unless you unless you want to   that that’s just deep stuff and I I I find it hard to sort of reflect on it I can personally In analyticism, what is obvious to me is that there has to be sort of one that is holistic or the point Federico Fine made, I can go very far in that. What puzzles me is the the in between degrees of consciousness. Me and you sitting here as an ego conscious and and we have one and I myself from my background and experience are indeed open to different</p>
+
+<p>01:03:36
+levels that have ethical implications and that you need to watch out so I can can can shake hands with you. But I also have to say that to me is that’s just experiential. I mean it’s hard to is that the scientists uh uh Alex saying stuff like this or is this the when you say stuff like that?   I think it’s it’s the entire the entire being of mine.   Yeah.   I’m trying to express it. It just happen to be sitting down   as a scientist which is which is an</p>
+
+<p>01:04:04
+interesting sociological point. I’m sorry for all the footnotes because if I was a I don’t know a plumber or a painter I I know you’re a nice man but you couldn’t care less about what I’m saying but but because I’m a neuroscientist a physicist and so I I I know I have the the capacity the the the the opportunity and the responsibility of expressing these ideas.   Yeah.   And I’m using it. That’s why I did the performance I did yesterday.   Yeah.</p>
+
+<p>01:04:29
+  It’s like okay you see I was telling you about this this is not just a conference to me. This is not a only a plenary and I’m going to tell about my research. Who cares? Like I don’t want to sound like a tele preacher here, but there’s maybe a message I’m sensing. I’m trying to think through. I’m intuiting it. I’m going to express it boldly and humorously because it’s heavy. So, I want to make it light in the best way I I can. And I’m using these masks. Okay. theoretical</p>
+
+<p>01:04:58
+physicist, neuroscientist, give me some credit so I can pay um the fee to be there talking to you if you see what I mean. And I’m using it. I’m going to use it.   I love it. I think you you you bring you bring passion to the space and you said you bring activism and that’s such a it sounds like a weird thing but if the whole endeavor of science is is at a certain point being endangered by by by forces that we you have to be you have to be you cannot if you want to continue as science you have to sometimes be</p>
+
+<p>01:05:28
+activist. So I like that I like that a lot. You said um you wanted to touch upon two other points   that was being in the mud. Rupert Sheldrich is a friend of mine and so disclaimer here. He has his own theory but but he’s constantly and I learn a lot from him in that respect. I could be thinking about these isms all day long. He says let’s do an experiment. And it’s an experiment that people most people will will make fun of. Like Rupert has this study of a telepathic parrot.</p>
+
+<p>01:06:03
+Yeah. Rupert has this study of dogs that know when their owners are coming home.   Yeah.   Rupert has this study so on and on and on and on. And I think you need to have an extra point of courage and humility to be able to go to the mud and that’s what I call the mud   and say sure I can make my quantum consciousness pansy theory of everything but I’ll never really go to the trenches. Another example would be yeah I’m the captain. And I’m seeing all of</p>
+
+<p>01:06:36
+that. But the guy who’s, you know, just pain having pain in the elbows and risking, I think are the people who are trying because why? Because because they can make a ridicle of themselves doing that and yet they risk it. So I think I need to crank up the the volume of the crazy experiments like me telling look it would be safer for me and even for my reputation to say oh let me give me my sophisticated argument about why remote viewing could happen in a non-local hologram in the seventh dimension.</p>
+
+<p>01:07:09
+But   but if I go and sit with a blind person and I try to have that and I tell it to you I look like a fool.   Right? But I think we need more of those fools so that the theories can really land on earth.   In Dutch we have this expression, the best is stean and ballal. It’s saying like the best people, the the best sailors, they’re not sailing. That’s sort of the the metaphor. That’s sort of the saying, you know, you know, because you’re not out there. And it’s like,</p>
+
+<p>01:07:36
+damn, dude. That your theory, yes, but not with this car and and I messed up. And and it’s it’s one big if I may try and summarize you also as a wrap-up of this beautiful conversation is that what I’m hearing you say we saw the the Alex the scientist and also just Alex the person and and we are talking about these two hats and I I I read you and see you as someone who’s making a plea to be just like whole and that science scientists even though we are in this conscious space and even if we are doing</p>
+
+<p>01:08:07
+science from an idolist perspectives we can still have this call a materialist mindset of being a that you think you can take this objective viewpoint and but that that you don’t need to go into the trenches and or to just what what quantum physics has been telling us John Wheeler we’re now participants you have to participate that that objective it’s some that’s what rings with me and it it it I find that beautiful as a sort of vision for for science relating it also back to bioiolics what I told you in</p>
+
+<p>01:08:36
+studying in biology if you want to study animals you have to be humble become one with them and people will ridicule you for doing that. If you say   yeah,   I want to become like a plant. I mean that’s like your paradex example that that people will laugh.   Yes. Yes.   But what if that’s what we need to do, right? That’s what I’m hearing in a sense and I I find that beautiful   and maybe a way to not correct but   compliment what I said about this is</p>
+
+<p>01:09:04
+that   we we really we maybe that’s too generous but we we truly need everyone here. So maybe the war metaphor is not the good one. But if that’s a a job, a task, let’s say it’s a beautiful creation. We’re building saglas familia here gaudies, right?   We need people who break the stones, other who are good at putting them here. Other who can calculate. So we need the analytic idealism which as I understand and I’m I hope I don’t reveal some strategic thing but I’ve studied not</p>
+
+<p>01:09:39
+just the content but also the tone of it and I think it’s it’s it’s the way to tell idealism for those who will only really swallow it if you present it in a purely rational logical way.   Yep. You got it. it we say in our mission statement or some of the documents that the head is the bouncer of the heart for many smart people they don’t   ex exactly   let sort of true feeling true ideas that intense in just because of bad philosophy   yes   and that we’re trying to be sort of beat</p>
+
+<p>01:10:15
+that bouncer   exactly and it’s a very important job it’s a way of packaging   y   and I and I mean it again in a valuable way   it’s like the this is a more beautiful way of saying Con context is constitutive not just content.   So idealism or whatever it’s not just the content it’s the context in which you you will communicate it   y   will make the whole difference. Now having said that maybe there we would have um analytic idealism and wild</p>
+
+<p>01:10:46
+idealism where someone like me would come and say you know if you don’t want to have a freaking mathematical theorem that just takes you from here to a analytical idealism is right there’s a way there’s another way and you can bypass some of these logical gates if you want and you may need to use experience trauma imagination intuition. So I think the bottom line to wrap it up here is to realize that we’re kind of a team building Saga Familia. A quick anecdote. Do I have time for a</p>
+
+<p>01:11:20
+quick anecdote?   If you I’ll be late.   It’s 8. It’s 8 to 6.   I’ll be late. I’ll be late.   You have 8 minutes.   Yes. And we can we can go. I I think this has been a fantastic conversation. So I’m happy to be late with with   Seriously.   Yes, I am. So let’s let’s just go on. Let’s go on until you’re sick of me.   Yeah. There you are. I I yeah it’s it’s this is beautiful stuff and I also hear</p>
+
+<p>01:11:42
+myself saying stuff that that’s funny how you are here openhearted and it does the same with me sharing sort of my   some other sort of also just being openhearted here in in thinking about all of this fascinated me in this uh   again it was a sort of the it wasn’t only a psychedelic trip that opened my eyes but it was also sort of being for for a period of my time sort of my big hero would be Ramdas uh the what’s his rupert Albert right was his his his name when he was at</p>
+
+<p>01:12:12
+Harvard and and then then sort of with got associated with Timothy Liry and the whole politization and the war on drugs so he his academic career was over and he became that that guru type but the stories he would tell and the guy was so eloquently with so much humor about his mentor his guru in India Karoli Baba if I don’t mistake just pure miracle stuff like miracle stories and the last time I had I had left those stories uh when I left the church I was uh up until mid20s like evangelical Christian like trying</p>
+
+<p>01:12:50
+to I never I left that stuff but some I came back to it through these stories and think this might be true you know but on the other hand as an it’s funny it’s as if it’s a in in Protestant Christianity you have of course Solvavid, right? It’s it’s it’s not through miracles, but it’s through belief. You should just believe without miracles as a higher standing, so to speak. That’s this Protestant thinking. I guess it’s not your Catholic. That’s more like   But didn’t Jesus Jesus told us, didn’t</p>
+
+<p>01:13:22
+Jesus say that? Uh, blessed are they that sort of believe without miracles, right? So, the miracles are whereas this wild idealism is sort of just sometimes it’s very nice to have a miracle. You want to see a miracle?   Yes. Yes.   Yeah. I don’t know why I’m sharing this with you, but it’s it’s what sometimes in in my work sort of trying to be analytic about this. Um Yes.   Yeah.   Analytic is one way. I don’t think we can get there without being analytic. But if we’re only</p>
+
+<p>01:13:57
+analytic, we won’t get there. I believe.   Yeah. But everyone or and everyone has their own again Lord of the Rings there’s Frodo but then there’s I forgot the name who sorry Sam   Sam Sam yeah yeah   and even Gollum had a role to play   if it wasn’t for Gollum so we all have a role to play and that’s the anecdote I wanted to share and in the interest of time the interest of time and let’s let’s just talk as much longer as we as we want about that</p>
+
+<p>01:14:27
+so I contacted a very prominent scientist And I won’t say who he is. He’s really great and I think you’ve had him on the channel. So give some clues.   We’ll figure out who it is. No, I’m kidding.   No, no, cuz I and it’s the first time I I spoke with him. Yeah.   Oh, I said him. Maybe I was misleading here. Maybe it was a her. Okay. And and I I only had a few minutes   to talk to the person for the first time. And I wanted to cut to the chase,</p>
+
+<p>01:14:56
+but I I I wanted to be also that was like a first date   and you wantanna something to the person, but you you don’t you don’t want to wait for seven more dates to go there. So, how can I do this in 25 minutes? So, I told the person that I was fascinated by the work and so on. And I said, “A great deal of what you’re doing smells to me not just hetereroadox and fascinating, but a little bit heretic.” And then I shared some of my heretic stuff. And then the person paused and</p>
+
+<p>01:15:28
+said, “Alex, you have a good sense of smell.”   Why am I telling you this? Because then we talked, but now we had opened   Yeah.   a box.   Yeah.   And I could ask the person why he was doing what he was doing. and how we could talk about even the strategy of having some intuitions that maybe they’re not ready yet to be turned into scientific experiments or even analytical philosophy. They’re not polished yet for those people who only want to see kind of the gloomy shiny</p>
+
+<p>01:16:02
+pristine analy right. Yeah.   Sometimes the the raw stuff is wild. And so he said, “My my choice here and please respect it and and and don’t share that I’m really into this is to just take it easy, work on this.” And I understood there’s something valuable. It’s like and then he said, “Well, I I also appreciate your own style. We all have different styles.” So mine, as you see, is more like straightforward, uh, a bit reckless sometimes, a bit performative and openhearted, you could</p>
+
+<p>01:16:37
+say.   Yeah. passionate   passionate but but others may be more analytical and others may be more so   it’s true pluralism here   we we all have a role to play and we shouldn’t do like like the left does in this country and probably in many countries that in order to counterbalance the right and I’m not making any political statement I feel all over the place here but the left in Spain in order to counterbalance the right ends up fractioning in infinite the number of internal quarrels was</p>
+
+<p>01:17:08
+about   and no uh I think we should unite and also even unite with the other side because ultimately this this is this is about what it is like to be human and we all share the same you know fears and and and hopes.   So it’s it’s a plea for for true unity that’s not uniformity when we need to decide now that materialism has died hopefully who what’s the next king? I hope it’s not analytic idealism. I hope we can have a republic, right? And we don’t need to erect a new king. I</p>
+
+<p>01:17:41
+think that would be helpful and healthier.   And do you think that the the landscape of consciousness Robert Lawrence Kun put so much effort in I interviewed him about it and also just that funny remark we were in Paris to say this is this is way more complex than the Paris meter system. You know the and Paris has a complex meter system, right? The subway system   the the just the map of conscious everything out there. Is that sort of that could that be that republic or do you think that we need to talk more</p>
+
+<p>01:18:08
+engage more and have more sort of debates? I do sometimes uh I interview people and I’m not an expert so it’s easy to convince me right if I sit down with Kristoff go I of course try and do my work in critical but at the end of many of such conversation yeah sounds like pretty cool and then for that week I’ll be uh   in I for for the next week I’ll tell friends about XR clear vision and and your your story but uh I’m sometimes sensing that it’s so easy of course to to to just</p>
+
+<p>01:18:38
+keep using your own toothbrush to keep that metaphor and and and that that I do think is sort of would be more valuable like more bringing these minds together, right? Yeah, it’s an obvious thing to say, but   yeah, I’m not sure if that’s going to happen or if that’s the way to even to do it like the toothbrush analogy. Let’s use it.   Well, to begin with, many people have toothbrushes, but they should brush their teeth. Not sure they doing it.   They’re not applying it to themselves.</p>
+
+<p>01:19:04
+They’re not not you don’t have a toothbrush. That’s that’s a true that’s a true truth. Toothbrush. Well, use it.   Maybe use it also to to brush the mustache. Try other uses. No. Now, seriously, for instance, Robert asked me, “Okay, Alex, now I want to have your own theory of consciousness in the landscape. I don’t have a theory, Robert. It’s like think about one.” And so, so far I’ve called it the un theory of consciousness. Um, so that that request</p>
+
+<p>01:19:35
+of him has made me reflect on what would be my position because I don’t want to sound like like ambiguous or ambivalent because I’m so cool I don’t need to commit, right? But one of the reasons I I think I told you it’s because I don’t want to invest in the stock market of my own toothbrush for the last 30 years and then be unconvincible of something else when I’m old. I don’t I don’t want to be one of these senior people just and and I know by saying this some people I</p>
+
+<p>01:20:00
+admire will will maybe suspect I’m referring to that them but no I’m just saying what I think I don’t want to happen and again truly if you if you think I’m   judging you I really respect a lot of people but I don’t want to be the the 70year-old man who can only talk about his toothbrush he’s been perfecting for the last 40 years. Yeah.   Why?   And I again, pluralism, maybe we need people that just do their own toothbrush, but I want to learn something new. I want to change my mind.</p>
+
+<p>01:20:30
+I want to have a conversation. That’s why I love having conversations. And between you and me, something many actually this this one this one has been one of my favorite ever.   Some new things have appeared here.   You know, I I’m also on the other side often.   Yeah, you told me. Yeah.   And I and I really enjoy talking to I love talking as you can see, but I love listening to people. That’s the art of ortoria,   but there’s no the art of I don’t know</p>
+
+<p>01:20:55
+what the word would be, you know.   Anyway,   auditori auditori and   my goal when I talk to people to another person maybe more as a as a host and not so much as a guest. It’s twofold. One is to make the person shine as much as possible. To make their ideas shine.   Yeah.   Be the mirror where they can be the best expression of their own thinking. That’s one. Second is it’s even cooler. It’s more sacred is I it’s like a it’s like an invocation to this third thing to</p>
+
+<p>01:21:30
+emerge in the conversation that it’s not you and me.   In Spanish we have eso this ao that and then we have something in between eso. So I want these new things to emerge in and so if our thinking is too close maybe too analytical maybe too self self sure sure of of itself there’s no room for this thing to manifest again it’s a balance because you don’t want to open it so much that you lose all rigor and it’s just it’s just rambling all over the place but I want the new the new to</p>
+
+<p>01:22:04
+manifest as we’re thinking and talking like it. As you said it, I could feel it. As you said it, I I felt it the the eso between Yeah. Yeah. I like that. And um how do you in thinking also as a filmmaker my background and bringing this to the public it’s so funny that I I stop watching documentaries about when but when it comes to like these topics like near death or I watch it out of interest but I because I I I know too well how you build stories and how how you convince people and I see for</p>
+
+<p>01:22:41
+instance that’s why I stopped listening to telepathy tapes because I could see how the uh narative the structure would play out right and and then there’s nothing new because I’m talking to people like you so I’m open to these things that you need to convince me that this is true   then only to read about it later on which I then find sort of sad in a sense that it gets criticized but exactly for that reason that it wants a story too soon right we want stories so one part</p>
+
+<p>01:23:11
+of me would want to bring my camera crew we’re going to go to Alex Gomez we’re going to going to going to film that guy who sees without eyes and going to make this sensational, not sensational, this documented for people to really feel it,   but I know it’s that’s dangerous that that could sort of harm this space. What are your thoughts there? You must be be approached by people who want to film this stuff. There is a Netflix film the the the what’s it called? The Henry</p>
+
+<p>01:23:35
+Sugar. Have you seen that film by Anderson? I watched that like but this is real. This is when I Yeah.   Yes. This is another good topic because in this tool of science theory experiments and then the third leg is so political but includes media as well and I briefly mentioned this in my talk   very briefly because I was running out of time basically because I threw in everything I had in 33 minutes but okay I’ll say a few things and and let’s see if that’s where you wanted to go.</p>
+
+<p>01:24:10
+So maybe maybe I take this in a different direction, but we’ll come back to the telepathy tapes because it’s a good example. What what what do we want with our ideas? We want in influence. We want to influence people. You could say it’s not convinced. I think it’s more than convince. Convince sounds too rational, logical.   Yeah.   You it sound like you won in a battle like a wrestling battle of like one kind of force. It’s more like seduction.   Mhm. uh but not cheating or or you know</p>
+
+<p>01:24:43
+lying. So it’s like we want we want everything. We want people to feel compelled to accept what we’re proposing.   Mhm.   Because if we think it’s it’s good, we think it should be good for them, too. But we don’t want to impose it, right? Uh because if it’s if it’s forced, what’s the merit? Right? It’s like it’s like it’s like yelling at some at somebody and and and forcing the person you must be free. It’s like no, you must be free. That doesn’t work like that.</p>
+
+<p>01:25:13
+Okay, sorry I’m I’m drifting. But I’m saying this because we want influence. We want we want that our ideas have influence. And you can do this within academia. I’m an academic. I’m a scientist. And and sometimes we work hard. We we we work through the rules of the game, the official rules of the game. Do experiment, get funding, do have a theory, do experiment, try to publish it. By the way, I think all of that is a scam. Is a scam.   Seriously.   Okay, I I’ll throw here another thought</p>
+
+<p>01:25:43
+of mine that I haven’t shared. I think scientist, but I think I’m thinking about it. I think scientific publishing is a misdirection game. Uh yes, we need our peers. It’s simply a huge business for publishing companies and we are their rats in the maze just rushing to get funding, beg for funding the government to then, you know, break our asses doing the science to then um fight the reviewers to then pay huge fees to publish a paper. paper goes from 2,000 3,000 to all the way to 11,000 in</p>
+
+<p>01:26:24
+some big journals. People should know that.   And you have to, right? You have to pay that because you want to be published.   Yeah. Otherwise, you won’t increase your CV and then you won’t get renewed or you won’t get more grand. So, it’s it’s a it’s a very sophisticated Ponzi scheme.   Sure. We need per Yeah. Yeah. You we know all that. It’s like we’ve talked about this side of the moon forever. Can you just mention the other side of the moon, please? Yeah.</p>
+
+<p>01:26:51
+  Right. Okay.   This is not a this but just to help you out is this is not a critique on science but this is just on the the the   economical structures and power structures that also play into into science   and that create this complex is this complex.   Yes. Yeah.   Yes. Okay. I was saying this because   we can play one game which is the the game the only game they’ve said exists. do your do your experiment and one funeral at a time you know one paper</p>
+
+<p>01:27:22
+science advances one paper at a time no science one funeral at a time no because these people have a school of thought so science is great but that path is very slow and also the elites the the when I say the elites I mean us I mean the universities when where knowledge is supposedly produced I don’t think it is anymore by the way this is Another and I don’t want to be pamic for the sake of it. I’m just trying to say what I what I see as true. Another segue here. I don’t see that education is going on in</p>
+
+<p>01:27:55
+schools. I don’t see that knowledge is being produced in universities. I don’t see a lot of healing happening in hospitals. And I don’t see a lot of food being sold in supermarkets. Uh and if you if you if you think I’m wrong, lucky you. You live in a different world. Okay. Let’s come back. So, so   it’s powerful statement you’re making and of course I could sort of try and nuance it but   we can nuance it. We can give you the headline. We can no but it’s just</p>
+
+<p>01:28:32
+  I mean the journalist say what are you saying there? What are you saying? But I get you on a certain level. I get you on a certain level. I have kids who go to sort of school and that now my son is four and my daughter’s seven and they’re being they they get their first indust when they their scores the kids four you know and it’s like it has for the four on creativity and oh no no creativity misses out that was my my my my wife she’s illustrator said we had the teacher what what’s up I mean what what</p>
+
+<p>01:28:58
+why is that not there right but it’s all you start scoring and stuff like that and h we’re already trapped in the system in a sense so I get that I get that on the other hand you do learn skills, you do buy food that that feeds you. But okay.   Yes. Yes. I’m not a hypocrite. I believe because I   I say that but I what options do I have? I still my my my daughter still go to school. I still work at a university. Then I go to the supermarket and and buy the the least unhealthy food I can if I</p>
+
+<p>01:29:29
+can afford it. Right. But it’s like this is another topic. I’m I’m I know where I’m going, but   yeah. like institutions institutions I think we we are betraying our own institutions and they’re betraying us because they’ve served us for a long time but now there we are in this decadence stage but we’re still living out of the fortune that our grandparents did out of the prestige right but I don’t know how for how longer much longer the savings of that will last so</p>
+
+<p>01:30:00
+that we can still pretend we’re researching the unknown in science or schools can pretend that they’re educating instead of indoctrinating or or simply having an extended kindergarten until you’re 16 years old. Anyways, so let’s let’s now come back to this then. So you can do it through the institution with papers through the system to influence to create progress. Now I’m coming back to your question about media. But another way would be why don’t we spend some not all more</p>
+
+<p>01:30:34
+some energy, attention, money, resources in trying to influence the lay people who nevertheless sorry not nevertheless who anyways want that and probably know it’s true. And why don’t we create the change there? the masses, the citadel, the people around the citadel rather than trying to convince the king or the pope or the bishops or the higher priesthood   of the citadel of science and we should continue doing that. Let’s let’s diversify our our our investment here and let’s go through mainstream through</p>
+
+<p>01:31:12
+media.   And so I think that’s what the telepathy tapes illustrates as an attempt as an as an experiment and we’ll see if it works. It’s like, okay, we’ll just make this viral and people will be so thrilled and and excited that it will just become for some weeks the most watched listened podcast on   Yeah.   And I think what’s the game there? There are several games. One is then we’ll get the funding and I think that they got it now. So the the producer Kai Dickens,</p>
+
+<p>01:31:42
+right? Now we get we attract funding. that’s a more kind of corporate strategy and now we can fund the more expensive real Netflix documentary whatever but for the scientists I think that the strategy is well if there’s like a popular does this word exist in English clamor   Mhm.   if there’s a popular clamor like people really want to know so they’ll be yelling at this priesthood and say shut the up you you’re telling this this doesn’t exist but we are thousands or</p>
+
+<p>01:32:08
+millions now and and we really want some of you up there to investigate it. So I think that’s a key role that media um can play today in an age where journalism is broken. Journal is completely broken but at the same time there’s light at the end of the tunnel because there podcasts there they’re all of those things where where where now we can reach a lot of people   and and make them resonate.   Yeah. And so I also I I also I’m also exploring these other route and we don’t</p>
+
+<p>01:32:39
+know which one will achieve that influence more effectively. So this is a super long way to go.   It’s so interesting. It’s we live in interesting times but because as you say I’m so glad to be active on YouTube that is now possible to have conversations like this and to reach through those same al algorithms that we can criticize for creating filter bubbles and keeping people in their fake news reality. those same algorithms are helping us to reach the world with with our message. So I’m</p>
+
+<p>01:33:05
+I’m thankful sometimes to these algorithms that have have brought that to us. Um and um as you mention I think a lot is needed if you make that just for the sake of a metaphor if you create it if if we compare it to religion. I mean part Protestantism Luther had to literally nail his sort of the the of Catholic Church on a church door, right? I think that’s a story or I think it’s historically   with his own I would say.   Yeah. Yeah. That’s so it’s for the sake</p>
+
+<p>01:33:37
+of metaphor. So probably but then again I can laugh at that probably probably ISM I’m we’re probably wrong. Everyone’s probably wrong, but you try to be less wrong or   or wrong in a more useful way.   Yeah, exactly. You know, I I I um but we I see our role in this in this field um as attacking those dogmas. So, for instance, if people will now uh attack the telepathy tapes for for whatever reason, I wouldn’t sort of defend it and say that the phenomenon is real. I will</p>
+
+<p>01:34:10
+just say you cannot metaphysically say it’s not possible. And then we have some pretty solid stuff. You just cannot say that. And that’s like walking up to the church say your dogmas are wrong. Whatever church, whatever group you want to burn because they’re heretics,   you cannot do that based on your dogma because it’s wrong. You know, that’s and I I like that also for the the game of it, you know, just be honest. I like that game also. But it’s I mean it’s it’s there’s truth to it and I feel it</p>
+
+<p>01:34:37
+in my heart.   Your job. Yeah.   Yes. um to kind of bully the bullies. You know, I had this image now, I’ll share it, of of Bernardo, like this mixed martial artist that’s known. And so, somebody’s bullying some poor people, telling them, “Oh, whatever.” And then just by his mere presence and that’s the great thing about a martial artist and I shouldn’t have mentioned him or I don’t need to mention him but because we’re talking about this just by</p>
+
+<p>01:35:01
+his sheer presence   it’s like all right and they leave   cuz they know it’s not going to be that easy as just the typical   three petty arguments that sudo words. So it it’s this kind of power that doesn’t need to necessarily   Yeah.   You know, blend the the the sword and and this is this was and still very needed to just first keep the bullies in place and now think twice because when they look like fools once, next time it’s not going to be that easy. And and</p>
+
+<p>01:35:37
+let me just link this to an anecdote about influence that that’s also telling and it grounds because I tend to be very abstract. Another thought I had recently regarding papers and media influence is that because I speak about these things especially now a lot in Spanish and in Spain and I they invite me to some TV programs and I I’m not doing this because I want to be famous but what but what I’m doing it because I want to give the I’m that sounds so messianic but   and you have also long hair long hair</p>
+
+<p>01:36:10
+and a beard.   Yeah. The very reason Yeah. Yeah. Yeah. Yeah. Yes,   just play.   I Yeah, I’ll say it. I act like the voice of those who don’t have it.   People who are not educated according to our system   or they’re not heard or invited to places or have had this experience. This is the most important thing in in Yeah, it is.   And   they’ve been told for many years they’re stupid or they’re crazy.   Yeah. And I’m kind of the guy, the</p>
+
+<p>01:36:43
+self-appointed guy, um protecting them from those bullies. So, it’s related to what we’re saying.   Yeah.   And I and I tell them, “No, you’re not crazy.” And and you’re not stupid or at least if you are, I am, too.   And okay, but this guy doesn’t look like. And and so and then what happens then? I tell these stories and then people tell them back to me. They write me emails or on the street sometimes now it starts to happen and they share incredible things incred sometimes like</p>
+
+<p>01:37:17
+really um very sad things that happen to them because they’re looking for hope. And I’m not I’m not um handing you like hope tokens or anything in the name of science. I think this is very dangerous that science becomes a new religion. But but but but but it gives them   permission, right?   Yeah. Permission. Great. Because I was gonna say comfort. It’s not comfort. It’s permission to maybe trust in themselves more.   And so the the the concrete anecdote</p>
+
+<p>01:37:47
+comes here. I was thinking what do I value now more a paper published in science or what happens now quite often when one person says for instance I’ll share these are all true specific examples they’re not for illustration only like a person who says I saw you the other day on TV on this weird program and you were talking about near-death experiences I was shocked because and my brother had one many years ago He told it to us and the whole family made fun of him. But I called him after</p>
+
+<p>01:38:24
+the program and I said, “I’m sorry. Maybe maybe you were right.”   Why? Because I’ve seen it in the scientist. Okay. What a shame. But anyways, if that works. So what’s what’s more valuable to society, to humanity? another paper that will make my CV look more shiny or that this person now has changed that. Or that a man comes after a conference and says, “Hey, Alex, I nearly died 41 years ago. I was a kid. I I I I was drowning in a swimming pool. I see my I saw myself and I’ve never told</p>
+
+<p>01:38:56
+this to anyone in 41 years. But now that I see you speak about it, I feel I can start to share it.” I mean maybe from theoretical physicist I’ve moved into social work now but this is more valuable. This is true consciousness in action. This is consciousness for real which is one of the titles that I that I coined for this this party event we run last year. This is conscious. So maybe that’s related to the isms. All this ism is so cool, but it has to have an effect in the real world. And this is a</p>
+
+<p>01:39:26
+beautiful way to see the effect that people um are less in in suffering or that they have the word you say is is great. They have permission to to trust them their own experiences and share them with others.   Yeah. And I I I think it’s great that you um can do that by being present in more sort of where where where these people just more more in mass media. I think also even though for instance we’re reaching more and more people on YouTube are still operating in such a weird niche on the internet but but</p>
+
+<p>01:39:59
+because it’s global it doesn’t feel like a niche right then then it seems like a lot of people but it’s still you’re operating in a niche and what needs to happen is to bring this to a larger audience explain it better. We have to do our job there and explain it better. You can hide be part of lot lot of difficult theoretical talk but we have to just and I always try to do it see where it gets real for people. I loved talking to Kristoff Kau last year after he had a 5 MO DMT uh experience because then you</p>
+
+<p>01:40:28
+have a true interesting conversation. And you’re talking to someone who is sort of did you say that that sort of oh that’s our conversation with Anita Go is it you know that map and theory now that if you were too long in your map of reality and it can be that let’s call that production of your next paper you’re mapping reality in your science and now bam you’re in the territory yet this deep profound and then you have to go back to the map that’s cool stuff you know that’s I think that shifting in</p>
+
+<p>01:40:54
+between holding that balance   I agree   yeah and even yeah and for us that’s a reflection I also can lose myself in that happening. I only don’t I don’t don’t do it via papers but YouTube videos.   Yes.   And I also need to go to   like that. Breathing is   or seeing you know short but then you need to be able to see the horizon and back. So myopic or or hyper myopic like we could do both. So maybe we don’t need to choose but definitely we we haven’t been</p>
+
+<p>01:41:22
+doing one part of it. Uh that’s that requires a lot of more attention and and love that we can we can do that   love.   Yes.   Yeah.   Yeah.   Alex, thanks so much for this wonderful conversation.   It’s been truly wonderful. Thank you.   I really enjoyed it.   Yeah.</p>
+
+</div></div>
+
+
+          <hr>
+
+              <!-- FastComments section header -->
+              <center>
+                  <p id="comment-zone">~ •• • •• ~</p>
+                  <h3>Does something bubble up for you?<br>Pin your ideas or thoughts here 📌</h3>
+                  <h4>No sign up required. Just provide your email.</h4>
+                  <br>
+              </center>
+
+              <!-- Toggle button (commented out - comments now always visible) -->
+              <!--
+              <center>
+                  <button id="comment-toggle-btn" class="comment-toggle-button" style="display: none;">
+                      💬 Add a fast comment without having to sign up
+                  </button>
+              </center>
+              -->
+
+              <!-- Loading indicator -->
+              <div id="comments-loading" class="comments-loading" style="display: none;">Loading comments...</div>
+
+              <!-- Comment container wrapper (now always visible) -->
+              <div id="comment-container" class="comment-container visible">
+                  <div id="fastcomments-widget"></div>
+              </div>
+
+              <style>
+                  /* Custom styles for the toggle button */
+                  .comment-toggle-button {
+                      display: inline-block;
+                      margin: 20px auto;
+                      padding: 12px 24px;
+                      background-color: #333;
+                      color: white;
+                      border: none;
+                      border-radius: 7px;
+                      font-size: 16px;
+                      font-weight: 500;
+                      cursor: pointer;
+                      transition: background-color 0.3s ease;
+                      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+                  }
+
+                  .comment-toggle-button:hover {
+                      background-color: #555;
+                  }
+
+                  /* Container for the comment area */
+                  .comment-container {
+                      transition: opacity 0.3s ease, max-height 0.3s ease;
+                      overflow: hidden;
+                  }
+
+                  .comment-container.hidden {
+                      max-height: 0;
+                      opacity: 0;
+                      pointer-events: none;
+                  }
+
+                  .comment-container.visible {
+                      max-height: none;
+                      opacity: 1;
+                      pointer-events: auto;
+                  }
+
+                  /* Loading state */
+                  .comments-loading {
+                      text-align: center;
+                      padding: 20px;
+                      color: #666;
+                      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+                  }
+
+                  /* Ensure FastComments widget takes full width when visible */
+                  #fastcomments-widget {
+                      width: 100%;
+                  }
+              </style>
+
+              <script src="https://cdn.fastcomments.com/js/embed-v2.min.js"></script>
+              <script>
+                  (function() {
+                      // Simply initialize FastComments - no toggle logic needed
+                      // Comments are now always visible
+                      const fastCommentsInstance = FastCommentsUI(document.getElementById('fastcomments-widget'), {
+                          tenantId: "dI13cVRENXn",
+                          urlId: "GOMEZ-MARIN-INTERVIEW-CONSCIOUSNESS-SCIENCE" // Uses your unique marble ID for comments
+                      });
+                  })();
+              </script>
+            
+            
+            <br><br>
+            <center>
+            <h4 style="font-size: 9px; font-weight: 700;">License for all original work:</h4>
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"><img src="https://mirrors.creativecommons.org/presskit/logos/cc.logo.svg" alt="Creative Commons License" style="border-radius: 0px; width: 100px; padding-bottom: 8px;"> </a>
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">
+                <!--<img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg" alt="Creative Commons License" style="border-radius: 0px;">
+              </a></center>--><br>
+
+                  <!-- --
+            <center><a href="#" class="card-meta-author" style="display: inline-block; vertical-align: middle;text-decoration: none; font-size: 12px;">
+                <img src="../../images/ID-photoshop-file.png" alt="ID" style="display: inline;">
+                <span style="bottom: -1.5px; position: relative;">GOMEZ-MARIN-INTERVIEW-CONSCIOUSNESS-SCIENCE</span>
+              </a>
+            </center>
+            -->
+              <br>
+
+
+        </article>
+
+      </div>
+
+
+  </div>
+  </section>
+
+
+
+
+
+
+
+
+
+<footer class="footer">
+  <svg class="footer-border" height="214" viewBox="0 0 2204 214" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M2203 213C2136.58 157.994 1942.77 -33.1996 1633.1 53.0486C1414.13 114.038 1200.92 188.208 967.765 118.127C820.12 73.7483 263.977 -143.754 0.999958 158.899"
+      stroke-width="2" />
+  </svg>
+
+
+
+
+
+  <div class="container">
+      <div class="row align-items-center">
+      <div class="col-md-5 text-center text-md-left mb-4">
+
+          <ul class="list-inline footer-list mb-0">
+
+
+
+          <li class="list-inline-item"><a href="https://www.linkedin.com/in/leonsanten/" target="_blank" style="text-decoration: none;"><i class="ti-linkedin"></i></a></li>
+
+          <!--<li class="list-inline-item"><a href="https://www.instagram.com/mostly.mutual.studio/" target="_blank" style="text-decoration: none;"><i class="ti-instagram"></i></a></li>-->
+
+          <li class="list-inline-item"><a href="/cdn-cgi/l/email-protection#d7bba4b6b9a3b2b997b8bbbeb9f9b2b3a2" target="_blank" style="text-decoration: none;"><i class="ti-email"></i></a></li>
+
+
+
+          </ul>
+      </div>
+      <div class="col-md-2 text-center mb-4">
+          <a href="../../"><img class="img-fluid" style="display: inline;" width="100px" src="../../assets/marble-assets/images/backgrounds/shape-5.png" alt="A drawing of a valley in a hill wiht a bunch of little black dots collected in the middle"></a>
+      </div>
+      <div class="col-md-5 text-md-right text-center mb-4">
+
+          <ul class="list-inline footer-list mb-0">
+            <li class="list-inline-item">
+              here is my pouch of 🔮 <a href="../MMSHomepage" target="_blank" style="display: inline;">favorite marbles</a>
+              <!--<br>
+              here are my 🌍 <a href="../../" target="_blank" style="display: inline;">bio & homepage</a>-->
+            </li>
+
+
+          </ul>
+
+      </div>
+      <div class="col-12">
+          <div class="border-bottom border-default"></div>
+      </div>
+      </div>
+  </div>
+  </footer>
+
+
+  <!-- Advanced Image Zoom Viewer HTML -->
+  <div id="image-zoom-overlay">
+    <div id="image-zoom-container">
+      <img id="image-zoom-img" src="" alt="Zoomed image">
+      <button id="image-zoom-close">&times;</button>
+      <div id="zoom-info">Zoom: 100%</div>
+    </div>
+  </div>
+
+  <!-- JS Plugins -->
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="../../assets/marble-assets/plugins/jQuery/jquery.min.js"></script>
+
+  <script src="../../assets/marble-assets/plugins/bootstrap/bootstrap.min.js"></script>
+
+  <script src="../../assets/marble-assets/plugins/slick/slick.min.js"></script>
+
+  <script src="../../assets/marble-assets/plugins/instafeed/instafeed.min.js"></script>
+
+
+  <!-- Main Script -->
+  <script src="../../assets/marble-assets/js/script.js"></script>
+
+
+  <!-- FOR EXPAND BUTTON -->
+  <script>
+  $(document).ready(function(){
+     $(".read").click(function(){
+        $(this).prev().toggle();
+        $(this).siblings('.dots').toggle();
+        if($(this).text()=='⏶ show less 📩'){
+    $(this).text(' 💌 ');
+        }
+        else{
+    $(this).text('⏶ show less 📩');
+        }
+     });
+  });
+
+  var coll = document.getElementsByClassName("collapsible");
+  var i;
+
+  for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var content = this.nextElementSibling;
+      if (content.style.display === "block") {
+        content.style.display = "none";
+      } else {
+        content.style.display = "block";
+      }
+    });
+  }
+  </script>
+  <!-- END EXPAND BUTTON -->
+
+  <!-- FOR TAG FILTERS -->
+
+  <script>
+  filterSelection("all")
+  function filterSelection(c) {
+    var x, i;
+    x = document.getElementsByClassName("filterDiv");
+    if (c == "all") c = "";
+    for (i = 0; i < x.length; i++) {
+      w3RemoveClass(x[i], "show");
+      if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+    }
+  }
+
+  function w3AddClass(element, name) {
+    var i, arr1, arr2;
+    arr1 = element.className.split(" ");
+    arr2 = name.split(" ");
+    for (i = 0; i < arr2.length; i++) {
+      if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+    }
+  }
+
+  function w3RemoveClass(element, name) {
+    var i, arr1, arr2;
+    arr1 = element.className.split(" ");
+    arr2 = name.split(" ");
+    for (i = 0; i < arr2.length; i++) {
+      while (arr1.indexOf(arr2[i]) > -1) {
+        arr1.splice(arr1.indexOf(arr2[i]), 1);
+      }
+    }
+    element.className = arr1.join(" ");
+  }
+
+  // Add active class to the current button (highlight it)
+  var btnContainer = document.getElementById("myBtnContainer");
+  if (btnContainer) {
+    var btns = btnContainer.getElementsByClassName("btn");
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].addEventListener("click", function(){
+        var current = document.getElementsByClassName("active");
+        current[0].className = current[0].className.replace(" active", "");
+        this.className += " active";
+      });
+    }
+  }
+  </script>
+
+  <!-- END TAG FILTERS -->
+
+  <!-- Advanced Image Zoom Viewer Script -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Elements
+    const overlay = document.getElementById('image-zoom-overlay');
+    const container = document.getElementById('image-zoom-container');
+    const zoomedImg = document.getElementById('image-zoom-img');
+    const closeBtn = document.getElementById('image-zoom-close');
+    const zoomInfo = document.getElementById('zoom-info');
+
+    // Variables for zoom and pan
+    let currentScale = 1;
+    let translateX = 0;
+    let translateY = 0;
+    let lastX = 0;
+    let lastY = 0;
+    let isDragging = false;
+    let dragStartX = 0;
+    let dragStartY = 0;
+    let dragDistance = 0;
+    const minDragDistance = 5; // Threshold to consider a drag vs. a click
+    let justFinishedDrag = false;
+
+    // Configuration
+    const minScale = 0.5;
+    const maxScale = 5;
+    const zoomFactor = 0.1; // How much to zoom on each wheel event
+
+    // Find all content images
+    const images = document.querySelectorAll('article img');
+
+    // Set up image click handlers
+    images.forEach(img => {
+      // Skip small images and icons
+      if (img.width < 100 || img.height < 100 || img.classList.contains('emoji')) {
+        return;
+      }
+
+      img.style.cursor = 'zoom-in';
+      img.addEventListener('click', function(e) {
+        e.preventDefault();
+
+        // Reset state
+        currentScale = 1;
+        translateX = 0;
+        translateY = 0;
+        lastX = 0;
+        lastY = 0;
+        isDragging = false;
+        justFinishedDrag = false;
+        dragDistance = 0;
+
+        // Show image
+        zoomedImg.src = this.src;
+        overlay.style.display = 'flex';
+        zoomedImg.style.transform = 'scale(1) translate(0px, 0px)';
+        document.body.style.overflow = 'hidden'; // Prevent page scrolling
+
+        // Show zoom info
+        zoomInfo.textContent = 'Zoom: 100%';
+        zoomInfo.style.opacity = '1';
+
+        // Hide zoom info after 2 seconds
+        setTimeout(() => {
+          zoomInfo.style.opacity = '0';
+        }, 2000);
+      });
+    });
+
+    // Close when clicking on overlay (only if not dragging)
+    overlay.addEventListener('click', function(e) {
+      if (e.target === overlay && !justFinishedDrag) {
+        closeViewer();
+      }
+      justFinishedDrag = false;
+    });
+
+    // Close when clicking the image (only if no zoom and no drag)
+    zoomedImg.addEventListener('click', function(e) {
+      if (currentScale <= 1.05 && !justFinishedDrag) {
+        closeViewer();
+      }
+      justFinishedDrag = false;
+    });
+
+    // Close button
+    closeBtn.addEventListener('click', closeViewer);
+
+    // Keyboard close
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && overlay.style.display === 'flex') {
+        closeViewer();
+      }
+    });
+
+    // Mouse wheel zoom
+        container.addEventListener('wheel', function(e) {
+          if (overlay.style.display !== 'flex') return;
+
+          e.preventDefault();
+
+          // Calculate zoom center (relative to image)
+          const rect = zoomedImg.getBoundingClientRect();
+          const mouseX = e.clientX - rect.left;
+          const mouseY = e.clientY - rect.top;
+
+          // Calculate zoom direction and amount
+          const delta = -Math.sign(e.deltaY) * zoomFactor;
+          let newScale = currentScale + delta * currentScale;
+
+          // Limit zoom range
+          newScale = Math.min(Math.max(newScale, minScale), maxScale);
+
+          // Update transform origin based on mouse position
+          const originX = mouseX / rect.width;
+          const originY = mouseY / rect.height;
+
+          // Update zoom
+          setZoom(newScale, originX, originY);
+
+          // Show zoom level
+          zoomInfo.textContent = `Zoom: ${Math.round(newScale * 100)}%`;
+          zoomInfo.style.opacity = '1';
+
+          // Hide zoom info after 2 seconds
+          clearTimeout(window.zoomInfoTimeout);
+          window.zoomInfoTimeout = setTimeout(() => {
+            zoomInfo.style.opacity = '0';
+          }, 2000);
+        });
+
+        // Mouse drag
+        zoomedImg.addEventListener('mousedown', function(e) {
+          if (currentScale <= 1) return; // Only enable dragging when zoomed in
+
+          isDragging = true;
+          lastX = e.clientX;
+          lastY = e.clientY;
+          dragStartX = e.clientX;
+          dragStartY = e.clientY;
+          dragDistance = 0;
+          justFinishedDrag = false;
+
+          zoomedImg.classList.add('grabbing');
+          e.preventDefault();
+        });
+
+        document.addEventListener('mousemove', function(e) {
+          if (!isDragging) return;
+
+          const dx = e.clientX - lastX;
+          const dy = e.clientY - lastY;
+
+          // Calculate total drag distance for this operation
+          const totalDragX = e.clientX - dragStartX;
+          const totalDragY = e.clientY - dragStartY;
+          dragDistance = Math.sqrt(totalDragX * totalDragX + totalDragY * totalDragY);
+
+          // Update translation
+          translateX += dx;
+          translateY += dy;
+
+          // Apply transform
+          applyTransform();
+
+          lastX = e.clientX;
+          lastY = e.clientY;
+        });
+
+        document.addEventListener('mouseup', function() {
+          if (!isDragging) return;
+
+          // Check if this was a drag or just a click
+          if (dragDistance > minDragDistance) {
+            justFinishedDrag = true;
+          }
+
+          isDragging = false;
+          zoomedImg.classList.remove('grabbing');
+        });
+
+        // Touch events for mobile
+        let initialDistance = 0;
+        let initialScale = 1;
+        let initialTouchX = 0;
+        let initialTouchY = 0;
+
+        zoomedImg.addEventListener('touchstart', function(e) {
+          if (e.touches.length === 2) {
+            // Pinch-to-zoom
+            const touch1 = e.touches[0];
+            const touch2 = e.touches[1];
+
+            initialDistance = Math.hypot(
+              touch2.clientX - touch1.clientX,
+              touch2.clientY - touch1.clientY
+            );
+
+            initialScale = currentScale;
+            e.preventDefault();
+          } else if (e.touches.length === 1 && currentScale > 1) {
+            // Pan
+            isDragging = true;
+            lastX = e.touches[0].clientX;
+            lastY = e.touches[0].clientY;
+            dragStartX = e.touches[0].clientX;
+            dragStartY = e.touches[0].clientY;
+            dragDistance = 0;
+            justFinishedDrag = false;
+            e.preventDefault();
+          }
+
+          initialTouchX = e.touches[0].clientX;
+          initialTouchY = e.touches[0].clientY;
+        });
+
+        zoomedImg.addEventListener('touchmove', function(e) {
+          if (e.touches.length === 2) {
+            // Pinch-to-zoom
+            const touch1 = e.touches[0];
+            const touch2 = e.touches[1];
+
+            const currentDistance = Math.hypot(
+              touch2.clientX - touch1.clientX,
+              touch2.clientY - touch1.clientY
+            );
+
+            // Calculate new scale
+            const pinchRatio = currentDistance / initialDistance;
+            let newScale = initialScale * pinchRatio;
+
+            // Limit zoom range
+            newScale = Math.min(Math.max(newScale, minScale), maxScale);
+
+            // Calculate midpoint for zoom origin
+            const midX = (touch1.clientX + touch2.clientX) / 2;
+            const midY = (touch1.clientY + touch2.clientY) / 2;
+
+            const rect = zoomedImg.getBoundingClientRect();
+            const originX = (midX - rect.left) / rect.width;
+            const originY = (midY - rect.top) / rect.height;
+
+            // Update zoom
+            setZoom(newScale, originX, originY);
+
+            // Show zoom level
+            zoomInfo.textContent = `Zoom: ${Math.round(newScale * 100)}%`;
+            zoomInfo.style.opacity = '1';
+
+            // Hide zoom info after 2 seconds
+            clearTimeout(window.zoomInfoTimeout);
+            window.zoomInfoTimeout = setTimeout(() => {
+              zoomInfo.style.opacity = '0';
+            }, 2000);
+
+            e.preventDefault();
+          } else if (isDragging && e.touches.length === 1) {
+            // Pan
+            const touchX = e.touches[0].clientX;
+            const touchY = e.touches[0].clientY;
+
+            const dx = touchX - lastX;
+            const dy = touchY - lastY;
+
+            // Calculate total drag distance
+            const totalDragX = touchX - dragStartX;
+            const totalDragY = touchY - dragStartY;
+            dragDistance = Math.sqrt(totalDragX * totalDragX + totalDragY * totalDragY);
+
+            // Update translation
+            translateX += dx;
+            translateY += dy;
+
+            // Apply transform
+            applyTransform();
+
+            lastX = touchX;
+            lastY = touchY;
+
+            e.preventDefault();
+          }
+        });
+
+        zoomedImg.addEventListener('touchend', function(e) {
+          if (isDragging) {
+            // Check if this was a drag or just a tap
+            if (dragDistance > minDragDistance) {
+              justFinishedDrag = true;
+            } else {
+              // Check if it was a single tap on the image with no zoom
+              if (currentScale <= 1.05 && !justFinishedDrag) {
+                closeViewer();
+              }
+            }
+
+            isDragging = false;
+          } else if (e.touches.length === 0 && dragDistance < minDragDistance) {
+            // It was a tap, not a drag
+            const touchEndX = e.changedTouches[0].clientX;
+            const touchEndY = e.changedTouches[0].clientY;
+
+            // Calculate distance from start to end
+            const tapDistance = Math.hypot(
+              touchEndX - initialTouchX,
+              touchEndY - initialTouchY
+            );
+
+            // If tap distance is small and we're not zoomed, close the viewer
+            if (tapDistance < minDragDistance && currentScale <= 1.05) {
+              closeViewer();
+            }
+          }
+        });
+
+        // Helper functions
+        function setZoom(scale, originX, originY) {
+          currentScale = scale;
+
+          // Apply transform with correct origin
+          zoomedImg.style.transformOrigin = `${originX * 100}% ${originY * 100}%`;
+          applyTransform();
+        }
+
+        function applyTransform() {
+          zoomedImg.style.transform = `translate(${translateX}px, ${translateY}px) scale(${currentScale})`;
+        }
+
+        function closeViewer() {
+          overlay.style.display = 'none';
+          document.body.style.overflow = ''; // Restore page scrolling
+
+          // Reset state
+          currentScale = 1;
+          translateX = 0;
+          translateY = 0;
+          zoomedImg.style.transform = 'scale(1) translate(0px, 0px)';
+          justFinishedDrag = false;
+        }
+
+        // Double-click to reset
+        zoomedImg.addEventListener('dblclick', function(e) {
+          e.preventDefault();
+
+          if (currentScale > 1) {
+            // Reset to full view
+            currentScale = 1;
+            translateX = 0;
+            translateY = 0;
+            applyTransform();
+
+            zoomInfo.textContent = 'Zoom: 100%';
+            zoomInfo.style.opacity = '1';
+
+            setTimeout(() => {
+              zoomInfo.style.opacity = '0';
+            }, 2000);
+          } else {
+            // Zoom in
+            const rect = zoomedImg.getBoundingClientRect();
+            const mouseX = e.clientX - rect.left;
+            const mouseY = e.clientY - rect.top;
+
+            const originX = mouseX / rect.width;
+            const originY = mouseY / rect.height;
+
+            setZoom(2, originX, originY);
+
+            zoomInfo.textContent = 'Zoom: 200%';
+            zoomInfo.style.opacity = '1';
+
+            setTimeout(() => {
+              zoomInfo.style.opacity = '0';
+            }, 2000);
+          }
+        });
+
+        // Tap twice (double tap) for mobile
+        let lastTapTime = 0;
+        zoomedImg.addEventListener('touchend', function(e) {
+          const currentTime = new Date().getTime();
+          const tapLength = currentTime - lastTapTime;
+
+          if (tapLength < 300 && tapLength > 0) {
+            // Double tap detected
+            e.preventDefault();
+
+            if (currentScale > 1) {
+              // Reset to full view
+              currentScale = 1;
+              translateX = 0;
+              translateY = 0;
+              applyTransform();
+
+              zoomInfo.textContent = 'Zoom: 100%';
+              zoomInfo.style.opacity = '1';
+            } else {
+              // Zoom in to where user tapped
+              const touch = e.changedTouches[0];
+              const rect = zoomedImg.getBoundingClientRect();
+              const touchX = touch.clientX - rect.left;
+              const touchY = touch.clientY - rect.top;
+
+              const originX = touchX / rect.width;
+              const originY = touchY / rect.height;
+
+              setZoom(2, originX, originY);
+
+              zoomInfo.textContent = 'Zoom: 200%';
+              zoomInfo.style.opacity = '1';
+            }
+
+            setTimeout(() => {
+              zoomI
+nfo.style.opacity = '0';
+            }, 2000);
+          }
+
+          lastTapTime = currentTime;
+        });
+
+        // Close button
+        closeBtn.addEventListener('click', function() {
+          closeViewer();
+        });
+
+        // Click overlay background to close
+        overlay.addEventListener('click', function(e) {
+          if (e.target === overlay) {
+            closeViewer();
+          }
+        });
+
+        // ESC key to close
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape' && overlay.style.display === 'flex') {
+            closeViewer();
+          }
+        });
+      });
+    });
+  </script>
+
+  <!-- Collapsible Card Styling -->
+  <style>
+    /* Collapsible section base */
+    .collapsible-section {
+      margin: 8px 0 20px 0;
+      transition: all 0.3s ease;
+    }
+
+    /* Override global h2 margin for collapsible headers */
+    .collapsible-header {
+      margin-top: 0 !important;
+    }
+
+    /* Card-like appearance when collapsed */
+    .collapsible-section.collapsed {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 12px;
+      padding: 4px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+    }
+
+    .collapsible-section.collapsed:hover {
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15), 0 4px 6px rgba(0, 0, 0, 0.1);
+      transform: translateY(-2px);
+    }
+
+    /* No card styling when expanded - original look */
+    .collapsible-section.expanded {
+      background: transparent;
+      border-radius: 0;
+      padding: 0;
+      box-shadow: none;
+    }
+
+    /* Header container with preview indicators */
+    .collapsible-header-wrapper {
+      position: relative;
+    }
+
+    .collapsible-header {
+      cursor: pointer;
+      user-select: none;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      transition: all 0.3s ease;
+      border-radius: 8px;
+    }
+
+    /* White text on gradient when collapsed - minimal top padding */
+    .collapsible-section.collapsed .collapsible-header {
+      color: white;
+      font-weight: 500;
+      padding: 8px 20px 8px 20px;
+    }
+
+    /* Expanded styling - same size as collapsed, purple color */
+    .collapsible-section.expanded .collapsible-header {
+      color: #764ba2;
+      font-weight: 500;
+      padding: 12px 0;
+    }
+
+    .collapsible-header:hover {
+      opacity: 0.9;
+    }
+
+    .collapse-indicator {
+      width: 0;
+      height: 0;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-top: 9px solid currentColor;
+      transition: transform 0.2s ease;
+      display: inline-block;
+      transform: rotate(-90deg);
+      flex-shrink: 0;
+    }
+
+    .collapse-indicator.expanded {
+      transform: rotate(0deg);
+    }
+
+    /* Preview indicators container - only show when collapsed */
+    .preview-indicators {
+      display: none;
+      padding: 0 20px 12px 20px;
+      flex-wrap: wrap;
+      gap: 0;
+      align-items: center;
+      margin-left: 30px;
+    }
+
+    .collapsible-section.collapsed .preview-indicators {
+      display: flex;
+    }
+
+    /* Individual preview circle */
+    .preview-circle {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 2px solid white;
+      background-color: white;
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      margin-left: -12px;
+      transition: all 0.3s ease;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .preview-circle:first-child {
+      margin-left: 0;
+    }
+
+    /* Hover effect - very large preview (4x scale = 176px from 44px) */
+    .preview-circle:hover {
+      transform: scale(4) translateY(-15px);
+      z-index: 1000;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Mobile/touch - add active state for tap */
+    .preview-circle:active {
+      transform: scale(4) translateY(-15px);
+      z-index: 1000;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Content styling - preserves original minimal style */
+    .collapsible-content {
+      transition: all 0.3s ease;
+      margin-top: 10px;
+    }
+
+    /* Nested sections get additional offset */
+    .collapsible-content .collapsible-section {
+      margin-left: 0.5rem;
+    }
+  </style>
+
+  <!-- Glassmorphism Modal JavaScript -->
+  <script>
+    (function() {
+      const modalOverlay = document.getElementById('marble-modal-overlay');
+      const modalTrigger = document.getElementById('marble-info-trigger');
+      const modalClose = document.querySelector('.glass-modal-close');
+      const glassModal = document.querySelector('.glass-modal');
+      const commentLink = document.getElementById('modal-comment-link');
+
+      // Open modal
+      function openModal() {
+        modalOverlay.style.display = 'flex';
+        // Trigger reflow for animation
+        modalOverlay.offsetHeight;
+        modalOverlay.classList.add('visible');
+        document.body.style.overflow = 'hidden'; // Prevent background scroll
+      }
+
+      // Close modal
+      function closeModal() {
+        modalOverlay.classList.remove('visible');
+        setTimeout(() => {
+          modalOverlay.style.display = 'none';
+          document.body.style.overflow = ''; // Restore scroll
+        }, 300); // Match transition duration
+      }
+
+      // Event listeners
+      if (modalTrigger) {
+        modalTrigger.addEventListener('click', openModal);
+      }
+
+
+
+      if (modalClose) {
+        modalClose.addEventListener('click', closeModal);
+      }
+
+      // Close when clicking outside the modal (on overlay)
+      if (modalOverlay) {
+        modalOverlay.addEventListener('click', function(e) {
+          if (e.target === modalOverlay) {
+            closeModal();
+          }
+        });
+      }
+
+      // Close when pressing Escape key
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modalOverlay.classList.contains('visible')) {
+          closeModal();
+        }
+      });
+
+      // Close modal when clicking comment link (so user can see comments)
+      if (commentLink) {
+        commentLink.addEventListener('click', function() {
+          closeModal();
+        });
+      }
+    })();
+  </script>
+
+<style>
+  /* Collapsible section base */
+  .collapsible-section {
+    margin: 8px 0 20px 0;
+    transition: all 0.3s ease;
+  }
+
+  /* Override global h2 margin for collapsible headers */
+  .collapsible-header {
+    margin-top: 0 !important;
+  }
+
+  /* Card-like appearance when collapsed */
+  .collapsible-section.collapsed {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 12px;
+    padding: 4px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+  }
+
+  .collapsible-section.collapsed:hover {
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15), 0 4px 6px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+  }
+
+  /* No card styling when expanded */
+  .collapsible-section.expanded {
+    background: transparent;
+    border-radius: 0;
+    padding: 0;
+    box-shadow: none;
+  }
+
+  .collapsible-header {
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+  }
+
+  /* White text on gradient when collapsed - minimal top padding */
+  .collapsible-section.collapsed .collapsible-header {
+    color: white;
+    font-weight: 500;
+    padding: 8px 20px 8px 20px;
+  }
+
+  /* Expanded styling - same size as collapsed, purple color */
+  .collapsible-section.expanded .collapsible-header {
+    color: #764ba2;
+    font-weight: 500;
+    padding: 12px 0;
+  }
+
+  .collapsible-header:hover {
+    opacity: 0.9;
+  }
+
+  .collapse-indicator {
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 9px solid currentColor;
+    transition: transform 0.2s ease;
+    display: inline-block;
+    transform: rotate(-90deg);
+    flex-shrink: 0;
+  }
+
+  .collapse-indicator.expanded {
+    transform: rotate(0deg);
+  }
+
+  /* Preview indicators container - only show when collapsed */
+  .preview-indicators {
+    display: none;
+    padding: 0 20px 12px 20px;
+    flex-wrap: wrap;
+    gap: 0;
+    align-items: center;
+    margin-left: 30px;
+  }
+
+  .collapsible-section.collapsed .preview-indicators {
+    display: flex;
+  }
+
+  /* Individual preview circle */
+  .preview-circle {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 2px solid white;
+    background-color: white;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    margin-left: -12px;
+    transition: all 0.3s ease;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .preview-circle:first-child {
+    margin-left: 0;
+  }
+
+  /* Hover effect - very large preview (4x scale = 176px from 44px) */
+  .preview-circle:hover {
+    transform: scale(4) translateY(-15px);
+    z-index: 1000;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Mobile/touch - add active state for tap */
+  .preview-circle:active {
+    transform: scale(4) translateY(-15px);
+    z-index: 1000;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Content styling - preserves original minimal style */
+  .collapsible-content {
+    transition: all 0.3s ease;
+    margin-top: 10px;
+  }
+
+  /* Nested sections get additional offset */
+  .collapsible-content .collapsible-section {
+    margin-left: 0.5rem;
+  }
+
+  /* Ensure inline styles in collapsible headers look good */
+  .collapsible-header strong {
+    font-weight: 700;
+  }
+
+  .collapsible-header em {
+    font-style: italic;
+  }
+
+  .collapsible-header code {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.1em 0.3em;
+    border-radius: 3px;
+    font-family: monospace;
+  }
+
+  .collapsible-section.expanded .collapsible-header code {
+    background: rgba(118, 75, 162, 0.1);
+  }
+
+  .collapsible-header a {
+    color: inherit;
+    text-decoration: underline;
+  }
+
+  .collapsible-header del {
+    text-decoration: line-through;
+  }
+</style>
+
+<script>
+  function toggleSection(sectionId) {
+    const section = document.querySelector(`[data-section-id="${sectionId}"]`);
+    const header = section.querySelector('.collapsible-header');
+    const content = document.getElementById(`content_${sectionId}`);
+    const indicator = header.querySelector('.collapse-indicator');
+    const storageKey = section.dataset.storageKey;
+
+    const isExpanded = content.style.display !== 'none';
+
+    // Toggle state
+    content.style.display = isExpanded ? 'none' : 'block';
+    indicator.classList.toggle('expanded');
+    header.setAttribute('aria-expanded', !isExpanded);
+
+    // Toggle card styling classes
+    if (isExpanded) {
+      section.classList.remove('expanded');
+      section.classList.add('collapsed');
+    } else {
+      section.classList.remove('collapsed');
+      section.classList.add('expanded');
+    }
+
+    // Save state to localStorage
+    try {
+      localStorage.setItem(storageKey, !isExpanded);
+    } catch (e) {
+      console.warn('Could not save collapse state:', e);
+    }
+  }
+
+  // Restore saved states on page load
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.collapsible-section').forEach(section => {
+      const sectionId = section.dataset.sectionId;
+      const storageKey = section.dataset.storageKey;
+      const content = document.getElementById(`content_${sectionId}`);
+      const header = section.querySelector('.collapsible-header');
+      const indicator = header.querySelector('.collapse-indicator');
+
+      try {
+        const savedState = localStorage.getItem(storageKey);
+        if (savedState !== null) {
+          const shouldExpand = savedState === 'true';
+          content.style.display = shouldExpand ? 'block' : 'none';
+          if (shouldExpand) {
+            indicator.classList.add('expanded');
+            section.classList.remove('collapsed');
+            section.classList.add('expanded');
+          } else {
+            indicator.classList.remove('expanded');
+            section.classList.remove('expanded');
+            section.classList.add('collapsed');
+          }
+          header.setAttribute('aria-expanded', shouldExpand);
+        }
+      } catch (e) {
+        console.warn('Could not restore collapse state:', e);
+      }
+
+      // Create preview indicator circles dynamically
+      const headerWrapper = section.querySelector('.collapsible-header-wrapper');
+      if (headerWrapper) {
+        const indicatorContainer = headerWrapper.querySelector('.preview-indicators');
+        const sectionContent = section.querySelector('.collapsible-content');
+
+        if (indicatorContainer && sectionContent) {
+          // Find all marble preview images inside this section
+          const previews = sectionContent.querySelectorAll('.marble-preview-image-container img');
+
+          // Create a circle for each preview image found
+          previews.forEach(img => {
+            const circle = document.createElement('div');
+            circle.className = 'preview-circle';
+            circle.style.backgroundImage = `url(${img.src})`;
+            circle.title = img.alt || 'Marble preview';
+            indicatorContainer.appendChild(circle);
+          });
+
+          // If no previews found, hide the indicator container
+          if (previews.length === 0) {
+            indicatorContainer.style.display = 'none';
+          }
+        }
+      }
+    });
+  });
+</script>
+</body>
+</html>

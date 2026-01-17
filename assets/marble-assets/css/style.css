@@ -1719,11 +1719,49 @@ blockquote em {
     font-style: italic;
 }
 
-/*IFRAME WIDTH ALWAYS 100% */
+/*IFRAME - wider than text on large screens, responsive on mobile */
+
+/* Allow parent containers to show overflow so iframes can break out */
+article,
+.col-lg-7,
+.content {
+    overflow: visible !important;
+}
+
 iframe {
-    width: 100% !important;
-    border-radius: 10px; /* Adjust the value for gentler or sharper corners */
-    overflow: hidden; /* Ensures content inside iframe doesn't spill over the rounded corners */
+    width: 100vw !important;
+    max-width: 950px;
+    border-radius: 10px;
+    overflow: hidden;
+
+    /* Break out and center */
+    display: block;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-left: -50vw;
+    margin-right: -50vw;
+    margin-left: calc(-50vw + 50%);
+    transform: none;
+}
+
+/* Tablet - still allow some breakout */
+@media (max-width: 991px) {
+    iframe {
+        width: 100% !important;
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        left: 0;
+        transform: none;
+    }
+}
+
+/* Mobile - fit container nicely */
+@media (max-width: 576px) {
+    iframe {
+        border-radius: 6px; /* slightly smaller radius on mobile */
+    }
 }
 
 /*SPECIAL FORMAT FOR AUTHOR BLOCKQUOTES IF IT STARTS WITH ~ THIS IS SET AS A JS RULE IN THE JS DOC*/
