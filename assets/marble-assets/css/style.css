@@ -1739,10 +1739,6 @@ iframe:not([src*="fastcomments.com"]) {
     position: relative;
     left: 50%;
     transform: translateX(-50%);
-    margin-left: -50vw;
-    margin-right: -50vw;
-    margin-left: calc(-50vw + 50%);
-    transform: none;
 }
 
 /* FastComments widget - stays within container */
@@ -1772,15 +1768,14 @@ iframe:not([src*="youtube.com"]):not([src*="youtu.be"]):not(
     height: auto;
 }
 
-/* Tablet - still allow some breakout */
+/* Tablet and smaller - no breakout, fit container */
 @media (max-width: 991px) {
-    iframe {
+    iframe:not([src*="fastcomments.com"]) {
         width: 100% !important;
-        max-width: 100%;
-        margin-left: 0;
-        margin-right: 0;
-        left: 0;
-        transform: none;
+        max-width: 100% !important;
+        left: 0 !important;
+        transform: none !important;
+        position: relative;
     }
 
     iframe[src*="youtube.com"],
@@ -1798,8 +1793,13 @@ iframe:not([src*="youtube.com"]):not([src*="youtu.be"]):not(
 
 /* Mobile - fit container nicely */
 @media (max-width: 576px) {
-    iframe {
-        border-radius: 6px; /* slightly smaller radius on mobile */
+    iframe:not([src*="fastcomments.com"]) {
+        width: 100% !important;
+        max-width: 100% !important;
+        left: 0 !important;
+        transform: none !important;
+        position: relative;
+        border-radius: 6px;
     }
 
     iframe:not([src*="youtube.com"]):not([src*="youtu.be"]):not(
