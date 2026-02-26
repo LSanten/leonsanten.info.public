@@ -1,0 +1,732 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Magnet Board</title>
+        <style>
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+
+            body {
+                font-family: Georgia, "Times New Roman", serif;
+                background: #a8a8a8;
+                background-image:
+                    repeating-linear-gradient(
+                        90deg,
+                        transparent,
+                        transparent 2px,
+                        rgba(255, 255, 255, 0.03) 2px,
+                        rgba(255, 255, 255, 0.03) 4px
+                    ),
+                    linear-gradient(180deg, #b2b2b2 0%, #989898 100%);
+                min-height: 100vh;
+                padding: 24px 20px 60px;
+            }
+
+            h1 {
+                text-align: center;
+                color: #2a2a2a;
+                font-size: 13px;
+                letter-spacing: 3px;
+                text-transform: uppercase;
+                margin-bottom: 28px;
+                font-family: "Courier New", monospace;
+                opacity: 0.6;
+            }
+
+            /* ── Canvas wrapper ── */
+            .canvas-wrapper {
+                background: #cecece;
+                border: 1px solid #aaa;
+                border-top: 3px solid #888;
+                border-radius: 2px;
+                margin-bottom: 32px;
+                box-shadow:
+                    0 4px 16px rgba(0, 0, 0, 0.25),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+            }
+
+            /* ── Header bar ── */
+            .canvas-header {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                padding: 8px 12px;
+                background: linear-gradient(180deg, #d8d8d8 0%, #c4c4c4 100%);
+                border-bottom: 1px solid #aaa;
+            }
+
+            .canvas-title {
+                font-size: 13px;
+                font-weight: bold;
+                font-family: "Courier New", monospace;
+                border: none;
+                background: transparent;
+                color: #222;
+                flex: 1;
+                outline: none;
+                letter-spacing: 0.5px;
+            }
+
+            .canvas-title:focus {
+                background: rgba(255, 255, 255, 0.7);
+                border-radius: 2px;
+                padding: 2px 6px;
+            }
+
+            .canvas-stats {
+                font-size: 11px;
+                color: #666;
+                white-space: nowrap;
+                font-family: "Courier New", monospace;
+                letter-spacing: 0.3px;
+            }
+
+            .copy-btn,
+            .clear-btn {
+                padding: 4px 10px;
+                font-size: 11px;
+                font-family: "Courier New", monospace;
+                background: #fff;
+                border: 1px solid #999;
+                border-radius: 2px;
+                cursor: pointer;
+                letter-spacing: 0.5px;
+                transition: background 0.1s;
+                white-space: nowrap;
+            }
+
+            .copy-btn:hover,
+            .clear-btn:hover {
+                background: #f0f0f0;
+            }
+            .copy-btn.copied {
+                background: #e8f5e9;
+                border-color: #4caf50;
+                color: #2e7d32;
+            }
+
+            .clear-btn {
+                background: transparent;
+                border-color: #bbb;
+                color: #888;
+            }
+
+            /* ── Canvas area ── */
+            .canvas-area {
+                position: relative;
+                min-height: 220px;
+                padding: 10px;
+                background:
+                    radial-gradient(
+                        ellipse at 20% 30%,
+                        rgba(255, 255, 255, 0.06) 0%,
+                        transparent 60%
+                    ),
+                    linear-gradient(180deg, #d4d4d4 0%, #c8c8c8 100%);
+                cursor: default;
+                user-select: none;
+                -webkit-user-select: none;
+                overflow: hidden;
+            }
+
+            /* ── Cards ── */
+            .card {
+                position: absolute;
+                background: #fff;
+                border: 1.5px solid #2a2a2a;
+                padding: 7px 11px;
+                font-size: 15px;
+                font-family: Georgia, "Times New Roman", serif;
+                white-space: nowrap;
+                height: 38px;
+                line-height: 22px;
+                cursor: grab;
+                visibility: hidden;
+                box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.18);
+                transition: box-shadow 0.1s;
+            }
+
+            .card:hover {
+                box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.22);
+                z-index: 5;
+            }
+
+            .card.selected {
+                border: 2px solid #1a56db;
+                box-shadow:
+                    0 0 0 2px rgba(26, 86, 219, 0.25),
+                    2px 2px 6px rgba(0, 0, 0, 0.2);
+                z-index: 10;
+            }
+
+            .card.dragging {
+                cursor: grabbing;
+                box-shadow: 4px 6px 16px rgba(0, 0, 0, 0.35);
+                z-index: 100;
+            }
+
+            /* ── Lasso ── */
+            .lasso {
+                position: absolute;
+                border: 1.5px dashed #1a56db;
+                background: rgba(26, 86, 219, 0.07);
+                pointer-events: none;
+                z-index: 200;
+            }
+
+            /* ── Input area ── */
+            .canvas-input-area {
+                padding: 10px 12px 12px;
+                border-top: 1px solid #bbb;
+                background: linear-gradient(180deg, #c8c8c8 0%, #c0c0c0 100%);
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .input-row {
+                display: flex;
+                gap: 8px;
+                align-items: flex-start;
+            }
+
+            .canvas-input-area textarea {
+                flex: 1;
+                height: 64px;
+                padding: 8px 10px;
+                font-size: 12px;
+                font-family: "Courier New", monospace;
+                border: 1px solid #aaa;
+                background: #f8f8f8;
+                resize: vertical;
+                border-radius: 2px;
+                line-height: 1.5;
+                color: #222;
+                outline: none;
+            }
+
+            .canvas-input-area textarea:focus {
+                border-color: #888;
+                background: #fff;
+            }
+
+            .load-btn {
+                padding: 8px 18px;
+                background: #2a2a2a;
+                color: #fff;
+                border: none;
+                border-radius: 2px;
+                cursor: pointer;
+                font-size: 12px;
+                font-family: "Courier New", monospace;
+                letter-spacing: 1px;
+                white-space: nowrap;
+                align-self: flex-start;
+                transition: background 0.1s;
+            }
+
+            .load-btn:hover {
+                background: #444;
+            }
+
+            .input-hint {
+                font-size: 10px;
+                color: #777;
+                font-family: "Courier New", monospace;
+                letter-spacing: 0.3px;
+                display: flex;
+                flex-direction: column;
+                gap: 3px;
+            }
+
+            .hint-row b {
+                color: #444;
+                margin-right: 5px;
+            }
+
+            /* ── Add canvas button ── */
+            .add-canvas-wrap {
+                text-align: center;
+                margin-top: 8px;
+            }
+
+            .add-canvas-btn {
+                padding: 11px 36px;
+                font-size: 12px;
+                font-family: "Courier New", monospace;
+                background: rgba(255, 255, 255, 0.55);
+                border: 1.5px solid #888;
+                border-radius: 2px;
+                cursor: pointer;
+                color: #333;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+                transition:
+                    background 0.15s,
+                    box-shadow 0.15s;
+                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+            }
+
+            .add-canvas-btn:hover {
+                background: rgba(255, 255, 255, 0.8);
+                box-shadow: 0 3px 10px rgba(0, 0, 0, 0.18);
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Magnet Board</h1>
+        <div id="app"></div>
+        <div class="add-canvas-wrap">
+            <button class="add-canvas-btn" id="add-btn">+ New Canvas</button>
+        </div>
+
+        <div
+            style="text-align: center; margin-top: 100px; padding-bottom: 36px"
+        >
+            <a
+                href="https://www.redwoodenergy.net/"
+                target="_blank"
+                rel="noopener"
+            >
+                <img
+                    src="https://cdn.prod.website-files.com/62b110a14473cb7777a50d28/62b1128214802915f6eaf59d_Redwood%20Energy%20Website%20Logo.png"
+                    alt="Redwood Energy"
+                    style="
+                        height: 48px;
+                        width: auto;
+                        opacity: 0.85;
+                        transition: opacity 0.15s;
+                    "
+                    onmouseover="this.style.opacity='1'"
+                    onmouseout="this.style.opacity='0.85'"
+                />
+            </a>
+        </div>
+
+        <script>
+            /* ─── State ─────────────────────────────────────────── */
+            let canvasIdCounter = 0;
+            let cardIdCounter = 0;
+            const canvases = [];
+
+            /* ─── Drag state (global) ───────────────────────────── */
+            let drag = null;
+            // { canvasId, cards:[{card,startX,startY}], mx0,my0, moved, clickedWasSelected }
+
+            /* ─── Lasso state ───────────────────────────────────── */
+            let lasso = null;
+            // { canvasId, el, x0,y0, canvasRect }
+
+            /* ─── Parse ──────────────────────────────────────────── */
+            function parseInput(text) {
+                const matches = [...text.matchAll(/\[([^\]]+)\]/g)];
+                return matches.map((m) => m[1].trim()).filter(Boolean);
+            }
+
+            function countWords(texts) {
+                return texts.reduce(
+                    (n, t) => n + t.trim().split(/\s+/).filter(Boolean).length,
+                    0,
+                );
+            }
+
+            /* ─── Canvas factory ─────────────────────────────────── */
+            function addCanvas(preloadText = "") {
+                const id = ++canvasIdCounter;
+                const canvas = {
+                    id,
+                    title: `Canvas ${id}`,
+                    cards: [],
+                    inputText: preloadText,
+                };
+                canvases.push(canvas);
+
+                const app = document.getElementById("app");
+
+                const wrapper = document.createElement("div");
+                wrapper.className = "canvas-wrapper";
+                wrapper.id = `cw-${id}`;
+                wrapper.innerHTML = `
+    <div class="canvas-header">
+      <input class="canvas-title" type="text" value="${canvas.title}" spellcheck="false">
+      <span class="canvas-stats" id="stats-${id}">0 words · 0 cards</span>
+      <button class="clear-btn" title="Clear canvas">Clear</button>
+      <button class="copy-btn" title="Copy card text">Copy</button>
+    </div>
+    <div class="canvas-area" id="area-${id}"></div>
+    <div class="canvas-input-area">
+      <div class="input-row">
+        <textarea id="inp-${id}" placeholder="[One gas burner] [on medium] [equals about] [four idling cars]" spellcheck="false">${preloadText}</textarea>
+        <button class="load-btn">Load →</button>
+      </div>
+      <div class="input-hint">
+        <span class="hint-row"><b>Input</b> Wrap each card in [brackets] — everything inside one pair becomes one card.</span>
+        <span class="hint-row"><b>Select</b> Click any card to add it to selection (blue border). Click more cards to add them. Click a selected card to deselect just that one.</span>
+        <span class="hint-row"><b>Solo select</b> Double-click a card to select only that card, clearing all others.</span>
+        <span class="hint-row"><b>Deselect all</b> Click the empty canvas background.</span>
+        <span class="hint-row"><b>Lasso</b> Click and drag on empty canvas to rubber-band select a group.</span>
+        <span class="hint-row"><b>Move</b> Drag any selected card — all selected cards move together.</span>
+      </div>
+    </div>
+  `;
+
+                // Insert before the add-canvas button
+                app.appendChild(wrapper);
+
+                /* Bind events */
+                wrapper
+                    .querySelector(".canvas-title")
+                    .addEventListener("input", (e) => {
+                        canvas.title = e.target.value;
+                    });
+
+                wrapper
+                    .querySelector(".load-btn")
+                    .addEventListener("click", () => {
+                        const text = wrapper.querySelector(`#inp-${id}`).value;
+                        canvas.inputText = text;
+                        loadCards(id);
+                    });
+
+                wrapper
+                    .querySelector(".copy-btn")
+                    .addEventListener("click", () => copyCanvas(id));
+
+                wrapper
+                    .querySelector(".clear-btn")
+                    .addEventListener("click", () => {
+                        const area = document.getElementById(`area-${id}`);
+                        area.innerHTML = "";
+                        canvas.cards = [];
+                        updateStats(id);
+                    });
+
+                /* Canvas background: deselect all + lasso start */
+                const area = document.getElementById(`area-${id}`);
+                area.addEventListener("mousedown", (e) => {
+                    if (e.target !== area) return;
+                    deselectAll(id);
+                    // Start lasso
+                    const rect = area.getBoundingClientRect();
+                    const x0 = e.clientX - rect.left + area.scrollLeft;
+                    const y0 = e.clientY - rect.top + area.scrollTop;
+                    const el = document.createElement("div");
+                    el.className = "lasso";
+                    el.style.left = x0 + "px";
+                    el.style.top = y0 + "px";
+                    el.style.width = "0";
+                    el.style.height = "0";
+                    area.appendChild(el);
+                    lasso = { canvasId: id, el, x0, y0, canvasRect: rect };
+                });
+
+                if (preloadText) loadCards(id);
+            }
+
+            /* ─── Load / layout cards ───────────────────────────── */
+            function loadCards(canvasId) {
+                const canvas = canvases.find((c) => c.id === canvasId);
+                if (!canvas) return;
+
+                const inp = document.getElementById(`inp-${canvasId}`);
+                const text = inp ? inp.value : canvas.inputText;
+                const texts = parseInput(text);
+                const area = document.getElementById(`area-${canvasId}`);
+
+                area.innerHTML = "";
+                canvas.cards = [];
+
+                texts.forEach((t) => {
+                    const card = {
+                        id: ++cardIdCounter,
+                        text: t,
+                        x: 0,
+                        y: 0,
+                        selected: false,
+                        canvasId,
+                    };
+                    canvas.cards.push(card);
+                    area.appendChild(makeCardEl(card, canvasId));
+                });
+
+                /* Wait one frame so offsetWidth is real */
+                requestAnimationFrame(() => {
+                    layoutCards(area, canvas.cards);
+                    updateStats(canvasId);
+                });
+            }
+
+            function makeCardEl(card, canvasId) {
+                const el = document.createElement("div");
+                el.className = "card";
+                el.dataset.cid = card.id;
+                el.textContent = card.text;
+
+                el.addEventListener("mousedown", (e) => {
+                    e.stopPropagation();
+                    e.preventDefault();
+
+                    const canvas = canvases.find((c) => c.id === canvasId);
+                    if (!canvas) return;
+
+                    const wasSelected = card.selected;
+
+                    /* Additive: if not yet selected, add to group. If selected, keep it
+       (we may deselect on mouseup if it was just a click, not a drag). */
+                    if (!wasSelected) {
+                        setSelected(card, el, true);
+                    }
+
+                    /* Drag targets = everything currently selected */
+                    const sel = canvas.cards.filter((c) => c.selected);
+                    drag = {
+                        canvasId,
+                        cards: sel.map((c) => ({
+                            card: c,
+                            startX: c.x,
+                            startY: c.y,
+                        })),
+                        mx0: e.clientX,
+                        my0: e.clientY,
+                        moved: false,
+                        clickedWasSelected: wasSelected,
+                        clickedCard: card,
+                        clickedEl: el,
+                    };
+
+                    sel.forEach((c) => {
+                        const el2 = getCardEl(canvasId, c.id);
+                        if (el2) el2.classList.add("dragging");
+                    });
+                });
+
+                /* Double-click → solo select this card only */
+                el.addEventListener("dblclick", (e) => {
+                    e.stopPropagation();
+                    const canvas = canvases.find((c) => c.id === canvasId);
+                    if (!canvas) return;
+                    deselectAll(canvasId);
+                    setSelected(card, el, true);
+                });
+
+                return el;
+            }
+
+            function layoutCards(area, cards) {
+                const GAP = 8;
+                const ROW_H = 38;
+                const MARGIN = 10;
+                const availW = area.clientWidth - MARGIN * 2;
+                let x = MARGIN;
+                let y = MARGIN;
+
+                cards.forEach((card) => {
+                    const el = area.querySelector(`[data-cid="${card.id}"]`);
+                    if (!el) return;
+                    const w = el.offsetWidth;
+                    if (x + w > availW + MARGIN && x > MARGIN) {
+                        x = MARGIN;
+                        y += ROW_H + GAP;
+                    }
+                    card.x = x;
+                    card.y = y;
+                    el.style.left = x + "px";
+                    el.style.top = y + "px";
+                    el.style.visibility = "visible";
+                    x += w + GAP;
+                });
+
+                expandArea(area, cards);
+            }
+
+            function expandArea(area, cards) {
+                if (!cards.length) {
+                    area.style.minHeight = "220px";
+                    return;
+                }
+                const maxY = Math.max(...cards.map((c) => c.y)) + 38 + 20;
+                area.style.minHeight = Math.max(220, maxY) + "px";
+            }
+
+            /* ─── Selection helpers ──────────────────────────────── */
+            function setSelected(card, el, val) {
+                card.selected = val;
+                el.classList.toggle("selected", val);
+            }
+
+            function deselectAll(canvasId) {
+                const canvas = canvases.find((c) => c.id === canvasId);
+                if (!canvas) return;
+                canvas.cards.forEach((card) => {
+                    const el = getCardEl(canvasId, card.id);
+                    if (el) setSelected(card, el, false);
+                });
+            }
+
+            function getCardEl(canvasId, cardId) {
+                const area = document.getElementById(`area-${canvasId}`);
+                return area
+                    ? area.querySelector(`[data-cid="${cardId}"]`)
+                    : null;
+            }
+
+            /* ─── Stats & Copy ───────────────────────────────────── */
+            function updateStats(canvasId) {
+                const canvas = canvases.find((c) => c.id === canvasId);
+                const el = document.getElementById(`stats-${canvasId}`);
+                if (!canvas || !el) return;
+                const texts = canvas.cards.map((c) => c.text);
+                const words = countWords(texts);
+                el.textContent = `${words} word${words !== 1 ? "s" : ""} · ${texts.length} card${texts.length !== 1 ? "s" : ""}`;
+            }
+
+            function copyCanvas(canvasId) {
+                const canvas = canvases.find((c) => c.id === canvasId);
+                if (!canvas || !canvas.cards.length) return;
+
+                /* Sort by visual position: top→bottom, left→right */
+                const sorted = [...canvas.cards].sort((a, b) => {
+                    const rowDiff = Math.floor(a.y / 48) - Math.floor(b.y / 48);
+                    return rowDiff !== 0 ? rowDiff : a.x - b.x;
+                });
+
+                const text = sorted.map((c) => `[${c.text}]`).join(" ");
+                navigator.clipboard.writeText(text).then(() => {
+                    const btn = document.querySelector(
+                        `#cw-${canvasId} .copy-btn`,
+                    );
+                    if (!btn) return;
+                    btn.textContent = "Copied ✓";
+                    btn.classList.add("copied");
+                    setTimeout(() => {
+                        btn.textContent = "Copy";
+                        btn.classList.remove("copied");
+                    }, 1600);
+                });
+            }
+
+            /* ─── Global mouse events ───────────────────────────── */
+            document.addEventListener("mousemove", (e) => {
+                /* Handle drag */
+                if (drag) {
+                    const dx = e.clientX - drag.mx0;
+                    const dy = e.clientY - drag.my0;
+
+                    if (!drag.moved && Math.hypot(dx, dy) < 4) return;
+                    drag.moved = true;
+
+                    const area = document.getElementById(
+                        `area-${drag.canvasId}`,
+                    );
+                    const canvas = canvases.find((c) => c.id === drag.canvasId);
+
+                    drag.cards.forEach(({ card, startX, startY }) => {
+                        card.x = Math.max(0, startX + dx);
+                        card.y = Math.max(0, startY + dy);
+                        const el = getCardEl(drag.canvasId, card.id);
+                        if (el) {
+                            el.style.left = card.x + "px";
+                            el.style.top = card.y + "px";
+                        }
+                    });
+
+                    if (canvas) expandArea(area, canvas.cards);
+                    return;
+                }
+
+                /* Handle lasso */
+                if (lasso) {
+                    const area = document.getElementById(
+                        `area-${lasso.canvasId}`,
+                    );
+                    const rect = area.getBoundingClientRect();
+                    const x1 = e.clientX - rect.left;
+                    const y1 = e.clientY - rect.top;
+                    const lx = Math.min(lasso.x0, x1);
+                    const ly = Math.min(lasso.y0, y1);
+                    const lw = Math.abs(x1 - lasso.x0);
+                    const lh = Math.abs(y1 - lasso.y0);
+
+                    lasso.el.style.left = lx + "px";
+                    lasso.el.style.top = ly + "px";
+                    lasso.el.style.width = lw + "px";
+                    lasso.el.style.height = lh + "px";
+
+                    /* Highlight intersecting cards */
+                    const canvas = canvases.find(
+                        (c) => c.id === lasso.canvasId,
+                    );
+                    canvas.cards.forEach((card) => {
+                        const el = getCardEl(lasso.canvasId, card.id);
+                        if (!el) return;
+                        const cw = el.offsetWidth;
+                        const ch = el.offsetHeight;
+                        const hit =
+                            card.x < lx + lw &&
+                            card.x + cw > lx &&
+                            card.y < ly + lh &&
+                            card.y + ch > ly;
+                        setSelected(card, el, hit);
+                    });
+                }
+            });
+
+            document.addEventListener("mouseup", (e) => {
+                if (drag) {
+                    /* Remove dragging class */
+                    const canvas = canvases.find((c) => c.id === drag.canvasId);
+                    if (canvas) {
+                        canvas.cards.forEach((c) => {
+                            const el = getCardEl(drag.canvasId, c.id);
+                            if (el) el.classList.remove("dragging");
+                        });
+                    }
+
+                    /* Was it a click (no movement)? */
+                    if (!drag.moved) {
+                        if (drag.clickedWasSelected && drag.clickedCard) {
+                            /* Toggle off just the card that was clicked */
+                            const el = getCardEl(
+                                drag.canvasId,
+                                drag.clickedCard.id,
+                            );
+                            if (el) setSelected(drag.clickedCard, el, false);
+                        }
+                    }
+
+                    drag = null;
+                    return;
+                }
+
+                if (lasso) {
+                    lasso.el.remove();
+                    lasso = null;
+                }
+            });
+
+            /* ─── Add canvas button ─────────────────────────────── */
+            document.getElementById("add-btn").addEventListener("click", () => {
+                addCanvas();
+                /* Scroll to the new canvas smoothly */
+                setTimeout(() => {
+                    const last = document.querySelectorAll(".canvas-wrapper");
+                    if (last.length)
+                        last[last.length - 1].scrollIntoView({
+                            behavior: "smooth",
+                            block: "start",
+                        });
+                }, 80);
+            });
+
+            /* ─── Boot with default content ─────────────────────── */
+            addCanvas(
+                `[One gas burner] [on medium] [equals about] [four idling cars] [in your] [kitchen] [which] [your children] [breathe] [every meal] [Nitrogen dioxide] [is a] [respiratory irritant] [that] [triggers asthma] [Formaldehyde] [is a] [carcinogen] [Invisible exhaust] [releases] [fumes] [directly] [into] [the] [air] [and] [lungs] [Exceeds EPA limits] [within minutes] [Turn on the hood] [or] [open a window] [Choose electric] [Protect] [your family] [and] [home] [Based on] [research by] [Lebel 2022 (gas fumes)] [and] [Gaines 2013 (car exhaust)]`,
+            );
+        </script>
+    </body>
+</html>
