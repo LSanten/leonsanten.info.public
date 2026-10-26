@@ -112,7 +112,7 @@ h6, .h6 {
 }
 
 body {
-  background: linear-gradient(to bottom, #EEE2F3, #FDCFF1);
+  background: linear-gradient(to bottom, #D6EBF8, #CCD5F3, #B5D0E8); /* sky blue, periwinkle, soft ocean blue (was #EEE2F3 to #FDCFF1) */
   line-height: 1.7;
   font-family: "Nunito Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
