@@ -9,6 +9,7 @@ columns old_path,new_url,status,note:
   status    redirect  -> this script turns old_path into a small redirect page
             unsure    -> left alone (several possible targets, or the name changed a lot)
             no_match  -> left alone (no public page on Bloob Haus)
+            removed   -> left alone (the page was deleted from the site on purpose)
   note      free text for humans
 
 Only rows with status "redirect" are touched. Everything else in the marble
